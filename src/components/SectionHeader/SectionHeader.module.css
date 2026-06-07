@@ -1,0 +1,28 @@
+.header {
+  margin-bottom: var(--space-12);
+}
+
+.center {
+  text-align: center;
+}
+
+.center .subtitle {
+  margin-inline: auto;
+}
+
+.label {
+  color: var(--accent-primary);
+  margin-bottom: var(--space-3);
+}
+
+.title {
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.subtitle {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  line-height: var(--leading-normal);
+  max-width: 52ch;
+}

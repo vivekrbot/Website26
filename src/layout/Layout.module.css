@@ -1,0 +1,12 @@
+.root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.main {
+  flex: 1;
+  outline: none; /* focus managed programmatically */
+  padding-top: var(--nav-height);
+}
