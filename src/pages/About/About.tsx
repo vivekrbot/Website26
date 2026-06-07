@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { SectionHeader } from '../../components/SectionHeader/SectionHeader';
 import { Button } from '../../components/Button/Button';
-import { skills, values, aboutFull } from '../../data/about';
+import { skills, values, aboutFull, quickFacts } from '../../data/about';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import styles from './About.module.css';
 
@@ -99,11 +99,11 @@ export default function About() {
             >
               <dl className={styles.factList}>
                 {[
-                  { dt: 'Based in', dd: '[YOUR CITY — placeholder]' },
-                  { dt: 'Experience', dd: '[X]+ years in product design' },
-                  { dt: 'Background', dd: '[YOUR BACKGROUND — placeholder]' },
-                  { dt: 'Currently', dd: '[CURRENT ROLE / STATUS — placeholder]' },
-                  { dt: 'Education', dd: '[YOUR EDUCATION — placeholder]' },
+                  { dt: 'Based in',   dd: quickFacts.city },
+                  { dt: 'Experience', dd: quickFacts.years },
+                  { dt: 'Background', dd: quickFacts.background },
+                  { dt: 'Currently',  dd: quickFacts.currentRole },
+                  { dt: 'Education',  dd: quickFacts.education },
                 ].map(({ dt, dd }) => (
                   <div key={dt} className={styles.fact}>
                     <dt className={`label ${styles.factLabel}`}>{dt}</dt>

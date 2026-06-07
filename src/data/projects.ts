@@ -1,6 +1,8 @@
 import type { Project } from '../types';
 
-export const projects: Project[] = [
+export const PROJECTS_STORAGE_KEY = 'vr-cms-projects';
+
+export const defaultProjects: Project[] = [
   {
     slug: 'orbit-design-system',
     title: 'Orbit Design System',
@@ -21,7 +23,7 @@ export const projects: Project[] = [
       'Authored the contribution guide and ran onboarding sessions for all design-eng pairs.',
     ],
     outcome:
-      'Reduced design-to-dev handoff time by 60%. Adopted by all 14 teams within 3 months. Became the company\'s single source of truth for UI.',
+      "Reduced design-to-dev handoff time by 60%. Adopted by all 14 teams within 3 months. Became the company's single source of truth for UI.",
     links: [
       { label: 'Case Study', url: '#' },
       { label: 'Live Storybook', url: '#' },
@@ -93,7 +95,7 @@ export const projects: Project[] = [
       'Created motion guidelines for social/video content.',
     ],
     outcome:
-      'Site conversion rate 2.3× above category benchmark. Brand featured in Fast Company\'s design roundup.',
+      "Site conversion rate 2.3× above category benchmark. Brand featured in Fast Company's design roundup.",
     links: [
       { label: 'Case Study', url: '#' },
       { label: 'Live Site', url: '#' },
@@ -123,4 +125,18 @@ export const projects: Project[] = [
   },
 ];
 
+export function getProjectsData(): Project[] {
+  try {
+    const stored = localStorage.getItem(PROJECTS_STORAGE_KEY);
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      if (Array.isArray(parsed)) return parsed as Project[];
+    }
+  } catch {
+    localStorage.removeItem(PROJECTS_STORAGE_KEY);
+  }
+  return defaultProjects;
+}
+
+export const projects = getProjectsData();
 export const featuredProjects = projects.filter((p) => p.featured);

@@ -19,10 +19,24 @@ document.documentElement.setAttribute('data-theme', theme);
 const root = document.getElementById('root');
 if (!root) throw new Error('Root element not found');
 
-createRoot(root).render(
-  <StrictMode>
-    <HelmetProvider>
-      <RouterProvider router={router} />
-    </HelmetProvider>
-  </StrictMode>
+const app = (
+  <HelmetProvider>
+    <RouterProvider router={router} />
+  </HelmetProvider>
 );
+
+// CMSStoreProvider is only imported and mounted in dev — excluded from prod bundle by Vite tree-shaking
+async function mount() {
+  if (import.meta.env.DEV) {
+    const { CMSStoreProvider } = await import('./cms/store/CMSStore');
+    createRoot(root!).render(
+      <StrictMode>
+        <CMSStoreProvider>{app}</CMSStoreProvider>
+      </StrictMode>
+    );
+  } else {
+    createRoot(root!).render(<StrictMode>{app}</StrictMode>);
+  }
+}
+
+mount();

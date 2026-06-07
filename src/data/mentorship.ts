@@ -1,6 +1,8 @@
 import type { MentorshipTier } from '../types';
 
-export const mentorshipTiers: MentorshipTier[] = [
+export const MENTORSHIP_STORAGE_KEY = 'vr-cms-mentorship';
+
+export const defaultMentorshipTiers: MentorshipTier[] = [
   {
     id: 'free-office-hours',
     type: 'free',
@@ -15,7 +17,7 @@ export const mentorshipTiers: MentorshipTier[] = [
       'No strings attached — no upsell',
     ],
     forWhom:
-      'Junior designers, career switchers, and students who need a sounding board and don\'t know where to start.',
+      "Junior designers, career switchers, and students who need a sounding board and don't know where to start.",
     cta: { label: 'Book a free session', href: 'mailto:vdraganer@gmail.com?subject=Office Hours Request' },
   },
   {
@@ -58,3 +60,18 @@ export const mentorshipTiers: MentorshipTier[] = [
     cta: { label: 'Apply for Deep Dive', href: 'mailto:vdraganer@gmail.com?subject=Deep Dive Application' },
   },
 ];
+
+export function getMentorshipData(): MentorshipTier[] {
+  try {
+    const stored = localStorage.getItem(MENTORSHIP_STORAGE_KEY);
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      if (Array.isArray(parsed)) return parsed as MentorshipTier[];
+    }
+  } catch {
+    localStorage.removeItem(MENTORSHIP_STORAGE_KEY);
+  }
+  return defaultMentorshipTiers;
+}
+
+export const mentorshipTiers = getMentorshipData();

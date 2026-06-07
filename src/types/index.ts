@@ -42,3 +42,29 @@ export interface SocialLink {
   href: string;
   icon: string;
 }
+
+export interface QuickFacts {
+  city: string;
+  years: string;
+  background: string;
+  currentRole: string;
+  education: string;
+}
+
+export interface Value {
+  title: string;
+  body: string;
+}
+
+export interface AboutData {
+  aboutIntro: string;
+  aboutFull: string;
+  skills: Skill[];
+  values: Value[];
+  quickFacts: QuickFacts;
+}
+
+export interface NavigationData {
+  navItems: NavItem[];
+  socialLinks: SocialLink[];
+}

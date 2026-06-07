@@ -2,11 +2,11 @@ import { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import { Layout } from './layout/Layout';
 
-const Home       = lazy(() => import('./pages/Home/Home'));
-const About      = lazy(() => import('./pages/About/About'));
-const Works      = lazy(() => import('./pages/Works/Works'));
-const WorkDetail = lazy(() => import('./pages/WorkDetail/WorkDetail'));
-const Mentorship = lazy(() => import('./pages/Mentorship/Mentorship'));
+const Home        = lazy(() => import('./pages/Home/Home'));
+const About       = lazy(() => import('./pages/About/About'));
+const Works       = lazy(() => import('./pages/Works/Works'));
+const WorkDetail  = lazy(() => import('./pages/WorkDetail/WorkDetail'));
+const Mentorship  = lazy(() => import('./pages/Mentorship/Mentorship'));
 
 function PageLoader() {
   return (
@@ -36,17 +36,36 @@ function withSuspense(Component: React.ComponentType) {
   );
 }
 
+// CMS route — dev only. import.meta.env.DEV is replaced with `false` at build time,
+// so Vite tree-shakes the entire CMS import out of the production bundle.
+const devRoutes = import.meta.env.DEV
+  ? (() => {
+      const CMSLayout    = lazy(() => import('./cms/layout/CMSLayout'));
+      const CMSDashboard = lazy(() => import('./cms/pages/CMSDashboard'));
+      return [
+        {
+          path: 'cms',
+          element: <Suspense fallback={<PageLoader />}><CMSLayout /></Suspense>,
+          children: [
+            { index: true, element: <Suspense fallback={<PageLoader />}><CMSDashboard /></Suspense> },
+          ],
+        },
+      ];
+    })()
+  : [];
+
 export const router = createBrowserRouter(
   [
     {
       path: '/',
       element: <Layout />,
       children: [
-        { index: true,              element: withSuspense(Home) },
-        { path: 'about',            element: withSuspense(About) },
-        { path: 'works',            element: withSuspense(Works) },
-        { path: 'works/:slug',      element: withSuspense(WorkDetail) },
-        { path: 'mentorship',       element: withSuspense(Mentorship) },
+        { index: true,         element: withSuspense(Home) },
+        { path: 'about',       element: withSuspense(About) },
+        { path: 'works',       element: withSuspense(Works) },
+        { path: 'works/:slug', element: withSuspense(WorkDetail) },
+        { path: 'mentorship',  element: withSuspense(Mentorship) },
+        ...devRoutes,
       ],
     },
   ],
