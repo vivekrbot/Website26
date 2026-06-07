@@ -3,12 +3,16 @@ import { useReducedMotion } from '../hooks/useReducedMotion';
 import styles from './SpaceCanvas.module.css';
 
 /* ── Tuning constants ──────────────────────────────────────── */
-const STAR_COUNT      = 120;
-const ASTEROID_COUNT  = 10;
-const GRAVITY_RADIUS  = 180;   // px — cursor influence radius
-const GRAVITY_FORCE   = 0.018; // attraction strength
-const ASTEROID_SPEED  = 0.12;  // max px/frame
-const STAR_LAYERS     = 3;     // parallax depth layers
+const STAR_COUNT        = 120;
+const ASTEROID_COUNT    = 10;
+const GRAVITY_RADIUS    = 180;   // px — cursor influence radius
+const GRAVITY_FORCE     = 0.018; // attraction strength
+const ASTEROID_SPEED    = 0.12;  // max px/frame
+const STAR_LAYERS       = 3;     // parallax depth layers
+const SHOOT_INTERVAL_MS = 5000;  // base interval between shooting stars
+const SHOOT_JITTER_MS   = 2000;  // ± random jitter on top of base interval
+const SHOOT_TRAIL_LEN   = 180;   // trail length in px
+const SHOOT_SPEED       = 9;     // px/frame
 
 interface Star {
   x: number; y: number;
@@ -27,6 +31,14 @@ interface Asteroid {
   rotSpeed: number;
   opacity: number;
   vertices: { x: number; y: number }[];
+}
+
+interface ShootingStar {
+  x: number; y: number;   // current head position
+  vx: number; vy: number; // velocity per frame
+  life: number;            // 0–1, counts down
+  maxLife: number;         // total frames to live
+  opacity: number;         // peak opacity
 }
 
 function randomBetween(a: number, b: number) {
@@ -58,6 +70,29 @@ function initStars(w: number, h: number): Star[] {
   });
 }
 
+function spawnShootingStar(w: number, h: number): ShootingStar {
+  // Pick a random angle: mostly shallow (15°–45° from horizontal), both directions
+  const goRight = Math.random() > 0.5;
+  // angle in radians from horizontal — range 15°–55°, always angling downward
+  const angleDeg = randomBetween(15, 55);
+  const angleRad = (angleDeg * Math.PI) / 180;
+
+  const speed = randomBetween(SHOOT_SPEED * 0.8, SHOOT_SPEED * 1.4);
+  const vx = (goRight ? 1 : -1) * Math.cos(angleRad) * speed;
+  const vy = Math.sin(angleRad) * speed; // always downward
+
+  // Start just off-screen on the correct side, at a random vertical position
+  // (upper 70% of screen so it crosses visibly)
+  const x = goRight ? -SHOOT_TRAIL_LEN : w + SHOOT_TRAIL_LEN;
+  const y = randomBetween(h * 0.05, h * 0.7);
+
+  // How many frames will it live? enough to fully cross the screen + trail
+  const distance = w + SHOOT_TRAIL_LEN * 2;
+  const maxLife = Math.ceil(distance / Math.abs(vx));
+
+  return { x, y, vx, vy, life: 1, maxLife, opacity: randomBetween(0.7, 1.0) };
+}
+
 function initAsteroids(w: number, h: number): Asteroid[] {
   return Array.from({ length: ASTEROID_COUNT }, () => {
     const radius = randomBetween(12, 32);
@@ -83,6 +118,8 @@ export function SpaceCanvas() {
   const rafRef = useRef<number>(0);
   const starsRef = useRef<Star[]>([]);
   const asteroidsRef = useRef<Asteroid[]>([]);
+  const shootingStarsRef = useRef<ShootingStar[]>([]);
+  const nextShootRef = useRef<number>(Date.now() + SHOOT_INTERVAL_MS);
   const mouseRef = useRef({ x: -9999, y: -9999 });
   const frameRef = useRef(0);
   const hiddenRef = useRef(false);
@@ -180,6 +217,66 @@ export function SpaceCanvas() {
       ctx.restore();
     }
 
+    // ── Shooting stars ───────────────────────────────────────
+    const now = Date.now();
+    if (now >= nextShootRef.current) {
+      shootingStarsRef.current.push(spawnShootingStar(w, h));
+      nextShootRef.current = now + SHOOT_INTERVAL_MS + randomBetween(-SHOOT_JITTER_MS, SHOOT_JITTER_MS);
+    }
+
+    const headColor   = isDark ? '220,230,255' : '60,40,200';
+    const trailColor  = isDark ? '180,200,255' : '80,60,220';
+
+    shootingStarsRef.current = shootingStarsRef.current.filter((s) => s.life > 0);
+
+    for (const s of shootingStarsRef.current) {
+      // How close is this shooting star's head to the mouse?
+      const dxM = mx - s.x;
+      const dyM = my - s.y;
+      const distM = Math.sqrt(dxM * dxM + dyM * dyM);
+      const mouseBoost = distM < GRAVITY_RADIUS * 1.5
+        ? 1 + 0.8 * (1 - distM / (GRAVITY_RADIUS * 1.5))
+        : 1;
+
+      const alpha = s.life * s.opacity * mouseBoost * (isDark ? 1 : 1.4);
+
+      // Trail — gradient from tail (transparent) to head (bright)
+      const tailX = s.x - (s.vx / Math.abs(s.vx || 1)) * SHOOT_TRAIL_LEN * Math.cos(Math.atan2(s.vy, s.vx));
+      const tailY = s.y - SHOOT_TRAIL_LEN * Math.sin(Math.atan2(s.vy, s.vx));
+
+      const grad = ctx.createLinearGradient(tailX, tailY, s.x, s.y);
+      grad.addColorStop(0, `rgba(${trailColor},0)`);
+      grad.addColorStop(0.6, `rgba(${trailColor},${Math.min(1, alpha * 0.4)})`);
+      grad.addColorStop(1, `rgba(${headColor},${Math.min(1, alpha)})`);
+
+      ctx.beginPath();
+      ctx.moveTo(tailX, tailY);
+      ctx.lineTo(s.x, s.y);
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = isDark ? 1.5 : 2;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+
+      // Bright head dot
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, isDark ? 2 : 2.5, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${headColor},${Math.min(1, alpha)})`;
+      ctx.fill();
+
+      // Glow around head when near mouse
+      if (distM < GRAVITY_RADIUS * 1.5) {
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, 6, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${isDark ? '160,180,255' : '100,80,255'},${Math.min(1, alpha * 0.3)})`;
+        ctx.fill();
+      }
+
+      // Advance position & decay life
+      s.x += s.vx;
+      s.y += s.vy;
+      s.life -= 1 / s.maxLife;
+    }
+
     if (!hiddenRef.current) {
       rafRef.current = requestAnimationFrame(draw);
     }
@@ -201,6 +298,7 @@ export function SpaceCanvas() {
       if (ctx) ctx.scale(dpr, dpr);
       starsRef.current = initStars(w, h);
       asteroidsRef.current = initAsteroids(w, h);
+      shootingStarsRef.current = [];
     };
 
     resize();
