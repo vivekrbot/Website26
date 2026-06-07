@@ -11,8 +11,8 @@ const ASTEROID_SPEED    = 0.12;  // max px/frame
 const STAR_LAYERS       = 3;     // parallax depth layers
 const SHOOT_INTERVAL_MS = 5000;  // base interval between shooting stars
 const SHOOT_JITTER_MS   = 2000;  // ± random jitter on top of base interval
-const SHOOT_TRAIL_LEN   = 180;   // trail length in px
-const SHOOT_SPEED       = 9;     // px/frame
+const SHOOT_TRAIL_LEN   = 320;   // trail length in px
+const SHOOT_SPEED       = 3.5;   // px/frame — slower so it's fully visible
 
 interface Star {
   x: number; y: number;
@@ -253,21 +253,38 @@ export function SpaceCanvas() {
       ctx.moveTo(tailX, tailY);
       ctx.lineTo(s.x, s.y);
       ctx.strokeStyle = grad;
-      ctx.lineWidth = isDark ? 1.5 : 2;
+      ctx.lineWidth = isDark ? 2.5 : 3;
       ctx.lineCap = 'round';
+      ctx.stroke();
+
+      // Soft outer glow trail (wider, more transparent)
+      const gradGlow = ctx.createLinearGradient(tailX, tailY, s.x, s.y);
+      gradGlow.addColorStop(0, `rgba(${trailColor},0)`);
+      gradGlow.addColorStop(1, `rgba(${trailColor},${Math.min(1, alpha * 0.18)})`);
+      ctx.beginPath();
+      ctx.moveTo(tailX, tailY);
+      ctx.lineTo(s.x, s.y);
+      ctx.strokeStyle = gradGlow;
+      ctx.lineWidth = isDark ? 8 : 10;
       ctx.stroke();
 
       // Bright head dot
       ctx.beginPath();
-      ctx.arc(s.x, s.y, isDark ? 2 : 2.5, 0, Math.PI * 2);
+      ctx.arc(s.x, s.y, isDark ? 3.5 : 4, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(${headColor},${Math.min(1, alpha)})`;
       ctx.fill();
 
-      // Glow around head when near mouse
+      // Head glow halo — always visible
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, 10, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${isDark ? '180,200,255' : '100,80,255'},${Math.min(1, alpha * 0.22)})`;
+      ctx.fill();
+
+      // Extra glow burst when near mouse
       if (distM < GRAVITY_RADIUS * 1.5) {
         ctx.beginPath();
-        ctx.arc(s.x, s.y, 6, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${isDark ? '160,180,255' : '100,80,255'},${Math.min(1, alpha * 0.3)})`;
+        ctx.arc(s.x, s.y, 18, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${isDark ? '160,180,255' : '100,80,255'},${Math.min(1, alpha * 0.35)})`;
         ctx.fill();
       }
 
