@@ -42,7 +42,7 @@ export default function Mentorship() {
   return (
     <>
       <Helmet>
-        <title>Mentorship — Vivek Ramachandran</title>
+        <title>Itsvivek.Mentorship</title>
         <meta name="description" content="Mentorship for product designers — free office hours and paid 1:1 engagements with Vivek Ramachandran, product designer and strategist." />
         <meta property="og:title" content="Mentorship — Vivek Ramachandran" />
       </Helmet>

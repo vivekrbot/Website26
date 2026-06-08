@@ -27,7 +27,7 @@ export default function Works() {
   return (
     <>
       <Helmet>
-        <title>Work — Vivek Ramachandran</title>
+        <title>Itsvivek.Works</title>
         <meta name="description" content="Selected product design and strategy projects by Vivek Ramachandran — design systems, mobile apps, dashboards, branding, and more." />
         <meta property="og:title" content="Work — Vivek Ramachandran" />
       </Helmet>

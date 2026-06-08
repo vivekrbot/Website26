@@ -24,7 +24,7 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>About — Vivek Ramachandran</title>
+        <title>Itsvivek.About</title>
         <meta name="description" content="Learn about Vivek Ramachandran — product designer, strategist, and mentor with deep expertise in design systems, UX research, and product strategy." />
         <meta property="og:title" content="About — Vivek Ramachandran" />
         <meta property="og:type" content="website" />

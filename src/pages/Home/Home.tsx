@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Vivek Ramachandran — Product Design &amp; Strategy</title>
+        <title>itsvivek.Home</title>
         <meta name="description" content="Portfolio of Vivek Ramachandran — a product designer and strategist building experiences that are clear, crafted, and consequential." />
         <meta property="og:title" content="Vivek Ramachandran — Product Design & Strategy" />
         <meta property="og:description" content="Portfolio of Vivek Ramachandran — product designer and strategist." />

@@ -31,8 +31,7 @@ export function Nav() {
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`} role="banner">
       <nav className={`${styles.nav} container`} aria-label="Main navigation">
         <Link to="/" className={styles.logo} aria-label="Vivek Ramachandran — Home">
-          <span className={styles.logoMark}>VR</span>
-          <span className={styles.logoName}>Vivek Ramachandran</span>
+          <span className={styles.logoName}>ItsVivek.</span>
         </Link>
 
         {/* Desktop nav */}
