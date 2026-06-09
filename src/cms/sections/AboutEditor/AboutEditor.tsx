@@ -16,7 +16,7 @@ const TABS: { id: Tab; label: string }[] = [
   { id: 'quickfacts', label: 'Quick Facts' },
 ];
 
-const SKILL_CATEGORIES = ['craft', 'strategy', 'tools'] as const;
+const SKILL_CATEGORIES = ['craft', 'strategy', 'tools', 'ai'] as const;
 
 export function AboutEditor() {
   const { about, setAbout, resetSection } = useCMSStore();
