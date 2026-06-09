@@ -120,7 +120,11 @@
 }
 
 @media (min-width: 640px) {
-  .skillsGrid { grid-template-columns: repeat(3, 1fr); }
+  .skillsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .skillsGrid { grid-template-columns: repeat(4, 1fr); }
 }
 
 .skillCategory {
