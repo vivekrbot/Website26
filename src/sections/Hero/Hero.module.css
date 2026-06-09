@@ -81,6 +81,36 @@
   align-items: center;
 }
 
+/* Social icons row — same height as lg buttons */
+.socialRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 52px;
+}
+
+.socialIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-default);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    background var(--duration-fast) var(--ease-out);
+}
+
+.socialIcon:hover {
+  color: var(--text-primary);
+  border-color: var(--accent-primary);
+  background: rgba(99, 102, 241, 0.08);
+}
+
 /* Scroll indicator */
 .scrollIndicator {
   display: flex;
