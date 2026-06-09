@@ -67,7 +67,17 @@ export function getAboutData(): AboutData {
     const stored = localStorage.getItem(ABOUT_STORAGE_KEY);
     if (stored) {
       const parsed = JSON.parse(stored);
-      if (parsed && typeof parsed === 'object') return parsed as AboutData;
+      // Validate it's a real AboutData object with skills array
+      if (parsed && typeof parsed === 'object' && Array.isArray(parsed.skills)) {
+        // Merge: if stored skills have no 'ai' category entries, append defaults
+        const hasAI = parsed.skills.some((s: { category: string }) => s.category === 'ai');
+        if (!hasAI) {
+          const aiSkills = defaultAboutData.skills.filter((s) => s.category === 'ai');
+          parsed.skills = [...parsed.skills, ...aiSkills];
+          localStorage.setItem(ABOUT_STORAGE_KEY, JSON.stringify(parsed));
+        }
+        return parsed as AboutData;
+      }
     }
   } catch {
     localStorage.removeItem(ABOUT_STORAGE_KEY);
