@@ -5,7 +5,7 @@ import { skills } from '../../data/about';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import styles from './AboutSnippet.module.css';
 
-const FEATURED_SKILLS = ['Product Design', 'Design Systems', 'Product Strategy', 'UX Research', 'Figma', 'React'];
+const FEATURED_SKILLS = ['Product Design', 'Design Systems', 'Product Strategy', 'UX Research', 'Figma', 'React', 'ChatGPT / Claude', 'Cursor'];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },

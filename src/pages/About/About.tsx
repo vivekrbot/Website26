@@ -11,11 +11,12 @@ const fadeUp = {
   visible: { opacity: 1, y: 0 },
 };
 
-const SKILL_CATEGORIES = ['craft', 'strategy', 'tools'] as const;
+const SKILL_CATEGORIES = ['craft', 'strategy', 'tools', 'ai'] as const;
 const CATEGORY_LABELS: Record<typeof SKILL_CATEGORIES[number], string> = {
   craft: 'Design Craft',
   strategy: 'Strategy & Leadership',
   tools: 'Tools & Tech',
+  ai: 'AI & Automation',
 };
 
 export default function About() {
