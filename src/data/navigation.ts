@@ -11,9 +11,10 @@ export const defaultNavItems: NavItem[] = [
 
 export const defaultSocialLinks: SocialLink[] = [
   { label: 'GitHub', href: 'https://github.com/vivekrbot', icon: 'github' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/[YOUR-LINKEDIN]', icon: 'linkedin' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/itsvivekramachandran/', icon: 'linkedin' },
   { label: 'Dribbble', href: 'https://dribbble.com/[YOUR-DRIBBBLE]', icon: 'dribbble' },
-  { label: 'Twitter / X', href: 'https://x.com/[YOUR-TWITTER]', icon: 'twitter' },
+  { label: 'Medium', href: 'https://medium.com/@[YOUR-MEDIUM]', icon: 'medium' },
+  { label: 'APDList', href: 'https://apdlist.com/[YOUR-APDLIST]', icon: 'apdlist' },
 ];
 
 export function getNavigationData(): NavigationData {
