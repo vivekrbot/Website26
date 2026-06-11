@@ -135,6 +135,12 @@
   position: relative;
 }
 
+.paidCard :global(.btn) {
+  width: 100%;
+  justify-content: center;
+  margin-top: auto;
+}
+
 .featured {
   border-color: var(--accent-primary);
   background: linear-gradient(135deg,

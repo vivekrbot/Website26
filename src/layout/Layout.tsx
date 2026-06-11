@@ -4,11 +4,16 @@ import { Nav } from './Nav';
 import { Footer } from './Footer';
 import { SpaceCanvas } from '../canvas/SpaceCanvas';
 import { SkipLink } from '../components/SkipLink/SkipLink';
+import { CustomCursor } from '../components/CustomCursor/CustomCursor';
+import { PageTransition } from '../components/PageTransition/PageTransition';
+import { useLenis } from '../hooks/useLenis';
 import styles from './Layout.module.css';
 
 export function Layout() {
   const { pathname } = useLocation();
   const mainRef = useRef<HTMLElement>(null);
+
+  useLenis();
 
   // Move focus to main on route change (a11y)
   useEffect(() => {
@@ -19,6 +24,7 @@ export function Layout() {
   return (
     <div className={styles.root} id="top">
       <SkipLink />
+      <CustomCursor />
       <SpaceCanvas />
       <Nav />
       <main
@@ -28,7 +34,9 @@ export function Layout() {
         className={styles.main}
         aria-label="Main content"
       >
-        <Outlet />
+        <PageTransition>
+          <Outlet />
+        </PageTransition>
       </main>
       <Footer />
     </div>

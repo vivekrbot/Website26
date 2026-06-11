@@ -3,6 +3,7 @@ import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { Button } from '../../components/Button/Button';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { socialLinks } from '../../data/navigation';
+import { HeroCanvas } from '../../canvas/HeroCanvas/HeroCanvas';
 import styles from './Hero.module.css';
 
 const SOCIAL_ICONS: Record<string, React.ReactElement> = {
@@ -79,6 +80,9 @@ export function Hero() {
         aria-hidden="true"
       />
 
+      {/* Molecule particle field */}
+      <HeroCanvas />
+
       <div className={`container ${styles.content}`}>
         <motion.div
           className={styles.textGroup}
@@ -96,7 +100,10 @@ export function Hero() {
             Product Design &amp; Strategy
           </motion.p>
 
-          <h1 id="hero-heading" className={`display-1 ${styles.headline}`}>
+          <h1
+            id="hero-heading"
+            className={styles.headline}
+          >
             <span className={styles.lineWrap}>
               <motion.span
                 className={styles.line}

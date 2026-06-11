@@ -1,0 +1,8 @@
+.curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 9990;
+  background: var(--accent-primary);
+  pointer-events: none;
+  transform-origin: bottom;
+}
