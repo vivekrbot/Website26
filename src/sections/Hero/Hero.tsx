@@ -111,7 +111,7 @@ export function Hero() {
                 animate={reducedMotion ? {} : { opacity: 1, y: '0%' }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
               >
-                Designing
+                Designing products
               </motion.span>
             </span>
             <span className={styles.lineWrap}>
@@ -119,19 +119,9 @@ export function Hero() {
                 className={`${styles.line} gradient-text`}
                 initial={reducedMotion ? {} : { opacity: 0, y: '100%' }}
                 animate={reducedMotion ? {} : { opacity: 1, y: '0%' }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.25 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.28 }}
               >
-                products people
-              </motion.span>
-            </span>
-            <span className={styles.lineWrap}>
-              <motion.span
-                className={styles.line}
-                initial={reducedMotion ? {} : { opacity: 0, y: '100%' }}
-                animate={reducedMotion ? {} : { opacity: 1, y: '0%' }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.35 }}
-              >
-                remember.
+                people remember.
               </motion.span>
             </span>
           </h1>
@@ -183,8 +173,9 @@ export function Hero() {
           transition={{ delay: 1.2, duration: 1 }}
           aria-hidden="true"
         >
-          <span className={styles.scrollLine} />
           <span className={styles.scrollLabel}>scroll</span>
+          <span className={styles.scrollLine} />
+          <span className={styles.scrollArrow} />
         </motion.div>
       </div>
     </section>

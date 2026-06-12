@@ -4,16 +4,17 @@ import styles from './HeroCanvas.module.css';
 
 /* ── Tuning ──────────────────────────────────────────────── */
 const RING_DEFS = [
-  { rFrac: 0.182, count: 7,  spd: 0.0022 },
-  { rFrac: 0.272, count: 10, spd: 0.0014 },
-  { rFrac: 0.368, count: 14, spd: 0.0009 },
+  { rFrac: 0.182, count: 8,  spd: 0.0022 },
+  { rFrac: 0.272, count: 12, spd: 0.0014 },
+  { rFrac: 0.368, count: 16, spd: 0.0009 },
+  { rFrac: 0.480, count: 10, spd: 0.0006 },
 ] as const;
 
-const FREE_COUNT    = 22;
-const AMBIENT_COUNT = 90;   // tiny background dust particles
-const CONNECT_DIST  = 108;
-const REPULSE_R     = 140;
-const REPULSE_K     = 3.2;
+const FREE_COUNT    = 36;
+const AMBIENT_COUNT = 160;  // tiny background dust particles
+const CONNECT_DIST  = 115;
+const REPULSE_R     = 160;
+const REPULSE_K     = 3.8;
 const SPRING_K      = 0.030;
 const DAMP          = 0.86;
 
@@ -137,17 +138,31 @@ export function HeroCanvas() {
 
     ctx.clearRect(0, 0, w, h);
 
+    // — Cursor ambient glow —
+    if (mx > -1000 && my > -1000) {
+      const cgRadius = 130;
+      const cursorGlow = ctx.createRadialGradient(mx, my, 0, mx, my, cgRadius);
+      cursorGlow.addColorStop(0,   `rgba(129,140,248,${0.10 * aScale})`);
+      cursorGlow.addColorStop(0.5, `rgba(99,102,241,${0.04 * aScale})`);
+      cursorGlow.addColorStop(1,   'rgba(99,102,241,0)');
+      ctx.beginPath();
+      ctx.arc(mx, my, cgRadius, 0, Math.PI * 2);
+      ctx.fillStyle = cursorGlow;
+      ctx.fill();
+    }
+
     // — Orbital ring outlines (dashed) —
-    for (const ring of RING_DEFS) {
+    RING_DEFS.forEach((ring, idx) => {
       const R = ref * ring.rFrac * s;
+      const ringOpacity = (0.13 - idx * 0.02) * aScale;
       ctx.beginPath();
       ctx.arc(cx, cy, R, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(99,102,241,${0.10 * aScale})`;
+      ctx.strokeStyle = `rgba(99,102,241,${ringOpacity})`;
       ctx.lineWidth = 0.6;
       ctx.setLineDash([3, 11]);
       ctx.stroke();
       ctx.setLineDash([]);
-    }
+    });
 
     // — Physics update —
     const ps = particlesRef.current;
@@ -225,11 +240,11 @@ export function HeroCanvas() {
     }
 
     // — Centre pulse glow —
-    const cgR   = ref * 0.20 * s;
-    const pulse = 0.055 + 0.018 * Math.sin(frameRef.current * 0.018);
+    const cgR   = ref * 0.22 * s;
+    const pulse = 0.07 + 0.022 * Math.sin(frameRef.current * 0.018);
     const cg    = ctx.createRadialGradient(cx, cy, 0, cx, cy, cgR);
     cg.addColorStop(0,   `rgba(99,102,241,${pulse * aScale})`);
-    cg.addColorStop(0.5, `rgba(139,92,246,${pulse * 0.45 * aScale})`);
+    cg.addColorStop(0.4, `rgba(139,92,246,${pulse * 0.55 * aScale})`);
     cg.addColorStop(1,   'rgba(99,102,241,0)');
     ctx.beginPath();
     ctx.arc(cx, cy, cgR, 0, Math.PI * 2);

@@ -5,6 +5,12 @@ import styles from './SpaceCanvas.module.css';
 /* ── Tuning constants ──────────────────────────────────────── */
 const STAR_COUNT        = 120;
 const ASTEROID_COUNT    = 10;
+
+/* Network constellation */
+const NET_COUNT     = 55;    // floating joint particles
+const NET_LINK_DIST = 140;   // max px to draw a connection line
+const NET_MOUSE_R   = 200;   // cursor attraction radius
+const NET_MOUSE_K   = 0.00022; // attraction strength (very gentle)
 const GRAVITY_RADIUS    = 180;   // px — cursor influence radius
 const GRAVITY_FORCE     = 0.018; // attraction strength
 const ASTEROID_SPEED    = 0.12;  // max px/frame
@@ -31,6 +37,13 @@ interface Asteroid {
   rotSpeed: number;
   opacity: number;
   vertices: { x: number; y: number }[];
+}
+
+interface NetParticle {
+  x: number; y: number;
+  vx: number; vy: number;
+  sz: number;
+  op: number;
 }
 
 interface ShootingStar {
@@ -98,6 +111,17 @@ function spawnShootingStar(w: number, h: number): ShootingStar {
   return { ox: x, oy: y, vx, vy, startTime: Date.now(), duration, opacity: randomBetween(0.75, 1.0) };
 }
 
+function initNetParticles(w: number, h: number): NetParticle[] {
+  return Array.from({ length: NET_COUNT }, () => ({
+    x: Math.random() * w,
+    y: Math.random() * h,
+    vx: randomBetween(-0.22, 0.22),
+    vy: randomBetween(-0.22, 0.22),
+    sz: randomBetween(0.9, 1.7),
+    op: randomBetween(0.22, 0.55),
+  }));
+}
+
 function initAsteroids(w: number, h: number): Asteroid[] {
   return Array.from({ length: ASTEROID_COUNT }, () => {
     const radius = randomBetween(12, 32);
@@ -123,6 +147,8 @@ export function SpaceCanvas() {
   const rafRef = useRef<number>(0);
   const starsRef = useRef<Star[]>([]);
   const asteroidsRef = useRef<Asteroid[]>([]);
+  const netRef = useRef<NetParticle[]>([]);
+  const cssSizeRef = useRef({ w: 0, h: 0 });
   const shootingStarsRef = useRef<ShootingStar[]>([]);
   const nextShootRef = useRef<number>(Date.now() + SHOOT_INTERVAL_MS);
   const mouseRef = useRef({ x: -9999, y: -9999 });
@@ -149,6 +175,9 @@ export function SpaceCanvas() {
     // Multiply alpha up so elements are just as visible in light mode
     const alphaScale = isDark ? 1 : 2.8;
 
+    const mx = mouseRef.current.x;
+    const my = mouseRef.current.y;
+
     // ── Stars ───────────────────────────────────────────────
     for (const star of starsRef.current) {
       const twinkle = Math.sin(frameRef.current * star.twinkleSpeed + star.twinkleOffset);
@@ -160,9 +189,65 @@ export function SpaceCanvas() {
       ctx.fill();
     }
 
+    // ── Network constellation (auto-joint particles) ─────────
+    {
+      const { w: cssW, h: cssH } = cssSizeRef.current;
+      const net = netRef.current;
+      const netColor = isDark ? '160,170,255' : '50,40,200';
+
+      for (const p of net) {
+        // Gentle cursor attraction
+        const dmx = mx - p.x;
+        const dmy = my - p.y;
+        const dm = Math.sqrt(dmx * dmx + dmy * dmy);
+        if (dm < NET_MOUSE_R && dm > 0) {
+          p.vx += (dmx / dm) * NET_MOUSE_K * (1 - dm / NET_MOUSE_R);
+          p.vy += (dmy / dm) * NET_MOUSE_K * (1 - dm / NET_MOUSE_R);
+        }
+        // Speed cap
+        const spd = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+        if (spd > 0.5) { p.vx = (p.vx / spd) * 0.5; p.vy = (p.vy / spd) * 0.5; }
+        p.vx *= 0.994;
+        p.vy *= 0.994;
+        p.x += p.vx;
+        p.y += p.vy;
+        // Wrap edges
+        if (p.x < 0) p.x = cssW;
+        if (p.x > cssW) p.x = 0;
+        if (p.y < 0) p.y = cssH;
+        if (p.y > cssH) p.y = 0;
+      }
+
+      // Draw connection lines
+      ctx.lineWidth = 0.65;
+      for (let i = 0; i < net.length; i++) {
+        for (let j = i + 1; j < net.length; j++) {
+          const a = net[i];
+          const b = net[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < NET_LINK_DIST) {
+            const lineAlpha = (1 - d / NET_LINK_DIST) * 0.22 * alphaScale;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = `rgba(${netColor},${lineAlpha})`;
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Draw particles
+      for (const p of net) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.sz, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${netColor},${p.op * alphaScale})`;
+        ctx.fill();
+      }
+    }
+
     // ── Asteroids ────────────────────────────────────────────
-    const mx = mouseRef.current.x;
-    const my = mouseRef.current.y;
 
     for (const ast of asteroidsRef.current) {
       // Gravity: attract toward cursor
@@ -343,7 +428,9 @@ export function SpaceCanvas() {
       canvas.style.height = `${h}px`;
       const ctx = canvas.getContext('2d');
       if (ctx) ctx.scale(dpr, dpr);
+      cssSizeRef.current = { w, h };
       starsRef.current = initStars(w, h);
+      netRef.current = initNetParticles(w, h);
       asteroidsRef.current = initAsteroids(w, h);
       shootingStarsRef.current = [];
     };
