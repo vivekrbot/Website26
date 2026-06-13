@@ -87,7 +87,7 @@ export default function Mentorship() {
               <p className={styles.forWhom}>
                 <strong>Who it's for:</strong> {freeTier.forWhom}
               </p>
-              <Button as="a" href={freeTier.cta.href} variant="outline" size="lg">
+              <Button as="a" href={freeTier.cta.href} variant="secondary" size="lg">
                 {freeTier.cta.label}
               </Button>
             </motion.div>
@@ -165,7 +165,7 @@ export default function Mentorship() {
                 <Button
                   as="a"
                   href={tier.cta.href}
-                  variant={i === 1 ? 'primary' : 'outline'}
+                  variant={i === 1 ? 'primary' : 'secondary'}
                   size="lg"
                 >
                   {tier.cta.label}

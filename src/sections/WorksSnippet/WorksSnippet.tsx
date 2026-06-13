@@ -1,5 +1,4 @@
-import { useState, useRef, useCallback } from 'react';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { SectionHeader } from '../../components/SectionHeader/SectionHeader';
 import { Button } from '../../components/Button/Button';
@@ -28,58 +27,19 @@ const cardAnim = {
 
 export function WorksSnippet() {
   const reducedMotion = useReducedMotion();
-  const [activeSlug, setActiveSlug] = useState<string | null>(null);
-
-  const previewX = useMotionValue(-300);
-  const previewY = useMotionValue(-300);
-  const springX = useSpring(previewX, { stiffness: 160, damping: 20, mass: 0.6 });
-  const springY = useSpring(previewY, { stiffness: 160, damping: 20, mass: 0.6 });
-
-  const rafRef = useRef<number>(0);
-  const cursorRef = useRef({ x: -300, y: -300 });
-
-  const startFollow = useCallback(() => {
-    const tick = () => {
-      previewX.set(cursorRef.current.x);
-      previewY.set(cursorRef.current.y);
-      rafRef.current = requestAnimationFrame(tick);
-    };
-    rafRef.current = requestAnimationFrame(tick);
-  }, [previewX, previewY]);
-
-  const stopFollow = useCallback(() => {
-    cancelAnimationFrame(rafRef.current);
-  }, []);
-
-  const onMouseEnter = (slug: string) => {
-    setActiveSlug(slug);
-    startFollow();
-  };
-
-  const onMouseLeave = () => {
-    setActiveSlug(null);
-    stopFollow();
-  };
-
-  const onMouseMove = (e: React.MouseEvent) => {
-    cursorRef.current = { x: e.clientX, y: e.clientY };
-  };
-
-  const activeProject = featuredProjects.find(p => p.slug === activeSlug);
 
   return (
     <section
       id="works"
       className={`section ${styles.works}`}
       aria-labelledby="works-heading"
-      onMouseMove={onMouseMove}
     >
       <div className="container">
         <div className={styles.header}>
           <SectionHeader
             label="Selected Work"
             title="Projects that moved the needle."
-            subtitle="A cross-section of product design, strategy, and systems work — across consumer and enterprise."
+            subtitle="A cross-section of product design, strategy, and systems work across consumer and enterprise."
           />
           <Button as="link" href="/works" variant="secondary" size="md" className={styles.seeAll}>
             See all work →
@@ -100,8 +60,6 @@ export function WorksSnippet() {
                 to={`/works/${project.slug}`}
                 className={`glass-card ${styles.card}`}
                 aria-label={`${project.title} — ${project.tagline}`}
-                onMouseEnter={() => !reducedMotion && onMouseEnter(project.slug)}
-                onMouseLeave={() => !reducedMotion && onMouseLeave()}
               >
                 <div className={styles.cover} aria-hidden="true">
                   <div
@@ -135,27 +93,6 @@ export function WorksSnippet() {
           ))}
         </motion.ul>
       </div>
-
-      {/* Floating image reveal */}
-      {!reducedMotion && (
-        <motion.div
-          className={styles.floatingPreview}
-          style={{ x: springX, y: springY }}
-          animate={{ opacity: activeProject ? 1 : 0, scale: activeProject ? 1 : 0.88 }}
-          transition={{ duration: 0.25 }}
-          aria-hidden="true"
-        >
-          {activeProject && (
-            <div
-              className={styles.previewInner}
-              style={{ background: CATEGORY_GRADIENTS[activeProject.category] ?? DEFAULT_GRADIENT }}
-            >
-              <span className={styles.previewLabel}>{activeProject.title}</span>
-              <span className={styles.previewCategory}>{activeProject.category}</span>
-            </div>
-          )}
-        </motion.div>
-      )}
     </section>
   );
 }

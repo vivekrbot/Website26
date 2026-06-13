@@ -21,7 +21,7 @@ export function MentorshipSnippet() {
         <SectionHeader
           label="Mentorship"
           title="Let's grow together."
-          subtitle="I offer two tracks — a free path for early-career designers, and paid engagements for those with specific goals and tighter timelines."
+          subtitle="I offer two tracks a free path for early-career designers, and paid engagements for those with specific goals and tighter timelines."
           align="center"
         />
 
@@ -47,7 +47,7 @@ export function MentorshipSnippet() {
                 </li>
               ))}
             </ul>
-            <Button as="a" href={freeTier.cta.href} variant="outline" size="md">
+            <Button as="a" href={freeTier.cta.href} variant="secondary" size="md">
               {freeTier.cta.label}
             </Button>
           </motion.div>
@@ -86,7 +86,7 @@ export function MentorshipSnippet() {
         </div>
 
         <div className={styles.more}>
-          <Button as="link" href="/mentorship" variant="ghost" size="md">
+          <Button as="link" href="/mentorship" variant="secondary" size="md">
             Full mentorship details →
           </Button>
         </div>

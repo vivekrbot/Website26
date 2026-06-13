@@ -96,13 +96,24 @@
 
 .line {
   display: block;
-  transition: filter 0.5s var(--ease-out);
+  cursor: default;
+  transition: filter 0.35s var(--ease-out);
 }
 
-/* Space-theme glow on headline hover */
-.headline:hover .line {
-  filter: drop-shadow(0 0 28px rgba(99, 102, 241, 0.55))
-          drop-shadow(0 0 56px rgba(139, 92, 246, 0.25));
+/* Dark mode — tight spacecraft glow */
+.line:hover {
+  filter:
+    drop-shadow(0 0 8px rgba(99, 102, 241, 0.75))
+    drop-shadow(0 0 20px rgba(139, 92, 246, 0.4))
+    drop-shadow(0 0 36px rgba(34, 211, 238, 0.15))
+    brightness(1.1);
+}
+
+/* Light mode — very subtle tint, no heavy spread */
+[data-theme="light"] .line:hover {
+  filter:
+    drop-shadow(0 0 5px rgba(99, 102, 241, 0.28))
+    drop-shadow(0 0 14px rgba(139, 92, 246, 0.14));
 }
 
 .tagline {

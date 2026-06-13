@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { Button } from '../../components/Button/Button';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
@@ -39,9 +39,17 @@ const SOCIAL_ICONS: Record<string, React.ReactElement> = {
 
 const SPRING_CONFIG = { stiffness: 80, damping: 20, mass: 0.8 };
 
+const SPACECRAFT_HOVER = {
+  y: -10,
+  scale: 1.03,
+  transition: { type: 'spring' as const, stiffness: 280, damping: 20 },
+};
+
 export function Hero() {
   const reducedMotion = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
+  const [entryDone, setEntryDone] = useState(false);
+  const lineWrapStyle = reducedMotion || entryDone ? { overflow: 'visible' as const } : {};
 
   const rawX = useMotionValue(0);
   const rawY = useMotionValue(0);
@@ -104,22 +112,25 @@ export function Hero() {
             id="hero-heading"
             className={styles.headline}
           >
-            <span className={styles.lineWrap}>
+            <span className={styles.lineWrap} style={lineWrapStyle}>
               <motion.span
                 className={styles.line}
                 initial={reducedMotion ? {} : { opacity: 0, y: '100%' }}
                 animate={reducedMotion ? {} : { opacity: 1, y: '0%' }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+                whileHover={reducedMotion ? {} : SPACECRAFT_HOVER}
               >
                 Designing products
               </motion.span>
             </span>
-            <span className={styles.lineWrap}>
+            <span className={styles.lineWrap} style={lineWrapStyle}>
               <motion.span
                 className={`${styles.line} gradient-text`}
                 initial={reducedMotion ? {} : { opacity: 0, y: '100%' }}
                 animate={reducedMotion ? {} : { opacity: 1, y: '0%' }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.28 }}
+                whileHover={reducedMotion ? {} : SPACECRAFT_HOVER}
+                onAnimationComplete={() => setEntryDone(true)}
               >
                 people remember.
               </motion.span>
