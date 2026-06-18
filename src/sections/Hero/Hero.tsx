@@ -137,15 +137,19 @@ export function Hero() {
             </span>
           </h1>
 
-          <motion.p
+          <motion.div
             className={styles.tagline}
             initial={reducedMotion ? {} : { opacity: 0, y: 16 }}
             animate={reducedMotion ? {} : { opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
           >
-            I'm Vivek Ramachandran a product designer and strategist who builds
-            experiences that are clear, crafted, and consequential.
-          </motion.p>
+            <span className={styles.taglinePrefix}>I'm</span>
+            <span className={styles.neonName}>Vivek Ramachandran</span>
+            <span className={styles.taglineSuffix}>
+              a product designer and strategist who builds
+              experiences that are clear, crafted, and consequential.
+            </span>
+          </motion.div>
 
           <motion.div
             className={styles.ctas}
