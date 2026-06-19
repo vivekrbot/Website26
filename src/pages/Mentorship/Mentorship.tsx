@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { SectionHeader } from '../../components/SectionHeader/SectionHeader';
+import { EscapeText } from '../../components/EscapeText/EscapeText';
 import { Button } from '../../components/Button/Button';
 import { mentorshipTiers } from '../../data/mentorship';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
@@ -59,8 +60,8 @@ export default function Mentorship() {
           >
             <p className={`label ${styles.eyebrow}`}>Mentorship</p>
             <h1 id="mentorship-page-heading" className={`display-2 ${styles.headline}`}>
-              The support I wish<br />
-              <span className="gradient-text">I had earlier.</span>
+              <EscapeText text="The support I wish" /><br />
+              <EscapeText text="I had earlier." wordClassName="gradient-text" />
             </h1>
             <p className={styles.heroSub}>
               I've been where you are. Two tracks, designed around where you are in your journey —
@@ -82,7 +83,9 @@ export default function Mentorship() {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
               <span className={`label ${styles.freeBadge}`}>Free track</span>
-              <h2 id="free-heading" className={`heading-1 ${styles.tierTitle}`}>{freeTier.name}</h2>
+              <h2 id="free-heading" className={`heading-1 ${styles.tierTitle}`}>
+                <EscapeText text={freeTier.name} />
+              </h2>
               <p className={styles.tierTagline}>{freeTier.tagline}</p>
               <p className={styles.forWhom}>
                 <strong>Who it's for:</strong> {freeTier.forWhom}
@@ -210,7 +213,9 @@ export default function Mentorship() {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h2 id="mentorship-cta-heading" className="heading-2">Not sure where to start?</h2>
+            <h2 id="mentorship-cta-heading" className="heading-2">
+              <EscapeText text="Not sure where to start?" />
+            </h2>
             <p className={styles.ctaBody}>
               Drop me an email describing where you are and what you're trying to achieve.
               I'll point you in the right direction — even if that's not me.

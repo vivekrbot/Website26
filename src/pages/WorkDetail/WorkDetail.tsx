@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '../../components/Button/Button';
+import { EscapeText } from '../../components/EscapeText/EscapeText';
 import { projects } from '../../data/projects';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import styles from './WorkDetail.module.css';
@@ -45,7 +46,9 @@ export default function WorkDetail() {
               <span className={`label ${styles.category}`}>{project.category}</span>
               <span className={styles.year}>{project.year}</span>
             </div>
-            <h1 id="case-study-heading" className={`display-2 ${styles.title}`}>{project.title}</h1>
+            <h1 id="case-study-heading" className={`display-2 ${styles.title}`}>
+              <EscapeText text={project.title} />
+            </h1>
             <p className={styles.tagline}>{project.tagline}</p>
 
             <div className={styles.metaGrid}>
@@ -107,7 +110,9 @@ export default function WorkDetail() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className={`label ${styles.caseLabel}`}>01 — The Problem</p>
-          <h2 id="problem-heading" className={`heading-2 ${styles.caseTitle}`}>What we were solving</h2>
+          <h2 id="problem-heading" className={`heading-2 ${styles.caseTitle}`}>
+            <EscapeText text="What we were solving" />
+          </h2>
           <p className={styles.caseBody}>{project.problem}</p>
         </motion.section>
 
@@ -127,7 +132,9 @@ export default function WorkDetail() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className={`label ${styles.caseLabel}`}>02 — The Process</p>
-          <h2 id="process-heading" className={`heading-2 ${styles.caseTitle}`}>How we got there</h2>
+          <h2 id="process-heading" className={`heading-2 ${styles.caseTitle}`}>
+            <EscapeText text="How we got there" />
+          </h2>
           <ol className={styles.processList}>
             {project.process.map((step, i) => (
               <li key={i} className={styles.processItem}>
@@ -154,7 +161,9 @@ export default function WorkDetail() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className={`label ${styles.caseLabel}`}>03 — The Outcome</p>
-          <h2 id="outcome-heading" className={`heading-2 ${styles.caseTitle}`}>What we shipped</h2>
+          <h2 id="outcome-heading" className={`heading-2 ${styles.caseTitle}`}>
+            <EscapeText text="What we shipped" />
+          </h2>
           <p className={`${styles.caseBody} ${styles.outcomeBody}`}>{project.outcome}</p>
         </motion.section>
       </article>

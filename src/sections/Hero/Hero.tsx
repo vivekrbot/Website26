@@ -1,9 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { Button } from '../../components/Button/Button';
+import { EscapeText } from '../../components/EscapeText/EscapeText';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { socialLinks } from '../../data/navigation';
 import { HeroCanvas } from '../../canvas/HeroCanvas/HeroCanvas';
+import { StampSeal } from '../../components/StampSeal/StampSeal';
 import styles from './Hero.module.css';
 
 const SOCIAL_ICONS: Record<string, React.ReactElement> = {
@@ -37,29 +39,20 @@ const SOCIAL_ICONS: Record<string, React.ReactElement> = {
   ),
 };
 
-const SPRING_CONFIG = { stiffness: 80, damping: 20, mass: 0.8 };
-
-const SPACECRAFT_HOVER = {
-  y: -10,
-  scale: 1.03,
-  transition: { type: 'spring' as const, stiffness: 280, damping: 20 },
-};
+const SPRING_CONFIG = { stiffness: 70, damping: 18, mass: 0.9 };
 
 export function Hero() {
   const reducedMotion = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
-  const [entryDone, setEntryDone] = useState(false);
-  const lineWrapStyle = reducedMotion || entryDone ? { overflow: 'visible' as const } : {};
 
   const rawX = useMotionValue(0);
   const rawY = useMotionValue(0);
   const springX = useSpring(rawX, SPRING_CONFIG);
   const springY = useSpring(rawY, SPRING_CONFIG);
 
-  const bannerX = useTransform(springX, [-1, 1], ['-8px', '8px']);
-  const bannerY = useTransform(springY, [-1, 1], ['-6px', '6px']);
-  const textX   = useTransform(springX, [-1, 1], ['-4px', '4px']);
-  const textY   = useTransform(springY, [-1, 1], ['-3px', '3px']);
+  // Background banner drifts with the cursor for a subtle parallax.
+  const bannerX = useTransform(springX, [-1, 1], ['12px', '-12px']);
+  const bannerY = useTransform(springY, [-1, 1], ['9px', '-9px']);
 
   const onMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (reducedMotion || !containerRef.current) return;
@@ -92,50 +85,33 @@ export function Hero() {
       <HeroCanvas />
 
       <div className={`container ${styles.content}`}>
-        <motion.div
-          className={styles.textGroup}
-          style={reducedMotion ? {} : { x: textX, y: textY }}
-          initial={reducedMotion ? {} : { opacity: 0, y: 32 }}
-          animate={reducedMotion ? {} : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-        >
+        <div className={styles.stage}>
+          {/* Floating status badge */}
+         
+
           <motion.p
             className={`label ${styles.eyebrow}`}
             initial={reducedMotion ? {} : { opacity: 0, y: 16 }}
             animate={reducedMotion ? {} : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
           >
             Product Design &amp; Strategy
           </motion.p>
 
-          <h1
+          <motion.h1
             id="hero-heading"
             className={styles.headline}
+            initial={reducedMotion ? {} : { opacity: 0, y: 20 }}
+            animate={reducedMotion ? {} : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
           >
-            <span className={styles.lineWrap} style={lineWrapStyle}>
-              <motion.span
-                className={styles.line}
-                initial={reducedMotion ? {} : { opacity: 0, y: '100%' }}
-                animate={reducedMotion ? {} : { opacity: 1, y: '0%' }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-                whileHover={reducedMotion ? {} : SPACECRAFT_HOVER}
-              >
-                Designing products
-              </motion.span>
-            </span>
-            <span className={styles.lineWrap} style={lineWrapStyle}>
-              <motion.span
-                className={`${styles.line} gradient-text`}
-                initial={reducedMotion ? {} : { opacity: 0, y: '100%' }}
-                animate={reducedMotion ? {} : { opacity: 1, y: '0%' }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.28 }}
-                whileHover={reducedMotion ? {} : SPACECRAFT_HOVER}
-                onAnimationComplete={() => setEntryDone(true)}
-              >
-                people remember.
-              </motion.span>
-            </span>
-          </h1>
+            <EscapeText text="Designing products" className={styles.headlineLine} />
+            <EscapeText
+              text="people remember."
+              className={styles.headlineLine}
+              wordClassName="gradient-text"
+            />
+          </motion.h1>
 
           <motion.div
             className={styles.tagline}
@@ -145,17 +121,17 @@ export function Hero() {
           >
             <span className={styles.taglinePrefix}>I'm</span>
             <span className={styles.neonName}>Vivek Ramachandran</span>
-            <span className={styles.taglineSuffix}>
-              a product designer and strategist who builds
-              experiences that are clear, crafted, and consequential.
-            </span>
+            <EscapeText
+              className={styles.taglineSuffix}
+              text="a product designer and strategist who builds experiences that are clear, crafted, and consequential."
+            />
           </motion.div>
 
           <motion.div
             className={styles.ctas}
             initial={reducedMotion ? {} : { opacity: 0, y: 16 }}
             animate={reducedMotion ? {} : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.65 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.64 }}
           >
             <Button as="link" href="/works" size="lg">
               View Work
@@ -178,14 +154,14 @@ export function Hero() {
               ))}
             </div>
           </motion.div>
-        </motion.div>
+        </div>
 
         {/* Scroll indicator */}
         <motion.div
           className={styles.scrollIndicator}
           initial={reducedMotion ? {} : { opacity: 0 }}
           animate={reducedMotion ? {} : { opacity: 1 }}
-          transition={{ delay: 1.2, duration: 1 }}
+          transition={{ delay: 1.1, duration: 1 }}
           aria-hidden="true"
         >
           <span className={styles.scrollLabel}>scroll</span>
@@ -193,6 +169,9 @@ export function Hero() {
           <span className={styles.scrollArrow} />
         </motion.div>
       </div>
+
+      {/* Circular stamp seal — bottom-right decorative logo */}
+      <StampSeal className={styles.stampSeal} animate />
     </section>
   );
 }

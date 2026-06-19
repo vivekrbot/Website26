@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { socialLinks } from '../data/navigation';
+import { StampSeal } from '../components/StampSeal/StampSeal';
 import styles from './Footer.module.css';
 
 const ICONS: Record<string, React.ReactNode> = {
@@ -41,8 +42,8 @@ export function Footer() {
       <div className={`container ${styles.inner}`}>
         <div className={styles.top}>
           <div className={styles.brand}>
-            <Link to="/" className={styles.logo} aria-label="Vivek Ramachandran — Home">
-              <span className={styles.logoMark}>VR</span>
+            <Link to="/" className={styles.logoLink} aria-label="Vivek Ramachandran — Home">
+              <StampSeal size={80} animate={false} opacity={0.7} className={styles.footerSeal} />
             </Link>
             <div>
               <p className={styles.name}>Vivek Ramachandran</p>

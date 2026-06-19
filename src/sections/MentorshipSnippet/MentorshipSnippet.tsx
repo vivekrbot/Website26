@@ -22,7 +22,6 @@ export function MentorshipSnippet() {
           label="Mentorship"
           title="Let's grow together."
           subtitle="I offer two tracks a free path for early-career designers, and paid engagements for those with specific goals and tighter timelines."
-          align="center"
         />
 
         <div className={styles.tracks}>

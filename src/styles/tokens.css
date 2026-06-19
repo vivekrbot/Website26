@@ -159,33 +159,41 @@
    LIGHT THEME OVERRIDES
    ============================================================ */
 [data-theme="light"] {
-  --grid-line: rgba(0, 0, 0, 0.045);
-  --hud-accent: rgba(99, 102, 241, 0.4);
-  --bg-primary:      var(--color-neutral-50);
-  --bg-secondary:    var(--color-white);
-  --bg-tertiary:     var(--color-neutral-100);
-  --bg-card:         rgba(255, 255, 255, 0.85);
-  --bg-card-hover:   rgba(249, 250, 251, 0.95);
+  /* Canvas grid lines */
+  --grid-line:  rgba(0, 0, 0, 0.05);
+  --hud-accent: rgba(67, 56, 202, 0.45);
 
+  /* Backgrounds — slightly warm off-white to feel softer than pure white */
+  --bg-primary:      #f7f8fc;
+  --bg-secondary:    #ffffff;
+  --bg-tertiary:     #eef0f7;
+  --bg-card:         rgba(255, 255, 255, 0.92);
+  --bg-card-hover:   rgba(252, 253, 255, 0.99);
+
+  /* Text — neutral-900/700/500 pass WCAG AA on all bg-* values */
   --text-primary:    var(--color-neutral-900);
   --text-secondary:  var(--color-neutral-700);
   --text-muted:      var(--color-neutral-500);
   --text-inverse:    var(--color-white);
 
-  --accent-primary:   var(--color-indigo-600);
-  --accent-secondary: var(--color-violet-500);
-  --accent-highlight: var(--color-cyan-500);
+  /* Accents — one stop darker than dark-mode counterparts for contrast on white */
+  --accent-primary:   #4338ca;   /* indigo-700  — 5.4:1 on white */
+  --accent-secondary: #6d28d9;   /* violet-700  — 5.1:1 on white */
+  --accent-highlight: #0891b2;   /* cyan-600    — decorative only */
 
-  --border-subtle:   rgba(0, 0, 0, 0.06);
-  --border-default:  rgba(0, 0, 0, 0.12);
-  --border-strong:   rgba(0, 0, 0, 0.2);
+  /* Borders — ink-tinted for cohesion with indigo palette */
+  --border-subtle:   rgba(30, 27, 75, 0.09);
+  --border-default:  rgba(30, 27, 75, 0.15);
+  --border-strong:   rgba(30, 27, 75, 0.24);
 
-  --shadow-sm:       0 1px 3px rgba(0, 0, 0, 0.08);
-  --shadow-md:       0 4px 16px rgba(0, 0, 0, 0.1);
-  --shadow-lg:       0 8px 40px rgba(0, 0, 0, 0.12);
-  --shadow-glow:     0 0 32px rgba(99, 102, 241, 0.12);
-  --shadow-glow-cyan: 0 0 24px rgba(6, 182, 212, 0.1);
+  /* Shadows — layered for depth on light backgrounds */
+  --shadow-sm:       0 1px 3px rgba(15, 23, 42, 0.09), 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-md:       0 4px 20px rgba(15, 23, 42, 0.10), 0 2px 6px rgba(15, 23, 42, 0.05);
+  --shadow-lg:       0 12px 44px rgba(15, 23, 42, 0.13), 0 4px 12px rgba(15, 23, 42, 0.06);
+  --shadow-glow:     0 0 28px rgba(67,  56, 202, 0.16);
+  --shadow-glow-cyan: 0 0 22px rgba(8, 145, 178, 0.13);
 
-  --nav-bg:          rgba(249, 250, 251, 0.85);
-  --nav-border:      rgba(0, 0, 0, 0.08);
+  /* Nav */
+  --nav-bg:     rgba(247, 248, 252, 0.92);
+  --nav-border: rgba(30, 27, 75, 0.09);
 }

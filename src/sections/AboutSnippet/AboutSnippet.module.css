@@ -2,65 +2,188 @@
   position: relative;
 }
 
-.grid {
+/* ── Text content – full container width, single column ── */
+.content {
+  width: 100%;
+  margin-bottom: var(--space-20);
+}
+
+.sectionHeader {
+  margin-bottom: var(--space-12);
+}
+
+.headerLabel {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.headerTitle {
+  color: var(--text-primary);
+  margin-bottom: var(--space-5);
+  line-height: 1.1;
+}
+
+.headerSubtitle {
+  font-size: var(--text-xl);
+  color: var(--text-secondary);
+  line-height: var(--leading-normal);
+}
+
+/* Two-column body fills the full content width on desktop */
+.bodyGrid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-16);
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
 }
 
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
-    gap: var(--space-20);
-  }
-}
-
-.text {}
 
 .body {
   font-size: var(--text-lg);
   color: var(--text-secondary);
   line-height: var(--leading-normal);
-  margin-bottom: var(--space-8);
-  max-width: 52ch;
 }
 
-.skillsWrap {
-  padding: var(--space-8);
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--border-subtle);
-  background: var(--bg-card);
-  backdrop-filter: blur(12px);
+/* ── AI accent word (shared EscapeWord + this modifier) ── */
+.aiWord {
+  color: var(--accent-primary);
+  opacity: 0.8;
+}
+
+/* ── Skills – inside container, overflow clipped ── */
+.skillsSection {
+  width: 100%;
+  padding-top: var(--space-10);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.skillsTop {
+  margin-bottom: var(--space-6);
 }
 
 .skillsLabel {
   color: var(--text-muted);
-  margin-bottom: var(--space-5);
 }
 
-.skills {
+/* Full-bleed: breaks out of the container to span full viewport width */
+.marqueeRows {
+  position: relative;
+  overflow: hidden;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: var(--space-2);
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
 }
 
-.skill {
-  font-size: var(--text-sm);
+/* Edge masks fade within container bounds */
+.marqueeRows::before,
+.marqueeRows::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marqueeRows::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-primary) 0%, transparent 100%);
+}
+
+.marqueeRows::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-primary) 0%, transparent 100%);
+}
+
+/* ── Each scrolling row ── */
+.marqueeRow {
+  overflow: hidden;
+}
+
+.marqueeTrack {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: marqueeLTR linear infinite;
+  will-change: transform;
+}
+
+@keyframes marqueeLTR {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+.marqueeItem {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding-block: var(--space-2);
+}
+
+.marqueeWord {
+  font-size: clamp(1.15rem, 2.4vw, 1.85rem);
   font-weight: var(--weight-medium);
+  letter-spacing: -0.01em;
   color: var(--text-secondary);
-  padding: var(--space-2) var(--space-4);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-full);
-  background: var(--bg-tertiary);
-  transition:
-    color var(--duration-fast) var(--ease-out),
-    border-color var(--duration-fast) var(--ease-out),
-    background var(--duration-fast) var(--ease-out);
+  transition: color 150ms ease;
+  padding: 0 var(--space-1);
 }
 
-.skill:hover {
+.marqueeWord:hover {
+  color: var(--text-primary);
+}
+
+.marqueeWord.aiWord {
   color: var(--accent-primary);
-  border-color: var(--accent-primary);
-  background: rgba(99, 102, 241, 0.06);
+  opacity: 0.75;
+}
+
+.marqueeWord.aiWord:hover {
+  opacity: 1;
+}
+
+.skillSep {
+  display: inline-block;
+  font-size: clamp(0.85rem, 1.8vw, 1.3rem);
+  color: var(--text-muted);
+  opacity: 0.22;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none;
+    flex-wrap: wrap;
+    white-space: normal;
+    gap: var(--space-2);
+    padding-block: var(--space-3);
+  }
+
+  .marqueeRows::before,
+  .marqueeRows::after {
+    display: none;
+  }
+}
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+  .marqueeRows::before,
+  .marqueeRows::after {
+    width: 48px;
+  }
+
+  .marqueeWord {
+    font-size: clamp(0.95rem, 4vw, 1.3rem);
+  }
 }

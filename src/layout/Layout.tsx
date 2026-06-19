@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Nav } from './Nav';
 import { Footer } from './Footer';
@@ -6,12 +6,14 @@ import { SpaceCanvas } from '../canvas/SpaceCanvas';
 import { SkipLink } from '../components/SkipLink/SkipLink';
 import { CustomCursor } from '../components/CustomCursor/CustomCursor';
 import { PageTransition } from '../components/PageTransition/PageTransition';
+import { SplashScreen } from '../components/SplashScreen/SplashScreen';
 import { useLenis } from '../hooks/useLenis';
 import styles from './Layout.module.css';
 
 export function Layout() {
   const { pathname } = useLocation();
   const mainRef = useRef<HTMLElement>(null);
+  const [splashDone, setSplashDone] = useState(false);
 
   useLenis();
 
@@ -23,6 +25,7 @@ export function Layout() {
 
   return (
     <div className={styles.root} id="top">
+      {!splashDone && <SplashScreen onDone={() => setSplashDone(true)} />}
       <SkipLink />
       <CustomCursor />
       <SpaceCanvas />

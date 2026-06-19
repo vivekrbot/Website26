@@ -1,34 +1,42 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 import { type ReactNode } from 'react';
+import { useReducedMotion } from '../../hooks/useReducedMotion';
 import styles from './PageTransition.module.css';
 
 interface Props {
   children: ReactNode;
 }
 
-const ease = [0.76, 0, 0.24, 1] as const;
-
 export function PageTransition({ children }: Props) {
   const location = useLocation();
+  const reducedMotion = useReducedMotion();
+
+  if (reducedMotion) return <>{children}</>;
 
   return (
     <>
       {children}
 
-      {/* Curtain wipe — sweeps in from bottom, exits to top */}
-      <AnimatePresence>
-        <motion.div
-          key={`curtain-${location.pathname}`}
-          className={styles.curtain}
-          initial={{ scaleY: 0, transformOrigin: 'bottom' }}
-          animate={{
-            scaleY: [0, 1, 1, 0],
-            transformOrigin: ['bottom', 'bottom', 'top', 'top'],
-          }}
-          transition={{ duration: 0.68, times: [0, 0.42, 0.58, 1], ease }}
-        />
-      </AnimatePresence>
+      {/* Portal iris — opens from center, holds, closes back to center */}
+      <motion.div
+        key={`portal-${location.pathname}`}
+        className={styles.portal}
+        initial={{ clipPath: 'circle(0% at 50% 50%)' }}
+        animate={{
+          clipPath: [
+            'circle(0% at 50% 50%)',
+            'circle(105% at 50% 50%)',
+            'circle(105% at 50% 50%)',
+            'circle(0% at 50% 50%)',
+          ],
+        }}
+        transition={{
+          duration: 0.88,
+          times: [0, 0.40, 0.56, 1],
+          ease: [0.76, 0, 0.24, 1],
+        }}
+      />
     </>
   );
 }

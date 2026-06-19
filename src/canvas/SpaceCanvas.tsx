@@ -20,6 +20,11 @@ const SHOOT_JITTER_MS    = 1000; // ± jitter so interval is 5–6 s
 const SHOOT_TRAIL_LEN    = 280;  // fixed trail length in px behind the head
 const SHOOT_DURATION_MS  = 3000; // how long each star takes to cross the screen (3 s)
 
+/* Warp drift — slow radial starfield from viewport center */
+const WARP_COUNT = 72;
+const WARP_PAL_DARK  = ['255,255,255', '129,140,248', '34,211,238'] as const;
+const WARP_PAL_LIGHT = ['20,20,50',    '67,56,202',   '8,145,178']  as const;
+
 interface Star {
   x: number; y: number;
   size: number;
@@ -52,6 +57,15 @@ interface ShootingStar {
   startTime: number;       // Date.now() when spawned
   duration: number;        // total ms to live
   opacity: number;         // peak opacity
+}
+
+interface WarpDrift {
+  a: number;    // angle from center (radians)
+  r: number;    // current radius
+  maxR: number; // edge radius at which it resets
+  spd: number;  // constant speed (px/frame, no acceleration)
+  col: 0 | 1 | 2;
+  op: number;   // base opacity
 }
 
 function randomBetween(a: number, b: number) {
@@ -141,6 +155,21 @@ function initAsteroids(w: number, h: number): Asteroid[] {
   });
 }
 
+function initWarpDrift(w: number, h: number): WarpDrift[] {
+  const maxR = Math.hypot(w / 2, h / 2) * 1.04;
+  return Array.from({ length: WARP_COUNT }, () => {
+    const v = Math.random();
+    return {
+      a:    Math.random() * Math.PI * 2,
+      r:    Math.random() * maxR * 0.88, // staggered so they don't all start at center
+      maxR,
+      spd:  randomBetween(0.20, 0.55),
+      col:  (v < 0.60 ? 0 : v < 0.85 ? 1 : 2) as 0 | 1 | 2,
+      op:   randomBetween(0.04, 0.15),
+    };
+  });
+}
+
 export function SpaceCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const reducedMotion = useReducedMotion();
@@ -148,6 +177,7 @@ export function SpaceCanvas() {
   const starsRef = useRef<Star[]>([]);
   const asteroidsRef = useRef<Asteroid[]>([]);
   const netRef = useRef<NetParticle[]>([]);
+  const warpRef = useRef<WarpDrift[]>([]);
   const cssSizeRef = useRef({ w: 0, h: 0 });
   const shootingStarsRef = useRef<ShootingStar[]>([]);
   const nextShootRef = useRef<number>(Date.now() + SHOOT_INTERVAL_MS);
@@ -169,6 +199,38 @@ export function SpaceCanvas() {
     ctx.clearRect(0, 0, w, h);
 
     const isDark = isDarkRef.current;
+
+    // ── Warp drift — slow radial starfield from viewport center ─────────
+    {
+      const { w: cssW, h: cssH } = cssSizeRef.current;
+      const cx = cssW / 2;
+      const cy = cssH / 2;
+      const pal = isDark ? WARP_PAL_DARK : WARP_PAL_LIGHT;
+      const warpAlpha = isDark ? 1 : 0.32;
+
+      for (const wd of warpRef.current) {
+        const prevR = wd.r;
+        wd.r += wd.spd;
+        if (wd.r > wd.maxR) {
+          wd.r = randomBetween(0, wd.maxR * 0.05);
+        }
+        const tailR  = Math.max(0, prevR - Math.max(3, wd.spd * 18));
+        const fadeIn = Math.min(1, wd.r / (wd.maxR * 0.10));
+        const op     = wd.op * fadeIn * warpAlpha;
+        if (op < 0.004) continue;
+        const x  = cx + Math.cos(wd.a) * wd.r;
+        const y  = cy + Math.sin(wd.a) * wd.r;
+        const tx = cx + Math.cos(wd.a) * tailR;
+        const ty = cy + Math.sin(wd.a) * tailR;
+        ctx.beginPath();
+        ctx.moveTo(tx, ty);
+        ctx.lineTo(x, y);
+        ctx.strokeStyle = `rgba(${pal[wd.col]},${op})`;
+        ctx.lineWidth = 0.6;
+        ctx.stroke();
+      }
+    }
+
     // Light mode: deep charcoal/navy so dots read clearly on white
     const starColor = isDark ? '255,255,255' : '20,20,50';
     const asteroidColor = isDark ? '180,190,220' : '40,40,90';
@@ -432,6 +494,7 @@ export function SpaceCanvas() {
       starsRef.current = initStars(w, h);
       netRef.current = initNetParticles(w, h);
       asteroidsRef.current = initAsteroids(w, h);
+      warpRef.current = initWarpDrift(w, h);
       shootingStarsRef.current = [];
     };
 

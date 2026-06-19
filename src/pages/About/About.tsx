@@ -1,7 +1,9 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { SectionHeader } from '../../components/SectionHeader/SectionHeader';
+import { EscapeText } from '../../components/EscapeText/EscapeText';
 import { Button } from '../../components/Button/Button';
+import { StampSeal } from '../../components/StampSeal/StampSeal';
 import { skills, values, aboutFull, quickFacts } from '../../data/about';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import styles from './About.module.css';
@@ -42,9 +44,9 @@ export default function About() {
           >
             <p className={`label ${styles.eyebrow}`}>About me</p>
             <h1 id="about-page-heading" className={`display-2 ${styles.headline}`}>
-              I design at the<br />
-              <span className="gradient-text">intersection of craft</span><br />
-              and consequence.
+              <EscapeText text="I design at the" /><br />
+              <EscapeText text="intersection of craft" wordClassName="gradient-text" /><br />
+              <EscapeText text="and consequence." />
             </h1>
           </motion.div>
 
@@ -59,6 +61,7 @@ export default function About() {
             <div className={styles.avatarPlaceholder} role="img" aria-label="Photo of Vivek Ramachandran — placeholder">
               <span>VR</span>
             </div>
+            <StampSeal size={110} animate={false} opacity={0.6} className={styles.avatarSeal} />
           </motion.div>
         </div>
       </section>
@@ -74,7 +77,9 @@ export default function About() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
-              <h2 id="story-heading" className={`heading-2 ${styles.storyTitle}`}>My story</h2>
+              <h2 id="story-heading" className={`heading-2 ${styles.storyTitle}`}>
+                <EscapeText text="My story" />
+              </h2>
               {aboutFull.split('\n\n').map((para, i) => (
                 <p key={i} className={styles.storyPara}>{para}</p>
               ))}
@@ -179,7 +184,9 @@ export default function About() {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h2 id="cta-heading" className="heading-2">Ready to work together?</h2>
+            <h2 id="cta-heading" className="heading-2">
+              <EscapeText text="Ready to work together?" />
+            </h2>
             <p className={styles.ctaBody}>
               Whether you have a project in mind, want mentorship, or just want to connect — my inbox is open.
             </p>

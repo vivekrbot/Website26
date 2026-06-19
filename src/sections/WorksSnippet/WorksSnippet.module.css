@@ -75,6 +75,14 @@
   transition: opacity var(--duration-base) var(--ease-out);
 }
 
+[data-theme="light"] .cover::before {
+  background: linear-gradient(135deg,
+    rgba(67,  56, 202, 0.10) 0%,
+    rgba(109, 40, 217, 0.07) 50%,
+    rgba(8,  145, 178, 0.05) 100%
+  );
+}
+
 .card:hover .cover::before {
   opacity: 1.5;
 }

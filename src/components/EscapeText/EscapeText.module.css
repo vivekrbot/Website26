@@ -1,0 +1,16 @@
+.escapeWord {
+  display: inline-block;
+  cursor: default;
+  user-select: none;
+  will-change: transform;
+}
+
+.wordWrap {
+  display: inline;
+}
+
+.wordSpace {
+  display: inline;
+  white-space: pre;
+  pointer-events: none;
+}

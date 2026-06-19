@@ -29,6 +29,18 @@
 .avatarWrap {
   display: flex;
   justify-content: center;
+  position: relative;
+}
+
+/* Stamp seal overlapping the top-right corner of the avatar */
+.avatarSeal {
+  position: absolute;
+  top: -28px;
+  right: -28px;
+}
+
+@media (max-width: 767px) {
+  .avatarSeal { display: none; }
 }
 
 .avatarPlaceholder {
@@ -44,6 +56,11 @@
   font-size: var(--text-4xl);
   font-weight: var(--weight-bold);
   color: var(--accent-primary);
+}
+
+[data-theme="light"] .avatarPlaceholder {
+  background: linear-gradient(135deg, #eef0f7 0%, #e5e7f5 100%);
+  border-color: var(--border-default);
 }
 
 @media (min-width: 768px) {
