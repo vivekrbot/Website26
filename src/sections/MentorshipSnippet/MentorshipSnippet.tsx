@@ -18,11 +18,16 @@ export function MentorshipSnippet() {
   return (
     <section id="mentorship" className={`section ${styles.mentorship}`} aria-labelledby="mentorship-heading">
       <div className="container">
-        <SectionHeader
-          label="Mentorship"
-          title="Let's grow together."
-          subtitle="I offer two tracks a free path for early-career designers, and paid engagements for those with specific goals and tighter timelines."
-        />
+        <div className={styles.header}>
+          <SectionHeader
+            label="Mentorship"
+            title="Let's grow together."
+            subtitle="I offer two tracks a free path for early-career designers, and paid engagements for those with specific goals and tighter timelines."
+          />
+          <Button as="link" href="/mentorship" variant="secondary" size="md" className={styles.seeAll}>
+            View mentorship →
+          </Button>
+        </div>
 
         <div className={styles.tracks}>
           {/* Free track */}
@@ -84,11 +89,6 @@ export function MentorshipSnippet() {
           </div>
         </div>
 
-        <div className={styles.more}>
-          <Button as="link" href="/mentorship" variant="secondary" size="md">
-            Full mentorship details →
-          </Button>
-        </div>
       </div>
     </section>
   );

@@ -1,5 +1,25 @@
 .mentorship {}
 
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  margin-bottom: var(--space-12);
+}
+
+.header > :first-child {
+  flex: 1;
+  min-width: 280px;
+  margin-bottom: 0;
+}
+
+.seeAll {
+  flex-shrink: 0;
+  align-self: flex-end;
+}
+
 .tracks {
   display: grid;
   grid-template-columns: 1fr;
