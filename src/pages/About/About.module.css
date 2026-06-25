@@ -70,6 +70,23 @@
   }
 }
 
+.avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: var(--radius-2xl);
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid var(--border-default);
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .avatar {
+    width: 240px;
+    height: 240px;
+  }
+}
+
 /* Story */
 .story { background: transparent; }
 

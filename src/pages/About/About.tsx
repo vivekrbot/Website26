@@ -6,6 +6,7 @@ import { Button } from '../../components/Button/Button';
 import { StampSeal } from '../../components/StampSeal/StampSeal';
 import { skills, values, aboutFull, quickFacts } from '../../data/about';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
+import avatarImg from '../../img/IMG_5501.JPG';
 import styles from './About.module.css';
 
 const fadeUp = {
@@ -57,10 +58,7 @@ export default function About() {
             animate="visible"
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
           >
-            {/* Avatar placeholder — replace with <img src="..." alt="Vivek Ramachandran" /> */}
-            <div className={styles.avatarPlaceholder} role="img" aria-label="Photo of Vivek Ramachandran — placeholder">
-              <span>VR</span>
-            </div>
+            <img src={avatarImg} alt="Photo of Vivek Ramachandran" className={styles.avatar} />
             <StampSeal size={110} animate={false} opacity={0.6} className={styles.avatarSeal} />
           </motion.div>
         </div>
@@ -188,14 +186,24 @@ export default function About() {
               <EscapeText text="Ready to work together?" />
             </h2>
             <p className={styles.ctaBody}>
-              Whether you have a project in mind, want mentorship, or just want to connect — my inbox is open.
+              Whether you have a project in mind, want mentorship, or just want to connect - my inbox is open.
             </p>
             <div className={styles.ctaBtns}>
-              <Button as="a" href="mailto:vdraganer@gmail.com" variant="primary" size="lg">
-                Say hello
+              <Button as="a" href="https://calendly.com/vdraganer" variant="primary" size="lg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+                Book a Call
               </Button>
-              <Button as="link" href="/mentorship" variant="secondary" size="lg">
-                Explore mentorship
+              <Button as="a" href="mailto:vdraganer@gmail.com" variant="secondary" size="lg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                Send an Email
               </Button>
             </div>
           </motion.div>

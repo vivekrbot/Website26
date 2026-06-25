@@ -89,7 +89,7 @@ export function AboutSnippet() {
               <EscapeText text="Craft meets strategy." />
             </h2>
             <p className={styles.headerSubtitle}>
-              <EscapeText text="I design products that sit at the intersection of beautiful and business-critical — from zero-to-one apps to enterprise platforms with global scale." />
+              <EscapeText text="I design products that sit at the intersection of beautiful and business-critical from zero-to-one apps to enterprise platforms with global scale." />
             </p>
           </header>
 

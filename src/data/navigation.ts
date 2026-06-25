@@ -6,7 +6,6 @@ export const defaultNavItems: NavItem[] = [
   { label: 'Work', href: '/works' },
   { label: 'About', href: '/about' },
   { label: 'Mentorship', href: '/mentorship' },
-  { label: 'Contact', href: 'mailto:vdraganer@gmail.com', isExternal: true },
 ];
 
 export const defaultSocialLinks: SocialLink[] = [

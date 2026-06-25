@@ -56,7 +56,6 @@ export function Footer() {
               <li><Link to="/works" className={styles.footerLink}>Work</Link></li>
               <li><Link to="/about" className={styles.footerLink}>About</Link></li>
               <li><Link to="/mentorship" className={styles.footerLink}>Mentorship</Link></li>
-              <li><a href="mailto:vdraganer@gmail.com" className={styles.footerLink}>Contact</a></li>
             </ul>
           </nav>
         </div>
