@@ -8,9 +8,6 @@ export interface Project {
   coverImage: string;
   featured: boolean;
   role: string;
-  problem: string;
-  process: string[];
-  outcome: string;
   links: { label: string; url: string }[];
 }
 

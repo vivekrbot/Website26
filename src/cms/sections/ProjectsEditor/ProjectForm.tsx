@@ -17,9 +17,6 @@ const BLANK_PROJECT: Omit<Project, 'slug'> = {
   coverImage: '',
   featured: false,
   role: '',
-  problem: '',
-  process: [],
-  outcome: '',
   links: [],
 };
 
@@ -111,18 +108,6 @@ export function ProjectForm({ project, existingSlugs, onSave, onCancel }: Projec
 
       <CMSField label="Tags">
         <StringArrayField items={form.tags} onChange={(v) => set('tags', v)} placeholder="Tag…" addLabel="+ Add tag" allowReorder={false} />
-      </CMSField>
-
-      <CMSField label="Problem" hint="What challenge were you solving?">
-        <textarea className="cms-input cms-textarea" value={form.problem} placeholder="Describe the problem…" rows={4} onChange={(e) => set('problem', e.target.value)} />
-      </CMSField>
-
-      <CMSField label="Process Steps" hint="Each item becomes a numbered step in the case study.">
-        <StringArrayField items={form.process} onChange={(v) => set('process', v)} placeholder="Describe a process step…" addLabel="+ Add step" />
-      </CMSField>
-
-      <CMSField label="Outcome" hint="Quantified result or impact.">
-        <textarea className="cms-input cms-textarea" value={form.outcome} placeholder="What shipped and what happened?" rows={3} onChange={(e) => set('outcome', e.target.value)} />
       </CMSField>
 
       <CMSField label="Links" hint="External links shown on the case study (e.g. Live Site, Case Study PDF).">

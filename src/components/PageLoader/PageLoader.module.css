@@ -1,0 +1,62 @@
+/* Full-screen loader overlay */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+/* Brand name */
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Progress track */
+.track {
+  width: 200px;
+  height: 2px;
+  background: var(--border-subtle);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/* Animated fill */
+.fill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(
+    to right,
+    var(--accent-primary),
+    rgba(129, 140, 248, 1),
+    rgba(34, 211, 238, 0.8)
+  );
+  transition: width 1.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-theme="light"] .fill {
+  background: linear-gradient(
+    to right,
+    #4338ca,
+    #6366f1,
+    #0891b2
+  );
+}
+
+[data-theme="light"] .track {
+  background: rgba(0, 0, 0, 0.1);
+}

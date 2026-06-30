@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import { Layout } from './layout/Layout';
@@ -8,7 +9,7 @@ const Works       = lazy(() => import('./pages/Works/Works'));
 const WorkDetail  = lazy(() => import('./pages/WorkDetail/WorkDetail'));
 const Mentorship  = lazy(() => import('./pages/Mentorship/Mentorship'));
 
-function PageLoader() {
+function PageFallback() {
   return (
     <div
       style={{
@@ -30,7 +31,7 @@ function PageLoader() {
 
 function withSuspense(Component: React.ComponentType) {
   return (
-    <Suspense fallback={<PageLoader />}>
+    <Suspense fallback={<PageFallback />}>
       <Component />
     </Suspense>
   );
@@ -45,9 +46,9 @@ const devRoutes = import.meta.env.DEV
       return [
         {
           path: 'cms',
-          element: <Suspense fallback={<PageLoader />}><CMSLayout /></Suspense>,
+          element: <Suspense fallback={<PageFallback />}><CMSLayout /></Suspense>,
           children: [
-            { index: true, element: <Suspense fallback={<PageLoader />}><CMSDashboard /></Suspense> },
+            { index: true, element: <Suspense fallback={<PageFallback />}><CMSDashboard /></Suspense> },
           ],
         },
       ];

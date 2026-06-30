@@ -6,7 +6,7 @@ export function CustomCursor() {
   const [visible, setVisible] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [clicking, setClicking] = useState(false);
-  const [isFine, setIsFine] = useState(false);
+  const [isFine] = useState(() => window.matchMedia('(pointer: fine)').matches);
 
   const rawX = useMotionValue(-100);
   const rawY = useMotionValue(-100);
@@ -19,8 +19,7 @@ export function CustomCursor() {
   const posRef = useRef({ x: -100, y: -100 });
 
   useEffect(() => {
-    if (!window.matchMedia('(pointer: fine)').matches) return;
-    setIsFine(true);
+    if (!isFine) return;
 
     const update = () => {
       rawX.set(posRef.current.x);
@@ -61,7 +60,7 @@ export function CustomCursor() {
       document.removeEventListener('mousedown', onDown);
       document.removeEventListener('mouseup', onUp);
     };
-  }, [rawX, rawY]);
+  }, [isFine, rawX, rawY]);
 
   if (!isFine) return null;
 

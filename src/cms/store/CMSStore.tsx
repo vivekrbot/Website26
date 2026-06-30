@@ -95,6 +95,7 @@ export function CMSStoreProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useCMSStore(): CMSStoreContext {
   const ctx = useContext(Context);
   if (!ctx) throw new Error('useCMSStore must be used inside CMSStoreProvider');

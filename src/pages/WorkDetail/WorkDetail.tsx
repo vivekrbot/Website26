@@ -1,11 +1,49 @@
 import { Helmet } from 'react-helmet-async';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useMemo } from 'react';
+import { generateHTML } from '@tiptap/core';
+import StarterKit from '@tiptap/starter-kit';
+import Image from '@tiptap/extension-image';
+import TiptapLink from '@tiptap/extension-link';
+import TextAlign from '@tiptap/extension-text-align';
+import Highlight from '@tiptap/extension-highlight';
+import type { JSONContent } from '@tiptap/core';
 import { Button } from '../../components/Button/Button';
 import { EscapeText } from '../../components/EscapeText/EscapeText';
 import { projects } from '../../data/projects';
+import projectBodiesJson from '../../data/project-bodies.json';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import styles from './WorkDetail.module.css';
+
+const RENDER_EXTENSIONS = [
+  StarterKit,
+  Image,
+  TiptapLink,
+  TextAlign.configure({ types: ['heading', 'paragraph'] }),
+  Highlight,
+];
+
+function loadBodyHtml(slug: string): string | null {
+  try {
+    const stored = localStorage.getItem('vr-cms-bodies');
+    if (stored) {
+      const bodies = JSON.parse(stored) as Record<string, JSONContent>;
+      if (bodies[slug]) {
+        return generateHTML(bodies[slug], RENDER_EXTENSIONS);
+      }
+    }
+  } catch { /* fall through */ }
+
+  const staticBody = (projectBodiesJson as Record<string, JSONContent>)[slug];
+  if (staticBody) {
+    try {
+      return generateHTML(staticBody, RENDER_EXTENSIONS);
+    } catch { /* fall through */ }
+  }
+
+  return null;
+}
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -16,6 +54,7 @@ export default function WorkDetail() {
   const { slug } = useParams<{ slug: string }>();
   const reducedMotion = useReducedMotion();
   const project = projects.find((p) => p.slug === slug);
+  const bodyHtml = useMemo(() => (slug ? loadBodyHtml(slug) : null), [slug]);
 
   if (!project) return <Navigate to="/works" replace />;
 
@@ -98,75 +137,22 @@ export default function WorkDetail() {
       </div>
 
       {/* Case study body */}
-      <article className="container" aria-label="Case study">
-        {/* Problem */}
-        <motion.section
-          className={styles.caseSection}
-          aria-labelledby="problem-heading"
+      {bodyHtml ? (
+        <motion.article
+          className={`container ${styles.richBody}`}
+          aria-label="Case study"
           variants={fadeUp}
           initial={reducedMotion ? 'visible' : 'hidden'}
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <p className={`label ${styles.caseLabel}`}>01 — The Problem</p>
-          <h2 id="problem-heading" className={`heading-2 ${styles.caseTitle}`}>
-            <EscapeText text="What we were solving" />
-          </h2>
-          <p className={styles.caseBody}>{project.problem}</p>
-        </motion.section>
-
-        {/* Visual placeholder */}
-        <div className={styles.visualPlaceholder} aria-hidden="true">
-          [Visual / screenshot — replace with real project image]
+          dangerouslySetInnerHTML={{ __html: bodyHtml }}
+        />
+      ) : (
+        <div className={`container ${styles.noBody}`}>
+          <p>Case study coming soon.</p>
         </div>
-
-        {/* Process */}
-        <motion.section
-          className={styles.caseSection}
-          aria-labelledby="process-heading"
-          variants={fadeUp}
-          initial={reducedMotion ? 'visible' : 'hidden'}
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <p className={`label ${styles.caseLabel}`}>02 — The Process</p>
-          <h2 id="process-heading" className={`heading-2 ${styles.caseTitle}`}>
-            <EscapeText text="How we got there" />
-          </h2>
-          <ol className={styles.processList}>
-            {project.process.map((step, i) => (
-              <li key={i} className={styles.processItem}>
-                <span className={styles.processNum} aria-hidden="true">0{i + 1}</span>
-                <p className={styles.processText}>{step}</p>
-              </li>
-            ))}
-          </ol>
-        </motion.section>
-
-        {/* Visual placeholder 2 */}
-        <div className={styles.visualPlaceholder} aria-hidden="true">
-          [Process visual / wireframe — replace with real project image]
-        </div>
-
-        {/* Outcome */}
-        <motion.section
-          className={styles.caseSection}
-          aria-labelledby="outcome-heading"
-          variants={fadeUp}
-          initial={reducedMotion ? 'visible' : 'hidden'}
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <p className={`label ${styles.caseLabel}`}>03 — The Outcome</p>
-          <h2 id="outcome-heading" className={`heading-2 ${styles.caseTitle}`}>
-            <EscapeText text="What we shipped" />
-          </h2>
-          <p className={`${styles.caseBody} ${styles.outcomeBody}`}>{project.outcome}</p>
-        </motion.section>
-      </article>
+      )}
 
       {/* Next/Prev navigation */}
       <nav className={`container ${styles.projectNav}`} aria-label="Navigate between projects">

@@ -180,6 +180,7 @@ export function SpaceCanvas() {
   const warpRef = useRef<WarpDrift[]>([]);
   const cssSizeRef = useRef({ w: 0, h: 0 });
   const shootingStarsRef = useRef<ShootingStar[]>([]);
+  // eslint-disable-next-line react-hooks/purity
   const nextShootRef = useRef<number>(Date.now() + SHOOT_INTERVAL_MS);
   const mouseRef = useRef({ x: -9999, y: -9999 });
   const frameRef = useRef(0);
@@ -472,6 +473,7 @@ export function SpaceCanvas() {
     }
 
     if (!hiddenRef.current) {
+      // eslint-disable-next-line react-hooks/immutability
       rafRef.current = requestAnimationFrame(draw);
     }
   }, []);

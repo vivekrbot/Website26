@@ -6,14 +6,14 @@ import { SpaceCanvas } from '../canvas/SpaceCanvas';
 import { SkipLink } from '../components/SkipLink/SkipLink';
 import { CustomCursor } from '../components/CustomCursor/CustomCursor';
 import { PageTransition } from '../components/PageTransition/PageTransition';
-import { SplashScreen } from '../components/SplashScreen/SplashScreen';
+import { PageLoader } from '../components/PageLoader/PageLoader';
 import { useLenis } from '../hooks/useLenis';
 import styles from './Layout.module.css';
 
 export function Layout() {
   const { pathname } = useLocation();
   const mainRef = useRef<HTMLElement>(null);
-  const [splashDone, setSplashDone] = useState(false);
+  const [loaderDone, setLoaderDone] = useState(false);
 
   useLenis();
 
@@ -25,7 +25,7 @@ export function Layout() {
 
   return (
     <div className={styles.root} id="top">
-      {!splashDone && <SplashScreen onDone={() => setSplashDone(true)} />}
+      {!loaderDone && <PageLoader onDone={() => setLoaderDone(true)} />}
       <SkipLink />
       <CustomCursor />
       <SpaceCanvas />

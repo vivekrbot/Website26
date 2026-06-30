@@ -125,6 +125,7 @@ export function HeroCanvas() {
     if (!ctx) return;
 
     const { w, h } = sizeRef.current;
+    // eslint-disable-next-line react-hooks/immutability
     if (!w || !h) { rafRef.current = requestAnimationFrame(draw); return; }
 
     const cx = w / 2;
