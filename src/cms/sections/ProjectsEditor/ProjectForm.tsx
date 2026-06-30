@@ -11,6 +11,7 @@ function toSlug(title: string): string {
 const BLANK_PROJECT: Omit<Project, 'slug'> = {
   title: '',
   tagline: '',
+  shortDescription: '',
   category: '',
   tags: [],
   year: new Date().getFullYear(),
@@ -97,6 +98,16 @@ export function ProjectForm({ project, existingSlugs, onSave, onCancel }: Projec
 
       <CMSField label="Tagline" hint="One-line summary shown on project cards.">
         <input className="cms-input" value={form.tagline} placeholder="Short, punchy tagline…" onChange={(e) => set('tagline', e.target.value)} />
+      </CMSField>
+
+      <CMSField label="Short Description" hint="2–3 sentences shown on the project detail page. Tells visitors what the project is about.">
+        <textarea
+          className="cms-input"
+          value={form.shortDescription}
+          placeholder="A brief overview of the project — problem, approach, and outcome…"
+          rows={3}
+          onChange={(e) => set('shortDescription', e.target.value)}
+        />
       </CMSField>
 
       <div className={styles.checkRow}>

@@ -1,16 +1,14 @@
 import { useState } from 'react';
 import { useCMSStore } from '../../store/CMSStore';
-import { readBodies } from '../../utils/bodiesStorage';
 import styles from './ExportModal.module.css';
 
-type Tab = 'projects' | 'about' | 'mentorship' | 'navigation' | 'bodies';
+type Tab = 'projects' | 'about' | 'mentorship' | 'navigation';
 
 const TABS: { id: Tab; label: string; file: string }[] = [
-  { id: 'projects',   label: 'projects.ts',          file: 'src/data/projects.ts' },
-  { id: 'about',      label: 'about.ts',              file: 'src/data/about.ts' },
-  { id: 'mentorship', label: 'mentorship.ts',         file: 'src/data/mentorship.ts' },
-  { id: 'navigation', label: 'navigation.ts',         file: 'src/data/navigation.ts' },
-  { id: 'bodies',     label: 'project-bodies.json',   file: 'src/data/project-bodies.json' },
+  { id: 'projects',   label: 'projects.ts',    file: 'src/data/projects.ts' },
+  { id: 'about',      label: 'about.ts',        file: 'src/data/about.ts' },
+  { id: 'mentorship', label: 'mentorship.ts',   file: 'src/data/mentorship.ts' },
+  { id: 'navigation', label: 'navigation.ts',   file: 'src/data/navigation.ts' },
 ];
 
 function pretty(value: unknown): string {
@@ -48,14 +46,11 @@ export function ExportModal({ onClose }: ExportModalProps) {
   const [tab, setTab] = useState<Tab>('projects');
   const [copied, setCopied] = useState(false);
 
-  const bodiesJson = pretty(readBodies());
-
   const snippets: Record<Tab, string> = {
     projects:   buildProjectsSnippet(projects),
     about:      buildAboutSnippet(about),
     mentorship: buildMentorshipSnippet(mentorshipTiers),
     navigation: buildNavigationSnippet(navigation),
-    bodies:     bodiesJson,
   };
 
   const activeFile = TABS.find((t) => t.id === tab)!.file;
@@ -67,16 +62,6 @@ export function ExportModal({ onClose }: ExportModalProps) {
     });
   };
 
-  const downloadBodies = () => {
-    const blob = new Blob([bodiesJson], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'project-bodies.json';
-    a.click();
-    URL.revokeObjectURL(url);
-  };
-
   return (
     <div className={styles.overlay} onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div className={styles.modal} role="dialog" aria-modal="true" aria-label="Export to code">
@@ -85,10 +70,7 @@ export function ExportModal({ onClose }: ExportModalProps) {
           <div>
             <h2 className={styles.title}>Export to code</h2>
             <p className={styles.subtitle}>
-              {tab === 'bodies'
-                ? <>Download and save as <code className={styles.code}>{activeFile}</code>, then commit to Git</>
-                : <>Copy the snippet and paste it into <code className={styles.code}>{activeFile}</code></>
-              }
+              Copy the snippet and paste it into <code className={styles.code}>{activeFile}</code>
             </p>
           </div>
           <button className={styles.closeBtn} onClick={onClose} aria-label="Close export">✕</button>
@@ -115,31 +97,12 @@ export function ExportModal({ onClose }: ExportModalProps) {
 
         {/* Footer */}
         <div className={styles.footer}>
-          {tab === 'bodies' ? (
-            <>
-              <p className={styles.footerHint}>
-                Save as <code className={styles.code}>src/data/project-bodies.json</code> and run{' '}
-                <code className={styles.code}>git add src/data/project-bodies.json && git commit -m "Update case studies" && git push</code>
-              </p>
-              <div className={styles.footerActions}>
-                <button className={styles.copyBtn} onClick={copy} type="button">
-                  {copied ? '✓ Copied' : 'Copy JSON'}
-                </button>
-                <button className={`${styles.copyBtn} ${styles.downloadBtn}`} onClick={downloadBodies} type="button">
-                  ↓ Download
-                </button>
-              </div>
-            </>
-          ) : (
-            <>
-              <p className={styles.footerHint}>
-                After pasting, run <code className={styles.code}>git add src/data/ && git commit -m "Update content" && git push origin main</code>
-              </p>
-              <button className={`${styles.copyBtn} ${copied ? styles.copied : ''}`} onClick={copy} type="button">
-                {copied ? '✓ Copied!' : 'Copy snippet'}
-              </button>
-            </>
-          )}
+          <p className={styles.footerHint}>
+            After pasting, run <code className={styles.code}>git add src/data/ && git commit -m "Update content" && git push origin main</code>
+          </p>
+          <button className={`${styles.copyBtn} ${copied ? styles.copied : ''}`} onClick={copy} type="button">
+            {copied ? '✓ Copied!' : 'Copy snippet'}
+          </button>
         </div>
       </div>
     </div>

@@ -1,49 +1,11 @@
 import { Helmet } from 'react-helmet-async';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { useMemo } from 'react';
-import { generateHTML } from '@tiptap/core';
-import StarterKit from '@tiptap/starter-kit';
-import Image from '@tiptap/extension-image';
-import TiptapLink from '@tiptap/extension-link';
-import TextAlign from '@tiptap/extension-text-align';
-import Highlight from '@tiptap/extension-highlight';
-import type { JSONContent } from '@tiptap/core';
 import { Button } from '../../components/Button/Button';
 import { EscapeText } from '../../components/EscapeText/EscapeText';
 import { projects } from '../../data/projects';
-import projectBodiesJson from '../../data/project-bodies.json';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import styles from './WorkDetail.module.css';
-
-const RENDER_EXTENSIONS = [
-  StarterKit,
-  Image,
-  TiptapLink,
-  TextAlign.configure({ types: ['heading', 'paragraph'] }),
-  Highlight,
-];
-
-function loadBodyHtml(slug: string): string | null {
-  try {
-    const stored = localStorage.getItem('vr-cms-bodies');
-    if (stored) {
-      const bodies = JSON.parse(stored) as Record<string, JSONContent>;
-      if (bodies[slug]) {
-        return generateHTML(bodies[slug], RENDER_EXTENSIONS);
-      }
-    }
-  } catch { /* fall through */ }
-
-  const staticBody = (projectBodiesJson as Record<string, JSONContent>)[slug];
-  if (staticBody) {
-    try {
-      return generateHTML(staticBody, RENDER_EXTENSIONS);
-    } catch { /* fall through */ }
-  }
-
-  return null;
-}
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -54,7 +16,6 @@ export default function WorkDetail() {
   const { slug } = useParams<{ slug: string }>();
   const reducedMotion = useReducedMotion();
   const project = projects.find((p) => p.slug === slug);
-  const bodyHtml = useMemo(() => (slug ? loadBodyHtml(slug) : null), [slug]);
 
   if (!project) return <Navigate to="/works" replace />;
 
@@ -122,7 +83,6 @@ export default function WorkDetail() {
           <div className={styles.cover}>
             <div className={styles.coverGradient} />
             <div className={styles.coverPattern} />
-            <p className={styles.coverPlaceholder}>[Project cover image — replace with real visual]</p>
           </div>
         </div>
       </section>
@@ -136,22 +96,19 @@ export default function WorkDetail() {
         </ul>
       </div>
 
-      {/* Case study body */}
-      {bodyHtml ? (
-        <motion.article
-          className={`container ${styles.richBody}`}
-          aria-label="Case study"
+      {/* Short description */}
+      {project.shortDescription && (
+        <motion.section
+          className={`container ${styles.caseStudy}`}
+          aria-label="About this project"
           variants={fadeUp}
           initial={reducedMotion ? 'visible' : 'hidden'}
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          dangerouslySetInnerHTML={{ __html: bodyHtml }}
-        />
-      ) : (
-        <div className={`container ${styles.noBody}`}>
-          <p>Case study coming soon.</p>
-        </div>
+        >
+          <p className={styles.shortDesc}>{project.shortDescription}</p>
+        </motion.section>
       )}
 
       {/* Next/Prev navigation */}

@@ -166,14 +166,3 @@
   pointer-events: none;
 }
 
-.footerActions {
-  display: flex;
-  gap: var(--space-2);
-  flex-shrink: 0;
-}
-
-.downloadBtn {
-  background: #0d9488;
-}
-
-.downloadBtn:hover { background: #0f766e; }

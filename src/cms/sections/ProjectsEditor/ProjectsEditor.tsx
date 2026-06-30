@@ -3,14 +3,12 @@ import { useCMSStore } from '../../store/CMSStore';
 import { CMSCard } from '../../components/CMSCard/CMSCard';
 import { ConfirmButton } from '../../components/ConfirmButton/ConfirmButton';
 import { ProjectForm } from './ProjectForm';
-import { RichTextEditor } from '../../components/RichTextEditor/RichTextEditor';
 import type { Project } from '../../../types';
 import styles from './ProjectsEditor.module.css';
 
 export function ProjectsEditor() {
   const { projects, setProjects, resetSection } = useCMSStore();
   const [editingSlug, setEditingSlug] = useState<string | null>(null);
-  const [writingSlug, setWritingSlug] = useState<string | null>(null);
   const [addingNew, setAddingNew] = useState(false);
   const [savedAt, setSavedAt] = useState<Date | null>(null);
 
@@ -40,7 +38,6 @@ export function ProjectsEditor() {
   const deleteProject = (slug: string) => {
     save(projects.filter((p) => p.slug !== slug));
     if (editingSlug === slug) setEditingSlug(null);
-    if (writingSlug === slug) setWritingSlug(null);
   };
 
   const handleSaveProject = (project: Project, originalSlug: string | null) => {
@@ -56,125 +53,104 @@ export function ProjectsEditor() {
   const existingSlugs = (excludeSlug?: string) =>
     projects.map((p) => p.slug).filter((s) => s !== excludeSlug);
 
-  const writingProject = writingSlug ? projects.find((p) => p.slug === writingSlug) : null;
-
   return (
-    <>
-      {/* Case study full-screen editor — rendered outside the card so it can overlay */}
-      {writingProject && (
-        <RichTextEditor
-          slug={writingProject.slug}
-          projectTitle={writingProject.title}
-          onClose={() => setWritingSlug(null)}
+    <CMSCard
+      title="Projects"
+      description="Add, edit, reorder, and toggle featured status. Set a Case Study URL to link to your Medium write-up."
+      savedAt={savedAt}
+      actions={
+        <ConfirmButton
+          label="Reset to defaults"
+          confirmLabel="Confirm reset?"
+          onConfirm={() => { resetSection('projects'); setSavedAt(null); }}
         />
+      }
+    >
+      <div className={styles.toolbar}>
+        <button
+          className={styles.addBtn}
+          onClick={() => { setAddingNew(true); setEditingSlug(null); }}
+          type="button"
+          disabled={addingNew}
+        >
+          + Add project
+        </button>
+        <span className={styles.count}>{projects.length} project{projects.length !== 1 ? 's' : ''}</span>
+      </div>
+
+      {/* New project form */}
+      {addingNew && (
+        <div className={styles.formWrap}>
+          <ProjectForm
+            project={null}
+            existingSlugs={existingSlugs()}
+            onSave={(p) => handleSaveProject(p, null)}
+            onCancel={() => setAddingNew(false)}
+          />
+        </div>
       )}
 
-      <CMSCard
-        title="Projects"
-        description="Add, edit, reorder, and toggle featured status. Click Write to author the full case study."
-        savedAt={savedAt}
-        actions={
-          <ConfirmButton
-            label="Reset to defaults"
-            confirmLabel="Confirm reset?"
-            onConfirm={() => { resetSection('projects'); setSavedAt(null); }}
-          />
-        }
-      >
-        <div className={styles.toolbar}>
-          <button
-            className={styles.addBtn}
-            onClick={() => { setAddingNew(true); setEditingSlug(null); }}
-            type="button"
-            disabled={addingNew}
-          >
-            + Add project
-          </button>
-          <span className={styles.count}>{projects.length} project{projects.length !== 1 ? 's' : ''}</span>
-        </div>
-
-        {/* New project form */}
-        {addingNew && (
-          <div className={styles.formWrap}>
-            <ProjectForm
-              project={null}
-              existingSlugs={existingSlugs()}
-              onSave={(p) => handleSaveProject(p, null)}
-              onCancel={() => setAddingNew(false)}
-            />
-          </div>
-        )}
-
-        {/* Project list */}
-        <ul className={styles.list} role="list">
-          {projects.map((project, index) => (
-            <li key={project.slug} className={styles.projectItem}>
-              <div className={styles.row}>
-                {/* Reorder */}
-                <div className={styles.reorder}>
-                  <button type="button" onClick={() => moveUp(index)} disabled={index === 0} aria-label="Move up" className={styles.reorderBtn}>↑</button>
-                  <button type="button" onClick={() => moveDown(index)} disabled={index === projects.length - 1} aria-label="Move down" className={styles.reorderBtn}>↓</button>
-                </div>
-
-                {/* Info */}
-                <div className={styles.info}>
-                  <span className={styles.projectTitle}>{project.title}</span>
-                  <span className={styles.projectMeta}>{project.category} · {project.year}</span>
-                </div>
-
-                {/* Featured toggle */}
-                <label className={styles.featuredLabel}>
-                  <input
-                    type="checkbox"
-                    className="cms-checkbox"
-                    checked={project.featured}
-                    onChange={() => toggleFeatured(project.slug)}
-                    aria-label={`${project.title} featured`}
-                  />
-                  <span className={styles.featuredText}>Featured</span>
-                </label>
-
-                {/* Actions */}
-                <div className={styles.actions}>
-                  <button
-                    type="button"
-                    className={styles.writeBtn}
-                    onClick={() => setWritingSlug(project.slug)}
-                    title="Write case study"
-                  >
-                    Write
-                  </button>
-                  <button
-                    type="button"
-                    className={styles.editBtn}
-                    onClick={() => setEditingSlug(editingSlug === project.slug ? null : project.slug)}
-                    aria-expanded={editingSlug === project.slug}
-                  >
-                    {editingSlug === project.slug ? 'Close' : 'Edit'}
-                  </button>
-                  <ConfirmButton
-                    label="Delete"
-                    confirmLabel="Delete?"
-                    onConfirm={() => deleteProject(project.slug)}
-                  />
-                </div>
+      {/* Project list */}
+      <ul className={styles.list} role="list">
+        {projects.map((project, index) => (
+          <li key={project.slug} className={styles.projectItem}>
+            <div className={styles.row}>
+              {/* Reorder */}
+              <div className={styles.reorder}>
+                <button type="button" onClick={() => moveUp(index)} disabled={index === 0} aria-label="Move up" className={styles.reorderBtn}>↑</button>
+                <button type="button" onClick={() => moveDown(index)} disabled={index === projects.length - 1} aria-label="Move down" className={styles.reorderBtn}>↓</button>
               </div>
 
-              {/* Inline edit form */}
-              {editingSlug === project.slug && (
-                <div className={styles.formWrap}>
-                  <ProjectForm
-                    project={project}
-                    existingSlugs={existingSlugs(project.slug)}
-                    onSave={(p) => handleSaveProject(p, project.slug)}
-                    onCancel={() => setEditingSlug(null)}
-                  />
-                </div>
-              )}
-            </li>
-          ))}
-        </ul>
-      </CMSCard>
-    </>
+              {/* Info */}
+              <div className={styles.info}>
+                <span className={styles.projectTitle}>{project.title}</span>
+                <span className={styles.projectMeta}>{project.category} · {project.year}</span>
+              </div>
+
+              {/* Featured toggle */}
+              <label className={styles.featuredLabel}>
+                <input
+                  type="checkbox"
+                  className="cms-checkbox"
+                  checked={project.featured}
+                  onChange={() => toggleFeatured(project.slug)}
+                  aria-label={`${project.title} featured`}
+                />
+                <span className={styles.featuredText}>Featured</span>
+              </label>
+
+              {/* Actions */}
+              <div className={styles.actions}>
+                <button
+                  type="button"
+                  className={styles.editBtn}
+                  onClick={() => setEditingSlug(editingSlug === project.slug ? null : project.slug)}
+                  aria-expanded={editingSlug === project.slug}
+                >
+                  {editingSlug === project.slug ? 'Close' : 'Edit'}
+                </button>
+                <ConfirmButton
+                  label="Delete"
+                  confirmLabel="Delete?"
+                  onConfirm={() => deleteProject(project.slug)}
+                />
+              </div>
+            </div>
+
+            {/* Inline edit form */}
+            {editingSlug === project.slug && (
+              <div className={styles.formWrap}>
+                <ProjectForm
+                  project={project}
+                  existingSlugs={existingSlugs(project.slug)}
+                  onSave={(p) => handleSaveProject(p, project.slug)}
+                  onCancel={() => setEditingSlug(null)}
+                />
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+    </CMSCard>
   );
 }
