@@ -22,7 +22,10 @@ if (!projectId) {
   process.exit(0);
 }
 
-const client = createClient({ projectId, dataset, apiVersion: '2024-01-01', useCdn: true });
+// useCdn: false — this runs occasionally (dev start / CI build), so freshness
+// matters more than the CDN's higher throughput; the CDN can lag a live edit
+// by up to a minute, which would make just-published Studio changes vanish.
+const client = createClient({ projectId, dataset, apiVersion: '2024-01-01', useCdn: false });
 const builder = createImageUrlBuilder(client);
 const urlFor = (source) => (source ? builder.image(source).url() : '');
 
@@ -36,7 +39,11 @@ async function writeProjects() {
   const docs = await client.fetch(`*[_type == "project"] | order(order asc){
     "slug": slug.current, title, tagline, shortDescription, category, tags, year,
     coverImage, featured, role,
-    links[]{label, url}
+    links[]{label, url},
+    body[]{
+      ...,
+      _type == "image" => { "asset": asset->{"url": url} }
+    }
   }`);
 
   const projects = docs.map((d) => ({
@@ -44,6 +51,7 @@ async function writeProjects() {
     title: d.title ?? '',
     tagline: d.tagline ?? '',
     shortDescription: d.shortDescription ?? '',
+    body: d.body ?? [],
     category: d.category ?? '',
     tags: d.tags ?? [],
     year: d.year ?? new Date().getFullYear(),

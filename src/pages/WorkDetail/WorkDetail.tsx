@@ -1,11 +1,20 @@
 import { Helmet } from 'react-helmet-async';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { PortableText, type PortableTextComponents } from '@portabletext/react';
 import { Button } from '../../components/Button/Button';
 import { EscapeText } from '../../components/EscapeText/EscapeText';
 import { projects } from '../../data/projects';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import styles from './WorkDetail.module.css';
+
+const portableTextComponents: PortableTextComponents = {
+  types: {
+    image: ({ value }) => (
+      <img className={styles.bodyImage} src={value?.asset?.url} alt={value?.alt ?? ''} loading="lazy" />
+    ),
+  },
+};
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -108,6 +117,23 @@ export default function WorkDetail() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className={styles.shortDesc}>{project.shortDescription}</p>
+        </motion.section>
+      )}
+
+      {/* Full case study */}
+      {project.body?.length > 0 && (
+        <motion.section
+          className={`container ${styles.bodySection}`}
+          aria-label="Case study"
+          variants={fadeUp}
+          initial={reducedMotion ? 'visible' : 'hidden'}
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className={styles.body}>
+            <PortableText value={project.body} components={portableTextComponents} />
+          </div>
         </motion.section>
       )}
 

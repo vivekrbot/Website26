@@ -29,8 +29,45 @@ export const project = defineType({
     defineField({
       name: 'shortDescription',
       title: 'Short description',
+      description: 'Short intro paragraph shown at the top of the case study.',
       type: 'text',
       rows: 3,
+    }),
+    defineField({
+      name: 'body',
+      title: 'Case study',
+      description: 'Full write-up — headings, paragraphs, lists, and inline images.',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+          styles: [
+            { title: 'Normal', value: 'normal' },
+            { title: 'H2', value: 'h2' },
+            { title: 'H3', value: 'h3' },
+            { title: 'Quote', value: 'blockquote' },
+          ],
+          lists: [
+            { title: 'Bullet', value: 'bullet' },
+            { title: 'Numbered', value: 'number' },
+          ],
+          marks: {
+            decorators: [
+              { title: 'Bold', value: 'strong' },
+              { title: 'Italic', value: 'em' },
+            ],
+            annotations: [
+              {
+                name: 'link',
+                type: 'object',
+                title: 'Link',
+                fields: [{ name: 'href', type: 'url', title: 'URL' }],
+              },
+            ],
+          },
+        },
+        { type: 'image', options: { hotspot: true } },
+      ],
     }),
     defineField({
       name: 'category',
