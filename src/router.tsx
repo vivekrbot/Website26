@@ -37,24 +37,6 @@ function withSuspense(Component: React.ComponentType) {
   );
 }
 
-// CMS route — dev only. import.meta.env.DEV is replaced with `false` at build time,
-// so Vite tree-shakes the entire CMS import out of the production bundle.
-const devRoutes = import.meta.env.DEV
-  ? (() => {
-      const CMSLayout    = lazy(() => import('./cms/layout/CMSLayout'));
-      const CMSDashboard = lazy(() => import('./cms/pages/CMSDashboard'));
-      return [
-        {
-          path: 'cms',
-          element: <Suspense fallback={<PageFallback />}><CMSLayout /></Suspense>,
-          children: [
-            { index: true, element: <Suspense fallback={<PageFallback />}><CMSDashboard /></Suspense> },
-          ],
-        },
-      ];
-    })()
-  : [];
-
 export const router = createBrowserRouter(
   [
     {
@@ -66,7 +48,6 @@ export const router = createBrowserRouter(
         { path: 'works',       element: withSuspense(Works) },
         { path: 'works/:slug', element: withSuspense(WorkDetail) },
         { path: 'mentorship',  element: withSuspense(Mentorship) },
-        ...devRoutes,
       ],
     },
   ],

@@ -58,47 +58,30 @@ And update the `segmentCount` variable in `public/404.html` (keep it at `1` for 
 
 ## Customizing Content
 
-All content lives in `src/data/` — edit these files to update the site without touching components:
+Content is managed in **Sanity** and pulled into `src/data/*.ts` at build time — you don't hand-edit those files directly (they're overwritten on every `npm run dev` / `npm run build`).
 
-| File | What it controls |
-|---|---|
-| `src/data/about.ts` | Bio, skills, values, quick-facts |
-| `src/data/projects.ts` | Projects / case studies |
-| `src/data/mentorship.ts` | Mentorship tiers and copy |
-| `src/data/navigation.ts` | Nav links and social links |
+### One-time setup
 
-### Adding a project
+1. Create a free project at [sanity.io/manage](https://www.sanity.io/manage) and note the **Project ID** and **dataset** (default `production`).
+2. In the repo root, copy `.env.local.example` to `.env.local` and fill in `SANITY_PROJECT_ID` / `SANITY_DATASET`.
+3. In `studio/`, copy `.env.example` to `.env` with the same values, then:
+   ```bash
+   cd studio
+   npm install
+   npm run dev        # Studio at http://localhost:3333
+   ```
+4. (Optional, one-time) Migrate the existing bio/mentorship/nav content into Sanity instead of retyping it:
+   ```bash
+   SANITY_API_TOKEN=<write-token-from-manage.sanity.io> npm run seed:sanity
+   ```
 
-In `src/data/projects.ts`, add an object to the `projects` array:
+### Day to day
 
-```ts
-{
-  slug: 'my-new-project',       // used in the URL: /works/my-new-project
-  title: 'Project Title',
-  tagline: 'One-line description shown on cards.',
-  category: 'Product Design',   // used for filtering
-  tags: ['Tag 1', 'Tag 2'],
-  year: 2025,
-  coverImage: '',               // add a path to an image in public/
-  featured: true,               // show on the home page snippet
-  role: 'Lead Product Designer',
-  problem: 'What problem were you solving?',
-  process: ['Step 1', 'Step 2', 'Step 3'],
-  outcome: 'What did you ship and what happened?',
-  links: [{ label: 'Live Site', url: 'https://...' }],
-}
-```
+- Edit content in Sanity Studio (`studio/`, or your deployed `https://<project>.sanity.studio` after `npm run deploy` inside `studio/`).
+- Back in the main app, `npm run dev` / `npm run build` automatically re-fetch content (see `scripts/fetch-content.mjs`) before starting — no manual export/copy step.
+- In CI, the deploy workflow (`.github/workflows/deploy.yml`) reads `SANITY_PROJECT_ID` / `SANITY_DATASET` from repo variables (**Settings → Secrets and variables → Actions → Variables**). Optionally wire a Sanity webhook on publish to `POST https://api.github.com/repos/<owner>/<repo>/dispatches` with `{ "event_type": "content-published" }` so publishing content redeploys the site automatically.
 
-### Replacing placeholders
-
-Search the codebase for these markers and swap in real content:
-
-- `[YOUR-GITHUB-USERNAME]` — your GitHub handle
-- `[YOUR CITY]` — your location
-- `[X]+ years` — your years of experience
-- `[YOUR BACKGROUND]` — e.g., "Started as a software engineer"
-- `[PRICE PLACEHOLDER]` — your mentorship pricing
-- `coverImage: ''` — add a path/URL to each project's cover image
+Content types (see `studio/schemaTypes/`): **Project** (case studies — add real ones here, the shipped defaults are placeholders), **About** (singleton: bio, skills, values, quick facts), **Mentorship tier**, **Navigation** (singleton: nav links, social links).
 
 ### Adding a real avatar photo
 
@@ -156,7 +139,7 @@ const ASTEROID_SPEED  = 0.12;
 src/
 ├── canvas/          SpaceCanvas animation
 ├── components/      Reusable UI atoms (Button, SectionHeader, ThemeToggle, SkipLink)
-├── data/            Typed content config files — edit these for content
+├── data/            Content, generated from Sanity at build time — do not edit by hand
 ├── hooks/           useTheme, useReducedMotion, useScrollSpy
 ├── layout/          Layout shell, Nav, Footer
 ├── pages/           Route-level page components (lazy-loaded)
@@ -174,6 +157,12 @@ src/
 ├── types/           Shared TypeScript interfaces
 ├── router.tsx       React Router config
 └── main.tsx         Entry point
+
+scripts/
+├── fetch-content.mjs   Pulls content from Sanity into src/data/*.ts (predev/prebuild)
+└── seed-sanity.mjs     One-time migration of existing content into Sanity
+
+studio/               Independent Sanity Studio project (own package.json) — the CMS UI
 ```
 
 ---
@@ -186,6 +175,7 @@ src/
 - **Canvas 2D** — space background (no WebGL overhead)
 - **CSS Modules** + **CSS custom properties** — scoped styles + design tokens
 - **react-helmet-async** — per-route SEO meta tags
+- **Sanity** — headless CMS; content fetched at build time, no runtime dependency
 - **GitHub Actions** → **GitHub Pages** — CI/CD
 
 ---

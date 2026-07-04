@@ -1,0 +1,24 @@
+{
+  "name": "website26-studio",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "sanity dev",
+    "start": "sanity start",
+    "build": "sanity build",
+    "deploy": "sanity deploy"
+  },
+  "dependencies": {
+    "@sanity/vision": "^6.3.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "sanity": "^6.3.0",
+    "styled-components": "^6.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.12.3",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "~6.0.2"
+  }
+}

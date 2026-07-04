@@ -4,6 +4,12 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Fired by a Sanity webhook on publish, so content changes redeploy the site
+  # without a code push. Configure the webhook in Sanity to POST to:
+  #   https://api.github.com/repos/<owner>/<repo>/dispatches
+  #   { "event_type": "content-published" }
+  repository_dispatch:
+    types: [content-published]
 
 permissions:
   contents: read
@@ -32,6 +38,9 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          SANITY_PROJECT_ID: ${{ vars.SANITY_PROJECT_ID }}
+          SANITY_DATASET: ${{ vars.SANITY_DATASET }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
