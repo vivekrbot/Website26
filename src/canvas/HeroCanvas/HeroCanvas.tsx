@@ -18,10 +18,9 @@ const REPULSE_K     = 3.8;
 const SPRING_K      = 0.030;
 const DAMP          = 0.86;
 
-/* Dark palette: white, soft indigo, cyan */
-const COLORS_DARK  = ['255,255,255', '129,140,248', '34,211,238'] as const;
-/* Light palette: indigo-700, violet-700, sky-500 — visible on white */
-const COLORS_LIGHT = ['67,56,202',   '109,40,217',  '14,165,233'] as const;
+/* Strict grayscale — no hue in either theme */
+const COLORS_DARK  = ['255,255,255', '210,210,210', '160,160,160'] as const;
+const COLORS_LIGHT = ['0,0,0',       '60,60,60',    '120,120,120'] as const;
 
 type ColIdx = 0 | 1 | 2;
 
@@ -137,8 +136,8 @@ export function HeroCanvas() {
     /* Light mode: particles are dark on light bg — no need to dim them further */
     const aScale = isDark ? 1.0 : 0.82;
     /* Bond lines are more subtle in light mode to avoid noise */
-    const bondRGB  = isDark ? '129,140,248' : '67,56,202';
-    const ringRGB  = isDark ? '99,102,241'  : '67,56,202';
+    const bondRGB  = isDark ? '220,220,220' : '60,60,60';
+    const ringRGB  = isDark ? '255,255,255' : '0,0,0';
     /* Ring outline more opaque in light mode for visibility */
     const ringMult = isDark ? 1.0 : 2.4;
     const mx = mouseRef.current.x;
@@ -147,17 +146,12 @@ export function HeroCanvas() {
 
     ctx.clearRect(0, 0, w, h);
 
-    /* Cursor ambient glow */
+    /* Cursor marker — hollow square, no soft glow */
     if (mx > -1000 && my > -1000) {
-      const cgRadius = 130;
-      const cursorGlow = ctx.createRadialGradient(mx, my, 0, mx, my, cgRadius);
-      cursorGlow.addColorStop(0,   `rgba(${palette[1]},${0.12 * aScale})`);
-      cursorGlow.addColorStop(0.5, `rgba(${palette[0]},${0.05 * aScale})`);
-      cursorGlow.addColorStop(1,   `rgba(${palette[0]},0)`);
-      ctx.beginPath();
-      ctx.arc(mx, my, cgRadius, 0, Math.PI * 2);
-      ctx.fillStyle = cursorGlow;
-      ctx.fill();
+      const cgRadius = 60;
+      ctx.strokeStyle = `rgba(${palette[0]},${0.1 * aScale})`;
+      ctx.lineWidth = 1;
+      ctx.strokeRect(Math.round(mx - cgRadius / 2), Math.round(my - cgRadius / 2), cgRadius, cgRadius);
     }
 
     /* Orbital ring outlines */
@@ -222,39 +216,21 @@ export function HeroCanvas() {
       }
     }
 
-    /* Render particles */
+    /* Render particles — square pixels, no soft glow */
     for (const p of ps) {
       const col = palette[p.col];
       const al  = p.op * aScale;
-
-      if (!p.ambient) {
-        const gr = p.sz * 4.5;
-        const glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, gr);
-        glow.addColorStop(0, `rgba(${col},${al * 0.5})`);
-        glow.addColorStop(1, `rgba(${col},0)`);
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, gr, 0, Math.PI * 2);
-        ctx.fillStyle = glow;
-        ctx.fill();
-      }
-
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.sz, 0, Math.PI * 2);
+      const px  = Math.max(1, Math.round(p.sz * 2));
       ctx.fillStyle = `rgba(${col},${al})`;
-      ctx.fill();
+      ctx.fillRect(Math.round(p.x - px / 2), Math.round(p.y - px / 2), px, px);
     }
 
-    /* Centre pulse glow */
-    const cgR   = ref * 0.22 * s;
-    const pulse = 0.07 + 0.022 * Math.sin(frameRef.current * 0.018);
-    const cg    = ctx.createRadialGradient(cx, cy, 0, cx, cy, cgR);
-    cg.addColorStop(0,   `rgba(${palette[0]},${pulse * aScale * 0.9})`);
-    cg.addColorStop(0.4, `rgba(${palette[1]},${pulse * 0.55 * aScale})`);
-    cg.addColorStop(1,   `rgba(${palette[0]},0)`);
-    ctx.beginPath();
-    ctx.arc(cx, cy, cgR, 0, Math.PI * 2);
-    ctx.fillStyle = cg;
-    ctx.fill();
+    /* Centre marker — pulsing hollow square, no soft glow */
+    const cgR   = ref * 0.16 * s;
+    const pulse = 0.14 + 0.05 * Math.sin(frameRef.current * 0.018);
+    ctx.strokeStyle = `rgba(${palette[0]},${pulse * aScale})`;
+    ctx.lineWidth = 1;
+    ctx.strokeRect(Math.round(cx - cgR / 2), Math.round(cy - cgR / 2), cgR, cgR);
 
     if (!hiddenRef.current) {
       rafRef.current = requestAnimationFrame(draw);

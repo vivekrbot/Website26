@@ -68,18 +68,18 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg,
-    rgba(99, 102, 241, 0.15) 0%,
-    rgba(139, 92, 246, 0.1) 50%,
-    rgba(34, 211, 238, 0.08) 100%
+    rgba(255, 255, 255, 0.10) 0%,
+    rgba(255, 255, 255, 0.06) 50%,
+    rgba(255, 255, 255, 0.03) 100%
   );
   transition: opacity var(--duration-base) var(--ease-out);
 }
 
 [data-theme="light"] .cover::before {
   background: linear-gradient(135deg,
-    rgba(67,  56, 202, 0.10) 0%,
-    rgba(109, 40, 217, 0.07) 50%,
-    rgba(8,  145, 178, 0.05) 100%
+    rgba(0, 0, 0, 0.06) 0%,
+    rgba(0, 0, 0, 0.04) 50%,
+    rgba(0, 0, 0, 0.02) 100%
   );
 }
 

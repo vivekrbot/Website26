@@ -5,67 +5,62 @@
    ============================================================ */
 
 :root {
-  /* --- Colour: Primitives --- */
+  /* --- Colour: Primitives — strict grayscale, no hue --- */
   --color-black:       #000000;
   --color-white:       #ffffff;
 
-  --color-space-950:   #040509;
-  --color-space-900:   #080c14;
-  --color-space-800:   #0d1424;
-  --color-space-700:   #131c33;
-  --color-space-600:   #1a2540;
-  --color-space-500:   #243052;
+  --color-gray-950:    #050505;
+  --color-gray-900:    #0a0a0a;
+  --color-gray-800:    #141414;
+  --color-gray-700:    #242424;
+  --color-gray-600:    #3a3a3a;
+  --color-gray-500:    #6b6b6b;
 
-  --color-indigo-400:  #818cf8;
-  --color-indigo-500:  #6366f1;
-  --color-indigo-600:  #4f46e5;
-  --color-violet-400:  #a78bfa;
-  --color-violet-500:  #8b5cf6;
-  --color-cyan-400:    #22d3ee;
-  --color-cyan-500:    #06b6d4;
-
-  --color-neutral-50:  #f9fafb;
-  --color-neutral-100: #f3f4f6;
-  --color-neutral-200: #e5e7eb;
-  --color-neutral-300: #d1d5db;
-  --color-neutral-400: #9ca3af;
-  --color-neutral-500: #6b7280;
-  --color-neutral-600: #4b5563;
-  --color-neutral-700: #374151;
-  --color-neutral-800: #1f2937;
-  --color-neutral-900: #111827;
+  --color-neutral-50:  #fafafa;
+  --color-neutral-100: #f0f0f0;
+  --color-neutral-200: #dcdcdc;
+  --color-neutral-300: #bdbdbd;
+  --color-neutral-400: #9a9a9a;
+  --color-neutral-500: #6b6b6b;
+  --color-neutral-600: #4a4a4a;
+  --color-neutral-700: #333333;
+  --color-neutral-800: #1a1a1a;
+  --color-neutral-900: #0d0d0d;
 
   /* --- Colour: Semantic (Dark mode defaults) --- */
-  --bg-primary:        var(--color-space-950);
-  --bg-secondary:      var(--color-space-900);
-  --bg-tertiary:       var(--color-space-800);
-  --bg-card:           rgba(13, 20, 36, 0.7);
-  --bg-card-hover:     rgba(19, 28, 51, 0.85);
+  --bg-primary:        var(--color-black);
+  --bg-secondary:      var(--color-gray-900);
+  --bg-tertiary:       var(--color-gray-800);
+  --bg-card:           rgba(255, 255, 255, 0.04);
+  --bg-card-hover:     rgba(255, 255, 255, 0.08);
 
   --text-primary:      var(--color-white);
   --text-secondary:    var(--color-neutral-300);
   --text-muted:        var(--color-neutral-500);
-  --text-inverse:      var(--color-space-950);
+  --text-inverse:      var(--color-black);
 
-  --accent-primary:    var(--color-indigo-500);
-  --accent-secondary:  var(--color-violet-400);
-  --accent-highlight:  var(--color-cyan-400);
+  /* No hue anywhere — accents are pure white, used via inversion/weight, not colour */
+  --accent-primary:    var(--color-white);
+  --accent-secondary:  var(--color-neutral-200);
+  --accent-highlight:  var(--color-white);
 
-  --border-subtle:     rgba(255, 255, 255, 0.08);
-  --border-default:    rgba(255, 255, 255, 0.14);
-  --border-strong:     rgba(255, 255, 255, 0.24);
+  --border-subtle:     rgba(255, 255, 255, 0.16);
+  --border-default:    rgba(255, 255, 255, 0.32);
+  --border-strong:     rgba(255, 255, 255, 0.7);
 
-  --shadow-sm:         0 1px 3px rgba(0, 0, 0, 0.4);
-  --shadow-md:         0 4px 16px rgba(0, 0, 0, 0.5);
-  --shadow-lg:         0 8px 40px rgba(0, 0, 0, 0.6);
-  --shadow-glow:       0 0 32px rgba(99, 102, 241, 0.25);
-  --shadow-glow-cyan:  0 0 24px rgba(34, 211, 238, 0.2);
+  /* Flat "pixel-offset" shadows — hard edge, no blur, no colour */
+  --shadow-sm:         2px 2px 0 0 var(--color-white);
+  --shadow-md:         4px 4px 0 0 var(--color-white);
+  --shadow-lg:         6px 6px 0 0 var(--color-white);
+  --shadow-glow:       4px 4px 0 0 var(--color-white);
+  --shadow-glow-cyan:  4px 4px 0 0 var(--color-white);
 
-  --nav-bg:            rgba(4, 5, 9, 0.75);
-  --nav-border:        rgba(255, 255, 255, 0.07);
+  --nav-bg:            rgba(0, 0, 0, 0.85);
+  --nav-border:        rgba(255, 255, 255, 0.32);
 
   /* --- Typography --- */
   --font-display:      'Space Grotesk', sans-serif;
+  --font-pixel:        'Press Start 2P', var(--font-display);
   --font-body:         'Inter', 'Space Grotesk', sans-serif;
   --font-mono:         'JetBrains Mono', monospace;
 
@@ -111,17 +106,17 @@
   --space-24:  6rem;     /* 96px */
   --space-32:  8rem;     /* 128px */
 
-  /* --- Border Radius --- */
-  --radius-sm:   4px;
-  --radius-md:   8px;
-  --radius-lg:   14px;
-  --radius-xl:   20px;
-  --radius-2xl:  28px;
-  --radius-full: 9999px;
+  /* --- Border Radius — hard pixel corners, no rounding --- */
+  --radius-sm:   0px;
+  --radius-md:   0px;
+  --radius-lg:   0px;
+  --radius-xl:   0px;
+  --radius-2xl:  0px;
+  --radius-full: 0px;
 
   /* --- Subtle grid (kept for HeroCanvas compat, nearly invisible) --- */
-  --grid-line: rgba(255, 255, 255, 0.018);
-  --hud-accent: rgba(99, 102, 241, 0.35);
+  --grid-line: rgba(255, 255, 255, 0.05);
+  --hud-accent: rgba(255, 255, 255, 0.4);
 
   /* --- Motion --- */
   --duration-fast:   150ms;
@@ -160,40 +155,40 @@
    ============================================================ */
 [data-theme="light"] {
   /* Canvas grid lines */
-  --grid-line:  rgba(0, 0, 0, 0.05);
-  --hud-accent: rgba(67, 56, 202, 0.45);
+  --grid-line:  rgba(0, 0, 0, 0.06);
+  --hud-accent: rgba(0, 0, 0, 0.4);
 
-  /* Backgrounds — slightly warm off-white to feel softer than pure white */
-  --bg-primary:      #f7f8fc;
-  --bg-secondary:    #ffffff;
-  --bg-tertiary:     #eef0f7;
-  --bg-card:         rgba(255, 255, 255, 0.92);
-  --bg-card-hover:   rgba(252, 253, 255, 0.99);
+  /* Backgrounds — true white, the exact inverse of dark mode's true black */
+  --bg-primary:      var(--color-white);
+  --bg-secondary:    var(--color-neutral-50);
+  --bg-tertiary:     var(--color-neutral-100);
+  --bg-card:         rgba(0, 0, 0, 0.03);
+  --bg-card-hover:   rgba(0, 0, 0, 0.06);
 
-  /* Text — neutral-900/700/500 pass WCAG AA on all bg-* values */
-  --text-primary:    var(--color-neutral-900);
+  /* Text — pure black, the exact inverse of dark mode's pure white */
+  --text-primary:    var(--color-black);
   --text-secondary:  var(--color-neutral-700);
   --text-muted:      var(--color-neutral-500);
   --text-inverse:    var(--color-white);
 
-  /* Accents — one stop darker than dark-mode counterparts for contrast on white */
-  --accent-primary:   #4338ca;   /* indigo-700  — 5.4:1 on white */
-  --accent-secondary: #6d28d9;   /* violet-700  — 5.1:1 on white */
-  --accent-highlight: #0891b2;   /* cyan-600    — decorative only */
+  /* No hue here either — accents are pure black, mirroring dark mode's pure white */
+  --accent-primary:   var(--color-black);
+  --accent-secondary: var(--color-neutral-700);
+  --accent-highlight: var(--color-black);
 
-  /* Borders — ink-tinted for cohesion with indigo palette */
-  --border-subtle:   rgba(30, 27, 75, 0.09);
-  --border-default:  rgba(30, 27, 75, 0.15);
-  --border-strong:   rgba(30, 27, 75, 0.24);
+  /* Borders — black-based, the inverse of dark mode's white-based borders */
+  --border-subtle:   rgba(0, 0, 0, 0.16);
+  --border-default:  rgba(0, 0, 0, 0.32);
+  --border-strong:   rgba(0, 0, 0, 0.7);
 
-  /* Shadows — layered for depth on light backgrounds */
-  --shadow-sm:       0 1px 3px rgba(15, 23, 42, 0.09), 0 1px 2px rgba(15, 23, 42, 0.05);
-  --shadow-md:       0 4px 20px rgba(15, 23, 42, 0.10), 0 2px 6px rgba(15, 23, 42, 0.05);
-  --shadow-lg:       0 12px 44px rgba(15, 23, 42, 0.13), 0 4px 12px rgba(15, 23, 42, 0.06);
-  --shadow-glow:     0 0 28px rgba(67,  56, 202, 0.16);
-  --shadow-glow-cyan: 0 0 22px rgba(8, 145, 178, 0.13);
+  /* Flat "pixel-offset" shadows — same hard-edge motif, inverted to black */
+  --shadow-sm:       2px 2px 0 0 var(--color-black);
+  --shadow-md:       4px 4px 0 0 var(--color-black);
+  --shadow-lg:       6px 6px 0 0 var(--color-black);
+  --shadow-glow:     4px 4px 0 0 var(--color-black);
+  --shadow-glow-cyan: 4px 4px 0 0 var(--color-black);
 
   /* Nav */
-  --nav-bg:     rgba(247, 248, 252, 0.92);
-  --nav-border: rgba(30, 27, 75, 0.09);
+  --nav-bg:     rgba(255, 255, 255, 0.9);
+  --nav-border: rgba(0, 0, 0, 0.32);
 }

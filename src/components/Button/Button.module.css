@@ -44,10 +44,10 @@
   height: 48px;
 }
 
-/* Variants */
+/* Variants — hover/active feedback via colour inversion, not glow/hue */
 .primary {
   background: var(--accent-primary);
-  color: var(--color-white);
+  color: var(--text-inverse);
   border-color: var(--accent-primary);
 }
 
@@ -67,7 +67,7 @@
 .secondary:hover {
   color: var(--text-primary);
   border-color: var(--accent-primary);
-  background: rgba(99, 102, 241, 0.07);
+  background: var(--bg-card-hover);
   box-shadow: var(--shadow-glow);
 }
 
@@ -89,6 +89,6 @@
 }
 
 .outline:hover {
-  background: rgba(99, 102, 241, 0.08);
-  box-shadow: 0 0 16px rgba(99, 102, 241, 0.2);
+  background: var(--bg-card-hover);
+  box-shadow: var(--shadow-glow);
 }

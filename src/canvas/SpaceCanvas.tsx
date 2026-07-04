@@ -22,8 +22,8 @@ const SHOOT_DURATION_MS  = 3000; // how long each star takes to cross the screen
 
 /* Warp drift — slow radial starfield from viewport center */
 const WARP_COUNT = 72;
-const WARP_PAL_DARK  = ['255,255,255', '129,140,248', '34,211,238'] as const;
-const WARP_PAL_LIGHT = ['20,20,50',    '67,56,202',   '8,145,178']  as const;
+const WARP_PAL_DARK  = ['255,255,255', '200,200,200', '140,140,140'] as const;
+const WARP_PAL_LIGHT = ['0,0,0',       '70,70,70',    '130,130,130'] as const;
 
 interface Star {
   x: number; y: number;
@@ -232,31 +232,30 @@ export function SpaceCanvas() {
       }
     }
 
-    // Light mode: deep charcoal/navy so dots read clearly on white
-    const starColor = isDark ? '255,255,255' : '20,20,50';
-    const asteroidColor = isDark ? '180,190,220' : '40,40,90';
+    // Strict grayscale — pure black dots on white in light mode, pure white on black in dark
+    const starColor = isDark ? '255,255,255' : '0,0,0';
+    const asteroidColor = isDark ? '210,210,210' : '70,70,70';
     // Multiply alpha up so elements are just as visible in light mode
     const alphaScale = isDark ? 1 : 2.8;
 
     const mx = mouseRef.current.x;
     const my = mouseRef.current.y;
 
-    // ── Stars ───────────────────────────────────────────────
+    // ── Stars — square pixels, not smooth circles ────────────
     for (const star of starsRef.current) {
       const twinkle = Math.sin(frameRef.current * star.twinkleSpeed + star.twinkleOffset);
       const alpha = (star.opacity + twinkle * 0.18) * alphaScale;
+      const px = Math.max(1, Math.round(star.size * 2));
 
-      ctx.beginPath();
-      ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(${starColor},${Math.max(0, Math.min(1, alpha))})`;
-      ctx.fill();
+      ctx.fillRect(Math.round(star.x - px / 2), Math.round(star.y - px / 2), px, px);
     }
 
     // ── Network constellation (auto-joint particles) ─────────
     {
       const { w: cssW, h: cssH } = cssSizeRef.current;
       const net = netRef.current;
-      const netColor = isDark ? '160,170,255' : '50,40,200';
+      const netColor = isDark ? '220,220,220' : '50,50,50';
 
       for (const p of net) {
         // Gentle cursor attraction
@@ -301,12 +300,11 @@ export function SpaceCanvas() {
         }
       }
 
-      // Draw particles
+      // Draw particles — square pixels
       for (const p of net) {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.sz, 0, Math.PI * 2);
+        const px = Math.max(1, Math.round(p.sz * 2));
         ctx.fillStyle = `rgba(${netColor},${p.op * alphaScale})`;
-        ctx.fill();
+        ctx.fillRect(Math.round(p.x - px / 2), Math.round(p.y - px / 2), px, px);
       }
     }
 
@@ -362,7 +360,7 @@ export function SpaceCanvas() {
       // Subtle glow on nearby asteroids
       if (dist < GRAVITY_RADIUS * 1.2) {
         const glowAlpha = ast.opacity * alphaScale * 0.5 * (1 - dist / (GRAVITY_RADIUS * 1.2));
-        ctx.strokeStyle = `rgba(${isDark ? '130,140,255' : '60,40,180'},${Math.min(1, glowAlpha)})`;
+        ctx.strokeStyle = `rgba(${isDark ? '255,255,255' : '0,0,0'},${Math.min(1, glowAlpha)})`;
         ctx.lineWidth = isDark ? 1.5 : 2;
         ctx.stroke();
       }
@@ -378,8 +376,8 @@ export function SpaceCanvas() {
       nextShootRef.current = now + SHOOT_INTERVAL_MS + randomBetween(0, SHOOT_JITTER_MS);
     }
 
-    const headColor  = isDark ? '220,235,255' : '50,30,180';
-    const trailColor = isDark ? '160,185,255' : '70,50,210';
+    const headColor  = isDark ? '255,255,255' : '0,0,0';
+    const trailColor = isDark ? '210,210,210' : '60,60,60';
 
     // Remove stars that have exceeded their lifetime
     shootingStarsRef.current = shootingStarsRef.current.filter(
@@ -417,7 +415,7 @@ export function SpaceCanvas() {
       const tailX = hx - ux * SHOOT_TRAIL_LEN;
       const tailY = hy - uy * SHOOT_TRAIL_LEN;
 
-      // ── Core trail (sharp, bright) ──
+      // ── Trail — flat fade, no soft/blurred glow pass ──
       const grad = ctx.createLinearGradient(tailX, tailY, hx, hy);
       grad.addColorStop(0,   `rgba(${trailColor},0)`);
       grad.addColorStop(0.5, `rgba(${trailColor},${alpha * 0.35})`);
@@ -429,46 +427,20 @@ export function SpaceCanvas() {
       ctx.lineTo(hx, hy);
       ctx.strokeStyle = grad;
       ctx.lineWidth = isDark ? 2 : 2.5;
-      ctx.lineCap = 'round';
-      ctx.stroke();
-
-      // ── Soft glow trail (wide, diffuse) ──
-      const gradGlow = ctx.createLinearGradient(tailX, tailY, hx, hy);
-      gradGlow.addColorStop(0, `rgba(${trailColor},0)`);
-      gradGlow.addColorStop(1, `rgba(${trailColor},${alpha * 0.12})`);
-      ctx.beginPath();
-      ctx.moveTo(tailX, tailY);
-      ctx.lineTo(hx, hy);
-      ctx.strokeStyle = gradGlow;
-      ctx.lineWidth = isDark ? 10 : 12;
       ctx.stroke();
       ctx.restore();
 
-      // ── Head: bright dot ──
-      ctx.beginPath();
-      ctx.arc(hx, hy, 3, 0, Math.PI * 2);
+      // ── Head: pixel square, no radial halo ──
+      const headPx = 5;
       ctx.fillStyle = `rgba(${headColor},${alpha})`;
-      ctx.fill();
+      ctx.fillRect(Math.round(hx - headPx / 2), Math.round(hy - headPx / 2), headPx, headPx);
 
-      // ── Head: radial halo (always on) ──
-      const halo = ctx.createRadialGradient(hx, hy, 0, hx, hy, 14);
-      halo.addColorStop(0, `rgba(${headColor},${alpha * 0.5})`);
-      halo.addColorStop(1, `rgba(${headColor},0)`);
-      ctx.beginPath();
-      ctx.arc(hx, hy, 14, 0, Math.PI * 2);
-      ctx.fillStyle = halo;
-      ctx.fill();
-
-      // ── Mouse proximity burst ──
+      // ── Mouse proximity: hollow square sparkle, no gradient burst ──
       if (distM < GRAVITY_RADIUS * 1.5) {
-        const burstR = 24;
-        const burst = ctx.createRadialGradient(hx, hy, 0, hx, hy, burstR);
-        burst.addColorStop(0, `rgba(${isDark ? '200,215,255' : '120,100,255'},${alpha * 0.45})`);
-        burst.addColorStop(1, `rgba(${isDark ? '160,180,255' : '100,80,255'},0)`);
-        ctx.beginPath();
-        ctx.arc(hx, hy, burstR, 0, Math.PI * 2);
-        ctx.fillStyle = burst;
-        ctx.fill();
+        const burstR = 16;
+        ctx.strokeStyle = `rgba(${headColor},${alpha * 0.5})`;
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(Math.round(hx - burstR / 2), Math.round(hy - burstR / 2), burstR, burstR);
       }
     }
 

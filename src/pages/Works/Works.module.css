@@ -31,7 +31,7 @@
 .filterActive {
   color: var(--accent-primary);
   border-color: var(--accent-primary);
-  background: rgba(99, 102, 241, 0.08);
+  background: var(--bg-card-hover);
 }
 
 .grid {
@@ -82,11 +82,19 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg,
-    rgba(99, 102, 241, 0.18) 0%,
-    rgba(139, 92, 246, 0.12) 50%,
-    rgba(34, 211, 238, 0.08) 100%
+    rgba(255, 255, 255, 0.14) 0%,
+    rgba(255, 255, 255, 0.07) 50%,
+    rgba(255, 255, 255, 0.03) 100%
   );
   transition: opacity var(--duration-base) var(--ease-out);
+}
+
+[data-theme="light"] .coverGradient {
+  background: linear-gradient(135deg,
+    rgba(0, 0, 0, 0.09) 0%,
+    rgba(0, 0, 0, 0.045) 50%,
+    rgba(0, 0, 0, 0.02) 100%
+  );
 }
 
 .coverImg {
@@ -133,7 +141,7 @@
   font-weight: var(--weight-semibold);
   color: var(--accent-highlight);
   padding: 2px var(--space-2);
-  border: 1px solid rgba(34, 211, 238, 0.3);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-full);
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;

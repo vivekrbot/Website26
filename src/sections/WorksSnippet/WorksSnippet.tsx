@@ -6,15 +6,6 @@ import { featuredProjects } from '../../data/projects';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import styles from './WorksSnippet.module.css';
 
-const CATEGORY_GRADIENTS: Record<string, string> = {
-  'Design Systems':    'linear-gradient(135deg,#4f46e5 0%,#7c3aed 100%)',
-  'Product Design':    'linear-gradient(135deg,#0ea5e9 0%,#6366f1 100%)',
-  'UX Research':       'linear-gradient(135deg,#06b6d4 0%,#3b82f6 100%)',
-  'Strategy':          'linear-gradient(135deg,#8b5cf6 0%,#ec4899 100%)',
-  'Mobile':            'linear-gradient(135deg,#10b981 0%,#3b82f6 100%)',
-};
-const DEFAULT_GRADIENT = 'linear-gradient(135deg,#6366f1 0%,#8b5cf6 100%)';
-
 const stagger = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.1 } },
@@ -65,10 +56,7 @@ export function WorksSnippet() {
                   {project.coverImage ? (
                     <img src={project.coverImage} alt="" className={styles.coverImg} loading="lazy" />
                   ) : (
-                    <div
-                      className={styles.coverInner}
-                      style={{ background: CATEGORY_GRADIENTS[project.category] ?? DEFAULT_GRADIENT }}
-                    >
+                    <div className={styles.coverInner}>
                       <span className={styles.coverLabel}>{project.category}</span>
                     </div>
                   )}

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @import './tokens.css';
 @import './reset.css';
@@ -64,87 +64,94 @@ body {
    TYPOGRAPHY UTILITIES
    ============================================================ */
 
+/* Pixel-font headings read ~2x "louder" than Space Grotesk at the same size,
+   so sizes come down and line-height opens up to keep blocky glyphs legible. */
 .display-1 {
-  font-family: var(--font-display);
-  font-size: clamp(var(--text-5xl), 8vw, var(--text-7xl));
-  font-weight: var(--weight-bold);
-  letter-spacing: var(--tracking-tight);
-  line-height: var(--leading-tight);
+  font-family: var(--font-pixel);
+  font-size: clamp(var(--text-3xl), 5.5vw, var(--text-5xl));
+  font-weight: var(--weight-normal);
+  letter-spacing: var(--tracking-normal);
+  line-height: var(--leading-loose);
+  -webkit-font-smoothing: none;
+  font-smooth: never;
 }
 
 .display-2 {
-  font-family: var(--font-display);
-  font-size: clamp(var(--text-4xl), 5vw, var(--text-6xl));
-  font-weight: var(--weight-bold);
-  letter-spacing: var(--tracking-tight);
-  line-height: var(--leading-tight);
+  font-family: var(--font-pixel);
+  font-size: clamp(var(--text-2xl), 3.5vw, var(--text-4xl));
+  font-weight: var(--weight-normal);
+  letter-spacing: var(--tracking-normal);
+  line-height: var(--leading-loose);
+  -webkit-font-smoothing: none;
+  font-smooth: never;
 }
 
 .heading-1 {
-  font-family: var(--font-display);
-  font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
-  font-weight: var(--weight-bold);
-  letter-spacing: var(--tracking-tight);
+  font-family: var(--font-pixel);
+  font-size: clamp(var(--text-xl), 2.6vw, var(--text-3xl));
+  font-weight: var(--weight-normal);
+  letter-spacing: var(--tracking-normal);
+  line-height: var(--leading-loose);
+  -webkit-font-smoothing: none;
+  font-smooth: never;
 }
 
 .heading-2 {
-  font-family: var(--font-display);
-  font-size: clamp(var(--text-2xl), 3vw, var(--text-4xl));
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-tight);
+  font-family: var(--font-pixel);
+  font-size: clamp(var(--text-lg), 2vw, var(--text-2xl));
+  font-weight: var(--weight-normal);
+  letter-spacing: var(--tracking-normal);
+  line-height: var(--leading-loose);
+  -webkit-font-smoothing: none;
+  font-smooth: never;
 }
 
 .heading-3 {
-  font-family: var(--font-display);
-  font-size: clamp(var(--text-xl), 2vw, var(--text-2xl));
-  font-weight: var(--weight-semibold);
+  font-family: var(--font-pixel);
+  font-size: clamp(var(--text-sm), 1.4vw, var(--text-lg));
+  font-weight: var(--weight-normal);
+  line-height: var(--leading-loose);
+  -webkit-font-smoothing: none;
+  font-smooth: never;
 }
 
 .label {
-  font-family: var(--font-display);
-  font-size: var(--text-xs);
-  font-weight: var(--weight-medium);
+  font-family: var(--font-pixel);
+  font-size: 0.6rem;
+  font-weight: var(--weight-normal);
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  line-height: var(--leading-loose);
+  -webkit-font-smoothing: none;
+  font-smooth: never;
 }
 
 /* ============================================================
-   GRADIENT TEXT UTILITY
+   HIGHLIGHT TEXT UTILITY
    ============================================================ */
 
-/* Dark mode: white → violet → cyan — pops against dark bg */
+/* Inverted highlight block, pixel font — a "highlighter" effect with zero hue.
+   Auto-inverts between themes via text-primary/bg-primary tokens. */
 .gradient-text {
-  background: linear-gradient(
-    135deg,
-    var(--text-primary) 0%,
-    var(--accent-secondary) 50%,
-    var(--accent-highlight) 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Light mode: indigo → violet → cyan — vivid on white, no black */
-[data-theme="light"] .gradient-text {
-  background-image: linear-gradient(
-    135deg,
-    var(--accent-primary)    0%,
-    var(--accent-secondary)  55%,
-    var(--accent-highlight)  100%
-  );
+  font-family: var(--font-pixel);
+  font-weight: var(--weight-normal);
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  padding: 0.05em 0.2em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
 }
 
 /* ============================================================
-   GLASS CARD UTILITY
+   GLASS CARD UTILITY — flat pixel card, no blur, no rounding
    ============================================================ */
 
 .glass-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
+  border: 2px solid var(--border-strong);
   border-radius: var(--radius-lg);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   box-shadow: var(--shadow-sm);
   transition:
     background var(--duration-base) var(--ease-out),
@@ -155,9 +162,9 @@ body {
 
 .glass-card:hover {
   background: var(--bg-card-hover);
-  border-color: var(--border-default);
+  border-color: var(--border-strong);
   box-shadow: var(--shadow-lg);
-  transform: translateY(-3px);
+  transform: translate(-2px, -2px);
 }
 
 /* ============================================================
@@ -171,7 +178,7 @@ body {
   z-index: var(--z-toast);
   padding: var(--space-3) var(--space-6);
   background: var(--accent-primary);
-  color: var(--color-white);
+  color: var(--text-inverse);
   font-weight: var(--weight-semibold);
   border-radius: var(--radius-md);
   transition: top var(--duration-fast);
@@ -186,6 +193,6 @@ body {
    ============================================================ */
 
 ::selection {
-  background: rgba(99, 102, 241, 0.3);
-  color: var(--text-primary);
+  background: var(--text-primary);
+  color: var(--bg-primary);
 }
