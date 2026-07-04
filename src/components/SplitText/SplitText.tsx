@@ -136,9 +136,8 @@ const SplitText = ({
     }
   );
 
-  const Tag = (tag || 'p') as SplitTag;
+  const Tag = (tag || 'p') as React.ElementType;
   return (
-    // @ts-expect-error dynamic tag
     <Tag
       ref={ref}
       className={`split-parent ${className}`.trim()}
