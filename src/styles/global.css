@@ -71,7 +71,7 @@ body {
   font-size: clamp(var(--text-3xl), 5.5vw, var(--text-5xl));
   font-weight: var(--weight-normal);
   letter-spacing: var(--tracking-normal);
-  line-height: var(--leading-loose);
+  line-height: var(--leading-pixel);
   -webkit-font-smoothing: none;
   font-smooth: never;
 }
@@ -81,7 +81,7 @@ body {
   font-size: clamp(var(--text-2xl), 3.5vw, var(--text-4xl));
   font-weight: var(--weight-normal);
   letter-spacing: var(--tracking-normal);
-  line-height: var(--leading-loose);
+  line-height: var(--leading-pixel);
   -webkit-font-smoothing: none;
   font-smooth: never;
 }
@@ -91,7 +91,7 @@ body {
   font-size: clamp(var(--text-xl), 2.6vw, var(--text-3xl));
   font-weight: var(--weight-normal);
   letter-spacing: var(--tracking-normal);
-  line-height: var(--leading-loose);
+  line-height: var(--leading-pixel);
   -webkit-font-smoothing: none;
   font-smooth: never;
 }
@@ -101,7 +101,7 @@ body {
   font-size: clamp(var(--text-lg), 2vw, var(--text-2xl));
   font-weight: var(--weight-normal);
   letter-spacing: var(--tracking-normal);
-  line-height: var(--leading-loose);
+  line-height: var(--leading-pixel);
   -webkit-font-smoothing: none;
   font-smooth: never;
 }
@@ -110,7 +110,7 @@ body {
   font-family: var(--font-pixel);
   font-size: clamp(var(--text-sm), 1.4vw, var(--text-lg));
   font-weight: var(--weight-normal);
-  line-height: var(--leading-loose);
+  line-height: var(--leading-pixel);
   -webkit-font-smoothing: none;
   font-smooth: never;
 }
@@ -121,7 +121,7 @@ body {
   font-weight: var(--weight-normal);
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  line-height: var(--leading-loose);
+  line-height: var(--leading-pixel);
   -webkit-font-smoothing: none;
   font-smooth: never;
 }

@@ -264,10 +264,13 @@
 }
 
 .navTitle {
-  font-family: var(--font-display);
-  font-size: var(--text-base);
-  font-weight: var(--weight-semibold);
+  font-family: var(--font-pixel);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-normal);
+  line-height: var(--leading-pixel);
   color: var(--text-primary);
+  -webkit-font-smoothing: none;
+  font-smooth: never;
 }
 
 .bottomPad { padding-bottom: var(--space-16); }

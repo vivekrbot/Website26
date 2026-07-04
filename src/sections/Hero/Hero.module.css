@@ -113,7 +113,7 @@
   margin-bottom: var(--space-6);
   font-family: var(--font-pixel);
   font-size: clamp(1.5rem, 5.5vw, 3.25rem);
-  line-height: 1.7;
+  line-height: var(--leading-pixel);
   letter-spacing: 0;
   font-weight: var(--weight-normal);
   display: block;
@@ -134,7 +134,7 @@
   font-size: clamp(0.9rem, 2.2vw, 1.5rem);
   font-weight: var(--weight-normal);
   letter-spacing: 0;
-  line-height: 1.8;
+  line-height: var(--leading-pixel);
   color: var(--text-primary);
   margin-block: var(--space-4);
   cursor: default;

@@ -98,8 +98,8 @@ export function CustomCursor() {
         animate={{
           width: ringSize,
           height: ringSize,
-          borderColor: hovered ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.5)',
-          backgroundColor: hovered ? 'rgba(255,255,255,0.06)' : 'transparent',
+          borderColor: hovered ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.85)',
+          backgroundColor: hovered ? 'rgba(255,255,255,0.12)' : 'transparent',
         }}
         transition={{ duration: 0.2 }}
       />

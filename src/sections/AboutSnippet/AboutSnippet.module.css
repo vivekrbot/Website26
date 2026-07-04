@@ -13,9 +13,6 @@
 }
 
 .headerLabel {
-  font-family: var(--font-display);
-  font-size: var(--text-sm);
-  letter-spacing: 0.04em;
   color: var(--text-muted);
   margin-bottom: var(--space-4);
   display: flex;
@@ -26,7 +23,6 @@
 .headerTitle {
   color: var(--text-primary);
   margin-bottom: var(--space-5);
-  line-height: 1.1;
 }
 
 .headerSubtitle {

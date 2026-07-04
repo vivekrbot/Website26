@@ -80,6 +80,9 @@
   --leading-snug:   1.3;
   --leading-normal: 1.6;
   --leading-loose:  1.8;
+  /* Extra-open leading for pixel-font headings — blocky glyphs with
+     inverted highlight boxes need more gap between wrapped lines. */
+  --leading-pixel:  2.4;
 
   --tracking-tight:  -0.03em;
   --tracking-normal:  0em;
