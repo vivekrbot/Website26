@@ -1,11 +1,11 @@
-import type { PortableTextBlock } from '@portabletext/types';
+import type { ArbitraryTypedObject, PortableTextBlock } from '@portabletext/types';
 
 export interface Project {
   slug: string;
   title: string;
   tagline: string;
   shortDescription: string;
-  body: PortableTextBlock[];
+  body: (PortableTextBlock | ArbitraryTypedObject)[];
   category: string;
   tags: string[];
   year: number;
