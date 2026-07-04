@@ -4,8 +4,8 @@ import react from '@vitejs/plugin-react';
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // GitHub Pages: set to /REPO_NAME/ — update if your repo name differs
-  base: '/Website26/',
+  // Served from the itsvivek.com custom domain at root, not a repo subpath
+  base: '/',
   build: {
     outDir: 'dist',
     sourcemap: false,
