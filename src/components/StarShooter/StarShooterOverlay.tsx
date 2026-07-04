@@ -80,7 +80,9 @@ export function StarShooterOverlay({ onClose }: StarShooterOverlayProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const onCloseRef = useRef(onClose);
-  onCloseRef.current = onClose;
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  });
 
   useEffect(() => {
     const canvas = canvasRef.current;
