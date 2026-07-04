@@ -82,7 +82,11 @@ export default function Works() {
                     aria-label={`${project.title} — ${project.tagline}`}
                   >
                     <div className={styles.cover} aria-hidden="true">
-                      <div className={styles.coverGradient} />
+                      {project.coverImage ? (
+                        <img src={project.coverImage} alt="" className={styles.coverImg} loading="lazy" />
+                      ) : (
+                        <div className={styles.coverGradient} />
+                      )}
                       <span className={styles.coverYear}>{project.year}</span>
                     </div>
                     <div className={styles.info}>

@@ -62,12 +62,16 @@ export function WorksSnippet() {
                 aria-label={`${project.title} — ${project.tagline}`}
               >
                 <div className={styles.cover} aria-hidden="true">
-                  <div
-                    className={styles.coverInner}
-                    style={{ background: CATEGORY_GRADIENTS[project.category] ?? DEFAULT_GRADIENT }}
-                  >
-                    <span className={styles.coverLabel}>{project.category}</span>
-                  </div>
+                  {project.coverImage ? (
+                    <img src={project.coverImage} alt="" className={styles.coverImg} loading="lazy" />
+                  ) : (
+                    <div
+                      className={styles.coverInner}
+                      style={{ background: CATEGORY_GRADIENTS[project.category] ?? DEFAULT_GRADIENT }}
+                    >
+                      <span className={styles.coverLabel}>{project.category}</span>
+                    </div>
+                  )}
                 </div>
 
                 <div className={styles.info}>

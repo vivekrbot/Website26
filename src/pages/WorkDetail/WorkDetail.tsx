@@ -87,11 +87,17 @@ export default function WorkDetail() {
           </motion.div>
         </div>
 
-        {/* Cover placeholder */}
+        {/* Cover */}
         <div className={styles.coverWrap} aria-hidden="true">
           <div className={styles.cover}>
-            <div className={styles.coverGradient} />
-            <div className={styles.coverPattern} />
+            {project.coverImage ? (
+              <img src={project.coverImage} alt="" className={styles.coverImg} />
+            ) : (
+              <>
+                <div className={styles.coverGradient} />
+                <div className={styles.coverPattern} />
+              </>
+            )}
           </div>
         </div>
       </section>

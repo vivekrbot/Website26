@@ -168,8 +168,8 @@ export const projects: Project[] = [
     "category": "",
     "tags": [],
     "year": 2026,
-    "coverImage": "",
-    "featured": false,
+    "coverImage": "https://cdn.sanity.io/images/27gjokhr/production/bb68becbf51fccec9770106a38016e5785e23187-642x311.png",
+    "featured": true,
     "role": "",
     "links": []
   }
