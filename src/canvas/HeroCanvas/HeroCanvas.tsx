@@ -146,14 +146,6 @@ export function HeroCanvas() {
 
     ctx.clearRect(0, 0, w, h);
 
-    /* Cursor marker — hollow square, no soft glow */
-    if (mx > -1000 && my > -1000) {
-      const cgRadius = 60;
-      ctx.strokeStyle = `rgba(${palette[0]},${0.1 * aScale})`;
-      ctx.lineWidth = 1;
-      ctx.strokeRect(Math.round(mx - cgRadius / 2), Math.round(my - cgRadius / 2), cgRadius, cgRadius);
-    }
-
     /* Orbital ring outlines */
     RING_DEFS.forEach((ring, idx) => {
       const R = ref * ring.rFrac * s;

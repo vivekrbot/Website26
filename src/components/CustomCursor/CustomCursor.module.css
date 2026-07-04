@@ -5,7 +5,10 @@
   z-index: 99999;
   pointer-events: none;
   border-radius: 9999px;
-  background: var(--text-primary);
+  /* Must be a fixed white, not a theme token — mix-blend-mode: difference
+     against black (dark-theme's --text-primary would give diff(black,X)=X,
+     i.e. mathematically invisible). White always inverts correctly. */
+  background: #fff;
   will-change: transform;
   transition: opacity 0.2s;
   mix-blend-mode: difference;

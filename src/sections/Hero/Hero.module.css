@@ -122,12 +122,20 @@
   font-smooth: never;
 }
 
+.headline:hover {
+  animation: pixel-glitch 0.35s steps(1) 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .headline:hover { animation: none; }
+}
+
 /* Each headline line wraps to its own row */
 .headlineLine {
   display: block;
 }
 
-/* Name — pixel font, phosphor-glow blink (monochrome CRT flicker, no hue) */
+/* Name — pixel font, static phosphor glow (no blink) */
 .neonName {
   display: block;
   font-family: var(--font-pixel);
@@ -138,33 +146,19 @@
   color: var(--text-primary);
   margin-block: var(--space-4);
   cursor: default;
+  text-shadow: 0 0 4px var(--border-strong), 0 0 10px var(--border-default);
   transition: filter 0.35s var(--ease-out);
-  animation: neonBlink 3s ease-in-out infinite;
   -webkit-font-smoothing: none;
   font-smooth: never;
 }
 
 .neonName:hover {
   filter: drop-shadow(0 0 6px var(--text-primary)) brightness(1.1);
-}
-
-@keyframes neonBlink {
-  0%, 100% {
-    text-shadow: 0 0 4px var(--border-strong), 0 0 10px var(--border-default);
-    opacity: 1;
-  }
-  45%, 50% {
-    text-shadow: none;
-    opacity: 0.65;
-  }
-  55% {
-    text-shadow: 0 0 4px var(--border-strong), 0 0 10px var(--border-default);
-    opacity: 1;
-  }
+  animation: pixel-glitch 0.35s steps(1) 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .neonName { animation: none; }
+  .neonName:hover { animation: none; }
 }
 
 .tagline {

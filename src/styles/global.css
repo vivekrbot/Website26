@@ -127,6 +127,37 @@ body {
 }
 
 /* ============================================================
+   PIXEL HOVER — glitch-shift instead of moving/lifting
+   ============================================================ */
+
+@keyframes pixel-glitch {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(2px, -2px); }
+  40%  { transform: translate(-2px, 1px); }
+  60%  { transform: translate(1px, 2px); }
+  80%  { transform: translate(-1px, -1px); }
+  100% { transform: translate(0, 0); }
+}
+
+.display-1:hover,
+.display-2:hover,
+.heading-1:hover,
+.heading-2:hover,
+.heading-3:hover {
+  animation: pixel-glitch 0.35s steps(1) 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .display-1:hover,
+  .display-2:hover,
+  .heading-1:hover,
+  .heading-2:hover,
+  .heading-3:hover {
+    animation: none;
+  }
+}
+
+/* ============================================================
    HIGHLIGHT TEXT UTILITY
    ============================================================ */
 
@@ -156,15 +187,30 @@ body {
   transition:
     background var(--duration-base) var(--ease-out),
     border-color var(--duration-base) var(--ease-out),
-    box-shadow var(--duration-base) var(--ease-out),
-    transform var(--duration-base) var(--ease-out);
+    box-shadow var(--duration-base) var(--ease-out);
 }
 
 .glass-card:hover {
   background: var(--bg-card-hover);
   border-color: var(--border-strong);
   box-shadow: var(--shadow-lg);
-  transform: translate(-2px, -2px);
+}
+
+/* Any heading inside a hovered card glitch-shifts instead of the card moving */
+.glass-card:hover h1,
+.glass-card:hover h2,
+.glass-card:hover h3,
+.glass-card:hover h4 {
+  animation: pixel-glitch 0.35s steps(1) 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-card:hover h1,
+  .glass-card:hover h2,
+  .glass-card:hover h3,
+  .glass-card:hover h4 {
+    animation: none;
+  }
 }
 
 /* ============================================================
