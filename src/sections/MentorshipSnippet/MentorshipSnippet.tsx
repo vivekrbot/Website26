@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { SectionHeader } from '../../components/SectionHeader/SectionHeader';
+import Shuffle from '../../components/Shuffle/Shuffle';
+import BorderGlow from '../../components/BorderGlow/BorderGlow';
 import { Button } from '../../components/Button/Button';
 import { mentorshipTiers } from '../../data/mentorship';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
@@ -32,28 +34,31 @@ export function MentorshipSnippet() {
         <div className={styles.tracks}>
           {/* Free track */}
           <motion.div
-            className={`glass-card ${styles.card} ${styles.free}`}
             variants={fadeUp}
             initial={reducedMotion ? 'visible' : 'hidden'}
             whileInView="visible"
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className={styles.cardTop}>
-              <span className={`label ${styles.trackBadge} ${styles.freeBadge}`}>Free</span>
-              <h3 className="heading-3">{freeTier.name}</h3>
-              <p className={styles.tierTagline}>{freeTier.tagline}</p>
-            </div>
-            <ul className={styles.includes} role="list">
-              {freeTier.includes.map((item) => (
-                <li key={item} className={styles.includeItem}>
-                  <span aria-hidden="true">✦</span> {item}
-                </li>
-              ))}
-            </ul>
-            <Button as="a" href={freeTier.cta.href} variant="secondary" size="md">
-              {freeTier.cta.label}
-            </Button>
+            <BorderGlow backgroundColor="var(--bg-primary)" borderRadius={0} glowColor="0 0 88" colors={['#ffffff', '#cccccc', '#888888']} glowIntensity={0.85}>
+              <div className={`${styles.card} ${styles.free}`}>
+                <div className={styles.cardTop}>
+                  <span className={`label ${styles.trackBadge} ${styles.freeBadge}`}>Free</span>
+                  <h3 className="heading-3"><Shuffle tag="span" text={freeTier.name} textAlign="left" shuffleDirection="right" duration={0.4} stagger={0.022} threshold={0.1} rootMargin="0px" triggerOnce={true} triggerOnHover={true} respectReducedMotion={true} /></h3>
+                  <p className={styles.tierTagline}>{freeTier.tagline}</p>
+                </div>
+                <ul className={styles.includes} role="list">
+                  {freeTier.includes.map((item) => (
+                    <li key={item} className={styles.includeItem}>
+                      <span aria-hidden="true">✦</span> {item}
+                    </li>
+                  ))}
+                </ul>
+                <Button as="a" href={freeTier.cta.href} variant="secondary" size="md">
+                  {freeTier.cta.label}
+                </Button>
+              </div>
+            </BorderGlow>
           </motion.div>
 
           {/* Paid tracks */}
@@ -61,29 +66,32 @@ export function MentorshipSnippet() {
             {paidTiers.map((tier, i) => (
               <motion.div
                 key={tier.id}
-                className={`glass-card ${styles.card}`}
                 variants={fadeUp}
                 initial={reducedMotion ? 'visible' : 'hidden'}
                 whileInView="visible"
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: (i + 1) * 0.1 }}
               >
-                <div className={styles.cardTop}>
-                  <span className={`label ${styles.trackBadge} ${styles.paidBadge}`}>Paid</span>
-                  <h3 className="heading-3">{tier.name}</h3>
-                  <p className={styles.tierTagline}>{tier.tagline}</p>
-                  <p className={styles.duration}>{tier.duration}</p>
-                </div>
-                <ul className={styles.includes} role="list">
-                  {tier.includes.slice(0, 4).map((item) => (
-                    <li key={item} className={styles.includeItem}>
-                      <span aria-hidden="true">✦</span> {item}
-                    </li>
-                  ))}
-                </ul>
-                <Button as="a" href={tier.cta.href} variant="primary" size="md">
-                  {tier.cta.label}
-                </Button>
+                <BorderGlow backgroundColor="var(--bg-primary)" borderRadius={0} glowColor="0 0 88" colors={['#ffffff', '#cccccc', '#888888']} glowIntensity={0.85}>
+                  <div className={styles.card}>
+                    <div className={styles.cardTop}>
+                      <span className={`label ${styles.trackBadge} ${styles.paidBadge}`}>Paid</span>
+                      <h3 className="heading-3"><Shuffle tag="span" text={tier.name} textAlign="left" shuffleDirection="right" duration={0.4} stagger={0.022} threshold={0.1} rootMargin="0px" triggerOnce={true} triggerOnHover={true} respectReducedMotion={true} /></h3>
+                      <p className={styles.tierTagline}>{tier.tagline}</p>
+                      <p className={styles.duration}>{tier.duration}</p>
+                    </div>
+                    <ul className={styles.includes} role="list">
+                      {tier.includes.slice(0, 4).map((item) => (
+                        <li key={item} className={styles.includeItem}>
+                          <span aria-hidden="true">✦</span> {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <Button as="a" href={tier.cta.href} variant="primary" size="md">
+                      {tier.cta.label}
+                    </Button>
+                  </div>
+                </BorderGlow>
               </motion.div>
             ))}
           </div>

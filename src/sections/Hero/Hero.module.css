@@ -112,8 +112,8 @@
 .headline {
   margin-bottom: var(--space-6);
   font-family: var(--font-pixel);
-  font-size: clamp(1.5rem, 5.5vw, 3.25rem);
-  line-height: var(--leading-pixel);
+  font-size: clamp(2.2rem, 7.5vw, 5.5rem);
+  line-height: 1.15;
   letter-spacing: 0;
   font-weight: var(--weight-normal);
   display: block;
@@ -135,6 +135,15 @@
   display: block;
 }
 
+/* Highlighted lines — marker background, tight to each word */
+.headlineHighlight {
+  width: fit-content;
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  padding: 0.04em 0.22em;
+  margin-bottom: 0.06em;
+}
+
 /* Name — pixel font, static phosphor glow (no blink) */
 .neonName {
   display: block;
@@ -151,13 +160,6 @@
   font-smooth: never;
 }
 
-.neonName:hover {
-  animation: pixel-glitch 0.35s steps(1) 1;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .neonName:hover { animation: none; }
-}
 
 .tagline {
   font-size: clamp(var(--text-lg), 2.5vw, var(--text-xl));

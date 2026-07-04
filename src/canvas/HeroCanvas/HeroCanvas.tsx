@@ -217,13 +217,6 @@ export function HeroCanvas() {
       ctx.fillRect(Math.round(p.x - px / 2), Math.round(p.y - px / 2), px, px);
     }
 
-    /* Centre marker — pulsing hollow square, no soft glow */
-    const cgR   = ref * 0.16 * s;
-    const pulse = 0.14 + 0.05 * Math.sin(frameRef.current * 0.018);
-    ctx.strokeStyle = `rgba(${palette[0]},${pulse * aScale})`;
-    ctx.lineWidth = 1;
-    ctx.strokeRect(Math.round(cx - cgR / 2), Math.round(cy - cgR / 2), cgR, cgR);
-
     if (!hiddenRef.current) {
       rafRef.current = requestAnimationFrame(draw);
     }

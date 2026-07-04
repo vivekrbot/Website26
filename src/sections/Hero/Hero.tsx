@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { Button } from '../../components/Button/Button';
 import { EscapeText } from '../../components/EscapeText/EscapeText';
+import Shuffle from '../../components/Shuffle/Shuffle';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { socialLinks } from '../../data/navigation';
 import { HeroCanvas } from '../../canvas/HeroCanvas/HeroCanvas';
@@ -98,20 +99,53 @@ export function Hero() {
             Product Design &amp; Strategy
           </motion.p>
 
-          <motion.h1
-            id="hero-heading"
-            className={styles.headline}
-            initial={reducedMotion ? {} : { opacity: 0, y: 20 }}
-            animate={reducedMotion ? {} : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-          >
-            <EscapeText text="Designing products" className={styles.headlineLine} />
-            <EscapeText
-              text="people remember."
-              className={styles.headlineLine}
-              wordClassName="gradient-text"
-            />
-          </motion.h1>
+          <h1 id="hero-heading" className={styles.headline}>
+            <span className={styles.headlineLine}>
+              <Shuffle
+                tag="span"
+                text="Designing products"
+                textAlign="left"
+                shuffleDirection="right"
+                duration={0.4}
+                stagger={0.022}
+                threshold={0}
+                rootMargin="0px"
+                triggerOnce={true}
+                triggerOnHover={true}
+                respectReducedMotion={true}
+              />
+            </span>
+            <span className={`${styles.headlineLine} ${styles.headlineHighlight}`}>
+              <Shuffle
+                tag="span"
+                text="people"
+                textAlign="left"
+                shuffleDirection="right"
+                duration={0.4}
+                stagger={0.022}
+                threshold={0}
+                rootMargin="0px"
+                triggerOnce={true}
+                triggerOnHover={true}
+                respectReducedMotion={true}
+              />
+            </span>
+            <span className={`${styles.headlineLine} ${styles.headlineHighlight}`}>
+              <Shuffle
+                tag="span"
+                text="remember."
+                textAlign="left"
+                shuffleDirection="right"
+                duration={0.4}
+                stagger={0.022}
+                threshold={0}
+                rootMargin="0px"
+                triggerOnce={true}
+                triggerOnHover={true}
+                respectReducedMotion={true}
+              />
+            </span>
+          </h1>
 
           <motion.div
             className={styles.tagline}
@@ -119,11 +153,10 @@ export function Hero() {
             animate={reducedMotion ? {} : { opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
           >
-            <span className={styles.taglinePrefix}>I'm</span>
-            <span className={styles.neonName}>Vivek Ramachandran</span>
+            <span className={styles.neonName}>I'm Vivek Ramachandran</span>
             <EscapeText
               className={styles.taglineSuffix}
-              text="a product designer and strategist who builds experiences that are clear, crafted, and consequential."
+              text="Product designer and strategist who builds experiences that are clear, crafted, and consequential."
             />
           </motion.div>
 

@@ -62,7 +62,7 @@ export function Footer() {
 
         <div className={styles.bottom}>
           <p className={styles.copy}>
-            &copy; {year} Vivek Ramachandran. All rights reserved.
+            &copy; {year} BotStudio | ItsVivek. All rights reserved.
           </p>
 
           <ul className={styles.social} role="list">

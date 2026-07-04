@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { Button } from '../../components/Button/Button';
-import { EscapeText, EscapeWord } from '../../components/EscapeText/EscapeText';
+import SplitText from '../../components/SplitText/SplitText';
+import Shuffle from '../../components/Shuffle/Shuffle';
+import ScrollVelocity from '../../components/ScrollVelocity/ScrollVelocity';
 import { skills } from '../../data/about';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import styles from './AboutSnippet.module.css';
@@ -10,62 +12,15 @@ const fadeUp = {
   visible: { opacity: 1, y: 0 },
 };
 
-type SkillItem = { name: string; isAI?: boolean };
+const row1 = skills
+  .filter((s) => s.category === 'craft' || s.category === 'tools')
+  .map((s) => s.name)
+  .join(' · ');
 
-const SKILL_ROWS: Array<{ direction: 'left' | 'right'; duration: number; items: SkillItem[] }> = [
-  {
-    direction: 'left',
-    duration: 55,
-    items: [
-      ...skills.filter((s) => s.category === 'craft').map((s) => ({ name: s.name })),
-      ...skills.filter((s) => s.category === 'tools').map((s) => ({ name: s.name })),
-    ],
-  },
-  {
-    direction: 'right',
-    duration: 50,
-    items: [
-      ...skills.filter((s) => s.category === 'strategy').map((s) => ({ name: s.name })),
-      ...skills.filter((s) => s.category === 'ai').map((s) => ({ name: s.name, isAI: true })),
-    ],
-  },
-];
-
-interface MarqueeRowProps {
-  items: SkillItem[];
-  direction: 'left' | 'right';
-  duration: number;
-  reducedMotion: boolean;
-}
-
-function MarqueeRow({ items, direction, duration, reducedMotion }: MarqueeRowProps) {
-  const tripled = [...items, ...items, ...items];
-  return (
-    <div className={styles.marqueeRow} aria-hidden="true">
-      <div
-        className={styles.marqueeTrack}
-        style={
-          reducedMotion
-            ? undefined
-            : {
-                animationDuration: `${duration}s`,
-                animationDirection: direction === 'right' ? 'reverse' : 'normal',
-              }
-        }
-      >
-        {(reducedMotion ? items : tripled).map((item, i) => (
-          <span key={i} className={styles.marqueeItem}>
-            <EscapeWord
-              word={item.name}
-              className={`${styles.marqueeWord} ${item.isAI ? styles.aiWord : ''}`}
-            />
-            <span className={styles.skillSep} aria-hidden="true">&nbsp;·&nbsp;</span>
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
+const row2 = skills
+  .filter((s) => s.category === 'strategy' || s.category === 'ai')
+  .map((s) => s.name)
+  .join(' · ');
 
 export function AboutSnippet() {
   const reducedMotion = useReducedMotion();
@@ -74,7 +29,7 @@ export function AboutSnippet() {
     <section id="about" className={`section ${styles.about}`} aria-labelledby="about-heading">
       <div className="container">
 
-        {/* ── Text content – full container width, single column ── */}
+        {/* ── Text content ── */}
         <motion.div
           className={styles.content}
           variants={fadeUp}
@@ -86,23 +41,53 @@ export function AboutSnippet() {
           <header className={styles.sectionHeader}>
             <p className={`label ${styles.headerLabel}`}>About</p>
             <h2 id="about-heading" className={`heading-2 ${styles.headerTitle}`}>
-              <EscapeText text="Craft meets strategy." />
+              <Shuffle tag="span" text="Craft meets strategy." textAlign="left" shuffleDirection="right" duration={0.4} stagger={0.022} threshold={0.1} rootMargin="0px" triggerOnce={true} triggerOnHover={true} respectReducedMotion={true} />
             </h2>
-            <p className={styles.headerSubtitle}>
-              <EscapeText text="I design products that sit at the intersection of beautiful and business-critical — from zero-to-one apps to enterprise platforms with global scale." />
-            </p>
+            <SplitText
+              tag="p"
+              text="I design products that sit at the intersection of beautiful and business-critical — from zero-to-one apps to enterprise platforms with global scale."
+              className={styles.headerSubtitle}
+              splitType="words"
+              from={{ opacity: 0, y: 16 }}
+              to={{ opacity: 1, y: 0 }}
+              duration={0.5}
+              delay={22}
+              ease="power2.out"
+              threshold={0.1}
+              rootMargin="0px"
+              textAlign="left"
+            />
           </header>
 
           <div className={styles.bodyGrid}>
-            <p className={styles.body}>
-              With 8+ years in product design and strategy, I've shipped experiences used by millions
-              and built the systems, teams, and processes behind them. I think in outcomes, not outputs.
-            </p>
-            <p className={styles.body}>
-              In Business Insider's list of 100+ best Indian Product Designers, I was recognized for
-              my work on Design Systems at LinkedIn. I've also led design at startups like Sigaram Tech
-              and Outlener, building teams and shipping features that grew user bases to millions.
-            </p>
+            <SplitText
+              tag="p"
+              text="With 8+ years in product design and strategy, I've shipped experiences used by millions and built the systems, teams, and processes behind them. I think in outcomes, not outputs."
+              className={styles.body}
+              splitType="words"
+              from={{ opacity: 0, y: 14 }}
+              to={{ opacity: 1, y: 0 }}
+              duration={0.5}
+              delay={18}
+              ease="power2.out"
+              threshold={0.1}
+              rootMargin="0px"
+              textAlign="left"
+            />
+            <SplitText
+              tag="p"
+              text="In Business Insider's list of 100+ best Indian Product Designers, I was recognized for my work on Design Systems at LinkedIn. I've also led design at startups like Sigaram Tech and Outlener, building teams and shipping features that grew user bases to millions."
+              className={styles.body}
+              splitType="words"
+              from={{ opacity: 0, y: 14 }}
+              to={{ opacity: 1, y: 0 }}
+              duration={0.5}
+              delay={18}
+              ease="power2.out"
+              threshold={0.1}
+              rootMargin="0px"
+              textAlign="left"
+            />
           </div>
 
           <Button as="link" href="/about" variant="secondary" size="md">
@@ -110,32 +95,33 @@ export function AboutSnippet() {
           </Button>
         </motion.div>
 
-        {/* ── Skills – contained within container, not full-bleed ── */}
-        <motion.div
-          className={styles.skillsSection}
-          variants={fadeUp}
-          initial={reducedMotion ? 'visible' : 'hidden'}
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.22 }}
-        >
+      </div>
+
+      {/* ── Skills – full-bleed velocity marquee ── */}
+      <motion.div
+        className={styles.skillsSection}
+        variants={fadeUp}
+        initial={reducedMotion ? 'visible' : 'hidden'}
+        whileInView="visible"
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.22 }}
+      >
+        <div className="container">
           <div className={styles.skillsTop}>
             <p className={`label ${styles.skillsLabel}`}>Skills &amp; Tools</p>
           </div>
-          <div className={styles.marqueeRows}>
-            {SKILL_ROWS.map((row, i) => (
-              <MarqueeRow
-                key={i}
-                items={row.items}
-                direction={row.direction}
-                duration={row.duration}
-                reducedMotion={reducedMotion}
-              />
-            ))}
+          <div className={styles.marqueeWrap}>
+            <ScrollVelocity
+              texts={[row1, row2]}
+              velocity={reducedMotion ? 0 : 60}
+              numCopies={4}
+              className={styles.scrollText}
+              scrollerStyle={{ gap: 0 }}
+            />
           </div>
-        </motion.div>
+        </div>
+      </motion.div>
 
-      </div>
     </section>
   );
 }

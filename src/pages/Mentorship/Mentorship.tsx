@@ -1,7 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { SectionHeader } from '../../components/SectionHeader/SectionHeader';
-import { EscapeText } from '../../components/EscapeText/EscapeText';
+import Shuffle from '../../components/Shuffle/Shuffle';
+import BorderGlow from '../../components/BorderGlow/BorderGlow';
 import { Button } from '../../components/Button/Button';
 import { mentorshipTiers } from '../../data/mentorship';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
@@ -60,8 +61,8 @@ export default function Mentorship() {
           >
             <p className={`label ${styles.eyebrow}`}>Mentorship</p>
             <h1 id="mentorship-page-heading" className={`display-2 ${styles.headline}`}>
-              <EscapeText text="The support I wish" /><br />
-              <EscapeText text="I had earlier." wordClassName="gradient-text" />
+              <span style={{ display: 'block' }}><Shuffle tag="span" text="The support I wish" textAlign="left" shuffleDirection="right" duration={0.4} stagger={0.022} threshold={0} rootMargin="0px" triggerOnce={true} triggerOnHover={true} respectReducedMotion={true} /></span>
+              <span style={{ display: 'block' }}><Shuffle tag="span" text="I had earlier." textAlign="left" shuffleDirection="right" duration={0.4} stagger={0.022} threshold={0} rootMargin="0px" triggerOnce={true} triggerOnHover={true} respectReducedMotion={true} /></span>
             </h1>
             <p className={styles.heroSub}>
               I've been where you are. Two tracks, designed around where you are in your journey —
@@ -84,7 +85,7 @@ export default function Mentorship() {
             >
               <span className={`label ${styles.freeBadge}`}>Free track</span>
               <h2 id="free-heading" className={`heading-1 ${styles.tierTitle}`}>
-                <EscapeText text={freeTier.name} />
+                <Shuffle tag="span" text={freeTier.name} textAlign="left" shuffleDirection="right" duration={0.4} stagger={0.022} threshold={0.1} rootMargin="0px" triggerOnce={true} triggerOnHover={true} respectReducedMotion={true} />
               </h2>
               <p className={styles.tierTagline}>{freeTier.tagline}</p>
               <p className={styles.forWhom}>
@@ -96,23 +97,24 @@ export default function Mentorship() {
             </motion.div>
 
             <motion.div
-              className={`glass-card ${styles.includesCard}`}
               variants={fadeUp}
               initial={reducedMotion ? 'visible' : 'hidden'}
               whileInView="visible"
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
             >
-              <p className={`label ${styles.includesLabel}`}>What's included</p>
-              <ul className={styles.includesList} role="list">
-                {freeTier.includes.map((item) => (
-                  <li key={item} className={styles.includesItem}>
-                    <span className={styles.bullet} aria-hidden="true">✦</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <p className={styles.duration}>{freeTier.duration}</p>
+              <BorderGlow className={styles.includesCard} backgroundColor="var(--bg-primary)" borderRadius={0} glowColor="0 0 88" colors={['#ffffff', '#cccccc', '#888888']} glowIntensity={0.85}>
+                <p className={`label ${styles.includesLabel}`}>What's included</p>
+                <ul className={styles.includesList} role="list">
+                  {freeTier.includes.map((item) => (
+                    <li key={item} className={styles.includesItem}>
+                      <span className={styles.bullet} aria-hidden="true">✦</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className={styles.duration}>{freeTier.duration}</p>
+              </BorderGlow>
             </motion.div>
           </div>
         </div>
@@ -132,47 +134,50 @@ export default function Mentorship() {
             {paidTiers.map((tier, i) => (
               <motion.div
                 key={tier.id}
-                className={`glass-card ${styles.paidCard} ${i === 1 ? styles.featured : ''}`}
                 variants={fadeUp}
                 initial={reducedMotion ? 'visible' : 'hidden'}
                 whileInView="visible"
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: i * 0.12 }}
               >
-                {i === 1 && (
-                  <div className={styles.popularBadge} aria-label="Most popular">Most popular</div>
-                )}
-                <div className={styles.paidCardTop}>
-                  <h3 className={`heading-2 ${styles.paidTierName}`}>{tier.name}</h3>
-                  <p className={styles.paidTierTagline}>{tier.tagline}</p>
-                  <div className={styles.priceLine}>
-                    <span className={`heading-1 ${styles.price}`}>{tier.price}</span>
+                <BorderGlow backgroundColor="var(--bg-primary)" borderRadius={0} glowColor="0 0 88" colors={['#ffffff', '#cccccc', '#888888']} glowIntensity={0.85}>
+                  <div className={`${styles.paidCard} ${i === 1 ? styles.featured : ''}`}>
+                    {i === 1 && (
+                      <div className={styles.popularBadge} aria-label="Most popular">Most popular</div>
+                    )}
+                    <div className={styles.paidCardTop}>
+                      <h3 className={`heading-2 ${styles.paidTierName}`}><Shuffle tag="span" text={tier.name} textAlign="left" shuffleDirection="right" duration={0.4} stagger={0.022} threshold={0.1} rootMargin="0px" triggerOnce={true} triggerOnHover={true} respectReducedMotion={true} /></h3>
+                      <p className={styles.paidTierTagline}>{tier.tagline}</p>
+                      <div className={styles.priceLine}>
+                        <span className={`heading-1 ${styles.price}`}>{tier.price}</span>
+                      </div>
+                      <p className={styles.paidDuration}>{tier.duration}</p>
+                    </div>
+
+                    <ul className={styles.paidIncludes} role="list">
+                      {tier.includes.map((item) => (
+                        <li key={item} className={styles.paidIncludesItem}>
+                          <span className={styles.bullet} aria-hidden="true">✦</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className={styles.forWhomBox}>
+                      <p className={`label ${styles.forWhomLabel}`}>Best for</p>
+                      <p className={styles.forWhomText}>{tier.forWhom}</p>
+                    </div>
+
+                    <Button
+                      as="a"
+                      href={tier.cta.href}
+                      variant={i === 1 ? 'primary' : 'secondary'}
+                      size="lg"
+                    >
+                      {tier.cta.label}
+                    </Button>
                   </div>
-                  <p className={styles.paidDuration}>{tier.duration}</p>
-                </div>
-
-                <ul className={styles.paidIncludes} role="list">
-                  {tier.includes.map((item) => (
-                    <li key={item} className={styles.paidIncludesItem}>
-                      <span className={styles.bullet} aria-hidden="true">✦</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className={styles.forWhomBox}>
-                  <p className={`label ${styles.forWhomLabel}`}>Best for</p>
-                  <p className={styles.forWhomText}>{tier.forWhom}</p>
-                </div>
-
-                <Button
-                  as="a"
-                  href={tier.cta.href}
-                  variant={i === 1 ? 'primary' : 'secondary'}
-                  size="lg"
-                >
-                  {tier.cta.label}
-                </Button>
+                </BorderGlow>
               </motion.div>
             ))}
           </div>
@@ -194,7 +199,7 @@ export default function Mentorship() {
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: i * 0.06 }}
               >
-                <dt className={`heading-3 ${styles.faqQ}`}>{item.q}</dt>
+                <dt className={`heading-3 ${styles.faqQ}`}><Shuffle tag="span" text={item.q} textAlign="left" shuffleDirection="right" duration={0.4} stagger={0.018} threshold={0.1} rootMargin="0px" triggerOnce={true} triggerOnHover={true} respectReducedMotion={true} /></dt>
                 <dd className={styles.faqA}>{item.a}</dd>
               </motion.div>
             ))}
@@ -206,23 +211,26 @@ export default function Mentorship() {
       <section className={`section ${styles.ctaSection}`} aria-labelledby="mentorship-cta-heading">
         <div className="container">
           <motion.div
-            className={`glass-card ${styles.ctaCard}`}
             variants={fadeUp}
             initial={reducedMotion ? 'visible' : 'hidden'}
             whileInView="visible"
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h2 id="mentorship-cta-heading" className="heading-2">
-              <EscapeText text="Not sure where to start?" />
-            </h2>
-            <p className={styles.ctaBody}>
-              Drop me an email describing where you are and what you're trying to achieve.
-              I'll point you in the right direction — even if that's not me.
-            </p>
-            <Button as="a" href="mailto:vdraganer@gmail.com?subject=Mentorship Enquiry" variant="primary" size="lg">
-              Send me a message
-            </Button>
+            <BorderGlow backgroundColor="var(--bg-primary)" borderRadius={0} glowColor="0 0 88" colors={['#ffffff', '#cccccc', '#888888']} glowIntensity={0.85}>
+              <div className={styles.ctaCard}>
+                <h2 id="mentorship-cta-heading" className="heading-2">
+                  <Shuffle tag="span" text="Not sure where to start?" textAlign="left" shuffleDirection="right" duration={0.4} stagger={0.022} threshold={0.1} rootMargin="0px" triggerOnce={true} triggerOnHover={true} respectReducedMotion={true} />
+                </h2>
+                <p className={styles.ctaBody}>
+                  Drop me an email describing where you are and what you're trying to achieve.
+                  I'll point you in the right direction — even if that's not me.
+                </p>
+                <Button as="a" href="mailto:vdraganer@gmail.com?subject=Mentorship Enquiry" variant="primary" size="lg">
+                  Send me a message
+                </Button>
+              </div>
+            </BorderGlow>
           </motion.div>
         </div>
       </section>

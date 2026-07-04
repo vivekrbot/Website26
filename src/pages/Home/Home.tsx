@@ -3,6 +3,7 @@ import { Hero } from '../../sections/Hero/Hero';
 import { AboutSnippet } from '../../sections/AboutSnippet/AboutSnippet';
 import { WorksSnippet } from '../../sections/WorksSnippet/WorksSnippet';
 import { MentorshipSnippet } from '../../sections/MentorshipSnippet/MentorshipSnippet';
+import { StarShooter } from '../../components/StarShooter/StarShooter';
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <AboutSnippet />
       <WorksSnippet />
       <MentorshipSnippet />
+      <StarShooter />
     </>
   );
 }

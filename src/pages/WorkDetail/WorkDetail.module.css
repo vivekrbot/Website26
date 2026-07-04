@@ -254,7 +254,7 @@
   text-decoration: none;
 }
 
-.navCard:last-child {
+.projectNav > *:last-child .navCard {
   text-align: right;
   align-items: flex-end;
 }

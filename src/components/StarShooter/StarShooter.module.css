@@ -1,0 +1,159 @@
+/* ============================================================
+   STAR SHOOTER — floating play button + fullscreen game overlay
+   ============================================================ */
+
+/* --- Floating play button --- */
+
+.playButton {
+  position: fixed;
+  right: var(--space-8);
+  bottom: var(--space-10);
+  z-index: var(--z-sticky);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 2px solid var(--border-strong);
+  box-shadow: var(--shadow-sm);
+  font-family: var(--font-pixel);
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+  animation: play-drift 12s var(--ease-in-out) infinite alternate;
+}
+
+.playButton:hover,
+.playButton:focus-visible {
+  box-shadow: var(--shadow-md);
+  /* Freeze the drift so the target stops moving under the cursor */
+  animation-play-state: paused;
+}
+
+.playButton:hover .playLabel {
+  animation: play-glitch 0.35s steps(1) 1;
+}
+
+.playIcon {
+  display: block;
+  width: 21px;
+  height: 21px;
+}
+
+.playIcon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  shape-rendering: crispEdges;
+}
+
+.playLabel {
+  display: block;
+}
+
+@keyframes play-drift {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-16px, -12px); }
+  50%  { transform: translate(8px, -26px); }
+  75%  { transform: translate(-10px, 6px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes play-glitch {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(2px, -2px); }
+  40%  { transform: translate(-2px, 1px); }
+  60%  { transform: translate(1px, 2px); }
+  80%  { transform: translate(-1px, -1px); }
+  100% { transform: translate(0, 0); }
+}
+
+@media (max-width: 640px) {
+  .playButton {
+    right: var(--space-4);
+    bottom: var(--space-6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .playButton { animation: none; }
+  .playButton:hover .playLabel { animation: none; }
+}
+
+/* --- Game overlay --- */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  background: var(--bg-primary);
+  outline: none;
+  animation: overlay-flicker-in 0.5s steps(1, end) both;
+}
+
+@keyframes overlay-flicker-in {
+  0%   { opacity: 0; }
+  12%  { opacity: 0.8; }
+  24%  { opacity: 0.15; }
+  40%  { opacity: 1; }
+  55%  { opacity: 0.3; }
+  70%  { opacity: 1; }
+  84%  { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay { animation: overlay-plain-fade-in 0.3s var(--ease-out) both; }
+}
+
+@keyframes overlay-plain-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Game is keyboard/touch driven — restore a real cursor over the overlay
+   (global styles hide the native cursor for the custom one, which lives
+   inside the hidden #root while the game is open). */
+@media (pointer: fine) {
+  .overlay,
+  .overlay * {
+    cursor: auto !important;
+  }
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  touch-action: none;
+}
+
+.closeButton {
+  position: absolute;
+  top: var(--space-5);
+  right: var(--space-5);
+  z-index: 1;
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 2px solid var(--border-strong);
+  box-shadow: var(--shadow-sm);
+  font-family: var(--font-pixel);
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+}
+
+.closeButton:hover,
+.closeButton:focus-visible {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+}

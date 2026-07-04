@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { SectionHeader } from '../../components/SectionHeader/SectionHeader';
+import Shuffle from '../../components/Shuffle/Shuffle';
+import BorderGlow from '../../components/BorderGlow/BorderGlow';
 import { Button } from '../../components/Button/Button';
 import { featuredProjects } from '../../data/projects';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
@@ -47,9 +49,10 @@ export function WorksSnippet() {
         >
           {featuredProjects.map((project) => (
             <motion.li key={project.slug} variants={cardAnim}>
+              <BorderGlow backgroundColor="var(--bg-primary)" borderRadius={0} glowColor="0 0 88" colors={['#ffffff', '#cccccc', '#888888']} glowIntensity={0.85}>
               <Link
                 to={`/works/${project.slug}`}
-                className={`glass-card ${styles.card}`}
+                className={styles.card}
                 aria-label={`${project.title} — ${project.tagline}`}
               >
                 <div className={styles.cover} aria-hidden="true">
@@ -67,7 +70,7 @@ export function WorksSnippet() {
                     <span className={`label ${styles.category}`}>{project.category}</span>
                     <span className={styles.year}>{project.year}</span>
                   </div>
-                  <h3 className={`heading-3 ${styles.title}`}>{project.title}</h3>
+                  <h3 className={`heading-3 ${styles.title}`}><Shuffle tag="span" text={project.title} textAlign="left" shuffleDirection="right" duration={0.4} stagger={0.022} threshold={0.1} rootMargin="0px" triggerOnce={true} triggerOnHover={true} respectReducedMotion={true} /></h3>
                   <p className={styles.tagline}>{project.tagline}</p>
 
                   <ul className={styles.tags} role="list" aria-label="Technologies used">
@@ -81,6 +84,7 @@ export function WorksSnippet() {
                   </span>
                 </div>
               </Link>
+              </BorderGlow>
             </motion.li>
           ))}
         </motion.ul>

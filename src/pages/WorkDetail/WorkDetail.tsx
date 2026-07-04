@@ -3,7 +3,8 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { PortableText, type PortableTextComponents } from '@portabletext/react';
 import { Button } from '../../components/Button/Button';
-import { EscapeText } from '../../components/EscapeText/EscapeText';
+import Shuffle from '../../components/Shuffle/Shuffle';
+import BorderGlow from '../../components/BorderGlow/BorderGlow';
 import { projects } from '../../data/projects';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import styles from './WorkDetail.module.css';
@@ -56,7 +57,7 @@ export default function WorkDetail() {
               <span className={styles.year}>{project.year}</span>
             </div>
             <h1 id="case-study-heading" className={`display-2 ${styles.title}`}>
-              <EscapeText text={project.title} />
+              <Shuffle tag="span" text={project.title} textAlign="left" shuffleDirection="right" duration={0.4} stagger={0.022} threshold={0} rootMargin="0px" triggerOnce={true} triggerOnHover={true} respectReducedMotion={true} />
             </h1>
             <p className={styles.tagline}>{project.tagline}</p>
 
@@ -145,14 +146,18 @@ export default function WorkDetail() {
 
       {/* Next/Prev navigation */}
       <nav className={`container ${styles.projectNav}`} aria-label="Navigate between projects">
-        <Link to={`/works/${prev.slug}`} className={`glass-card ${styles.navCard}`}>
-          <span className={`label ${styles.navDir}`}>← Previous</span>
-          <span className={styles.navTitle}>{prev.title}</span>
-        </Link>
-        <Link to={`/works/${next.slug}`} className={`glass-card ${styles.navCard}`}>
-          <span className={`label ${styles.navDir}`}>Next →</span>
-          <span className={styles.navTitle}>{next.title}</span>
-        </Link>
+        <BorderGlow backgroundColor="var(--bg-primary)" borderRadius={0} glowColor="0 0 88" colors={['#ffffff', '#cccccc', '#888888']} glowIntensity={0.85}>
+          <Link to={`/works/${prev.slug}`} className={styles.navCard}>
+            <span className={`label ${styles.navDir}`}>← Previous</span>
+            <span className={styles.navTitle}>{prev.title}</span>
+          </Link>
+        </BorderGlow>
+        <BorderGlow backgroundColor="var(--bg-primary)" borderRadius={0} glowColor="0 0 88" colors={['#ffffff', '#cccccc', '#888888']} glowIntensity={0.85}>
+          <Link to={`/works/${next.slug}`} className={styles.navCard}>
+            <span className={`label ${styles.navDir}`}>Next →</span>
+            <span className={styles.navTitle}>{next.title}</span>
+          </Link>
+        </BorderGlow>
       </nav>
 
       <div className={`container ${styles.bottomPad}`} />

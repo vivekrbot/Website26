@@ -2,7 +2,7 @@
   position: relative;
 }
 
-/* ── Text content – full container width, single column ── */
+/* ── Text content ── */
 .content {
   width: 100%;
   margin-bottom: var(--space-20);
@@ -31,13 +31,11 @@
   line-height: var(--leading-normal);
 }
 
-/* Two-column body fills the full content width on desktop */
 .bodyGrid {
   display: grid;
   gap: var(--space-6);
   margin-bottom: var(--space-8);
 }
-
 
 .body {
   font-size: var(--text-lg);
@@ -45,17 +43,10 @@
   line-height: var(--leading-normal);
 }
 
-/* ── AI accent word (shared EscapeWord + this modifier) ── */
-.aiWord {
-  color: var(--accent-primary);
-  opacity: 0.8;
-}
-
-/* ── Skills – inside container, overflow clipped ── */
+/* ── Skills section ── */
 .skillsSection {
   width: 100%;
   padding-top: var(--space-10);
-  border-top: 1px solid var(--border-subtle);
 }
 
 .skillsTop {
@@ -66,120 +57,55 @@
   color: var(--text-muted);
 }
 
-/* Full-bleed: breaks out of the container to span full viewport width */
-.marqueeRows {
+/* Width-limited marquee wrap — clipped to container, edge fades */
+.marqueeWrap {
   position: relative;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-  width: 100vw;
-  left: 50%;
-  margin-left: -50vw;
+  width: 100%;
 }
 
-/* Edge masks fade within container bounds */
-.marqueeRows::before,
-.marqueeRows::after {
+.marqueeWrap::before,
+.marqueeWrap::after {
   content: '';
   position: absolute;
   top: 0;
   height: 100%;
-  width: 100px;
+  width: 80px;
   z-index: 2;
   pointer-events: none;
 }
 
-.marqueeRows::before {
+.marqueeWrap::before {
   left: 0;
   background: linear-gradient(to right, var(--bg-primary) 0%, transparent 100%);
 }
 
-.marqueeRows::after {
+.marqueeWrap::after {
   right: 0;
   background: linear-gradient(to left, var(--bg-primary) 0%, transparent 100%);
 }
 
-/* ── Each scrolling row ── */
-.marqueeRow {
-  overflow: hidden;
-}
-
-.marqueeTrack {
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  animation: marqueeLTR linear infinite;
-  will-change: transform;
-}
-
-@keyframes marqueeLTR {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-33.333%); }
-}
-
-.marqueeItem {
-  display: inline-flex;
-  align-items: center;
-  flex-shrink: 0;
-  padding-block: var(--space-2);
-}
-
-.marqueeWord {
-  font-size: clamp(1.15rem, 2.4vw, 1.85rem);
+/* Text span inside each scroll row */
+.scrollText {
+  font-size: var(--text-2xl);
+  font-family: var(--font-display);
   font-weight: var(--weight-medium);
   letter-spacing: -0.01em;
   color: var(--text-secondary);
-  transition: color 150ms ease;
-  padding: 0 var(--space-1);
-}
-
-.marqueeWord:hover {
-  color: var(--text-primary);
-}
-
-.marqueeWord.aiWord {
-  color: var(--accent-primary);
-  opacity: 0.75;
-}
-
-.marqueeWord.aiWord:hover {
-  opacity: 1;
-}
-
-.skillSep {
-  display: inline-block;
-  font-size: clamp(0.85rem, 1.8vw, 1.3rem);
-  color: var(--text-muted);
-  opacity: 0.22;
-  pointer-events: none;
-  flex-shrink: 0;
+  padding-block: var(--space-2);
 }
 
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
-  .marqueeTrack {
-    animation: none;
-    flex-wrap: wrap;
-    white-space: normal;
-    gap: var(--space-2);
-    padding-block: var(--space-3);
-  }
-
-  .marqueeRows::before,
-  .marqueeRows::after {
+  .marqueeWrap::before,
+  .marqueeWrap::after {
     display: none;
   }
 }
 
-/* ── Mobile ── */
 @media (max-width: 480px) {
-  .marqueeRows::before,
-  .marqueeRows::after {
+  .marqueeWrap::before,
+  .marqueeWrap::after {
     width: 48px;
-  }
-
-  .marqueeWord {
-    font-size: clamp(0.95rem, 4vw, 1.3rem);
   }
 }

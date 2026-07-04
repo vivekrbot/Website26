@@ -3,6 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SectionHeader } from '../../components/SectionHeader/SectionHeader';
+import Shuffle from '../../components/Shuffle/Shuffle';
+import BorderGlow from '../../components/BorderGlow/BorderGlow';
 import { projects } from '../../data/projects';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import styles from './Works.module.css';
@@ -76,9 +78,10 @@ export default function Works() {
                   animate="visible"
                   exit="exit"
                 >
+                  <BorderGlow backgroundColor="var(--bg-primary)" borderRadius={0} glowColor="0 0 88" colors={['#ffffff', '#cccccc', '#888888']} glowIntensity={0.85}>
                   <Link
                     to={`/works/${project.slug}`}
-                    className={`glass-card ${styles.card}`}
+                    className={styles.card}
                     aria-label={`${project.title} — ${project.tagline}`}
                   >
                     <div className={styles.cover} aria-hidden="true">
@@ -96,7 +99,7 @@ export default function Works() {
                           <span className={styles.featuredBadge} aria-label="Featured project">Featured</span>
                         )}
                       </div>
-                      <h2 className={`heading-3 ${styles.title}`}>{project.title}</h2>
+                      <h2 className={`heading-3 ${styles.title}`}><Shuffle tag="span" text={project.title} textAlign="left" shuffleDirection="right" duration={0.4} stagger={0.022} threshold={0.1} rootMargin="0px" triggerOnce={true} triggerOnHover={true} respectReducedMotion={true} /></h2>
                       <p className={styles.tagline}>{project.tagline}</p>
                       <p className={styles.role}>{project.role}</p>
                       <ul className={styles.tags} role="list" aria-label="Tags">
@@ -107,6 +110,7 @@ export default function Works() {
                       <span className={styles.cta} aria-hidden="true">View case study →</span>
                     </div>
                   </Link>
+                  </BorderGlow>
                 </motion.li>
               ))}
             </AnimatePresence>

@@ -10,3 +10,13 @@
   outline: none; /* focus managed programmatically */
   padding-top: var(--nav-height);
 }
+
+/* LightRays — fixed viewport overlay, screen blend so it's invisible on light bg */
+.lightRays {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.55;
+}

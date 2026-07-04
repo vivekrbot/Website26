@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { Nav } from './Nav';
 import { Footer } from './Footer';
 import { SpaceCanvas } from '../canvas/SpaceCanvas';
+import LightRays from '../components/LightRays/LightRays';
 import { SkipLink } from '../components/SkipLink/SkipLink';
 import { CustomCursor } from '../components/CustomCursor/CustomCursor';
 import { PageTransition } from '../components/PageTransition/PageTransition';
@@ -29,6 +30,21 @@ export function Layout() {
       <SkipLink />
       <CustomCursor />
       <SpaceCanvas />
+      <div className={styles.lightRays} aria-hidden="true">
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#ffffff"
+          raysSpeed={0.6}
+          lightSpread={0.7}
+          rayLength={1.8}
+          fadeDistance={1.2}
+          saturation={0.0}
+          followMouse={true}
+          mouseInfluence={0.08}
+          noiseAmount={0.04}
+          distortion={0.02}
+        />
+      </div>
       <Nav />
       <main
         id="main-content"
