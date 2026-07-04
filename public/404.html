@@ -11,7 +11,7 @@
       Based on the canonical approach: https://github.com/rafgraph/spa-github-pages
     -->
     <script>
-      var segmentCount = 0; // itsvivek.design is a custom domain served at root (0 = no /repo-name/ prefix)
+      var segmentCount = 1; // number of path segments in the GitHub Pages project URL (1 = /repo-name/)
       var l = window.location;
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
