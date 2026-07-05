@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Helmet } from 'react-helmet-async';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -26,6 +28,23 @@ export default function WorkDetail() {
   const { slug } = useParams<{ slug: string }>();
   const reducedMotion = useReducedMotion();
   const project = projects.find((p) => p.slug === slug);
+  const [isCoverExpanded, setIsCoverExpanded] = useState(false);
+  const lightboxRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isCoverExpanded) return;
+    lightboxRef.current?.focus();
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsCoverExpanded(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isCoverExpanded]);
 
   if (!project) return <Navigate to="/works" replace />;
 
@@ -89,10 +108,17 @@ export default function WorkDetail() {
         </div>
 
         {/* Cover */}
-        <div className={styles.coverWrap} aria-hidden="true">
-          <div className={styles.cover}>
+        <div className={styles.coverWrap}>
+          <div className={`${styles.cover} ${project.coverImage ? styles.coverHasImage : ''}`}>
             {project.coverImage ? (
-              <img src={project.coverImage} alt="" className={styles.coverImg} />
+              <button
+                type="button"
+                className={styles.coverButton}
+                onClick={() => setIsCoverExpanded(true)}
+                aria-label={`Expand cover image for ${project.title}`}
+              >
+                <img src={project.coverImage} alt="" className={styles.coverImg} />
+              </button>
             ) : (
               <>
                 <div className={styles.coverGradient} />
@@ -102,6 +128,34 @@ export default function WorkDetail() {
           </div>
         </div>
       </section>
+
+      {isCoverExpanded && project.coverImage && createPortal(
+        <div
+          ref={lightboxRef}
+          className={styles.lightbox}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${project.title} cover image, expanded`}
+          tabIndex={-1}
+          onClick={() => setIsCoverExpanded(false)}
+        >
+          <button
+            type="button"
+            className={styles.lightboxClose}
+            onClick={() => setIsCoverExpanded(false)}
+            aria-label="Close expanded image"
+          >
+            &#10005;
+          </button>
+          <img
+            src={project.coverImage}
+            alt=""
+            className={styles.lightboxImg}
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>,
+        document.body
+      )}
 
       {/* Tags */}
       <div className={`container ${styles.tagsRow}`}>

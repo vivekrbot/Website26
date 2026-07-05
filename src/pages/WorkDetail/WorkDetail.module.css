@@ -102,6 +102,28 @@
   background: var(--bg-tertiary);
 }
 
+.coverHasImage {
+  background: none;
+  border: none;
+}
+
+.coverButton {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  appearance: none;
+  cursor: zoom-in;
+}
+
+.coverButton:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: -2px;
+}
+
 .coverGradient {
   position: absolute;
   inset: 0;
@@ -132,9 +154,60 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: left center;
 }
 
+/* Cover lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+  background: rgba(0, 0, 0, 0.9);
+  outline: none;
+  cursor: zoom-out;
+  animation: lightbox-fade-in var(--duration-base) var(--ease-out) both;
+}
+
+@keyframes lightbox-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox { animation: none; }
+}
+
+.lightboxImg {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  cursor: default;
+}
+
+.lightboxClose {
+  position: absolute;
+  top: var(--space-5);
+  right: var(--space-5);
+  z-index: 1;
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 2px solid var(--border-strong);
+  box-shadow: var(--shadow-sm);
+  font-size: var(--text-base);
+  cursor: pointer;
+}
+
+.lightboxClose:hover,
+.lightboxClose:focus-visible {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+}
 
 /* Tags row */
 .tagsRow {
