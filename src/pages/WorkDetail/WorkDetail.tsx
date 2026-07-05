@@ -11,14 +11,6 @@ import { projects } from '../../data/projects';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import styles from './WorkDetail.module.css';
 
-const portableTextComponents: PortableTextComponents = {
-  types: {
-    image: ({ value }) => (
-      <img className={styles.bodyImage} src={value?.asset?.url} alt={value?.alt ?? ''} loading="lazy" />
-    ),
-  },
-};
-
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0 },
@@ -28,14 +20,14 @@ export default function WorkDetail() {
   const { slug } = useParams<{ slug: string }>();
   const reducedMotion = useReducedMotion();
   const project = projects.find((p) => p.slug === slug);
-  const [isCoverExpanded, setIsCoverExpanded] = useState(false);
+  const [expandedImage, setExpandedImage] = useState<{ src: string; alt: string } | null>(null);
   const lightboxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!isCoverExpanded) return;
+    if (!expandedImage) return;
     lightboxRef.current?.focus();
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setIsCoverExpanded(false);
+      if (e.key === 'Escape') setExpandedImage(null);
     };
     window.addEventListener('keydown', onKeyDown);
     const previousOverflow = document.body.style.overflow;
@@ -44,9 +36,29 @@ export default function WorkDetail() {
       window.removeEventListener('keydown', onKeyDown);
       document.body.style.overflow = previousOverflow;
     };
-  }, [isCoverExpanded]);
+  }, [expandedImage]);
 
   if (!project) return <Navigate to="/works" replace />;
+
+  const portableTextComponents: PortableTextComponents = {
+    types: {
+      image: ({ value }) => {
+        const src = value?.asset?.url;
+        const alt = value?.alt ?? '';
+        if (!src) return null;
+        return (
+          <button
+            type="button"
+            className={styles.bodyImageButton}
+            onClick={() => setExpandedImage({ src, alt })}
+            aria-label={alt ? `Expand image: ${alt}` : 'Expand image'}
+          >
+            <img className={styles.bodyImage} src={src} alt={alt} loading="lazy" />
+          </button>
+        );
+      },
+    },
+  };
 
   const currentIndex = projects.findIndex((p) => p.slug === slug);
   const next = projects[(currentIndex + 1) % projects.length];
@@ -114,7 +126,7 @@ export default function WorkDetail() {
               <button
                 type="button"
                 className={styles.coverButton}
-                onClick={() => setIsCoverExpanded(true)}
+                onClick={() => setExpandedImage({ src: project.coverImage!, alt: `${project.title} cover image` })}
                 aria-label={`Expand cover image for ${project.title}`}
               >
                 <img src={project.coverImage} alt="" className={styles.coverImg} />
@@ -129,27 +141,27 @@ export default function WorkDetail() {
         </div>
       </section>
 
-      {isCoverExpanded && project.coverImage && createPortal(
+      {expandedImage && createPortal(
         <div
           ref={lightboxRef}
           className={styles.lightbox}
           role="dialog"
           aria-modal="true"
-          aria-label={`${project.title} cover image, expanded`}
+          aria-label={expandedImage.alt || 'Expanded image'}
           tabIndex={-1}
-          onClick={() => setIsCoverExpanded(false)}
+          onClick={() => setExpandedImage(null)}
         >
           <button
             type="button"
             className={styles.lightboxClose}
-            onClick={() => setIsCoverExpanded(false)}
+            onClick={() => setExpandedImage(null)}
             aria-label="Close expanded image"
           >
             &#10005;
           </button>
           <img
-            src={project.coverImage}
-            alt=""
+            src={expandedImage.src}
+            alt={expandedImage.alt}
             className={styles.lightboxImg}
             onClick={(e) => e.stopPropagation()}
           />

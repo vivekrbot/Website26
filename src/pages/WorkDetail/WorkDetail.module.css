@@ -302,11 +302,27 @@
   text-underline-offset: 2px;
 }
 
-.bodyImage {
+.bodyImageButton {
+  display: block;
   width: 100%;
-  border-radius: var(--radius-lg);
+  padding: 0;
   border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
   margin-bottom: var(--space-6);
+  background: none;
+  appearance: none;
+  cursor: zoom-in;
+}
+
+.bodyImageButton:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: -2px;
+}
+
+.bodyImage {
+  display: block;
+  width: 100%;
 }
 
 /* Next/Prev nav */
