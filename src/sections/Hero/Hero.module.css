@@ -47,7 +47,7 @@
 /* Left-aligned text column */
 .stage {
   width: 100%;
-  max-width: 64rem;
+  max-width: 100%;
   text-align: left;
 }
 
@@ -112,7 +112,7 @@
 .headline {
   margin-bottom: var(--space-6);
   font-family: var(--font-pixel);
-  font-size: clamp(2.2rem, 7.5vw, 5.5rem);
+  font-size: clamp(2.2rem, 4.8vw, 3.75rem);
   line-height: 1.15;
   letter-spacing: 0;
   font-weight: var(--weight-normal);
@@ -133,6 +133,14 @@
 /* Each headline line wraps to its own row */
 .headlineLine {
   display: block;
+}
+
+/* Keeps its children (e.g. two highlighted words) on the same row */
+.headlineRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.28em;
 }
 
 /* Highlighted lines — marker background, tight to each word */

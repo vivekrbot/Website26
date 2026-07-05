@@ -115,35 +115,37 @@ export function Hero() {
                 respectReducedMotion={true}
               />
             </span>
-            <span className={`${styles.headlineLine} ${styles.headlineHighlight}`}>
-              <Shuffle
-                tag="span"
-                text="people"
-                textAlign="left"
-                shuffleDirection="right"
-                duration={0.4}
-                stagger={0.022}
-                threshold={0}
-                rootMargin="0px"
-                triggerOnce={true}
-                triggerOnHover={true}
-                respectReducedMotion={true}
-              />
-            </span>
-            <span className={`${styles.headlineLine} ${styles.headlineHighlight}`}>
-              <Shuffle
-                tag="span"
-                text="remember."
-                textAlign="left"
-                shuffleDirection="right"
-                duration={0.4}
-                stagger={0.022}
-                threshold={0}
-                rootMargin="0px"
-                triggerOnce={true}
-                triggerOnHover={true}
-                respectReducedMotion={true}
-              />
+            <span className={`${styles.headlineLine} ${styles.headlineRow}`}>
+              <span className={styles.headlineHighlight}>
+                <Shuffle
+                  tag="span"
+                  text="people"
+                  textAlign="left"
+                  shuffleDirection="right"
+                  duration={0.4}
+                  stagger={0.022}
+                  threshold={0}
+                  rootMargin="0px"
+                  triggerOnce={true}
+                  triggerOnHover={true}
+                  respectReducedMotion={true}
+                />
+              </span>
+              <span className={styles.headlineHighlight}>
+                <Shuffle
+                  tag="span"
+                  text="remember."
+                  textAlign="left"
+                  shuffleDirection="right"
+                  duration={0.4}
+                  stagger={0.022}
+                  threshold={0}
+                  rootMargin="0px"
+                  triggerOnce={true}
+                  triggerOnHover={true}
+                  respectReducedMotion={true}
+                />
+              </span>
             </span>
           </h1>
 

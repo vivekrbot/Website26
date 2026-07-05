@@ -2464,6 +2464,1729 @@ export const projects: Project[] = [
     "links": []
   },
   {
+    "slug": "command-center-ux",
+    "title": "Command Center UX",
+    "tagline": "Designing a scalable admin control system for complex business operations.",
+    "shortDescription": "A UX/UI case study focused on designing a powerful remote management dashboard for enterprise teams to monitor, configure, and control multiple systems from one place. The project highlights information architecture, role-based access control, system configuration UX, responsive admin design, and design QA workflows.",
+    "body": [
+      {
+        "_key": "d4b271447512",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c0d7ad50bca2",
+            "_type": "span",
+            "marks": [],
+            "text": "Idea"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "6bceb9b93406",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6a43e5857000",
+            "_type": "span",
+            "marks": [],
+            "text": "Modern businesses often use multiple devices, users, permissions, locations, and settings across different operational environments. But most admin tools are either too technical, too cluttered, or too difficult for non-technical managers to use."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3c6f6194b48b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9985a7214a64",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Command Center UX"
+          },
+          {
+            "_key": "10b97df63b3e",
+            "_type": "span",
+            "marks": [],
+            "text": " creates a remote management experience where operators can manage users, permissions, device settings, configurations, alerts, and system-level controls through a clean and scalable admin interface."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0e489ff21eee",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/71f5076aa304a4a2b645a0e25a809a974171653b-1536x1024.png"
+        }
+      },
+      {
+        "_key": "10cdf6aa4c6b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b8ce99f1a46d",
+            "_type": "span",
+            "marks": [],
+            "text": "Problem"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "9584819e4143",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8fcb70120b79",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Enterprise admin tools usually fail in three areas:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9c797fd45110",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bba0dc7f42ba",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Too much complexity on one screen"
+          },
+          {
+            "_key": "06e39c8c2409",
+            "_type": "span",
+            "marks": [],
+            "text": " users are forced to understand technical settings without clear grouping."
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c7e593291a59",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "22be66a03e96",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Poor role clarity"
+          },
+          {
+            "_key": "969f3ca35e9a",
+            "_type": "span",
+            "marks": [],
+            "text": " admins, managers, operators, and support teams often see the same interface."
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3e98c0c3ddf0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3c19a0d4a15c",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Weak design scalability"
+          },
+          {
+            "_key": "17cf2a96ce7b",
+            "_type": "span",
+            "marks": [],
+            "text": " as features grow, the UI becomes inconsistent and hard to maintain."
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "893c541018e2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "49de1aa64661",
+            "_type": "span",
+            "marks": [],
+            "text": "The core challenge was not just to design screens, but to create a "
+          },
+          {
+            "_key": "9946f64acded",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "system-level experience"
+          },
+          {
+            "_key": "f4bd6dc0faaf",
+            "_type": "span",
+            "marks": [],
+            "text": " that could scale across modules, roles, and future product expansion."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1fe74ca314fd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "77729aa7c564",
+            "_type": "span",
+            "marks": [],
+            "text": "Usage"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "f31dd5e67205",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "18d72a1d37c4",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "This product would be used by:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "bc40d5d122be",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0e2eb6e78a95",
+            "_type": "span",
+            "marks": [],
+            "text": "Business admins managing multiple locations or devices"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4d762697898a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "98f5737fcc62",
+            "_type": "span",
+            "marks": [],
+            "text": "Operations managers monitoring live system status"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2f9f3cfc7027",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2c2e180323e6",
+            "_type": "span",
+            "marks": [],
+            "text": "Support teams troubleshooting issues remotely"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7b76d4ed3210",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "91ea0bae12bf",
+            "_type": "span",
+            "marks": [],
+            "text": "Product teams configuring platform-level rules"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "592850183ced",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "91270ac4fb04",
+            "_type": "span",
+            "marks": [],
+            "text": "Internal teams managing access and permissions"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9a3375737b86",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b877ce8120bd",
+            "_type": "span",
+            "marks": [],
+            "text": "Solution"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "a080e4d9b475",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "486da655725c",
+            "_type": "span",
+            "marks": [],
+            "text": "The solution is a "
+          },
+          {
+            "_key": "788ada891ee1",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "centralized remote management command center"
+          },
+          {
+            "_key": "fdb39abf46a3",
+            "_type": "span",
+            "marks": [],
+            "text": " with clear navigation, modular settings, role-based controls, and reusable UI patterns."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "328b971b004d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "10cd6aa1a6ae",
+            "_type": "span",
+            "marks": [],
+            "text": "Key UX decisions:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9a6b1df4c234",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8eda082d4cfd",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Modular dashboard architecture"
+          },
+          {
+            "_key": "f199683b9630",
+            "_type": "span",
+            "marks": [],
+            "text": " for quick system overview"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1a27a9e93b12",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "58012758a91d",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Role-based navigation"
+          },
+          {
+            "_key": "54677542a121",
+            "_type": "span",
+            "marks": [],
+            "text": " so each user sees only relevant actions"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "04158757a6e2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "40e753f641b7",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Progressive disclosure"
+          },
+          {
+            "_key": "6515bdda5f73",
+            "_type": "span",
+            "marks": [],
+            "text": " for advanced settings"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4a360b26f037",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "27c6356bdda0",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Status-first interface"
+          },
+          {
+            "_key": "14b60e1f6171",
+            "_type": "span",
+            "marks": [],
+            "text": " to show system health, warnings, and required action"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2ac5ffcdb528",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ea3a985c9724",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Permission-aware actions"
+          },
+          {
+            "_key": "3b1541abbc25",
+            "_type": "span",
+            "marks": [],
+            "text": " to prevent accidental changes"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d038680759e1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c14c0211b9ac",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Reusable admin components"
+          },
+          {
+            "_key": "04d1710c900b",
+            "_type": "span",
+            "marks": [],
+            "text": " for tables, filters, cards, forms, empty states, alerts, and confirmation flows"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4925a11ac2d8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3d91440a23ee",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Responsive admin layouts"
+          },
+          {
+            "_key": "bb9c1cb44627",
+            "_type": "span",
+            "marks": [],
+            "text": " for desktop-first workflows with tablet support"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "335306fae0c4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7cdb59c31a91",
+            "_type": "span",
+            "marks": [],
+            "text": "——————————————————————————————————————"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4f9af935915a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e31148aebd76",
+            "_type": "span",
+            "marks": [],
+            "text": "Project Flow"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "10a737737840",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "93bebb7218a9",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "1. Research & System Understanding"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0625727a1714",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "76d060bf4a1b",
+            "_type": "span",
+            "marks": [],
+            "text": "Mapped how admins, operators, and support users interact with system controls:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8f5b8e6a581d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "129fd79ef593",
+            "_type": "span",
+            "marks": [],
+            "text": "What users need to monitor"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "bd1253605768",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fe45abba422d",
+            "_type": "span",
+            "marks": [],
+            "text": "What they need to configure"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "322de5bc573c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "edb81a145be9",
+            "_type": "span",
+            "marks": [],
+            "text": "What actions are risky"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d7da3b78d19c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b08ff2924d51",
+            "_type": "span",
+            "marks": [],
+            "text": "Which settings are frequent vs. rare"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0246b7bbc341",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "77865c267dbd",
+            "_type": "span",
+            "marks": [],
+            "text": "Where users need guidance or confirmation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4905fe251d91",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ef36e0fd2ec7",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "2. Information Architecture"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "addab4922946",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/319c595ec207c1a372f286aaede656d8c1605cc3-1536x1024.png"
+        }
+      },
+      {
+        "_key": "7a2d0852da98",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "842b9a9c6c3c",
+            "_type": "span",
+            "marks": [],
+            "text": "The product was divided into logical modules:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "311c87c4c6d8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f3ba59424e54",
+            "_type": "span",
+            "marks": [],
+            "text": "Dashboard Overview"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ac0c1cdbc919",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3527b596c962",
+            "_type": "span",
+            "marks": [],
+            "text": "User Management"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5b78563c1e08",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a692da6be841",
+            "_type": "span",
+            "marks": [],
+            "text": "Device / System Management"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8bb7de438a30",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a04009806caf",
+            "_type": "span",
+            "marks": [],
+            "text": "Configuration Settings"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fcc3e9e5320b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "18dd15822d39",
+            "_type": "span",
+            "marks": [],
+            "text": "Alerts & Logs"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4fcaeacda4f4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6a86e01b4997",
+            "_type": "span",
+            "marks": [],
+            "text": "Reports"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2fbab56517f1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0fa651d5e189",
+            "_type": "span",
+            "marks": [],
+            "text": "Access Control"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "84b5ab755923",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b3d5fa346362",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "3. User Role Mapping"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5ddbd93aed8b",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/5db0486f2768f6b47a0fa49b8cfa0275fd29bab6-1536x1024.png"
+        }
+      },
+      {
+        "_key": "c2c458ae5b8c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ac9b2b06c32c",
+            "_type": "span",
+            "marks": [],
+            "text": "Different roles were mapped with different permission levels:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "47f61305ef63",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0fda78641ffc",
+            "_type": "span",
+            "marks": [],
+            "text": "Super Admin"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4981911e2f71",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "da384b54d660",
+            "_type": "span",
+            "marks": [],
+            "text": "Location Admin"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9527e32250d9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3f3b8af890e7",
+            "_type": "span",
+            "marks": [],
+            "text": "Manager"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5bb10d86494d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6a4f8340fbca",
+            "_type": "span",
+            "marks": [],
+            "text": "Operator"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9562a3364835",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c6bef5037d47",
+            "_type": "span",
+            "marks": [],
+            "text": "Support User"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "59f9374156e6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "eb83af6348e7",
+            "_type": "span",
+            "marks": [],
+            "text": "Viewer"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7448a117e603",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "132d03293cf1",
+            "_type": "span",
+            "marks": [],
+            "text": "This helped define who can view, edit, approve, delete, or configure sensitive settings."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "dcf47ffd32d9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "52fd2d61374f",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "4. UX Wireframing"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "14ff63904e07",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b54abd77d12e",
+            "_type": "span",
+            "marks": [],
+            "text": "Low-fidelity flows tested:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "bd59de271273",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0f5c28361246",
+            "_type": "span",
+            "marks": [],
+            "text": "Navigation structure"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c3797c625792",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "28fdd34f54e4",
+            "_type": "span",
+            "marks": [],
+            "text": "Table behavior"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b1e7a588218c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9e992f16f054",
+            "_type": "span",
+            "marks": [],
+            "text": "Filtering logic"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b14cf5f6722f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4c61fb68d06e",
+            "_type": "span",
+            "marks": [],
+            "text": "Detail page layout"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c7418a615dbb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cc2f35d806fb",
+            "_type": "span",
+            "marks": [],
+            "text": "Configuration hierarchy"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2a248397ba38",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4e9eb5352e09",
+            "_type": "span",
+            "marks": [],
+            "text": "Confirmation and error states"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9a078c28cd03",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9de9516b4bbc",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "5. UI System Design"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fe7719f4d80c",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/331035fbff313327c2534326bd5653de9281dba8-1536x1024.png"
+        }
+      },
+      {
+        "_key": "e1d7f2c65a51",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "64ef7435def8",
+            "_type": "span",
+            "marks": [],
+            "text": "The final interface was built using reusable admin patterns:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5b9253a5860b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c0484e99384b",
+            "_type": "span",
+            "marks": [],
+            "text": "Data table pattern"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3a9842c518fd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3444375a2a06",
+            "_type": "span",
+            "marks": [],
+            "text": "Filter and search pattern"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c8987873383e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ae7e6a592628",
+            "_type": "span",
+            "marks": [],
+            "text": "Settings panel pattern"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c2987d8555b8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fb59dba6326c",
+            "_type": "span",
+            "marks": [],
+            "text": "Role permission matrix"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "380cae6cbb44",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b413db1b7053",
+            "_type": "span",
+            "marks": [],
+            "text": "Status badge system"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1db3c10b4107",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f776e17c4f8c",
+            "_type": "span",
+            "marks": [],
+            "text": "Alert severity colors"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6ace544de49d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "99ac4c3c1b57",
+            "_type": "span",
+            "marks": [],
+            "text": "Empty and error states"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "714b35c1f8b7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "397264eed70f",
+            "_type": "span",
+            "marks": [],
+            "text": "Responsive grid system"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ed559c2d26a4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "23fbdec792e2",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "6. Design QA & Developer Handoff"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c79f2a8f5964",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8be2dea7bb0d",
+            "_type": "span",
+            "marks": [],
+            "text": "The handoff included:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4db567a672d5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "91018e08e8cb",
+            "_type": "span",
+            "marks": [],
+            "text": "Component states"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "28ad0a5b95df",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8f9e80f564d5",
+            "_type": "span",
+            "marks": [],
+            "text": "Spacing rules"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c409259b13f2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e9ff2c0fcb81",
+            "_type": "span",
+            "marks": [],
+            "text": "Responsive behavior"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "be6164f72911",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0f7d3a1b8004",
+            "_type": "span",
+            "marks": [],
+            "text": "Interaction notes"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "84d352938a34",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2cb0665564ce",
+            "_type": "span",
+            "marks": [],
+            "text": "Edge cases"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f1d31c55339d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "006a9e87b8ec",
+            "_type": "span",
+            "marks": [],
+            "text": "Permission logic"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "87908bfecf34",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cc2e0912f6a3",
+            "_type": "span",
+            "marks": [],
+            "text": "Empty, loading, and error scenarios"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "10fcb4bf9915",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "612adbb3e5f2",
+            "_type": "span",
+            "marks": [],
+            "text": "——————————————————————————————————————"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e88d54c526ec",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2a7051788ccf",
+            "_type": "span",
+            "marks": [],
+            "text": "Unique Skills Highlighted"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "7a5546f5c0f9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ab858c17980f",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Enterprise UX Architecture"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f3b64a07d3a6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cf87c90afcaa",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Admin Dashboard Design"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6a283888ef77",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7450d3a72425",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Role-Based Access UX"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "063b1305e814",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "791068119f4a",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "System Configuration Design"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3b1ab9369066",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "42060bc4183e",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Permission-Aware Interface Design"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "49c201acef71",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b4a4e99da8af",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Design QA Workflow"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c2c3d0e85124",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f1ea20139f1b",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Scalable UI Patterns"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "09531b29d7ec",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1768d09f0484",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Operational UX"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a4544dc36557",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a4531c5e7604",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Complex Product Simplification"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "da4cd82d11cd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4827be0268fc",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Developer-Friendly Handoff"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b9cd613f84b1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "974ccddcc9da",
+            "_type": "span",
+            "marks": [],
+            "text": "——————————————————————————————————————"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ebbd019ec500",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "73039746beb2",
+            "_type": "span",
+            "marks": [],
+            "text": "Outcome"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "f2ddb193e0f4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f86d4c7135c3",
+            "_type": "span",
+            "marks": [],
+            "text": "The final product concept shows how complex system operations can be transformed into a clean, controlled, and scalable admin experience. Instead of overwhelming users with technical settings, the interface guides them through clear modules, smart hierarchy, and permission-safe actions."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b11163abaedf",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/e572186d5938b5c73d7a2d83ccc52c75fe269d11-1536x1024.png"
+        }
+      },
+      {
+        "_key": "827446ad5b6f",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/e28bec8debea4c3337ba95bb40370176d775503d-1536x1024.png"
+        }
+      },
+      {
+        "_key": "a620c32891d6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1a50b5ccdd4b",
+            "_type": "span",
+            "marks": [],
+            "text": "Conclusion"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "dd15fce2bccd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9249faae6139",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Command Center UX"
+          },
+          {
+            "_key": "746f93e29599",
+            "_type": "span",
+            "marks": [],
+            "text": " is strong for a portfolio because it proves the ability to design for "
+          },
+          {
+            "_key": "1b12950ac24f",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "real-world complexity"
+          },
+          {
+            "_key": "3a7fd2452de6",
+            "_type": "span",
+            "marks": [],
+            "text": ", not just surface-level UI."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "category": "UX Research",
+    "tags": [
+      "Figma ",
+      "Admin UX",
+      "Dashboard",
+      "Design System",
+      "Design QA"
+    ],
+    "year": 2025,
+    "coverImage": "https://cdn.sanity.io/images/27gjokhr/production/b047beda1ddc1c0c1820052f5f14cff0cbc991e6-1536x1024.png",
+    "featured": true,
+    "role": "UX Researcher",
+    "links": []
+  },
+  {
     "slug": "trustflow-payments",
     "title": "TrustFlow Payments",
     "tagline": "Designing safer money movement for complex cash-to-card and card-to-cash workflows.",
