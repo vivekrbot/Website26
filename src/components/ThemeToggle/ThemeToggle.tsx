@@ -14,7 +14,7 @@ export function ThemeToggle({ isDark, onToggle }: ThemeToggleProps) {
       title={isDark ? 'Light mode' : 'Dark mode'}
     >
       <span className={styles.track} aria-hidden="true">
-        <span className={styles.icon}>{isDark ? '☽' : '☀'}</span>
+        <span className={styles.icon}>{isDark ? '☀' : '☽'}</span>
       </span>
     </button>
   );

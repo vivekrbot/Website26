@@ -42,8 +42,8 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          SANITY_PROJECT_ID: ${{ vars.SANITY_PROJECT_ID }}
-          SANITY_DATASET: ${{ vars.SANITY_DATASET }}
+          SANITY_PROJECT_ID: ${{ vars['SANITY_PROJECT_ID'] }}
+          SANITY_DATASET: ${{ vars['SANITY_DATASET'] }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
