@@ -2456,10 +2456,17 @@ export const projects: Project[] = [
       }
     ],
     "category": "UI/UX",
-    "tags": [],
+    "tags": [
+      "Figma",
+      "UI/UX",
+      "UX Research",
+      "Component Design",
+      "Design System",
+      "Product UX"
+    ],
     "year": 2024,
     "coverImage": "https://cdn.sanity.io/images/27gjokhr/production/44bda3eb8a685569567fd6470ce8345cfba08f2f-1536x1024.png",
-    "featured": true,
+    "featured": false,
     "role": "UX Research, Product Design",
     "links": []
   },
@@ -4184,6 +4191,3001 @@ export const projects: Project[] = [
     "coverImage": "https://cdn.sanity.io/images/27gjokhr/production/b047beda1ddc1c0c1820052f5f14cff0cbc991e6-1536x1024.png",
     "featured": true,
     "role": "UX Researcher",
+    "links": []
+  },
+  {
+    "slug": "design-to-code-command-pipeline",
+    "title": "Design-to-Code Command Pipeline",
+    "tagline": "Turning Figma designs into validated front-end output using MCP, VS Code agents, and AI automation.",
+    "shortDescription": "A research and solution case study exploring how product teams can connect **Figma MCP, VS Code AI agents, design tokens, component metadata, and automated validation** to create a faster and more reliable design-to-code workflow.\n\nThe project focuses on reducing the gap between design and development by building an AI-assisted pipeline where designs are not just handed off, but interpreted, validated, converted, reviewed, and improved through structured AI agents.",
+    "body": [
+      {
+        "_key": "19035cf43688",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "97075ccf3a57",
+            "_type": "span",
+            "marks": [],
+            "text": "Design handoff is still one of the biggest friction points between designers and developers. Even when teams use Figma, design systems, tokens, and documentation, the final implementation often suffers from mismatched spacing, incorrect components, inconsistent states, broken responsiveness, and missing edge cases."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f8caedc56279",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cdc33a6103ff",
+            "_type": "span",
+            "marks": [],
+            "text": "The idea behind "
+          },
+          {
+            "_key": "78c563c4b139",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Design-to-Code Command Pipeline"
+          },
+          {
+            "_key": "55fe1f26e67a",
+            "_type": "span",
+            "marks": [],
+            "text": " is to create an AI-powered workflow where Figma becomes the source of structured design intent, and VS Code agents become the execution layer that translates that intent into production-ready front-end code."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3c2b3b129a84",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "614c13cf1718",
+            "_type": "span",
+            "marks": [],
+            "text": "Instead of treating AI as a random prompt tool, this project treats AI as a "
+          },
+          {
+            "_key": "3b73e14fc4ae",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "controlled design operations layer"
+          },
+          {
+            "_key": "313093d9bf11",
+            "_type": "span",
+            "marks": [],
+            "text": "."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3f18da1eca03",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/d0fae7050020aa6c799866aed79a2ab222455216-1536x1024.png"
+        }
+      },
+      {
+        "_key": "8ae257a94f66",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9842a7baf2a6",
+            "_type": "span",
+            "marks": [],
+            "text": "Problem"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "ccedcd46cb64",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5f4c1980c10d",
+            "_type": "span",
+            "marks": [],
+            "text": "Traditional design-to-code workflows fail because design intent gets lost during translation."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "dd9b61cad12b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "dda8dc0d8ad4",
+            "_type": "span",
+            "marks": [],
+            "text": "Common issues include:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ad8cbb96a0bc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6bec479ab084",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Design and code drift"
+          },
+          {
+            "_key": "ac3bfb909728",
+            "_type": "span",
+            "marks": [],
+            "text": " - components in code slowly move away from the original design system."
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "29264f7e4882",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "08f3feb4c167",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Weak handoff documentation"
+          },
+          {
+            "_key": "4382e8d73266",
+            "_type": "span",
+            "marks": [],
+            "text": " - developers may not receive clear spacing, states, tokens, breakpoints, and behavior."
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2fbcef2d80b8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0dfa4ba3ebf9",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "AI generates inconsistent output"
+          },
+          {
+            "_key": "f8b022d1a943",
+            "_type": "span",
+            "marks": [],
+            "text": " - generic AI code tools can create UI that looks close but does not follow the system."
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d29641fe9d58",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "af7ca05c01ad",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "No validation layer"
+          },
+          {
+            "_key": "d9d4d3394986",
+            "_type": "span",
+            "marks": [],
+            "text": " - most AI workflows generate output, but do not check whether it follows product standards."
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3d0188ec1e78",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b9bf208c7946",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Manual QA overload"
+          },
+          {
+            "_key": "f3cadbdf5c8b",
+            "_type": "span",
+            "marks": [],
+            "text": " - designers spend too much time reviewing visual differences that could be detected automatically."
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "708f15c559e3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8d8ceb5a77b1",
+            "_type": "span",
+            "marks": [],
+            "text": "The real problem is not only code generation. The real problem is "
+          },
+          {
+            "_key": "197840b84c42",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "controlled AI translation from design intent to validated implementation"
+          },
+          {
+            "_key": "e2aefd7b23d6",
+            "_type": "span",
+            "marks": [],
+            "text": "."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "999fac804acb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d097ca5819a5",
+            "_type": "span",
+            "marks": [],
+            "text": "Usage"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "14cde11f110e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7e6873079461",
+            "_type": "span",
+            "marks": [],
+            "text": "This workflow is designed for:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "412201b74a57",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "63d5acc6e54d",
+            "_type": "span",
+            "marks": [],
+            "text": "Product designers creating scalable UI systems"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6fd0c79c05ba",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "96ce5a44d9f7",
+            "_type": "span",
+            "marks": [],
+            "text": "Front-end developers implementing Figma designs"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e4f75389002b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "48c916e7bcdd",
+            "_type": "span",
+            "marks": [],
+            "text": "Design system teams maintaining component consistency"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5646a38d3bdf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b48bb1ff31ef",
+            "_type": "span",
+            "marks": [],
+            "text": "Product managers reviewing design-to-development speed"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2451cfcca085",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f330c4f46a65",
+            "_type": "span",
+            "marks": [],
+            "text": "QA teams validating UI accuracy"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2c382398ed1c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9543f8534944",
+            "_type": "span",
+            "marks": [],
+            "text": "Startups and product teams adopting AI-assisted delivery"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "83541249b1c5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "32586858e758",
+            "_type": "span",
+            "marks": [],
+            "text": "Organizations building internal AI design workflows"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e511809f2ef1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5c4ffd30c84b",
+            "_type": "span",
+            "marks": [],
+            "text": "Solution"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "0490b4f2d26c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2dfbbfeb9550",
+            "_type": "span",
+            "marks": [],
+            "text": "The solution is an AI-assisted pipeline connecting "
+          },
+          {
+            "_key": "4aaa0716c75a",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Figma MCP → Design System Context → VS Code Agents → Validation Layer → Human Review"
+          },
+          {
+            "_key": "b9d04a99e6c8",
+            "_type": "span",
+            "marks": [],
+            "text": "."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5fd319fedcd9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1805f605c369",
+            "_type": "span",
+            "marks": [],
+            "text": "Core workflow:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c5a57c8138ac",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3ac919a90601",
+            "_type": "span",
+            "marks": [],
+            "text": "Extract design data from Figma using MCP"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "03b66ca5a5cc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "524425c552c0",
+            "_type": "span",
+            "marks": [],
+            "text": "Read component names, frames, tokens, layout rules, and variants"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e731e6e9b1b6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c01bd7ae19ac",
+            "_type": "span",
+            "marks": [],
+            "text": "Pass structured design context to VS Code agents"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1c7ad7d80b58",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5cbe406463fd",
+            "_type": "span",
+            "marks": [],
+            "text": "Generate front-end code using the existing component library"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c4e352e5736f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "362771af0e3b",
+            "_type": "span",
+            "marks": [],
+            "text": "Validate output against design system rules"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a42efd139c49",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6d9c2c10bc5c",
+            "_type": "span",
+            "marks": [],
+            "text": "Run visual, responsive, accessibility, and token checks"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4e5c21bc391e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "38503237efe4",
+            "_type": "span",
+            "marks": [],
+            "text": "Produce a designer/developer review summary"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5f9d80b3798f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "74b2b75ff38f",
+            "_type": "span",
+            "marks": [],
+            "text": "Push only validated output forward"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0754f7165b48",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "55aa34c87392",
+            "_type": "span",
+            "marks": [],
+            "text": "This creates a smarter handoff system where AI does not replace designers or developers  it becomes the "
+          },
+          {
+            "_key": "95a4fca51531",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "translation assistant, QA partner, and system enforcer"
+          },
+          {
+            "_key": "c764740b2638",
+            "_type": "span",
+            "marks": [],
+            "text": "."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "38a19a1a595a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7ce3f9ca6bec",
+            "_type": "span",
+            "marks": [],
+            "text": "——————————————————————————————————————"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "46d3483b5f0a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ae68f652d0bb",
+            "_type": "span",
+            "marks": [],
+            "text": "Project Flow"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "18147d37435c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9f74d572964e",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "1. Research & Workflow Audit"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "18e76f459231",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/d61f73e759335d3a478c0a0d011fb433ff45d036-1536x1024.png"
+        }
+      },
+      {
+        "_key": "d33877c012c9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d0f4efe06113",
+            "_type": "span",
+            "marks": [],
+            "text": "The project starts by studying the existing design-to-development process."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ef33103fc14f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9e1f10b43aab",
+            "_type": "span",
+            "marks": [],
+            "text": "Key questions:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "085d0e6d9da1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4aaac00d7b24",
+            "_type": "span",
+            "marks": [],
+            "text": "Where does handoff break?"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "391c0ae4387b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c57ce7659d1c",
+            "_type": "span",
+            "marks": [],
+            "text": "Which details are lost between Figma and code?"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fed85136abbd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "af8dfe3d603a",
+            "_type": "span",
+            "marks": [],
+            "text": "Which design decisions are repeated manually?"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f45ddbc2c0a7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b2cea1d3cd5d",
+            "_type": "span",
+            "marks": [],
+            "text": "Which UI errors happen most often?"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c89efac316b2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cdfa43796547",
+            "_type": "span",
+            "marks": [],
+            "text": "What does the developer need before writing code?"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fa323754c97a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "45acea338abf",
+            "_type": "span",
+            "marks": [],
+            "text": "What can AI safely automate?"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1de493364434",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "60467ae89d7b",
+            "_type": "span",
+            "marks": [],
+            "text": "What should remain human-approved?"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0cc8e267c21d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8e96aad77a91",
+            "_type": "span",
+            "marks": [],
+            "text": "This research identifies the real automation opportunities instead of blindly adding AI everywhere."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "16d453846873",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "89ba0c10070e",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "2. Figma MCP Mapping"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8c616ceef784",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/136cbc4b25685efacef73db355804b245346b34c-1536x1024.png"
+        }
+      },
+      {
+        "_key": "ed829cd5593a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9a2df258b159",
+            "_type": "span",
+            "marks": [],
+            "text": "The next step is mapping what Figma MCP can provide to the AI workflow."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "179e379115da",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7826e4c4a9e8",
+            "_type": "span",
+            "marks": [],
+            "text": "Important data points:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b627a747e235",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "07728a1049ba",
+            "_type": "span",
+            "marks": [],
+            "text": "Frame structure"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "371a40543b24",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a34641c93988",
+            "_type": "span",
+            "marks": [],
+            "text": "Component names"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ec74d947e5ab",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8b83dd169056",
+            "_type": "span",
+            "marks": [],
+            "text": "Auto-layout behavior"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "45524a867ff9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "15427df32cc0",
+            "_type": "span",
+            "marks": [],
+            "text": "Design tokens"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f361a0ec65f9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cfb68a5b9c17",
+            "_type": "span",
+            "marks": [],
+            "text": "Text styles"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "38c6f657d873",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "05fe37c86fa7",
+            "_type": "span",
+            "marks": [],
+            "text": "Color styles"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7f7ec5421eda",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f45b6dc017bc",
+            "_type": "span",
+            "marks": [],
+            "text": "Spacing values"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8750b3eae2bd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6fae5d9cf498",
+            "_type": "span",
+            "marks": [],
+            "text": "Component variants"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "af4d959116a2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "10568a739fdf",
+            "_type": "span",
+            "marks": [],
+            "text": "Interaction states"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a812e295d1fd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "81334e6c987f",
+            "_type": "span",
+            "marks": [],
+            "text": "Responsive layout clues"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "083886672710",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "09c6f2c2eafc",
+            "_type": "span",
+            "marks": [],
+            "text": "Design annotations"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "189b9206a26d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "48c8304bec75",
+            "_type": "span",
+            "marks": [],
+            "text": "The goal is to convert visual design into "
+          },
+          {
+            "_key": "461e8e2c11b7",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "structured product context"
+          },
+          {
+            "_key": "0592d59b67ea",
+            "_type": "span",
+            "marks": [],
+            "text": "."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d42725035070",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ed5e42865ac6",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "3. Design Intent Translation"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fa105d239ae1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fd851db97f05",
+            "_type": "span",
+            "marks": [],
+            "text": "AI agents need more than screenshots. They need design intent."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e2429782e9c7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ed9fa0dd9fde",
+            "_type": "span",
+            "marks": [],
+            "text": "The system creates a translation layer that explains:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a169c9531aa6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8cdd5037e946",
+            "_type": "span",
+            "marks": [],
+            "text": "What the screen is for"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f39cd041f65b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "29ace15d4722",
+            "_type": "span",
+            "marks": [],
+            "text": "Which components are used"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d60b37d5efba",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "95de88beb798",
+            "_type": "span",
+            "marks": [],
+            "text": "Which layout rules matter"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e8319b77ed24",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "dec9514f33a7",
+            "_type": "span",
+            "marks": [],
+            "text": "What states are required"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9999d3a48b97",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "828b152caca0",
+            "_type": "span",
+            "marks": [],
+            "text": "What content is dynamic"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d0bd0da54cf5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c1f31288ecc2",
+            "_type": "span",
+            "marks": [],
+            "text": "Which interactions should be supported"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c4d4bb976088",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7855ac1b7eaf",
+            "_type": "span",
+            "marks": [],
+            "text": "Which breakpoints must be considered"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d6e0b73bc1c6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "849dcfc3fcee",
+            "_type": "span",
+            "marks": [],
+            "text": "Which design system rules cannot be violated"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fed1b4e12c28",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "38737a19c159",
+            "_type": "span",
+            "marks": [],
+            "text": "This allows the VS Code agent to generate code with context instead of guessing."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c6639d262c57",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "463c836033e2",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "4. VS Code Agent Workflow"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4b08aed49932",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/980b535b7b949e684ba3120ce17322d000649d58-1536x1024.png"
+        }
+      },
+      {
+        "_key": "6b2e2bba63f1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4cd491dce233",
+            "_type": "span",
+            "marks": [],
+            "text": "The VS Code agent becomes the execution layer."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f7b9fceb38e8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "dc76d3900b82",
+            "_type": "span",
+            "marks": [],
+            "text": "Agent tasks include:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "719ce27406a1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "87f9a1eeb1f2",
+            "_type": "span",
+            "marks": [],
+            "text": "Read Figma-derived context"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2b13ad4d0be4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "17e634bd8094",
+            "_type": "span",
+            "marks": [],
+            "text": "Check the existing project structure"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "167c2b3c3e02",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8f3f66ae32e1",
+            "_type": "span",
+            "marks": [],
+            "text": "Identify available components"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4f7d40a825e9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "91a4c47a07fc",
+            "_type": "span",
+            "marks": [],
+            "text": "Match Figma components with code components"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2360cfb449e0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "33ee28cb679e",
+            "_type": "span",
+            "marks": [],
+            "text": "Generate or update UI files"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f81397ee64db",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7306ab423ff9",
+            "_type": "span",
+            "marks": [],
+            "text": "Apply design tokens"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8db17f3bd5f4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "10bd4e5b9d2f",
+            "_type": "span",
+            "marks": [],
+            "text": "Build responsive layout"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8a747bbac18e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fd31f541825d",
+            "_type": "span",
+            "marks": [],
+            "text": "Add state handling"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4ac090a4f4a5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "de9efe1d5c4e",
+            "_type": "span",
+            "marks": [],
+            "text": "Write accessible markup"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e41429ea19c3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fe1af45bbdd7",
+            "_type": "span",
+            "marks": [],
+            "text": "Follow project coding standards"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "83c4de8bf28d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "624c42728156",
+            "_type": "span",
+            "marks": [],
+            "text": "The agent does not start from a blank prompt. It works inside a governed system."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5e37b883c8ae",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "860fb07229fc",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "5. Validation Layer"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "bb5044d394bc",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/b4afb2992ad03830ba68a8cdbf1ae832b730d944-1536x1024.png"
+        }
+      },
+      {
+        "_key": "639e47c06f47",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "18f844bb8067",
+            "_type": "span",
+            "marks": [],
+            "text": "This is the strongest part of the project."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "58ed8bb24dc9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "87f15569922a",
+            "_type": "span",
+            "marks": [],
+            "text": "The validation layer checks whether the generated output follows design and development standards."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d8bc19fa31e4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d3b6de571e2a",
+            "_type": "span",
+            "marks": [],
+            "text": "Validation checks:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e3fffe7c54a2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "10ce847a5019",
+            "_type": "span",
+            "marks": [],
+            "text": "Token usage validation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "faa330302a18",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "80f655495d1b",
+            "_type": "span",
+            "marks": [],
+            "text": "Component usage validation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "cadb3d49311a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c0a36357de8a",
+            "_type": "span",
+            "marks": [],
+            "text": "Spacing consistency"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d4a279dae558",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4014e3f0d059",
+            "_type": "span",
+            "marks": [],
+            "text": "Typography consistency"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "429b17be3697",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c5777b1c06f7",
+            "_type": "span",
+            "marks": [],
+            "text": "Color contrast"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9db7795ea4d1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4efc337b60dd",
+            "_type": "span",
+            "marks": [],
+            "text": "Accessibility basics"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d609ad0416f3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "720d9e44ba4e",
+            "_type": "span",
+            "marks": [],
+            "text": "Responsive behavior"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6cfa020c5b3d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b5b41f778e18",
+            "_type": "span",
+            "marks": [],
+            "text": "State coverage"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "29f460acb02f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d0a8b0bd5f7f",
+            "_type": "span",
+            "marks": [],
+            "text": "Naming convention"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d64c36a5e690",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "dbcd741e3200",
+            "_type": "span",
+            "marks": [],
+            "text": "Layout accuracy"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "826032aa2b09",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "125117ceecb5",
+            "_type": "span",
+            "marks": [],
+            "text": "Design system compliance"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fa65784ad2a4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "329ef4e91e27",
+            "_type": "span",
+            "marks": [],
+            "text": "Code quality"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2d01a198510f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f6a34aee8027",
+            "_type": "span",
+            "marks": [],
+            "text": "Visual regression review"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8a72b4699064",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ed9a86e5c0ee",
+            "_type": "span",
+            "marks": [],
+            "text": "This turns AI from a fast generator into a "
+          },
+          {
+            "_key": "e0cf5e593769",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "controlled production assistant"
+          },
+          {
+            "_key": "c059211d9f5c",
+            "_type": "span",
+            "marks": [],
+            "text": "."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e86e39463888",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "09a9dfdbc94f",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "6. Human Review & Feedback Loop"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "018b5f0a4390",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/b3b6f3af56aae521cc35d862a789a28695e11094-1536x1024.png"
+        }
+      },
+      {
+        "_key": "a5d4510ed9ec",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1d87a26a8153",
+            "_type": "span",
+            "marks": [],
+            "text": "The final step keeps humans in control."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f2b0dbe24296",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b71c25b406af",
+            "_type": "span",
+            "marks": [],
+            "text": "Designers review:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5c71022dab3a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "caba62c87f65",
+            "_type": "span",
+            "marks": [],
+            "text": "Visual accuracy"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d2717153c990",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b5540b76a43a",
+            "_type": "span",
+            "marks": [],
+            "text": "UX behavior"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fd804a14d5b0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3a0c6dbd7918",
+            "_type": "span",
+            "marks": [],
+            "text": "Edge cases"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e7f6c0ad6c0f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c5733e888a82",
+            "_type": "span",
+            "marks": [],
+            "text": "Brand alignment"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4a8445135e75",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "223953ca2e1b",
+            "_type": "span",
+            "marks": [],
+            "text": "Microcopy quality"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6f9dc08fc710",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "04d95ad64847",
+            "_type": "span",
+            "marks": [],
+            "text": "Developers review:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "eaaff947e004",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4d3a091f670c",
+            "_type": "span",
+            "marks": [],
+            "text": "Code quality"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "af1c46d78fc7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8a76f3503728",
+            "_type": "span",
+            "marks": [],
+            "text": "Maintainability"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d498bf84e6f6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "39d263fe53eb",
+            "_type": "span",
+            "marks": [],
+            "text": "Performance"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7c8c03072f17",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "eb60dce9881f",
+            "_type": "span",
+            "marks": [],
+            "text": "Architecture fit"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e807b44d9b7f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cf6abf8a9108",
+            "_type": "span",
+            "marks": [],
+            "text": "Reusability"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0f31bd6e57e3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3c840e0b3bb4",
+            "_type": "span",
+            "marks": [],
+            "text": "The feedback is then added back into the agent instructions, improving future output."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8a39ffed5d12",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c05ff4af7d4f",
+            "_type": "span",
+            "marks": [],
+            "text": "——————————————————————————————————————"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "dc5ce01c7f97",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b62864f856e6",
+            "_type": "span",
+            "marks": [],
+            "text": "AI Automation Architecture"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "985ad7c18231",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cee667ce4cfc",
+            "_type": "span",
+            "marks": [],
+            "text": "Input Layer"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d54c8edc207a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "34d06b716ec8",
+            "_type": "span",
+            "marks": [],
+            "text": "Figma file"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e763e834706b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3665fddb43af",
+            "_type": "span",
+            "marks": [],
+            "text": "Design system library"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3cd7232d570c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "290971b6478e",
+            "_type": "span",
+            "marks": [],
+            "text": "Component documentation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6308d62bc0be",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4526988e42b6",
+            "_type": "span",
+            "marks": [],
+            "text": "Token structure"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e4f91ddcc2f7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5936a61cba42",
+            "_type": "span",
+            "marks": [],
+            "text": "Product requirements"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7ef807c85808",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6ba506a306ca",
+            "_type": "span",
+            "marks": [],
+            "text": "Intelligence Layer"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3d00cb0228d4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4d2e19314976",
+            "_type": "span",
+            "marks": [],
+            "text": "MCP extraction"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6854cbaff092",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c34bbc278a48",
+            "_type": "span",
+            "marks": [],
+            "text": "Design intent parser"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c89c1e4578b1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "97c2745e4b15",
+            "_type": "span",
+            "marks": [],
+            "text": "AI agent instructions"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d28500565439",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e978b1f4cc0b",
+            "_type": "span",
+            "marks": [],
+            "text": "Component matching logic"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e925fc257252",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d4f06404deba",
+            "_type": "span",
+            "marks": [],
+            "text": "Pattern recognition"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8f88086b7045",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f500f87481ce",
+            "_type": "span",
+            "marks": [],
+            "text": "Execution Layer"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7be3b6b479fa",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bb75a6ceef1e",
+            "_type": "span",
+            "marks": [],
+            "text": "VS Code agent"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "417c919aed5a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a641a76bd345",
+            "_type": "span",
+            "marks": [],
+            "text": "Code generation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6a68d9399c43",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0fd5b1eeea72",
+            "_type": "span",
+            "marks": [],
+            "text": "Component implementation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "58761e1368d1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "64b6e8b6ffe6",
+            "_type": "span",
+            "marks": [],
+            "text": "Responsive layout creation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "db0d57ebba60",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0e25960d0843",
+            "_type": "span",
+            "marks": [],
+            "text": "State handling"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "572f2008cf13",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c486f1c0dd69",
+            "_type": "span",
+            "marks": [],
+            "text": "Validation Layer"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "54bacd53d22d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5ee3521c68f3",
+            "_type": "span",
+            "marks": [],
+            "text": "Design token checker"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2c0924f3037e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5111bec25b4e",
+            "_type": "span",
+            "marks": [],
+            "text": "Accessibility checker"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "735f24ca8f9b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d887a34af7df",
+            "_type": "span",
+            "marks": [],
+            "text": "Visual comparison"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0bfce1fd3876",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cd589339a628",
+            "_type": "span",
+            "marks": [],
+            "text": "Component compliance"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "08d26bfdeb10",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "55341ecb68db",
+            "_type": "span",
+            "marks": [],
+            "text": "Design QA checklist"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ea5329473376",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0383ba630d90",
+            "_type": "span",
+            "marks": [],
+            "text": "Human Control Layer"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "22703576b96f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a4ba0957e7c3",
+            "_type": "span",
+            "marks": [],
+            "text": "Designer approval"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "948291369554",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bda7a1b2b881",
+            "_type": "span",
+            "marks": [],
+            "text": "Developer review"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ea2463cb9c0f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "279244ff79d0",
+            "_type": "span",
+            "marks": [],
+            "text": "QA confirmation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "dd5cc96f889c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5ea7c52d4dbc",
+            "_type": "span",
+            "marks": [],
+            "text": "Product sign-off"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "218421b3ad47",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/4944b3b20f0d8ece21775c97472979bd9349d7e6-1024x1536.png"
+        }
+      },
+      {
+        "_key": "a0ce13d155b8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d4a0aa3d7404",
+            "_type": "span",
+            "marks": [],
+            "text": "——————————————————————————————————————"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "570ee402978e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d56256c832ba",
+            "_type": "span",
+            "marks": [],
+            "text": "Unique Skills Highlighted"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "e5b70e3ef4fa",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d5a42d97da11",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Figma MCP Workflow Design"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0458dcef5bee",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "80fe46720705",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "AI Design-to-Code Automation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c11d121da32d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2efad71a31a9",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "VS Code Agent Orchestration"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d780c4f6f511",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "230cd875e7aa",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Design System Validation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9d6a6c9bdbf5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bd9cf72e7a17",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "AI-Augmented Developer Handoff"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "834d8b457b98",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "42598b1c85fd",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Design Token Governance"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d32861ba0aea",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8f185826a4b1",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Human-in-the-Loop AI Workflow"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7467db0e770a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "701d319de15a",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Design QA Automation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ab0f0da72093",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ab4728b9c239",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Component Compliance Checking"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "62a7636721a7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "08cbb5826c42",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "AI Product Operations"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5404a89c1640",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "89b186f01695",
+            "_type": "span",
+            "marks": [],
+            "text": "——————————————————————————————————————"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b150f6d213ae",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7cb41ab21238",
+            "_type": "span",
+            "marks": [],
+            "text": "Outcome"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "218790fb7d7f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a810f2c1f3bc",
+            "_type": "span",
+            "marks": [],
+            "text": "The project demonstrates how AI can reduce handoff friction, improve UI consistency, and speed up implementation without sacrificing quality."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3ada273e4f24",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "349f621e374e",
+            "_type": "span",
+            "marks": [],
+            "text": "Expected outcomes:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "311d392a7fb1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9e66df54c5cf",
+            "_type": "span",
+            "marks": [],
+            "text": "Faster design-to-code workflow"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "72679b4fe337",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "44e89f4c3dd7",
+            "_type": "span",
+            "marks": [],
+            "text": "Reduced designer-developer misalignment"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6ba7765c3b01",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0ace3eadd5c4",
+            "_type": "span",
+            "marks": [],
+            "text": "Better design system adoption"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "94341fef277e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "052fd37c1ad3",
+            "_type": "span",
+            "marks": [],
+            "text": "Fewer UI inconsistencies"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "cb9b9dd9f3dc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bd5dd76b2e3e",
+            "_type": "span",
+            "marks": [],
+            "text": "Less repetitive QA work"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b01c2ea7b4e3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "02abe0955042",
+            "_type": "span",
+            "marks": [],
+            "text": "More reliable AI-generated code"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fafb01c28813",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "355c2b663daa",
+            "_type": "span",
+            "marks": [],
+            "text": "Stronger collaboration between design and engineering"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ee86002dee04",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1737817032fb",
+            "_type": "span",
+            "marks": [],
+            "text": "The biggest value: this project shows the ability to design "
+          },
+          {
+            "_key": "c21ae2add5b0",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "AI-powered product workflows"
+          },
+          {
+            "_key": "005d9a2f3e87",
+            "_type": "span",
+            "marks": [],
+            "text": ", not only product screens."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "07ef667a2a9d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "419a2beb27c7",
+            "_type": "span",
+            "marks": [],
+            "text": "Conclusion"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "acb714e44c58",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f531207e19ee",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Design-to-Code Command Pipeline"
+          },
+          {
+            "_key": "5eefbc156f6b",
+            "_type": "span",
+            "marks": [],
+            "text": " is a strong portfolio project because it sits at the intersection of UX design, AI automation, design systems, and front-end development."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "710e2fdbd345",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e3873529adca",
+            "_type": "span",
+            "marks": [],
+            "text": "Recruiters will see a future-facing designer who can create systems, workflows, and AI-assisted delivery models."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "category": "AI & Automation",
+    "tags": [
+      "Figma MCP",
+      "VS Code",
+      "Agents",
+      "Design-to-Code",
+      "AI Workflow",
+      "Design QA"
+    ],
+    "year": 2026,
+    "coverImage": "https://cdn.sanity.io/images/27gjokhr/production/6590c6802c4eba568acd04e1794639c8dd1e58db-1536x1024.png",
+    "featured": true,
+    "role": "AI UX Strategist, Product Designer",
     "links": []
   },
   {
@@ -6109,11 +9111,5060 @@ export const projects: Project[] = [
       }
     ],
     "category": "Product Design",
-    "tags": [],
+    "tags": [
+      "Payment UX",
+      "UI/UX",
+      "Compliance UX",
+      "Transaction flow",
+      "Error States",
+      "Product Design",
+      "Figma"
+    ],
     "year": 2025,
     "coverImage": "https://cdn.sanity.io/images/27gjokhr/production/e1c34357e69874c823345d4d7cc6ec6a181f37de-1536x1024.png",
-    "featured": true,
+    "featured": false,
     "role": "Product Designer, UX Flow Architect ",
+    "links": []
+  },
+  {
+    "slug": "ai-designops-agent-hub",
+    "title": "AI DesignOps Agent Hub",
+    "tagline": "Custom AI agents and skills for scaling design systems, validation, documentation, and organizational AI usage.",
+    "shortDescription": "A research and solution case study about creating an internal **AI agent and skills ecosystem** for organizations to improve design quality, maintain design systems, automate documentation, validate UI decisions, and help teams use AI responsibly.\n\nThis project focuses on building custom AI agents for different organizational needs such as design system maintenance, UX research synthesis, component validation, product documentation, QA support, and team enablement.",
+    "body": [
+      {
+        "_key": "636ab37079cc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2a1ac3b3aa55",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "M"
+          },
+          {
+            "_key": "be86e2059b0e",
+            "_type": "span",
+            "marks": [],
+            "text": "ost organizations are trying to use AI, but their teams often use it in scattered and inconsistent ways. Designers write random prompts, developers use separate coding assistants, product managers summarize documents manually, and design system teams struggle to maintain standards across products."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a4eb8b0c1711",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "41a8ff46c555",
+            "_type": "span",
+            "marks": [],
+            "text": "The idea behind "
+          },
+          {
+            "_key": "65edd95ae1b7",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "AI DesignOps Agent Hub"
+          },
+          {
+            "_key": "952d6e1b37fa",
+            "_type": "span",
+            "marks": [],
+            "text": " is to create a structured AI operating system for product teams."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3a1a3424a1f9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "085855536343",
+            "_type": "span",
+            "marks": [],
+            "text": "Instead of every person using AI differently, the organization gets a set of custom agents and reusable AI skills designed around its real workflows, standards, tone, design system, and product rules."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5966b2f0faf2",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/8ecc7c5fd76d017b7db75fdecb7c54c20d72015e-1536x1024.png"
+        }
+      },
+      {
+        "_key": "1b7b9bbba375",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9d3608b20bfa",
+            "_type": "span",
+            "marks": [],
+            "text": "Problem"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "5d642073c3a6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6880b527425a",
+            "_type": "span",
+            "marks": [],
+            "text": "Organizations face a new AI adoption problem: AI is powerful, but unmanaged AI creates inconsistency."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "76d9150203fa",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6534ca67e494",
+            "_type": "span",
+            "marks": [],
+            "text": "Common problems include:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "78fe61eaccc4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1d37c867e139",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Scattered AI usage"
+          },
+          {
+            "_key": "fc939de8d9b4",
+            "_type": "span",
+            "marks": [],
+            "text": " — each team member uses different prompts, tools, and standards."
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "299654abcf4f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "32d3c990c16d",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "No reusable AI skills"
+          },
+          {
+            "_key": "4448f6c123a8",
+            "_type": "span",
+            "marks": [],
+            "text": " — valuable workflows are repeated manually instead of being turned into reusable instructions."
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "819924161b49",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6fc1e73d51d1",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Design system drift"
+          },
+          {
+            "_key": "f987f379261a",
+            "_type": "span",
+            "marks": [],
+            "text": " — teams create new patterns without checking existing components or rules."
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f9f129354653",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3bb77ef533fc",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Weak documentation discipline"
+          },
+          {
+            "_key": "55df5c4ef5f1",
+            "_type": "span",
+            "marks": [],
+            "text": " — research, decisions, edge cases, and product logic are often not documented properly."
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6e432c629c0c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "76a9c7f7b031",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Poor validation before handoff"
+          },
+          {
+            "_key": "0b3f4fa00729",
+            "_type": "span",
+            "marks": [],
+            "text": " — screens move forward without checking accessibility, component usage, content quality, and design consistency."
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d82e788d133c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bf5ed78890fc",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "AI risk and trust issues"
+          },
+          {
+            "_key": "b2ba60dec0c0",
+            "_type": "span",
+            "marks": [],
+            "text": " — teams do not always know when to trust AI output, when to verify, and when human approval is required."
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d72626fc2797",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6838b621c86e",
+            "_type": "span",
+            "marks": [],
+            "text": "The real issue is not whether the organization uses AI. The real issue is whether the organization uses AI with "
+          },
+          {
+            "_key": "a8b541abf701",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "governance, repeatability, and quality control"
+          },
+          {
+            "_key": "135ce132dc8d",
+            "_type": "span",
+            "marks": [],
+            "text": "."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f04934dbbc97",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e60b9e74770c",
+            "_type": "span",
+            "marks": [],
+            "text": "Usage"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "df266f35aac3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5343bdd8f6fd",
+            "_type": "span",
+            "marks": [],
+            "text": "This system would be used by:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ffc97c980499",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "81667478924d",
+            "_type": "span",
+            "marks": [],
+            "text": "UX/UI designers"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c0a58af28be9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5f5913bbdbcd",
+            "_type": "span",
+            "marks": [],
+            "text": "Product designers"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a0551bb5c81e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "26cb33d1e313",
+            "_type": "span",
+            "marks": [],
+            "text": "Design system teams"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c149a4e8c928",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "305ba068092b",
+            "_type": "span",
+            "marks": [],
+            "text": "Product managers"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8eae24105a76",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a32e526404a9",
+            "_type": "span",
+            "marks": [],
+            "text": "Front-end developers"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "67d60b3a651f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "819bce041754",
+            "_type": "span",
+            "marks": [],
+            "text": "UX researchers"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fd74c5db0782",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e737c51b6505",
+            "_type": "span",
+            "marks": [],
+            "text": "QA teams"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5d8791809f34",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "80f43fe157be",
+            "_type": "span",
+            "marks": [],
+            "text": "Content designers"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "80df73c6c101",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bb12bb6bb652",
+            "_type": "span",
+            "marks": [],
+            "text": "Design leads"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ab2c6f1c7f6b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d5744fe33784",
+            "_type": "span",
+            "marks": [],
+            "text": "Startup founders"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a75267ab6f0e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3c96f422a65f",
+            "_type": "span",
+            "marks": [],
+            "text": "Enterprise product teams"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f0a084afad54",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f9c83c65220e",
+            "_type": "span",
+            "marks": [],
+            "text": "Solution"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "aed86ce64bfc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9aa1a46d2d2c",
+            "_type": "span",
+            "marks": [],
+            "text": "The solution is an internal "
+          },
+          {
+            "_key": "150afe71c7d5",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "AI DesignOps Agent Hub"
+          },
+          {
+            "_key": "2789df4d2ee2",
+            "_type": "span",
+            "marks": [],
+            "text": " — a collection of custom AI agents and reusable skills designed for organizational workflows."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e00359481422",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "01f3b21e4c7a",
+            "_type": "span",
+            "marks": [],
+            "text": "Core agents:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "456ccc2fe370",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f8a6f40db90d",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Design System Guardian"
+          },
+          {
+            "_key": "6e63db98d7ab",
+            "_type": "span",
+            "marks": [],
+            "text": " Validates whether designs follow components, tokens, spacing, typography, states, and accessibility rules."
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "672683311649",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a3567dd4b4f2",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "UX Research Synthesizer"
+          },
+          {
+            "_key": "a1ed087daa5b",
+            "_type": "span",
+            "marks": [],
+            "text": " Converts interviews, notes, surveys, and feedback into themes, pain points, insights, and opportunities."
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c653410ce803",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e1500142f275",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Product Requirement Agent"
+          },
+          {
+            "_key": "972d3420ca83",
+            "_type": "span",
+            "marks": [],
+            "text": " Turns rough ideas into PRDs, user stories, acceptance criteria, edge cases, and feature logic."
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6e3f2f2a3789",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "976926dc51cc",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Design QA Agent"
+          },
+          {
+            "_key": "49ca1d58f6fb",
+            "_type": "span",
+            "marks": [],
+            "text": " Reviews screens before handoff and creates a clear checklist for designers and developers."
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6cb073d8e17c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ff7db4f059e4",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Documentation Agent"
+          },
+          {
+            "_key": "654373b8c306",
+            "_type": "span",
+            "marks": [],
+            "text": " Creates case studies, decision logs, component documentation, release notes, and handoff notes."
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "35a987c4469e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e46aaa9f4558",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "AI Skills Librarian"
+          },
+          {
+            "_key": "a5b2e4dde010",
+            "_type": "span",
+            "marks": [],
+            "text": " Stores reusable prompts, workflows, decision rules, and team-specific AI instructions."
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c9c23a80056e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e9256de659a5",
+            "_type": "span",
+            "marks": [],
+            "text": "The agents work together as a structured system, not isolated chatbots."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "27ebd29c0b27",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9b8780d0c497",
+            "_type": "span",
+            "marks": [],
+            "text": "——————————————————————————————————————"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2b9572a897f1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8f75f98d0ed7",
+            "_type": "span",
+            "marks": [],
+            "text": "Project Flow"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "6d37f05a6e2e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c68a013c4ca4",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "1. Organizational AI Research"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "bec37c7ce3ea",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6ff648cf5177",
+            "_type": "span",
+            "marks": [],
+            "text": "The project begins by understanding how the organization currently uses AI."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e57d07f0be2b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f24216c2b649",
+            "_type": "span",
+            "marks": [],
+            "text": "Research questions:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "bf56ba97fe90",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "dc474aa53258",
+            "_type": "span",
+            "marks": [],
+            "text": "Which teams are already using AI?"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ed2ac04fd2e9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f9821ded0226",
+            "_type": "span",
+            "marks": [],
+            "text": "What tasks are repeated often?"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "de9352bca5b9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "723399198f03",
+            "_type": "span",
+            "marks": [],
+            "text": "Where does quality drop?"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3a4e810f162f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "951403aea752",
+            "_type": "span",
+            "marks": [],
+            "text": "Which workflows need standardization?"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "19f3bb7ff24a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3d562302b480",
+            "_type": "span",
+            "marks": [],
+            "text": "Which documents are created again and again?"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8b62c74a851b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "68147225d591",
+            "_type": "span",
+            "marks": [],
+            "text": "Where does design system drift happen?"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "390de8660257",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3681a38bcabf",
+            "_type": "span",
+            "marks": [],
+            "text": "What decisions require human approval?"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a40358224887",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "88308bf2ff01",
+            "_type": "span",
+            "marks": [],
+            "text": "What sensitive information should AI avoid or protect?"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b715a1f25ee4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3fbb3dcbaa3e",
+            "_type": "span",
+            "marks": [],
+            "text": "This step identifies AI opportunities based on real workflow pain, not hype."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8c1b1acb39f1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "28cdf74f51ce",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "2. Workflow Mapping"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "70da1c0647cc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "859c4d3aeafe",
+            "_type": "span",
+            "marks": [],
+            "text": "Key product team workflows are mapped:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d17ebb4fe283",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6d12f522dbe6",
+            "_type": "span",
+            "marks": [],
+            "text": "Research synthesis"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5dcf7eef81ec",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "60a0bd7321b9",
+            "_type": "span",
+            "marks": [],
+            "text": "Ideation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "53526d4cd228",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f08ee8b85d0c",
+            "_type": "span",
+            "marks": [],
+            "text": "Requirement writing"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a8fb3aba6231",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4d68e7174811",
+            "_type": "span",
+            "marks": [],
+            "text": "Wireframing support"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "cb0b4db9dade",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "21e71a86ec07",
+            "_type": "span",
+            "marks": [],
+            "text": "Design system usage"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "126a814c9008",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "edd4211a25ae",
+            "_type": "span",
+            "marks": [],
+            "text": "Component documentation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b0d870d63fba",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "08e12f4f4378",
+            "_type": "span",
+            "marks": [],
+            "text": "Design QA"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "19f167d883f0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a5bf707bdf6f",
+            "_type": "span",
+            "marks": [],
+            "text": "Developer handoff"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d3097e0a6012",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b67df5440266",
+            "_type": "span",
+            "marks": [],
+            "text": "Release documentation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "143d10c452b5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e2513baffbff",
+            "_type": "span",
+            "marks": [],
+            "text": "Retrospective learning"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a7b912a2405a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fdea7cc7d729",
+            "_type": "span",
+            "marks": [],
+            "text": "Each workflow is analyzed for:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "15db8cdb301f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0972d0d7acd8",
+            "_type": "span",
+            "marks": [],
+            "text": "Input"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "26b49d4d9426",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "86bc9eeee986",
+            "_type": "span",
+            "marks": [],
+            "text": "Process"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5d348d0b3a2d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1e767297925d",
+            "_type": "span",
+            "marks": [],
+            "text": "Output"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c8a93f0c67ed",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "310ad6435f0e",
+            "_type": "span",
+            "marks": [],
+            "text": "Human decision point"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e8cca2ecea02",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cc9f414d078b",
+            "_type": "span",
+            "marks": [],
+            "text": "Risk level"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7beed6fea5c3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e9100c7ed567",
+            "_type": "span",
+            "marks": [],
+            "text": "Reusable AI skill potential"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "95b5868308f1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d6b4a76f007e",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "3. AI Agent Design"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7724a83c495e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "38747e210559",
+            "_type": "span",
+            "marks": [],
+            "text": "Each AI agent is designed with a clear role, boundary, and output format."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "62a5ca973ce4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a9166063fdab",
+            "_type": "span",
+            "marks": [],
+            "text": "Agent definition includes:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fc7351aa131c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c766012016f8",
+            "_type": "span",
+            "marks": [],
+            "text": "Purpose"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "68d73db3a993",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6131bda75f47",
+            "_type": "span",
+            "marks": [],
+            "text": "User group"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3684065a5990",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bfa1d4dcba97",
+            "_type": "span",
+            "marks": [],
+            "text": "Input needed"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e658e0f4afe9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "dba636ff2fcf",
+            "_type": "span",
+            "marks": [],
+            "text": "Output format"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c862f4ea8cc3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f187c4e167a6",
+            "_type": "span",
+            "marks": [],
+            "text": "Rules"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0141f003f6de",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ab9b76935092",
+            "_type": "span",
+            "marks": [],
+            "text": "Knowledge source"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "342c8ccc3f4c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7b58f46a0798",
+            "_type": "span",
+            "marks": [],
+            "text": "Validation checklist"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9030836738f0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f1c5eed4dd49",
+            "_type": "span",
+            "marks": [],
+            "text": "Escalation point"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ca498ad05d00",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b3775ec5a3e8",
+            "_type": "span",
+            "marks": [],
+            "text": "Human approval requirement"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "23489cdc554a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "18a44a626c12",
+            "_type": "span",
+            "marks": [],
+            "text": "This prevents agents from giving vague or risky answers."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b948af0a29e5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2bb923a7fde1",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "4. AI Skills Library"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "adef3fb4b72c",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/12a3f06e4dd842514f58a43e54d9b29e33487b52-1536x1024.png"
+        }
+      },
+      {
+        "_key": "81f1975e9106",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "51e547dc44be",
+            "_type": "span",
+            "marks": [],
+            "text": "The system includes reusable AI skills for common organizational tasks."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "cdcc2e9a0feb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "75eb5688e2a2",
+            "_type": "span",
+            "marks": [],
+            "text": "Example skills:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ca55b3f56435",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "eae3e8e38252",
+            "_type": "span",
+            "marks": [],
+            "text": "UX case study generator"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ef2b255e160b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "46ae0ad15f79",
+            "_type": "span",
+            "marks": [],
+            "text": "Design critique assistant"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "593adb560353",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "861a62a205df",
+            "_type": "span",
+            "marks": [],
+            "text": "Component documentation writer"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "35464cb41b42",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9cdbc9b08737",
+            "_type": "span",
+            "marks": [],
+            "text": "Accessibility review checklist"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1a9c4f5db733",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9eade31a5601",
+            "_type": "span",
+            "marks": [],
+            "text": "Research insight extractor"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "aeb402369930",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "70205c4f1c20",
+            "_type": "span",
+            "marks": [],
+            "text": "PRD generator"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d419aeafa31c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4d41e9e4341c",
+            "_type": "span",
+            "marks": [],
+            "text": "User story generator"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "bbac7a0e000e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d034d4e5161d",
+            "_type": "span",
+            "marks": [],
+            "text": "Edge case finder"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3058e00d9cca",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3caca926d372",
+            "_type": "span",
+            "marks": [],
+            "text": "Microcopy improver"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "24f9c84e2955",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2c58199bdbe9",
+            "_type": "span",
+            "marks": [],
+            "text": "Design handoff formatter"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6fe27d4b5642",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ce3a7694c7cc",
+            "_type": "span",
+            "marks": [],
+            "text": "Release note writer"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e8218aa9c4ac",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e356c7d249b3",
+            "_type": "span",
+            "marks": [],
+            "text": "Portfolio case study refiner"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4db384ba7074",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ad37556378ba",
+            "_type": "span",
+            "marks": [],
+            "text": "Each skill works like a repeatable AI playbook."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "37f713d8947f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "df14d8ba727a",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "5. Design System Validation Workflow"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3be03f390ed6",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/f48e72fce343dcd02098a14616da81d160848bb1-1536x1024.png"
+        }
+      },
+      {
+        "_key": "c42f1a24ea84",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b1cc9213db16",
+            "_type": "span",
+            "marks": [],
+            "text": "The "
+          },
+          {
+            "_key": "8fe36990c723",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Design System Guardian"
+          },
+          {
+            "_key": "5c6718bb1e1d",
+            "_type": "span",
+            "marks": [],
+            "text": " checks whether a design follows organizational UI standards."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "334676cd747b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "09740ebe71fc",
+            "_type": "span",
+            "marks": [],
+            "text": "Validation areas:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "99f130f90247",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "85cb22edc0a0",
+            "_type": "span",
+            "marks": [],
+            "text": "Component usage"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e9157e5c5664",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "36e6a0aa118f",
+            "_type": "span",
+            "marks": [],
+            "text": "Token usage"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "798ec02221d7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1c035da4542d",
+            "_type": "span",
+            "marks": [],
+            "text": "Color contrast"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6b5a502fdda9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cc54a511cdd6",
+            "_type": "span",
+            "marks": [],
+            "text": "Typography scale"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "cc211923d66c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1a028eea1f6a",
+            "_type": "span",
+            "marks": [],
+            "text": "Spacing rules"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "cdbc4bb120a7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a5aec6ff21ea",
+            "_type": "span",
+            "marks": [],
+            "text": "Layout grid"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7ccbe2079707",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f0e0620c4795",
+            "_type": "span",
+            "marks": [],
+            "text": "Naming convention"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "87b7c6188c96",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d9f1abb23116",
+            "_type": "span",
+            "marks": [],
+            "text": "Variant usage"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e9b08f04b84f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "93429e528869",
+            "_type": "span",
+            "marks": [],
+            "text": "Empty states"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c399deb1837c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d0f07fe965cf",
+            "_type": "span",
+            "marks": [],
+            "text": "Error states"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0eed7b9e9d30",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5d4dbca22370",
+            "_type": "span",
+            "marks": [],
+            "text": "Loading states"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9ed71bca5aff",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cccef91dfb83",
+            "_type": "span",
+            "marks": [],
+            "text": "Responsive behavior"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "eb189de5c2a0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8840bf0c6999",
+            "_type": "span",
+            "marks": [],
+            "text": "Accessibility basics"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "eec78c2ec9fb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "25d8e0311321",
+            "_type": "span",
+            "marks": [],
+            "text": "The result is a clear validation report:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "553c03ab91c6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3183075f1190",
+            "_type": "span",
+            "marks": [],
+            "text": "Passed"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7bed1a62b7b0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "78613850bcfe",
+            "_type": "span",
+            "marks": [],
+            "text": "Needs review"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4a073786d0f5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e939dbd9f400",
+            "_type": "span",
+            "marks": [],
+            "text": "Violates system rule"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ccf831cca05d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2f6dfc31df14",
+            "_type": "span",
+            "marks": [],
+            "text": "Missing state"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "301954b9c417",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ad6d239f0a7d",
+            "_type": "span",
+            "marks": [],
+            "text": "Needs human decision"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8fad07192498",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "754a03089b8d",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "6. Governance & Human Approval"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "32d6283f62b0",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/5c76d26961b1f516f0e87f28a129e4fbd227192b-1536x1024.png"
+        }
+      },
+      {
+        "_key": "dd07df4ab7e4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cd8525a3ef30",
+            "_type": "span",
+            "marks": [],
+            "text": "The system defines what AI can and cannot do."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ffbf2903c148",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "dd052aeb69a6",
+            "_type": "span",
+            "marks": [],
+            "text": "AI can:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "40cdc36a37f5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fb0b8984d854",
+            "_type": "span",
+            "marks": [],
+            "text": "Summarize"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ba62767a4ed9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "32165e7c23f8",
+            "_type": "span",
+            "marks": [],
+            "text": "Draft"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "81ac21633934",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9594353a9ba4",
+            "_type": "span",
+            "marks": [],
+            "text": "Validate"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "630925b09882",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ad77879b90a2",
+            "_type": "span",
+            "marks": [],
+            "text": "Suggest"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ff077c762141",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "43dc0d4c7ab5",
+            "_type": "span",
+            "marks": [],
+            "text": "Compare"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4e044b5fe723",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fa8441b18af8",
+            "_type": "span",
+            "marks": [],
+            "text": "Organize"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "028128fa82f7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a7a751015e8c",
+            "_type": "span",
+            "marks": [],
+            "text": "Generate checklists"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fcb8c193c26a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0581d5813dab",
+            "_type": "span",
+            "marks": [],
+            "text": "Detect inconsistencies"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "45fae045d132",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cbdaf66603ff",
+            "_type": "span",
+            "marks": [],
+            "text": "AI cannot automatically:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f97425604e37",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ef53f935e6e0",
+            "_type": "span",
+            "marks": [],
+            "text": "Approve final designs"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3033d38e2680",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "49881cbbed41",
+            "_type": "span",
+            "marks": [],
+            "text": "Override design system rules"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "79fbdbee3eea",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fe4382221841",
+            "_type": "span",
+            "marks": [],
+            "text": "Publish sensitive information"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "21bc3790b9d7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "44b4b68dff39",
+            "_type": "span",
+            "marks": [],
+            "text": "Make strategic decisions without human review"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f86bf5449a0a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e9168ed17261",
+            "_type": "span",
+            "marks": [],
+            "text": "Replace research participants"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ee01567081e3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e3ba3d74ade6",
+            "_type": "span",
+            "marks": [],
+            "text": "Finalize compliance-heavy content"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "47be7e3f011f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "189dac292a24",
+            "_type": "span",
+            "marks": [],
+            "text": "This makes AI useful without making it reckless."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fc3647d9b00c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4376d34f662c",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "7. Team Enablement"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "30b277618216",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "75924008a9d8",
+            "_type": "span",
+            "marks": [],
+            "text": "To help teams adopt the system, the project includes:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d3e4f1c81f01",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "acc453c18c26",
+            "_type": "span",
+            "marks": [],
+            "text": "AI usage guide"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0ee48ccc5626",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a23d3b1458a7",
+            "_type": "span",
+            "marks": [],
+            "text": "Prompt standards"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "15a32f298119",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3feb219323f1",
+            "_type": "span",
+            "marks": [],
+            "text": "Agent directory"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f6ead5eef360",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2a359ea57aaf",
+            "_type": "span",
+            "marks": [],
+            "text": "Skill library"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0e2f33d084ae",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e27ec27a5d8c",
+            "_type": "span",
+            "marks": [],
+            "text": "Validation checklist"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "05e91f8d76f3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "711f41e2023e",
+            "_type": "span",
+            "marks": [],
+            "text": "Example workflows"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "608c683fb177",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2fc309347764",
+            "_type": "span",
+            "marks": [],
+            "text": "Onboarding documentation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "64d84f7f22f6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4af1b46d8fcc",
+            "_type": "span",
+            "marks": [],
+            "text": "Do/don’t rules"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0cd4069d5c7a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d03755fc5353",
+            "_type": "span",
+            "marks": [],
+            "text": "Review process"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8532e1f9a1eb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c6dfb7942eb5",
+            "_type": "span",
+            "marks": [],
+            "text": "Feedback loop"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9a179d913a1a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b541e190c1a5",
+            "_type": "span",
+            "marks": [],
+            "text": "This turns AI adoption into an organizational capability."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "13c0ce676c07",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c2cbf3215aaa",
+            "_type": "span",
+            "marks": [],
+            "text": "——————————————————————————————————————"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "64797569a09b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8c2fe08e50b5",
+            "_type": "span",
+            "marks": [],
+            "text": "AI Agent Ecosystem"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "029de628173c",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/d2556a27f10ce06fb7c4f17a75bf9b011d5a8679-1536x1024.png"
+        }
+      },
+      {
+        "_key": "b82d919ba458",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c0b01b12d4f5",
+            "_type": "span",
+            "marks": [],
+            "text": "Design System Guardian"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c6940d798684",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "576647ce737f",
+            "_type": "span",
+            "marks": [],
+            "text": "Maintains UI consistency and validates component usage."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7a155d874b67",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d1c5dca14da1",
+            "_type": "span",
+            "marks": [],
+            "text": "Research Synthesizer"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5d6f10f1e482",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3cae1c3efd20",
+            "_type": "span",
+            "marks": [],
+            "text": "Turns messy research into structured insights."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7ad3e40ffa39",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d075d0e1a608",
+            "_type": "span",
+            "marks": [],
+            "text": "PRD Builder"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "23d6c26fd483",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0fd376eaab5f",
+            "_type": "span",
+            "marks": [],
+            "text": "Converts ideas into product requirements and acceptance criteria."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f1523de2e099",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1a46e7b3a065",
+            "_type": "span",
+            "marks": [],
+            "text": "UX QA Reviewer"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "53c499fd236d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "dd6a42e55d3e",
+            "_type": "span",
+            "marks": [],
+            "text": "Checks screens before developer handoff."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "23bfa2768779",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f5f99baf6dbd",
+            "_type": "span",
+            "marks": [],
+            "text": "Documentation Writer"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "97f67299673b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8db2b050a3b7",
+            "_type": "span",
+            "marks": [],
+            "text": "Creates clear product, design, and release documentation."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e6b6220dce2d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a126d6a214f2",
+            "_type": "span",
+            "marks": [],
+            "text": "Skills Librarian"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fc813a999648",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6894443594cf",
+            "_type": "span",
+            "marks": [],
+            "text": "Maintains reusable AI workflows and prompt systems."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c869db5d8715",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ff3dc437aa3d",
+            "_type": "span",
+            "marks": [],
+            "text": "——————————————————————————————————————"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9095cfcf9eb0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d40c7ac0eb3f",
+            "_type": "span",
+            "marks": [],
+            "text": "Unique Skills Highlighted"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "fe09d10b7cc2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fc418b73b99c",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "AI DesignOps"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "353ba0e9139c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "86e5dd9810e1",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Custom AI Agent Design"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3d0c0849e8d4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c6049c270e78",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "AI Skills Architecture"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b899f0876bfc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "16376dd96a16",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Organizational AI Enablement"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4dbe7c406f2e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4c04ff2749cb",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Design System Governance"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4dce492b7482",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "42637b7f7fc9",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "AI Workflow Standardization"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a418cead061c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7ff8e7865781",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Human-in-the-Loop Governance"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4b817069e0ff",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "be92ecb9d455",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "AI-Assisted UX Research"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1f5917c4026f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2c687fb364e4",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Design QA Automation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c33bddc11997",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c59681b9b9a7",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Responsible AI Adoption"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e5c18c9d815f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e2c81d1b1638",
+            "_type": "span",
+            "marks": [],
+            "text": "——————————————————————————————————————"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "47dd69a8600f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e17ac0d92cc1",
+            "_type": "span",
+            "marks": [],
+            "text": "Outcome"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "19d2d162e76d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "76ac70783d78",
+            "_type": "span",
+            "marks": [],
+            "text": "The project shows how an organization can move from random AI usage to structured AI-powered operations."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "240c94757ca9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "da8c1c79450c",
+            "_type": "span",
+            "marks": [],
+            "text": "Expected outcomes:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "cb3b55db9d4c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b3f9fa68783d",
+            "_type": "span",
+            "marks": [],
+            "text": "Faster documentation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f6ea4e692d78",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f895fd0e567d",
+            "_type": "span",
+            "marks": [],
+            "text": "Better design system consistency"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "30d9a56beb9b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b5879faa160b",
+            "_type": "span",
+            "marks": [],
+            "text": "Reusable AI workflows"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "290895fd6da8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6c547e521be0",
+            "_type": "span",
+            "marks": [],
+            "text": "Improved design QA"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0759eb60d662",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8cca807fef46",
+            "_type": "span",
+            "marks": [],
+            "text": "Stronger team alignment"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9bf8055e1cc5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0caed8526ec5",
+            "_type": "span",
+            "marks": [],
+            "text": "Reduced repetitive work"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "40d0b67c847e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5255506338b0",
+            "_type": "span",
+            "marks": [],
+            "text": "Better research synthesis"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5ebf99701c6a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "03a2e4fc083f",
+            "_type": "span",
+            "marks": [],
+            "text": "More consistent product decisions"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "49a315496d81",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "21a697cdea63",
+            "_type": "span",
+            "marks": [],
+            "text": "Safer organizational AI adoption"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e5eed348c5e0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "811bbdab8d10",
+            "_type": "span",
+            "marks": [],
+            "text": "The biggest value: this project proves the ability to help teams "
+          },
+          {
+            "_key": "f108834c6c8a",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "adopt AI strategically"
+          },
+          {
+            "_key": "16d49b76609b",
+            "_type": "span",
+            "marks": [],
+            "text": ", not just experiment with AI tools."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "694948760c1b",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/00524644458104ca1e1acb3de2189580b3ebfb4d-1536x1024.png"
+        }
+      },
+      {
+        "_key": "51d07d72a33e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ac49d5341d18",
+            "_type": "span",
+            "marks": [],
+            "text": "Conclusion"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "7971e22288e7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cb4691c08312",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "AI DesignOps Agent Hub"
+          },
+          {
+            "_key": "8a3dbf39a272",
+            "_type": "span",
+            "marks": [],
+            "text": " is a powerful portfolio project because it shows leadership-level thinking. It proves the ability to design systems for how teams work, not only interfaces for users."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "519de43fad74",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e39fed75217d",
+            "_type": "span",
+            "marks": [],
+            "text": "This project is especially strong for AI product design, design operations, design systems, product strategy, UX research operations, internal tools, AI transformation, and design leadership."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "category": "AI & Automation",
+    "tags": [
+      "AI Agents",
+      "AI Skills",
+      "Design QA",
+      "Design Governance ",
+      "Workflow Automation"
+    ],
+    "year": 2026,
+    "coverImage": "https://cdn.sanity.io/images/27gjokhr/production/d024a102264775c702af15e026460eda0c245161-1536x1024.png",
+    "featured": true,
+    "role": "AI DesignOps Strategist, Product Designer",
+    "links": []
+  },
+  {
+    "slug": "zero-queue-food-court",
+    "title": "Zero-Queue Food Court",
+    "tagline": "Redesigning food-court ordering through kiosk, POS, and mobile-first service design.",
+    "shortDescription": "A UX/UI case study about creating a complete food-court ordering ecosystem that connects customer kiosks, vendor POS systems, mobile ordering, kitchen operations, and order tracking into one seamless experience.",
+    "body": [
+      {
+        "_key": "c4694eb70cba",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "971d21fc7a84",
+            "_type": "span",
+            "marks": [],
+            "text": "Idea"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "c7bbfb2b6c21",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0bca08850d95",
+            "_type": "span",
+            "marks": [],
+            "text": "Food courts are fast-moving environments, but the ordering experience is often slow, confusing, and fragmented. Customers wait in queues, vendors manually manage orders, and staff struggle to track preparation, payment, and delivery status."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8d764f3c437c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f35044d8655e",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Zero-Queue Food Court"
+          },
+          {
+            "_key": "044bf63d0274",
+            "_type": "span",
+            "marks": [],
+            "text": " creates a connected digital ecosystem where customers can order quickly through kiosks or mobile devices, vendors can process orders efficiently, and the entire food court can operate with less waiting and more clarity."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3b400d3ca4dc",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/df33a8bc144f0f0b3b1b9b429ef9256fa912fcef-1536x1024.png"
+        }
+      },
+      {
+        "_key": "69dc3cd0c4eb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7bbf467d3d5f",
+            "_type": "span",
+            "marks": [],
+            "text": "Problem"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "f646d38ce705",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "09d910ec7533",
+            "_type": "span",
+            "marks": [],
+            "text": "Traditional food-court ordering has multiple pain points:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "363c42f6b2d1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d0c06ed055ac",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Long queues during peak hours"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c922476c0a01",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1e821b634519",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Fragmented vendor operations"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3d4f94a462fc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "de5217cdee8d",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Poor order visibility"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "30219eb344e5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b6c09823e1e4",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "High staff dependency"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fdbda118429e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b4301ec7e7ed",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Inconsistent UI across touchpoints"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b5519d6407e1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2d153a78e566",
+            "_type": "span",
+            "marks": [],
+            "text": "Usage"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "3e72fffa3121",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3f717f0b7d0d",
+            "_type": "span",
+            "marks": [],
+            "text": "The system includes multiple user groups:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2465b02bf5e3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "926e0aaf9853",
+            "_type": "span",
+            "marks": [],
+            "text": "Customers ordering from kiosk or mobile"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4addc79de6a5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3a4d6f38140c",
+            "_type": "span",
+            "marks": [],
+            "text": "Vendors accepting and preparing orders"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b96b8fdd77f9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0d348ae624c9",
+            "_type": "span",
+            "marks": [],
+            "text": "Cashiers handling payments"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "922e70f1ca3b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "649068637225",
+            "_type": "span",
+            "marks": [],
+            "text": "Kitchen staff managing preparation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "180fe3c66350",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ff87bcf7773f",
+            "_type": "span",
+            "marks": [],
+            "text": "Admins managing menus, pricing, offers, and stalls"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "601d5ccf1e6a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4efe8861b226",
+            "_type": "span",
+            "marks": [],
+            "text": "Food-court operators tracking performance"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7d3991472a94",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "125372f8d13f",
+            "_type": "span",
+            "marks": [],
+            "text": "Solution"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "339575790d1e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8ab271e61db7",
+            "_type": "span",
+            "marks": [],
+            "text": "The solution is a complete "
+          },
+          {
+            "_key": "e8b5288c53ad",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "multi-touchpoint food ordering platform"
+          },
+          {
+            "_key": "8fd721dc7d0a",
+            "_type": "span",
+            "marks": [],
+            "text": "."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1c4ffc6ea02e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ef465444194d",
+            "_type": "span",
+            "marks": [],
+            "text": "Core product areas:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "83fc116eeb73",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e60f94df7d50",
+            "_type": "span",
+            "marks": [],
+            "text": "Customer kiosk ordering"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "55c9d1e03ecb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f52b1007e11c",
+            "_type": "span",
+            "marks": [],
+            "text": "Mobile ordering flow"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ad0dda6b82b5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f93652843254",
+            "_type": "span",
+            "marks": [],
+            "text": "Vendor POS interface"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "229e2cb09ea9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8911979e3806",
+            "_type": "span",
+            "marks": [],
+            "text": "Kitchen order display"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7721e50124c9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "428a45256c0f",
+            "_type": "span",
+            "marks": [],
+            "text": "Order tracking screen"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9f6a8acc9d42",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f359bd94377d",
+            "_type": "span",
+            "marks": [],
+            "text": "Admin menu management"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ecaae94c1921",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "286660a985d1",
+            "_type": "span",
+            "marks": [],
+            "text": "Payment and receipt flow"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "bb5b6d88e2ca",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0a87c1bced5a",
+            "_type": "span",
+            "marks": [],
+            "text": "Design system for consistency"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c38933d6890c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2723830cf70f",
+            "_type": "span",
+            "marks": [],
+            "text": "——————————————————————————————————————"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4bcb0e122c42",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cb29cac66fdc",
+            "_type": "span",
+            "marks": [],
+            "text": "Project Flow"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "7e9d850e1131",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a9d4297026b2",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "1. Experience Mapping"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ed38a89c6a2c",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/6dd5760df7579073273abdbeb6032fa16df05269-1536x1024.png"
+        }
+      },
+      {
+        "_key": "8daeb5163aba",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d319bfdfedf8",
+            "_type": "span",
+            "marks": [],
+            "text": "The full food-court journey was mapped from customer entry to order completion:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ddc1c1b786e1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "02ea86bbcf4c",
+            "_type": "span",
+            "marks": [],
+            "text": "Browse food options"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "32aac8861581",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ec695360d2cb",
+            "_type": "span",
+            "marks": [],
+            "text": "Select vendor"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "424bd52102e3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bfd522ac6b6b",
+            "_type": "span",
+            "marks": [],
+            "text": "Customize items"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "996d1f842045",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6ed5e863de66",
+            "_type": "span",
+            "marks": [],
+            "text": "Review cart"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "81e57515af03",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d46493a88a44",
+            "_type": "span",
+            "marks": [],
+            "text": "Make payment"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1e32b1631eb5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "203c8f9c493c",
+            "_type": "span",
+            "marks": [],
+            "text": "Track order"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fffed08fac7e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "706e20b32c0e",
+            "_type": "span",
+            "marks": [],
+            "text": "Pick up food"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e07313dcac39",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1a1a24549c4e",
+            "_type": "span",
+            "marks": [],
+            "text": "Receive receipt / feedback option"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0a67f1d64718",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0953f32aeaf9",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "2. User Group Segmentation"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0539ee576e47",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "330d9f1f66f7",
+            "_type": "span",
+            "marks": [],
+            "text": "The design separated users by task intensity:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d9ce04f07f6f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5c15ab47def9",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Customers"
+          },
+          {
+            "_key": "58776e2fa077",
+            "_type": "span",
+            "marks": [],
+            "text": " need speed, clarity, and low friction."
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "cb1b7501217e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fb733bcf6cef",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Vendors"
+          },
+          {
+            "_key": "a4804a949105",
+            "_type": "span",
+            "marks": [],
+            "text": " need fast order acceptance and preparation control."
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "560676fd2e49",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7688c452ab65",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Kitchen staff"
+          },
+          {
+            "_key": "58e5c62acd57",
+            "_type": "span",
+            "marks": [],
+            "text": " need visibility and prioritization."
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c4254b02c82f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bc8a4b0df7b4",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Admins"
+          },
+          {
+            "_key": "aecb1a98c1cc",
+            "_type": "span",
+            "marks": [],
+            "text": " need menu and pricing control."
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "09de6ad7d2f8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "068dce374640",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "3. Kiosk UX Design"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3627526a63c6",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/0ddcd6ea5af5767f47aada6febe3e68f385690ac-1536x1024.png"
+        }
+      },
+      {
+        "_key": "2a9fca076514",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c75b67b728e6",
+            "_type": "span",
+            "marks": [],
+            "text": "The kiosk experience was designed for fast decision-making:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "af4b1fd67383",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3f64b5a980f2",
+            "_type": "span",
+            "marks": [],
+            "text": "Large touch-friendly cards"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fc1c9de81d90",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2a21cbecab4b",
+            "_type": "span",
+            "marks": [],
+            "text": "Visual menu browsing"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1a1bbafa13bf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f3bf5d759bc0",
+            "_type": "span",
+            "marks": [],
+            "text": "Clear category filters"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "47f1fddf413b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "15e068e7c865",
+            "_type": "span",
+            "marks": [],
+            "text": "Simple customization"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a003ad4da533",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e485faa0a70c",
+            "_type": "span",
+            "marks": [],
+            "text": "Persistent cart"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "11e539d0a995",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "dceb09713214",
+            "_type": "span",
+            "marks": [],
+            "text": "Clear payment step"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "76d9aae71874",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c38ea90c5fe2",
+            "_type": "span",
+            "marks": [],
+            "text": "Token / order number confirmation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "de81d1cff50c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5e591da76ac2",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "4. POS UX Design"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b00cc18c78f9",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/235b34118b7c9f6968df2e0a0af6f6f2c3ba832c-1536x1024.png"
+        }
+      },
+      {
+        "_key": "3af038ddd975",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "35a3a6ab9965",
+            "_type": "span",
+            "marks": [],
+            "text": "The vendor POS was designed for operational speed:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "29eb71e691c9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f9b92fbf515c",
+            "_type": "span",
+            "marks": [],
+            "text": "Incoming order queue"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2bb47c252ebf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "973fbfaf23a7",
+            "_type": "span",
+            "marks": [],
+            "text": "Accept / reject action"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5842f4dd569d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "97d1c341817b",
+            "_type": "span",
+            "marks": [],
+            "text": "Preparation status"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f395d25d8b03",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "13f292c51cd7",
+            "_type": "span",
+            "marks": [],
+            "text": "Payment status"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "869f7acadcd7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "33b2f8f63232",
+            "_type": "span",
+            "marks": [],
+            "text": "Order priority"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "dd1f83e87f8f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "10fd61393908",
+            "_type": "span",
+            "marks": [],
+            "text": "Item-level details"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "859119c54c8d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0b7b7ec9ef43",
+            "_type": "span",
+            "marks": [],
+            "text": "Quick delay handling"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "31c72abd2577",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "41e621efb5d4",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "5. Kitchen Display UX"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "bb7942f00dba",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/050ad72a0301b0e846b13cf96ff77fc1940ee734-1536x1024.png"
+        }
+      },
+      {
+        "_key": "d5dcecdbf4ea",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1beb41d76a4b",
+            "_type": "span",
+            "marks": [],
+            "text": "The kitchen screen focused on urgency and clarity:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e86ffff27760",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "97f7014335ba",
+            "_type": "span",
+            "marks": [],
+            "text": "New orders"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d1cc713d10c0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4b4300d68e58",
+            "_type": "span",
+            "marks": [],
+            "text": "Preparing orders"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1af26e766dbb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4ee01b5388b0",
+            "_type": "span",
+            "marks": [],
+            "text": "Delayed orders"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3c8ffbd14000",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9200763e4610",
+            "_type": "span",
+            "marks": [],
+            "text": "Ready orders"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4a7544dbde29",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "702294fa2d1b",
+            "_type": "span",
+            "marks": [],
+            "text": "Color-coded status"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "45db105bf777",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "15547fb1254c",
+            "_type": "span",
+            "marks": [],
+            "text": "Time-based prioritization"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a93b6ba21043",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b1b79224bbc8",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "6. Design System Creation"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1e823ff1df29",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/6f9eecda008968d96605f90123fa6febad4f3d62-1536x1024.png"
+        }
+      },
+      {
+        "_key": "090099b594d2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cba75ebee8fa",
+            "_type": "span",
+            "marks": [],
+            "text": "A reusable design system maintained consistency across kiosk, POS, mobile, and admin screens."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7c1d850b13e4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "02ab96d275c5",
+            "_type": "span",
+            "marks": [],
+            "text": "Included components:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8570875b03ac",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3140db487243",
+            "_type": "span",
+            "marks": [],
+            "text": "Menu cards"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "33bd45c86493",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b0040e3ecb41",
+            "_type": "span",
+            "marks": [],
+            "text": "Cart component"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9d607ec56fec",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fd77f7949fb3",
+            "_type": "span",
+            "marks": [],
+            "text": "Order status badges"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "07d817e409b2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2f4edf4ae3fb",
+            "_type": "span",
+            "marks": [],
+            "text": "Payment status indicators"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "69d005bf4cbf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2c04bce3aa7c",
+            "_type": "span",
+            "marks": [],
+            "text": "Vendor cards"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "66c18a79b00f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0677c8196c50",
+            "_type": "span",
+            "marks": [],
+            "text": "Token display"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "86428a16c914",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3d31e74eb802",
+            "_type": "span",
+            "marks": [],
+            "text": "Quantity selectors"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e7cd96b75d65",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "43a900d9368b",
+            "_type": "span",
+            "marks": [],
+            "text": "Confirmation modals"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3bb7b9d56f79",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c53bb137a5dc",
+            "_type": "span",
+            "marks": [],
+            "text": "Error states"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0407d97dcaf9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7396a7cd8cfd",
+            "_type": "span",
+            "marks": [],
+            "text": "Responsive layout rules"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a4284043e2ea",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d0916a756964",
+            "_type": "span",
+            "marks": [],
+            "text": "——————————————————————————————————————"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "17491b1e8d56",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bade4772c711",
+            "_type": "span",
+            "marks": [],
+            "text": "Unique Skills Highlighted"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "1c5aee28f5e1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3d7372f2585b",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Service Design Thinking"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9efdd0d31580",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "656c7cf71522",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "POS UX Design"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a5c58c7b9eb9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bc5b9b4d2e73",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Kiosk Interface Design"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f29f50c43c0f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "401c49858b2e",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Operational Flow Mapping"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "bb1e9e5810a8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9cdf606ebc25",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Multi-Touchpoint Product Design"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2eff12c14313",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7668f868bf9f",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Food-Tech UX"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "737cd79c31eb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "86cdbe2f4455",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Order Lifecycle Design"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e1026b7fa925",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2234504e565a",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Design System for Product Ecosystems"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "aad0b2c88a01",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d160b7843993",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "High-Speed Transaction UX"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2a8d096e1378",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e656c0d30b10",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Customer-to-Operations Experience Design"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "de381d52d8ed",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8e86bc5e2627",
+            "_type": "span",
+            "marks": [],
+            "text": "——————————————————————————————————————"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "628ed3ad2bcd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d2054f42d1c6",
+            "_type": "span",
+            "marks": [],
+            "text": "Outcome"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "ae32b3379e94",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8a06bf2647b7",
+            "_type": "span",
+            "marks": [],
+            "text": "The project demonstrates how a food-court ordering experience can become faster, more transparent, and easier to manage. Customers get a smoother ordering journey, vendors receive structured orders, and operators gain better control over food-court performance."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3eb8ccf2a890",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/7e3f1e5d7df13435487a9622b1ab98feeb01e1f0-1536x1024.png"
+        }
+      },
+      {
+        "_key": "ec333ae2ee69",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2f74f8017ccb",
+            "_type": "span",
+            "marks": [],
+            "text": "Conclusion"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "04a8b3fd67f5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9f01ed59e5fb",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Zero-Queue Food Court"
+          },
+          {
+            "_key": "5e4999e45c39",
+            "_type": "span",
+            "marks": [],
+            "text": " is powerful because it combines customer UX, business operations, service design, POS logic, and interface systems. It shows the ability to design the "
+          },
+          {
+            "_key": "f5f9dc8d68c8",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "entire service system"
+          },
+          {
+            "_key": "246629e15552",
+            "_type": "span",
+            "marks": [],
+            "text": ", not only screens."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "category": "UI/UX",
+    "tags": [
+      "Figma",
+      "Food-Tech UX",
+      "Kiosk Design",
+      "POS System",
+      "Food Order",
+      "Design System",
+      "UI/UX"
+    ],
+    "year": 2023,
+    "coverImage": "https://cdn.sanity.io/images/27gjokhr/production/b105534359f3b82300b71af5dce62a03037d4e42-1659x948.png",
+    "featured": true,
+    "role": "Product Designer",
     "links": []
   }
 ];
