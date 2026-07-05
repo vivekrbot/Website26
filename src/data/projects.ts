@@ -2455,12 +2455,1942 @@ export const projects: Project[] = [
         "style": "normal"
       }
     ],
-    "category": "UI/UX Design, UX Research, Design System",
+    "category": "UI/UX",
     "tags": [],
     "year": 2024,
     "coverImage": "https://cdn.sanity.io/images/27gjokhr/production/44bda3eb8a685569567fd6470ce8345cfba08f2f-1536x1024.png",
     "featured": true,
     "role": "UX Research, Product Design",
+    "links": []
+  },
+  {
+    "slug": "trustflow-payments",
+    "title": "TrustFlow Payments",
+    "tagline": "Designing safer money movement for complex cash-to-card and card-to-cash workflows.",
+    "shortDescription": "A UX/UI case study focused on designing a secure financial transaction flow for environments where users convert money between cash, card, wallet, or account-based systems. The project highlights fintech UX, transaction logic, error handling, compliance constraints, system states, and trust-building interfaces.",
+    "body": [
+      {
+        "_key": "46de8b9ef001",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "82da98a0ae9c",
+            "_type": "span",
+            "marks": [],
+            "text": "Idea"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "5a2d915a82bf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "eb0f88bac336",
+            "_type": "span",
+            "marks": [],
+            "text": "Financial transaction systems need more than good-looking UI. They need clarity, trust, validation, security, error prevention, and strong recovery flows."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c3b7e50b7943",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2bdcb8cc35b7",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "TrustFlow Payments"
+          },
+          {
+            "_key": "941729baf5dd",
+            "_type": "span",
+            "marks": [],
+            "text": " designs a transaction experience that supports complex money movement between cash and card-based systems while reducing user confusion, staff error, and operational risk."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "305a2baff7a0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bdc583b13273",
+            "_type": "span",
+            "marks": [],
+            "text": "Problem"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "a9e45166babe",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "801a76f8720b",
+            "_type": "span",
+            "marks": [],
+            "text": "Money movement products are difficult because users need confidence at every step."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "32b862908bf1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "041c342653ac",
+            "_type": "span",
+            "marks": [],
+            "text": "Common issues include:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "bc71dc804e09",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7206fe64ee09",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Unclear transaction status"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2fa0634ec289",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "da3a9e1a7ade",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "High risk of user and staff error"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b53028c2fe60",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ecaaab48229e",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Complex exception handling"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d4da7e099142",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "de06630b3a5b",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Trust and compliance requirements"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "512598fe6e2e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d28b723e6e61",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Different logic for different user types"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "13626457dd58",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "38bfec94cd7b",
+            "_type": "span",
+            "marks": [],
+            "text": "Usage"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "36b40787a637",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bbf810220d0f",
+            "_type": "span",
+            "marks": [],
+            "text": "This system would be used by:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fa98f200c45c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bd2f6b46a51f",
+            "_type": "span",
+            "marks": [],
+            "text": "Customers converting cash to card balance"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "00bea90a624b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4a19e4f0b78d",
+            "_type": "span",
+            "marks": [],
+            "text": "Customers withdrawing card value into cash"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5b5c79e3db40",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c967fd2c724d",
+            "_type": "span",
+            "marks": [],
+            "text": "Operators assisting transactions"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ac071f7241cf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "75ece7c84d73",
+            "_type": "span",
+            "marks": [],
+            "text": "Admins monitoring transaction reports"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5cf0977672ef",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1e7f034bbfee",
+            "_type": "span",
+            "marks": [],
+            "text": "Support teams resolving failed transactions"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1fbfcde567dd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6f898437af21",
+            "_type": "span",
+            "marks": [],
+            "text": "Compliance teams reviewing logs and limits"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "37c25f78c80e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "80e189f971c0",
+            "_type": "span",
+            "marks": [],
+            "text": "Solution"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "a64840db1428",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cbc119c13513",
+            "_type": "span",
+            "marks": [],
+            "text": "The solution is a guided transaction system with strong validation, visible system states, and clear exception recovery."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "95bd8e52dcd8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e6f3cd587c8e",
+            "_type": "span",
+            "marks": [],
+            "text": "Core UX decisions:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "85c13c55e7f0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "849f727901cd",
+            "_type": "span",
+            "marks": [],
+            "text": "Step-by-step transaction wizard"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b937853a9812",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "14578a1a5be8",
+            "_type": "span",
+            "marks": [],
+            "text": "Clear amount confirmation before processing"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "384fb748c665",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1056429e9fdc",
+            "_type": "span",
+            "marks": [],
+            "text": "Strong visual status feedback"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "99caa2c252c7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "200f87c32707",
+            "_type": "span",
+            "marks": [],
+            "text": "Receipt and audit trail generation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d40324549699",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "66d351da6906",
+            "_type": "span",
+            "marks": [],
+            "text": "Member vs. visitor logic separation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "bea673d44b87",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "315e6447a269",
+            "_type": "span",
+            "marks": [],
+            "text": "Error-specific recovery actions"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9fda0bbc4131",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "425a4b5d84da",
+            "_type": "span",
+            "marks": [],
+            "text": "Transaction lock / unlock handling"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b4582488e71a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f6a345245910",
+            "_type": "span",
+            "marks": [],
+            "text": "Short-pay and failed transaction resolution"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0b7a19bd2d07",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7c0a8cce2ad6",
+            "_type": "span",
+            "marks": [],
+            "text": "Limit and compliance warnings"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a25084bf6728",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2a34995a984b",
+            "_type": "span",
+            "marks": [],
+            "text": "Operator-friendly dashboard"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0c1b8c03274f",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/9a29b4295b3e94beb86bac0222993ba40e522f8a-1536x1024.png"
+        }
+      },
+      {
+        "_key": "e29741dc1c0b",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/7caf74aefe664cd500f355784d0a4a28a52657d6-1536x1024.png"
+        }
+      },
+      {
+        "_key": "beee453b2674",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "370cab820dfe",
+            "_type": "span",
+            "marks": [],
+            "text": "——————————————————————————————————————"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6f438c74ef13",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cf66c67db8c0",
+            "_type": "span",
+            "marks": [],
+            "text": "Project Flow"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "6ce9bb2e70d5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cc72bec3ff72",
+            "_type": "span",
+            "marks": [],
+            "text": "1. Transaction Logic Mapping"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "14be2b637878",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/07a680b33462c36e128482a91dd98b2e3e7bbe36-1536x1024.png"
+        }
+      },
+      {
+        "_key": "c694056d5e5d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "86c1101e3d34",
+            "_type": "span",
+            "marks": [],
+            "text": "The full transaction lifecycle was mapped:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a5718ca9a142",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fe8a4ba390e4",
+            "_type": "span",
+            "marks": [],
+            "text": "Start transaction"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e502870003ef",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "413fdb7c1fb4",
+            "_type": "span",
+            "marks": [],
+            "text": "Identify user type"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "26f3d6fa4377",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "37f7fbd933ff",
+            "_type": "span",
+            "marks": [],
+            "text": "Select transaction type"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ea6092e35613",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "98f5a117b4a2",
+            "_type": "span",
+            "marks": [],
+            "text": "Enter or validate amount"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a2fb26c81cf3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "87f100b42e4e",
+            "_type": "span",
+            "marks": [],
+            "text": "Confirm card / account"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "09c2461b26b5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "460e86df3454",
+            "_type": "span",
+            "marks": [],
+            "text": "Accept cash or process withdrawal"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8e07fa4ecd53",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b15470a45d97",
+            "_type": "span",
+            "marks": [],
+            "text": "Validate success"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9dc795fd02b3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "24a686a6064f",
+            "_type": "span",
+            "marks": [],
+            "text": "Generate receipt"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "709eb41ceadd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c42a6722d6c3",
+            "_type": "span",
+            "marks": [],
+            "text": "Handle exception if needed"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "580bfc03246f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9385095d8cbd",
+            "_type": "span",
+            "marks": [],
+            "text": "This exposed all success, failure, pending, and recovery states."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9e3458ebf6e3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "395fbf2d1ce2",
+            "_type": "span",
+            "marks": [],
+            "text": "2. User Type Separation"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "783a11978f32",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "62921c91fa00",
+            "_type": "span",
+            "marks": [],
+            "text": "The flow was split between different user logic:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "47341af25485",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "aac038455372",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Member flow"
+          },
+          {
+            "_key": "634edababd39",
+            "_type": "span",
+            "marks": [],
+            "text": ": linked identity, account balance, transaction history"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8238c186ad37",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8666feeaeca1",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Visitor flow"
+          },
+          {
+            "_key": "b1c74dc62cd1",
+            "_type": "span",
+            "marks": [],
+            "text": ": temporary or limited access transaction"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6ef2a5ba35c7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d5289298977b",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Operator flow"
+          },
+          {
+            "_key": "43d580261632",
+            "_type": "span",
+            "marks": [],
+            "text": ": assisted transaction and override handling"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3c42171b2379",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f1c708b57dc1",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Admin flow"
+          },
+          {
+            "_key": "74066c54755f",
+            "_type": "span",
+            "marks": [],
+            "text": ": reports, settings, rules, and limits"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ad9fd53a17cf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c2d59751228f",
+            "_type": "span",
+            "marks": [],
+            "text": "3. Error State Design"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "607101338054",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/9b0f0ffad58bc2f98b9fd062c6cd974371a1881b-1536x1024.png"
+        }
+      },
+      {
+        "_key": "0ad0c75f0130",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "05cd16579ea6",
+            "_type": "span",
+            "marks": [],
+            "text": "A major focus was designing for things going wrong."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9c49ccb6a505",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ea058d9acad0",
+            "_type": "span",
+            "marks": [],
+            "text": "Error states included:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "90ddc9df6b28",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2599f23b6448",
+            "_type": "span",
+            "marks": [],
+            "text": "Cash not fully accepted"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2f091905e7c0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b80c77c31df8",
+            "_type": "span",
+            "marks": [],
+            "text": "Card read failure"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3c332e618381",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "616591d5c96e",
+            "_type": "span",
+            "marks": [],
+            "text": "Network timeout"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b44cb3113697",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "41b3825215b7",
+            "_type": "span",
+            "marks": [],
+            "text": "Transaction pending"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a7874997eab1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9ecfcbd956df",
+            "_type": "span",
+            "marks": [],
+            "text": "Insufficient balance"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "da8ae5a17272",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9ec02b566f8e",
+            "_type": "span",
+            "marks": [],
+            "text": "Limit exceeded"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "df2143c4b119",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2ef52193289a",
+            "_type": "span",
+            "marks": [],
+            "text": "User cancellation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fd3b4ff11e8f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "29b11bd23f27",
+            "_type": "span",
+            "marks": [],
+            "text": "Machine unavailable"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "930b687ad879",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "89081612b3c8",
+            "_type": "span",
+            "marks": [],
+            "text": "Amount mismatch"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c4a1a4a5fede",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3f3fc46b02d0",
+            "_type": "span",
+            "marks": [],
+            "text": "Lock state active"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "95a0ee9db6d8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e0bb30ed616a",
+            "_type": "span",
+            "marks": [],
+            "text": "Each error state answered:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "43d89fe9052b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b747ce40f1f7",
+            "_type": "span",
+            "marks": [],
+            "text": "What happened"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5808153c7790",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1371239e0551",
+            "_type": "span",
+            "marks": [],
+            "text": "Why it happened"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ca21574415ed",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "db5121409b4d",
+            "_type": "span",
+            "marks": [],
+            "text": "What the user can do next"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1c4febb0c34c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "459d41181b53",
+            "_type": "span",
+            "marks": [],
+            "text": "Whether support/admin action is required"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "37cff1b35302",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1fd812aaaaf6",
+            "_type": "span",
+            "marks": [],
+            "text": "Whether money was deducted, held, reversed, or unchanged"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "066cf2a9bc53",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f671d141d1ac",
+            "_type": "span",
+            "marks": [],
+            "text": "4. Trust-Building UI"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "60725e180b7d",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/9a469cdf986b7afbe3e0c3aa09972be3ad8840e4-1086x1448.png"
+        }
+      },
+      {
+        "_key": "a1f45a655b9d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f08760e4bac4",
+            "_type": "span",
+            "marks": [],
+            "text": "Financial UX depends heavily on trust."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d26eb96c313b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e069df74e33d",
+            "_type": "span",
+            "marks": [],
+            "text": "The interface used:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6dc5ad6655b7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "67f52fdf53dc",
+            "_type": "span",
+            "marks": [],
+            "text": "Confirmation screens"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5a29aeabf4f5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b701e3e33750",
+            "_type": "span",
+            "marks": [],
+            "text": "Amount emphasis"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ce5957208045",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e918cb866ae5",
+            "_type": "span",
+            "marks": [],
+            "text": "Transaction IDs"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "024fdf7cad9e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3478bbae8bc1",
+            "_type": "span",
+            "marks": [],
+            "text": "Timestamps"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a6aebb92c0e5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3ec74c71ddaa",
+            "_type": "span",
+            "marks": [],
+            "text": "Clear success states"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2cfe448e51c0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "808e0fc048e6",
+            "_type": "span",
+            "marks": [],
+            "text": "Printable / digital receipts"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a377e7a46e5e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7c5d714800b0",
+            "_type": "span",
+            "marks": [],
+            "text": "Warning callouts"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "83aab33e1290",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d8f85d3bd493",
+            "_type": "span",
+            "marks": [],
+            "text": "Reversal messaging"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "58a8341b4cf4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1d82927a4ba8",
+            "_type": "span",
+            "marks": [],
+            "text": "Audit log visibility"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "74ffd4c65eb2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "423fd9f09380",
+            "_type": "span",
+            "marks": [],
+            "text": "5. Compliance-Aware UX"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "60645487fb4f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "aa545506c2fb",
+            "_type": "span",
+            "marks": [],
+            "text": "The design included patterns for:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "98c1e8f63149",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7fd5243a809e",
+            "_type": "span",
+            "marks": [],
+            "text": "Transaction limits"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fb1e3bda84d7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0eb3a26f0366",
+            "_type": "span",
+            "marks": [],
+            "text": "Identity requirement messaging"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "53c7af6f3f0d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5e9df4b1f3c7",
+            "_type": "span",
+            "marks": [],
+            "text": "Restricted actions"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "892cec9f0233",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "32fd827b5658",
+            "_type": "span",
+            "marks": [],
+            "text": "Audit trails"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "780ca724fec7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8d9f442c6147",
+            "_type": "span",
+            "marks": [],
+            "text": "Approval-based overrides"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "826b647113d9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ca63cc81d5e0",
+            "_type": "span",
+            "marks": [],
+            "text": "Record keeping"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1a67df5cf93f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "05168f26895f",
+            "_type": "span",
+            "marks": [],
+            "text": "Secure operator access"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "332e04b295f5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0813beb2ee79",
+            "_type": "span",
+            "marks": [],
+            "text": "6. Dashboard & Reporting"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3813e8df9fd5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cc8deea50b32",
+            "_type": "span",
+            "marks": [],
+            "text": "Admins and support teams received a transaction dashboard with:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "53b4bf99d03a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "60342b6040af",
+            "_type": "span",
+            "marks": [],
+            "text": "Recent transactions"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "cc3765702b06",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5677de9de653",
+            "_type": "span",
+            "marks": [],
+            "text": "Failed transaction queue"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1496dabfdcb0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "53d7bcb10caa",
+            "_type": "span",
+            "marks": [],
+            "text": "Pending / locked records"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c2b8a72231bd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "98849587696c",
+            "_type": "span",
+            "marks": [],
+            "text": "Search by user, card, transaction ID"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5b985d3e8ba2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cd11853db7ed",
+            "_type": "span",
+            "marks": [],
+            "text": "Filter by status"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f8bb2ec8a305",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6519ac82cd51",
+            "_type": "span",
+            "marks": [],
+            "text": "Export-ready reports"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d18f1ad2dd3c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "860bd04bec3a",
+            "_type": "span",
+            "marks": [],
+            "text": "Error reason tracking"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2f488d6470bb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "93cd5fbac118",
+            "_type": "span",
+            "marks": [],
+            "text": "Unique Skills Highlighted"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "d7b85c6d33ec",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ae7a5223d704",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Fintech UX Design"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5088cc5f7485",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1ffa738f8c30",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Transaction Flow Architecture"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "248607ab19a4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b2a96be91481",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Error-State UX"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "012fbf9d3a4f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "84b59f2513fe",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Trust-Centered Interface Design"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "de434df343b1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cc0285e6f1c3",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Compliance-Aware UX"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f19796f2ef85",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0ac4eaaf1326",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Cash-to-Card Flow Design"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d6f6b4c5a129",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9b7c36c590c9",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Financial System States"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4a9853373e25",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "793fe7e14c6e",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Audit Trail UX"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1f5e56d90f63",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "07ba4a78e382",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Exception Handling Design"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2e596d3271de",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b102ad6fe292",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Risk-Reduced Interaction Design"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fe279af03aff",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9896cce49b23",
+            "_type": "span",
+            "marks": [],
+            "text": "Outcome"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "3c7c876aa994",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fa8433280b4f",
+            "_type": "span",
+            "marks": [],
+            "text": "The final product concept creates a safer and clearer transaction experience for users, operators, and admins. It reduces uncertainty by showing exactly what is happening at each stage and gives users confidence during sensitive money-related actions."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c5d86ad6e0da",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2378e2b03432",
+            "_type": "span",
+            "marks": [],
+            "text": "Conclusion"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "0791a137d005",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "31a09a6e6f72",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "TrustFlow Payments"
+          },
+          {
+            "_key": "b04a349c8ad7",
+            "_type": "span",
+            "marks": [],
+            "text": " is a high-value portfolio project because fintech UX is difficult, serious, and recruiter-attractive. It proves the ability to design for "
+          },
+          {
+            "_key": "7f7b5de7fb8d",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "high-risk, logic-heavy, real-world workflows"
+          },
+          {
+            "_key": "95feaffa37a0",
+            "_type": "span",
+            "marks": [],
+            "text": "."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "category": "Product Design",
+    "tags": [],
+    "year": 2025,
+    "coverImage": "https://cdn.sanity.io/images/27gjokhr/production/e1c34357e69874c823345d4d7cc6ec6a181f37de-1536x1024.png",
+    "featured": true,
+    "role": "Product Designer, UX Flow Architect ",
     "links": []
   }
 ];
