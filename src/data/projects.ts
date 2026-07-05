@@ -4,173 +4,2463 @@ import type { Project } from '../types';
 
 export const projects: Project[] = [
   {
-    "slug": "mobile-app-test-1-0-api",
-    "title": "Mobile App - Test 1.0 API",
-    "tagline": "Testing API - Project 1.0 Test ",
-    "shortDescription": "Hell",
+    "slug": "research-into-a-reusable-component-system-in-figma",
+    "title": "Research Into a Reusable Component System in Figma",
+    "tagline": "A 2024 Figma-based UI research case study about turning scattered screens into a reusable component system that improved clarity, consistency, and design handoff.",
+    "shortDescription": "In 2024, I worked on a UI research-driven product design initiative focused on improving interface consistency, usability, and development handoff through structured component usage in Figma. The product had grown through repeated screen-by-screen decisions, which created duplicated patterns, inconsistent behaviors, and extra effort for both users and teams. This case study shows how I used research, audits, and reusable component thinking to create a more scalable and human-centered design foundation.",
     "body": [
       {
-        "_key": "ce40e932e5e1",
+        "_key": "e0749b010744",
         "_type": "block",
         "children": [
           {
-            "_key": "315fd21a5950",
+            "_key": "5cb7d376ff38",
             "_type": "span",
             "marks": [],
-            "text": "The standard Lorem Ipsum passage, used since 1966"
+            "text": "Project Overview"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "d17e716c722b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bf21aad737bb",
+            "_type": "span",
+            "marks": [],
+            "text": "This project began as a UI research effort, but quickly became a larger design systems challenge. The product experience looked functional on the surface, yet underneath it had too many repeated patterns, inconsistent actions, and different visual treatments for similar tasks. Users had to relearn behaviors across screens, and the design team had to rebuild common elements too often."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b0392cb1b34b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2d12563556ad",
+            "_type": "span",
+            "marks": [],
+            "text": "The goal was to study the experience from a human point of view, identify where friction came from, and translate those insights into reusable Figma components that could support both usability and scale."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1044d0eb33b1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "135c1c4fdf91",
+            "_type": "span",
+            "marks": [],
+            "text": "The Problem"
           }
         ],
         "markDefs": [],
         "style": "h3"
       },
       {
-        "_key": "0c4f972fdb0b",
+        "_key": "9d9bd8f41c4d",
         "_type": "block",
         "children": [
           {
-            "_key": "a4739569c592",
+            "_key": "8887929dd0b4",
+            "_type": "span",
+            "marks": [],
+            "text": "The main issue was not only visual inconsistency. The deeper problem was that the product lacked a shared interaction language."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "00ee4f57b516",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d5b10a382b6a",
+            "_type": "span",
+            "marks": [],
+            "text": "Key issues"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "388cde2a6349",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e435b169c6f4",
+            "_type": "span",
+            "marks": [],
+            "text": "Similar actions looked different across flows"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3783652878b1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4cac0f36e301",
+            "_type": "span",
+            "marks": [],
+            "text": "Buttons, fields, cards, and status patterns were inconsistent"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d05a92a531ca",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "811a749ec3de",
+            "_type": "span",
+            "marks": [],
+            "text": "Screens solved the same problems in different ways"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7383034b3f0e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5b097fe05a88",
+            "_type": "span",
+            "marks": [],
+            "text": "Repeated manual design work slowed the process"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2d88855df0e9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ec2e4340aeb5",
+            "_type": "span",
+            "marks": [],
+            "text": "Developers received screens, but not always reusable logic"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6fba55db1c57",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f17511382789",
+            "_type": "span",
+            "marks": [],
+            "text": "Users faced unnecessary cognitive load"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8553242671a1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a68ec043ab62",
+            "_type": "span",
+            "marks": [],
+            "text": "Over time, this made the product harder to trust, slower to extend, and more difficult to keep consistent."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "dc28384aadc3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a3d14d073f80",
+            "_type": "span",
+            "marks": [],
+            "text": "Objective"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "7a9b7c6926dc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "313eff845cea",
+            "_type": "span",
+            "marks": [],
+            "text": "This project had three objectives:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9e9ea544625c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1500c5e226b2",
+            "_type": "span",
+            "marks": [],
+            "text": "Understand user pain points through UI research and flow analysis"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "04e5ebb708d5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fc874d52cf44",
+            "_type": "span",
+            "marks": [],
+            "text": "Identify repeated patterns across the interface"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ae656ddc6dd3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8f5d6ab3968e",
+            "_type": "span",
+            "marks": [],
+            "text": "Convert those patterns into a reusable component structure inside Figma"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e85351ffb628",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ad13f3267d0a",
+            "_type": "span",
+            "marks": [],
+            "text": "The goal was not just to redesign individual screens. It was to create a system that made future screens better by default."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4a187f8c824c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e61176d4b9e4",
+            "_type": "span",
+            "marks": [],
+            "text": "——————"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e7dcca1ce523",
+        "_type": "image",
+        "asset": {
+          "url": "https://cdn.sanity.io/images/27gjokhr/production/04a8f175b1a17b38fdeafb5f8bd85249290b5c27-1536x1024.png"
+        }
+      },
+      {
+        "_key": "9dfb28ec14d2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0f59e1a93a30",
+            "_type": "span",
+            "marks": [],
+            "text": "Research Approach"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "702d8a85b151",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "df3cc529a808",
+            "_type": "span",
+            "marks": [],
+            "text": "1. Human-Centered Review"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "d69052fa646d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "611a080e776e",
+            "_type": "span",
+            "marks": [],
+            "text": "I reviewed critical product flows to understand where users slowed down, hesitated, or had to re-interpret the interface."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a1801b201cd0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f71e1f5bdf05",
             "_type": "span",
             "marks": [
               "strong"
             ],
-            "text": "\"L"
-          },
-          {
-            "_key": "29ef86e80b76",
-            "_type": "span",
-            "marks": [],
-            "text": "orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\""
+            "text": "I focused on"
           }
         ],
         "markDefs": [],
         "style": "normal"
       },
       {
-        "_key": "3a14333d27b1",
-        "_type": "image",
-        "asset": {
-          "url": "https://cdn.sanity.io/images/27gjokhr/production/e257014366e9d4f52538df63df33c4dfb27b1bc7-1024x683.png"
-        }
-      },
-      {
-        "_key": "435211a44a50",
+        "_key": "5b84aa19d2ee",
         "_type": "block",
         "children": [
           {
-            "_key": "205aef275ac9",
+            "_key": "7cbd4d1bca7d",
             "_type": "span",
             "marks": [],
-            "text": "Section 1.10.32 of \"de Finibus Bonorum et Malorum\", written by Cicero in 45 BC"
+            "text": "Task clarity"
           }
         ],
+        "level": 1,
+        "listItem": "bullet",
         "markDefs": [],
-        "style": "h3"
+        "style": "normal"
       },
       {
-        "_key": "0428f2aa55ba",
+        "_key": "6bae4443e0f0",
         "_type": "block",
         "children": [
           {
-            "_key": "d1137a722555",
+            "_key": "6026bdd0c4f2",
             "_type": "span",
             "marks": [],
-            "text": "\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\""
+            "text": "Visual hierarchy"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c8a8f4f83fb9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e7612387dc2a",
+            "_type": "span",
+            "marks": [],
+            "text": "Repeated interactions"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7d5e2cdf1a95",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f3a270d51447",
+            "_type": "span",
+            "marks": [],
+            "text": "Decision-heavy moments"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "aa2cc04e27e6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8d1c807b8637",
+            "_type": "span",
+            "marks": [],
+            "text": "Form behavior"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "040baccd4598",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "78d3c6d15081",
+            "_type": "span",
+            "marks": [],
+            "text": "Feedback and status visibility"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4130cea852ce",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "83f7769f29b3",
+            "_type": "span",
+            "marks": [],
+            "text": "This helped reveal where the interface was asking users to do too much interpretation."
           }
         ],
         "markDefs": [],
         "style": "normal"
       },
       {
-        "_key": "9a6c07fab8e6",
+        "_key": "a136a04ac5f2",
         "_type": "block",
         "children": [
           {
-            "_key": "b0a7633fb2c3",
+            "_key": "b5a1ef22adae",
             "_type": "span",
             "marks": [],
-            "text": "1914 translation by H. Rackham"
+            "text": "2. Interface Audit"
           }
         ],
         "markDefs": [],
         "style": "h3"
       },
       {
-        "_key": "af94195659e7",
+        "_key": "2807d49e86c7",
         "_type": "block",
         "children": [
           {
-            "_key": "1248a468ee91",
+            "_key": "dd07295c6262",
             "_type": "span",
             "marks": [],
-            "text": "\"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\""
+            "text": "After studying the flows, I audited the interface to identify repeated design patterns and inconsistencies."
           }
         ],
         "markDefs": [],
         "style": "normal"
       },
       {
-        "_key": "8cd9945afb4c",
+        "_key": "fe6a7bc04d69",
         "_type": "block",
         "children": [
           {
-            "_key": "ff819f08580b",
+            "_key": "03420c3828f5",
             "_type": "span",
-            "marks": [],
-            "text": "Section 1.10.33 of \"de Finibus Bonorum et Malorum\", written by Cicero in 45 BC"
-          }
-        ],
-        "markDefs": [],
-        "style": "h3"
-      },
-      {
-        "_key": "42f2afdceaa9",
-        "_type": "block",
-        "children": [
-          {
-            "_key": "fb96dc94143a",
-            "_type": "span",
-            "marks": [],
-            "text": "\"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\""
+            "marks": [
+              "strong"
+            ],
+            "text": "I mapped"
           }
         ],
         "markDefs": [],
         "style": "normal"
       },
       {
-        "_key": "8629fe2b955a",
+        "_key": "7f2ff27b8b50",
         "_type": "block",
         "children": [
           {
-            "_key": "566875c07573",
+            "_key": "8936509e3fed",
             "_type": "span",
             "marks": [],
-            "text": "1914 translation by H. Rackham"
+            "text": "Button variations"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "20280d8a46af",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4a0848924b22",
+            "_type": "span",
+            "marks": [],
+            "text": "Input field structures"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ba6c3f584216",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2f9c09af35ea",
+            "_type": "span",
+            "marks": [],
+            "text": "Card layouts"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1b53a63aa074",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6fef204cb551",
+            "_type": "span",
+            "marks": [],
+            "text": "Table and list patterns"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9e96ab37b4e4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0d338611c6f4",
+            "_type": "span",
+            "marks": [],
+            "text": "Status badges and labels"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0ba385d22118",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "242c0841e114",
+            "_type": "span",
+            "marks": [],
+            "text": "Empty, loading, and error states"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "dc3fd3c383f7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ed654a93d44a",
+            "_type": "span",
+            "marks": [],
+            "text": "Navigation structures"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1a2139867fe7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e49b2876c4e7",
+            "_type": "span",
+            "marks": [],
+            "text": "Spacing and alignment inconsistencies"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f6ea6972f0ac",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "79547908b610",
+            "_type": "span",
+            "marks": [],
+            "text": "This showed that many user issues came from missing component rules rather than isolated screen mistakes."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3db584979fb8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c8f101f62e89",
+            "_type": "span",
+            "marks": [],
+            "text": "——————"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "93ad20325df9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4b26f3420577",
+            "_type": "span",
+            "marks": [],
+            "text": "Research Findings"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "c569de5dd72a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7ebf48038282",
+            "_type": "span",
+            "marks": [],
+            "text": "The research revealed a clear pattern: most usability friction was caused by inconsistency at the component level."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7dc4215bb875",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cc771ce14137",
+            "_type": "span",
+            "marks": [],
+            "text": "Main findings"
           }
         ],
         "markDefs": [],
         "style": "h3"
       },
       {
-        "_key": "81fde341aadb",
+        "_key": "faefe8932840",
         "_type": "block",
         "children": [
           {
-            "_key": "3bb670c2549b",
+            "_key": "8f1e4d0d2740",
             "_type": "span",
             "marks": [],
-            "text": "\"On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.\""
+            "text": "Users trusted flows less when similar actions looked different"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "38a661043435",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8e9a316ff1c0",
+            "_type": "span",
+            "marks": [],
+            "text": "Repeated screens lacked familiar visual anchors"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "af1528dc0dbb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "58969e6e2a1d",
+            "_type": "span",
+            "marks": [],
+            "text": "Validation, status, and feedback were not always clear"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b72a7072b5c1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "21d1bd4718f8",
+            "_type": "span",
+            "marks": [],
+            "text": "Common UI patterns were recreated instead of reused"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a2768d301a13",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c89f09b066b4",
+            "_type": "span",
+            "marks": [],
+            "text": "Figma designs existed, but they were not structured as a true reusable system"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e2836a82699a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3369209df255",
+            "_type": "span",
+            "marks": [],
+            "text": "Design-to-development handoff depended too much on manual explanation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3b0ab37bcf2d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "aefdb6e247c9",
+            "_type": "span",
+            "marks": [],
+            "text": "The key insight was simple: the product did not just need better screens. It needed better reusable decisions."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "96c7eb57b16a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7f185267b623",
+            "_type": "span",
+            "marks": [],
+            "text": "Why Figma Was Central"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "8d98dbf14f84",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0ab7cb4816ee",
+            "_type": "span",
+            "marks": [],
+            "text": "Figma was not just used to draw screens. It became the operational space where research findings turned into reusable design logic."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "766963718d8f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0ac36c039772",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Figma was used for"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "daf855ccad84",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3773834c1676",
+            "_type": "span",
+            "marks": [],
+            "text": "Screen review and comparison"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2ebab6e05290",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ba77241abdbe",
+            "_type": "span",
+            "marks": [],
+            "text": "Pattern grouping"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "de3dc5e60d0b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "504931e8942a",
+            "_type": "span",
+            "marks": [],
+            "text": "Component creation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5c85f5278ffa",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8a44ef9ff9d2",
+            "_type": "span",
+            "marks": [],
+            "text": "Variant management"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a08200d95410",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8660b296901b",
+            "_type": "span",
+            "marks": [],
+            "text": "Interactive prototypes"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "de9e711505e1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5bbfebf9b963",
+            "_type": "span",
+            "marks": [],
+            "text": "Usage documentation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "008b8ef95568",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9b2759644e1e",
+            "_type": "span",
+            "marks": [],
+            "text": "Handoff preparation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9bfa3fcd6461",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0ddbc4a59f95",
+            "_type": "span",
+            "marks": [],
+            "text": "This made Figma both the design tool and the system-building tool."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0f612ff00db1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "38a529a88bf0",
+            "_type": "span",
+            "marks": [],
+            "text": "Component Usage Strategy"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "f38f14b2ad59",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2d647a754e82",
+            "_type": "span",
+            "marks": [],
+            "text": "Once the research patterns were clear, I built a component strategy based on frequency, usability importance, and reusability."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "474bcbadbfa7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4feba976f424",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Priority component groups:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2e7c962b2c7f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "537f8c9a5faf",
+            "_type": "span",
+            "marks": [],
+            "text": "Buttons"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0a2d07ae4589",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4cfd11153da0",
+            "_type": "span",
+            "marks": [],
+            "text": "Inputs and form fields"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5e0ad5acc250",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "203fed564a9f",
+            "_type": "span",
+            "marks": [],
+            "text": "Search and filter controls"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "32c23ea65895",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9036d78fc12c",
+            "_type": "span",
+            "marks": [],
+            "text": "Cards"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7311ca961511",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "eff8be455108",
+            "_type": "span",
+            "marks": [],
+            "text": "Tables and list rows"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f048caf3193a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2e82516eab83",
+            "_type": "span",
+            "marks": [],
+            "text": "Status tags"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "986c720d3938",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a3c6f25e6ec6",
+            "_type": "span",
+            "marks": [],
+            "text": "Alerts and feedback messages"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "dc7fbcb4862b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "10b16a5d0939",
+            "_type": "span",
+            "marks": [],
+            "text": "Empty states"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e49b6eed999e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "737d2421e1fc",
+            "_type": "span",
+            "marks": [],
+            "text": "Modals and side panels"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4d425ffa7bd1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9600f7676cba",
+            "_type": "span",
+            "marks": [],
+            "text": "Navigation elements"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "18ef131e9e5d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d233bcf3123d",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Component rules included:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f442310ab86f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d1261df35f65",
+            "_type": "span",
+            "marks": [],
+            "text": "Purpose"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7e2ece2690db",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a896e89d271b",
+            "_type": "span",
+            "marks": [],
+            "text": "Variant logic"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e3d0a80e61d6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9b0bc8397806",
+            "_type": "span",
+            "marks": [],
+            "text": "State behavior"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6304933b5bc7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "25af4f68ec01",
+            "_type": "span",
+            "marks": [],
+            "text": "Spacing structure"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "68d62aed90da",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1818e6797853",
+            "_type": "span",
+            "marks": [],
+            "text": "Hierarchy guidance"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8d4b74180af0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4b58e1cf80ee",
+            "_type": "span",
+            "marks": [],
+            "text": "Reuse conditions"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "31385c83db7a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "aaa890bbbaa8",
+            "_type": "span",
+            "marks": [],
+            "text": "Consistency across flows"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7d0584040e7a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e1c7dcb8032b",
+            "_type": "span",
+            "marks": [],
+            "text": "The intention was to reduce guesswork and make future design work faster and more reliable."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "493ce272a56a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "62b09be1c335",
+            "_type": "span",
+            "marks": [],
+            "text": "———————"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7d94f440c3bc",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "49b678c84167",
+            "_type": "span",
+            "marks": [],
+            "text": "Process in Figma"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "7b0b26800951",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3842304b84f0",
+            "_type": "span",
+            "marks": [],
+            "text": "Step 1: Audit Existing Screens"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "1ea0d15edcc9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4f102063a312",
+            "_type": "span",
+            "marks": [],
+            "text": "I reviewed the current UI and grouped repeating elements into pattern families."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5e86eb28c377",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a97d94f78852",
+            "_type": "span",
+            "marks": [],
+            "text": "Step 2: Separate Repetition from Real Variation"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "6d7e6208d9c5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3cb3aafb4efe",
+            "_type": "span",
+            "marks": [],
+            "text": "Not every difference deserved its own component. I identified what was truly reusable and what was context-specific."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d99511d64cc1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7e4ac7589203",
+            "_type": "span",
+            "marks": [],
+            "text": "Step 3: Build Core Components"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "67a1d313b9fd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6910801fb6f8",
+            "_type": "span",
+            "marks": [],
+            "text": "I created foundational components in Figma for the most common interface patterns."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fbadadb3143d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ca1466057520",
+            "_type": "span",
+            "marks": [],
+            "text": "Step 4: Add States and Variants"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "7ab3194b6c86",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5f6c0af17fa6",
+            "_type": "span",
+            "marks": [],
+            "text": "Each component was expanded with realistic states such as:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "23c2600e24d5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a1def887ca37",
+            "_type": "span",
+            "marks": [],
+            "text": "Default"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "736e5b61c018",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c125fa9a317e",
+            "_type": "span",
+            "marks": [],
+            "text": "Hover"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8c95fcda7bde",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "730416ed4fcd",
+            "_type": "span",
+            "marks": [],
+            "text": "Active"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c4bc7a9b11f6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e3c9125077f3",
+            "_type": "span",
+            "marks": [],
+            "text": "Disabled"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6b1179c6e903",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6f79cb6d0b2e",
+            "_type": "span",
+            "marks": [],
+            "text": "Selected"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ecef5c17d542",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "250356e9a96e",
+            "_type": "span",
+            "marks": [],
+            "text": "Error"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9bc2103b93c5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e15d7a7354b3",
+            "_type": "span",
+            "marks": [],
+            "text": "Success"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fc9b97b31f07",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1d4730360256",
+            "_type": "span",
+            "marks": [],
+            "text": "Empty"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d72c325b2de9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5a98b4d50798",
+            "_type": "span",
+            "marks": [],
+            "text": "Loading"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6d5919890f22",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e2a42970ff1b",
+            "_type": "span",
+            "marks": [],
+            "text": "Step 5: Define Usage Logic"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "7f7ff23c039e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "83e9425f4554",
+            "_type": "span",
+            "marks": [],
+            "text": "I documented when to use each component, how it should behave, and where variation was allowed."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "cfd73f1d3ba4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "67f09473aa13",
+            "_type": "span",
+            "marks": [],
+            "text": "Step 6: Apply Components Back Into Screens"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "bf1da5faedab",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "13411e4f8e19",
+            "_type": "span",
+            "marks": [],
+            "text": "I replaced inconsistent screen-level UI with the reusable component set to test how well the system held up."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e70609b1aa3d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ca34815dd341",
+            "_type": "span",
+            "marks": [],
+            "text": "Step 7: Prototype Critical Flows"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "2ff9624ef8b1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d1a2f882a080",
+            "_type": "span",
+            "marks": [],
+            "text": "I used Figma prototypes to validate whether the updated patterns improved flow clarity and interaction confidence."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5831c43e43bf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e71767432078",
+            "_type": "span",
+            "marks": [],
+            "text": "———————"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "687fec5de418",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "08d55043a5ee",
+            "_type": "span",
+            "marks": [],
+            "text": "Human Details"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "2458762db75f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "354a8db5cae1",
+            "_type": "span",
+            "marks": [],
+            "text": "This project mattered because consistency is not only a design quality issue. It is a human experience issue."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "219ef45cdfd7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "46c5237be557",
+            "_type": "span",
+            "marks": [],
+            "text": "When the same type of action changes from screen to screen, users spend more energy interpreting the interface. That slows decision-making and adds friction, even when the screen is visually attractive."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "598f863d6c49",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ae1d8940963f",
+            "_type": "span",
+            "marks": [],
+            "text": "By making patterns more predictable, the experience became easier to understand. Users could recognize actions faster, scan information with less effort, and move through tasks with more confidence."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ccf288603305",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bff91d2f8026",
+            "_type": "span",
+            "marks": [],
+            "text": "That was the real outcome: less mental load, not just cleaner UI."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3748f2dbd86c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "936b2b744fa5",
+            "_type": "span",
+            "marks": [],
+            "text": "Team Impact"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "28bda09650f6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "87d9dd3984a5",
+            "_type": "span",
+            "marks": [],
+            "text": "The component-driven approach also improved internal workflow."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9888d44cf10a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4879a52c7a41",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "What changed for the team"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b2fc36b8e755",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b27c105902d9",
+            "_type": "span",
+            "marks": [],
+            "text": "Faster screen creation in Figma"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "85601a2914a4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "01a4be41bbd6",
+            "_type": "span",
+            "marks": [],
+            "text": "Less repeated design work"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fb81841d0c20",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c69abc720490",
+            "_type": "span",
+            "marks": [],
+            "text": "Better consistency during reviews"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "bbfa77b2f5e5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5f7a65843696",
+            "_type": "span",
+            "marks": [],
+            "text": "Clearer handoff for developers"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7e04bcf07b1e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a0ec18b07252",
+            "_type": "span",
+            "marks": [],
+            "text": "Stronger QA reference points"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "adb9b75a1cd3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "88bf117bb520",
+            "_type": "span",
+            "marks": [],
+            "text": "More scalable product thinking"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "dd42894e8ce7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "52e3eb111699",
+            "_type": "span",
+            "marks": [],
+            "text": "Instead of redesigning common patterns again and again, the team could build from a stable foundation."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c25c185dc7cd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "88c18bbe9f61",
+            "_type": "span",
+            "marks": [],
+            "text": "————————"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "78cd771c9d19",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cc2450e9852a",
+            "_type": "span",
+            "marks": [],
+            "text": "Outcomes"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "8f6189fe06cd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7d6ed701a0f2",
+            "_type": "span",
+            "marks": [],
+            "text": "This project created value at both the product and process level."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d48ba45feb2f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7ec3251133cb",
+            "_type": "span",
+            "marks": [],
+            "text": "Improved UI consistency across key flows"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a14de26e329b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6f8c1835afa5",
+            "_type": "span",
+            "marks": [],
+            "text": "Stronger component reuse in Figma"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6c5e04923eea",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d8321316b6d6",
+            "_type": "span",
+            "marks": [],
+            "text": "Better usability clarity"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "00cddbb1aeea",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "02010575e0ef",
+            "_type": "span",
+            "marks": [],
+            "text": "Reduced duplication in design work"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1ced14bb1745",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9eab3193a3c5",
+            "_type": "span",
+            "marks": [],
+            "text": "Clearer design-to-development alignment"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a32d5fac9008",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "15c223e779e7",
+            "_type": "span",
+            "marks": [],
+            "text": "More scalable system thinking for future work"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7bc168597c82",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "37cd8654e3b6",
+            "_type": "span",
+            "marks": [],
+            "text": "Even without a massive enterprise design system rollout, the project established a more reliable and reusable product language."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7e2ca3275545",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bfefdc640c94",
+            "_type": "span",
+            "marks": [],
+            "text": "—————————"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6da2591f9012",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cb2077388e71",
+            "_type": "span",
+            "marks": [],
+            "text": "Challenges"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "b7a935b6e888",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4f853104922d",
+            "_type": "span",
+            "marks": [],
+            "text": "Like any system-oriented design effort, the work came with trade-offs."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9c3bd8727dcb",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2f0302033384",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Main challenges"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "95f320f51b48",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5ce4936e6b0c",
+            "_type": "span",
+            "marks": [],
+            "text": "Legacy screens already had inconsistent patterns"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e0b55d1cf982",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6a5ff361b1c4",
+            "_type": "span",
+            "marks": [],
+            "text": "Not every variation should become a new component"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c1e4a3c9a646",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cb684512b886",
+            "_type": "span",
+            "marks": [],
+            "text": "Business speed had to be balanced with design quality"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fcda0576b48c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3f88f50a1e71",
+            "_type": "span",
+            "marks": [],
+            "text": "The system had to stay practical, not over-engineered"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fb68f646dbcd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8acd456b63a1",
+            "_type": "span",
+            "marks": [],
+            "text": "Long-term consistency had to fit short-term product pressure"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "2dfff943d7f3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "29b0670e5beb",
+            "_type": "span",
+            "marks": [],
+            "text": "The biggest challenge was deciding where structure adds value and where flexibility still matters."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e175142a450b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2a095c5a045e",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Lessons Learned"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "46597eb2f0ec",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "021e7baae6ed",
+            "_type": "span",
+            "marks": [],
+            "text": "This project reinforced a few important truths:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "538538510a77",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0e8b6c03b428",
+            "_type": "span",
+            "marks": [],
+            "text": "Research should shape the system, not sit separate from it"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "093ff976a61f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ee077d818c4d",
+            "_type": "span",
+            "marks": [],
+            "text": "Reusability is a product decision, not only a design decision"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "83200c78dc4f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f8e172c43f92",
+            "_type": "span",
+            "marks": [],
+            "text": "Components are valuable only when they solve repeated real problems"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a2285c4b91aa",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0f3d90106973",
+            "_type": "span",
+            "marks": [],
+            "text": "Figma becomes more powerful when used as a structured system"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1d4a13019f07",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1ebcb0df1755",
+            "_type": "span",
+            "marks": [],
+            "text": "Consistency is really about predictability, not sameness everywhere"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ae8610b32847",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "60f4360f5243",
+            "_type": "span",
+            "marks": [],
+            "text": "—————————"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7fb2e5b08ddf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ce75799ef9d1",
+            "_type": "span",
+            "marks": [],
+            "text": "Conclusion"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "45b929ad3b46",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f5f10daa0f85",
+            "_type": "span",
+            "marks": [],
+            "text": "This 2024 case study represents a shift from designing isolated screens to designing a reusable, research-informed UI foundation. By combining human-centered UI research with structured component usage in Figma, I was able to create a clearer design language that supported both usability and scale."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "855ffe0a340e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1bb27ee1fa5d",
+            "_type": "span",
+            "marks": [],
+            "text": "The result was not only better screens. It was a better way to make screens."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4b34744941aa",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "007b52c07b3d",
+            "_type": "span",
+            "marks": [],
+            "text": "—————————"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c32477366caf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "dab6cc99b07c",
+            "_type": "span",
+            "marks": [],
+            "text": "Thanks for Reading 😊"
           }
         ],
         "markDefs": [],
         "style": "normal"
       }
     ],
-    "category": "",
+    "category": "UI/UX Design, UX Research, Design System",
     "tags": [],
-    "year": 2026,
-    "coverImage": "https://cdn.sanity.io/images/27gjokhr/production/bb68becbf51fccec9770106a38016e5785e23187-642x311.png",
+    "year": 2024,
+    "coverImage": "https://cdn.sanity.io/images/27gjokhr/production/44bda3eb8a685569567fd6470ce8345cfba08f2f-1536x1024.png",
     "featured": true,
-    "role": "",
+    "role": "UX Research, Product Design",
     "links": []
   }
 ];
