@@ -4,65 +4,50 @@ import type { MentorshipTier } from '../types';
 
 export const mentorshipTiers: MentorshipTier[] = [
   {
-    "id": "free-office-hours",
+    "id": "hot-topic",
     "type": "free",
-    "name": "Open Office Hours",
-    "tagline": "A free, no-agenda conversation for designers early in their journey.",
-    "price": null,
-    "duration": "30 min / session",
+    "name": "Hot Topic 🔥",
+    "tagline": "Join me for an in-depth discussion on a hot topic of your choice, where we can delve into various aspects of Design and Management Path",
+    "price": "0",
+    "duration": "45 Min - 60 Min",
     "includes": [
-      "Portfolio feedback (first pass)",
-      "Career path Q&A",
-      "Job-search strategy chat",
-      "No strings attached — no upsell"
+      "Project Review",
+      "Interview Prep",
+      "Career Break ",
+      "ATS Resume Prep ",
+      "Career Roadmap",
+      "Professional Switching",
+      "Corporate Management",
+      "Financial Management",
+      "Personal Management",
+      "Upskill Development "
     ],
-    "forWhom": "Junior designers, career switchers, and students who need a sounding board and don't know where to start.",
+    "forWhom": "Intermediate and Advance people seeking to explore ideas and discuss them with professionals.",
     "cta": {
-      "href": "mailto:vdraganer@gmail.com?subject=Office Hours Request",
-      "label": "Book a free session"
+      "href": "https://adplist.org/mentors/vivek-ramachandran?session=hot-topic-976f-msizxove",
+      "label": "Book Slot (Free! Limited)"
     }
   },
   {
-    "id": "paid-starter",
-    "type": "paid",
-    "name": "Orbit — Starter",
-    "tagline": "Structured momentum for designers ready to level up their craft or career.",
-    "price": "[PRICE PLACEHOLDER]",
-    "duration": "4 sessions / month · 60 min each",
+    "id": "caffeine-mode",
+    "type": "free",
+    "name": "Caffeine mode ☕️",
+    "tagline": "Let's Connect: 1:1 Session (Free!). Join me for an informal discussion, where we can explore a range of topics, including:",
+    "price": "0",
+    "duration": "30 Min",
     "includes": [
-      "Weekly 1:1 video calls",
-      "Async portfolio and case-study reviews",
-      "Personalised skill-building exercises",
-      "Figma file / design critique",
-      "Email support between sessions",
-      "Resource library access"
+      "UI/UX Design",
+      "Product Design Strategy",
+      "AI and Automation",
+      "Design System",
+      "Career Development",
+      "Personal Development",
+      "Skills & Tools"
     ],
-    "forWhom": "Mid-level designers looking to break into senior roles, build a standout portfolio, or transition into product strategy.",
+    "forWhom": "Beginners and intermediate users seeking to explore ideas and discuss them with professionals.",
     "cta": {
-      "href": "mailto:vdraganer@gmail.com?subject=Orbit Mentorship Application",
-      "label": "Apply for Orbit"
-    }
-  },
-  {
-    "id": "paid-deep-dive",
-    "type": "paid",
-    "name": "Deep Dive — Intensive",
-    "tagline": "High-touch, outcome-focused engagement for designers with specific goals and a tight timeline.",
-    "price": "[PRICE PLACEHOLDER]",
-    "duration": "8 sessions · 90 min each · 8 weeks",
-    "includes": [
-      "Everything in Orbit, plus:",
-      "Full portfolio audit and rebuild support",
-      "End-to-end case study coaching",
-      "Interview prep and salary negotiation coaching",
-      "Introductions to relevant hiring managers (where possible)",
-      "Voxer async access for the full 8 weeks",
-      "Priority scheduling"
-    ],
-    "forWhom": "Senior designers, design leads, or career-pivoting professionals with a concrete goal (landing a FAANG/Series-B role, getting promoted, launching a studio).",
-    "cta": {
-      "href": "mailto:vdraganer@gmail.com?subject=Deep Dive Application",
-      "label": "Apply for Deep Dive"
+      "href": "https://adplist.org/mentors/vivek-ramachandran?session=caffeine-mode-976f-msizo5in",
+      "label": "Book Slot"
     }
   }
 ];

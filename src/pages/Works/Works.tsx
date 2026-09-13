@@ -84,17 +84,12 @@ export default function Works() {
                     className={styles.card}
                     aria-label={`${project.title} — ${project.tagline}`}
                   >
-                    <div className={styles.cover} aria-hidden="true">
-                      {project.coverImage ? (
-                        <img src={project.coverImage} alt="" className={styles.coverImg} loading="lazy" />
-                      ) : (
-                        <div className={styles.coverGradient} />
-                      )}
-                      <span className={styles.coverYear}>{project.year}</span>
-                    </div>
                     <div className={styles.info}>
                       <div className={styles.meta}>
-                        <span className={`label ${styles.category}`}>{project.category}</span>
+                        <span className={styles.metaGroup}>
+                          <span className={`label ${styles.category}`}>{project.category}</span>
+                          <span className={styles.year}>{project.year}</span>
+                        </span>
                         {project.featured && (
                           <span className={styles.featuredBadge} aria-label="Featured project">Featured</span>
                         )}

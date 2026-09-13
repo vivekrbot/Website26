@@ -55,16 +55,6 @@ export function WorksSnippet() {
                 className={styles.card}
                 aria-label={`${project.title} — ${project.tagline}`}
               >
-                <div className={styles.cover} aria-hidden="true">
-                  {project.coverImage ? (
-                    <img src={project.coverImage} alt="" className={styles.coverImg} loading="lazy" />
-                  ) : (
-                    <div className={styles.coverInner}>
-                      <span className={styles.coverLabel}>{project.category}</span>
-                    </div>
-                  )}
-                </div>
-
                 <div className={styles.info}>
                   <div className={styles.meta}>
                     <span className={`label ${styles.category}`}>{project.category}</span>

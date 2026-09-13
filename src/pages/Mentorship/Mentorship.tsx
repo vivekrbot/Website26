@@ -38,7 +38,7 @@ const faqs = [
 
 export default function Mentorship() {
   const reducedMotion = useReducedMotion();
-  const freeTier  = mentorshipTiers.find((t) => t.type === 'free')!;
+  const freeTiers = mentorshipTiers.filter((t) => t.type === 'free');
   const paidTiers = mentorshipTiers.filter((t) => t.type === 'paid');
 
   return (
@@ -65,7 +65,7 @@ export default function Mentorship() {
               <span style={{ display: 'block' }}><Shuffle tag="span" text="I had earlier." textAlign="left" shuffleDirection="right" duration={0.4} stagger={0.022} threshold={0} rootMargin="0px" triggerOnce={true} triggerOnHover={true} respectReducedMotion={true} /></span>
             </h1>
             <p className={styles.heroSub}>
-              I've been where you are. Two tracks, designed around where you are in your journey —
+              I've been where you are. Two tracks, designed around where you are in your journey,
               no gatekeeping, no BS.
             </p>
           </motion.div>
@@ -73,54 +73,63 @@ export default function Mentorship() {
       </section>
 
       {/* Free track */}
+      {freeTiers.length > 0 && (
       <section className={`section ${styles.freeSection}`} aria-labelledby="free-heading">
         <div className="container">
-          <div className={styles.freeGrid}>
-            <motion.div
-              variants={fadeUp}
-              initial={reducedMotion ? 'visible' : 'hidden'}
-              whileInView="visible"
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <span className={`label ${styles.freeBadge}`}>Free track</span>
-              <h2 id="free-heading" className={`heading-1 ${styles.tierTitle}`}>
-                <Shuffle tag="span" text={freeTier.name} textAlign="left" shuffleDirection="right" duration={0.4} stagger={0.022} threshold={0.1} rootMargin="0px" triggerOnce={true} triggerOnHover={true} respectReducedMotion={true} />
-              </h2>
-              <p className={styles.tierTagline}>{freeTier.tagline}</p>
-              <p className={styles.forWhom}>
-                <strong>Who it's for:</strong> {freeTier.forWhom}
-              </p>
-              <Button as="a" href={freeTier.cta.href} variant="secondary" size="lg">
-                {freeTier.cta.label}
-              </Button>
-            </motion.div>
+          <SectionHeader
+            label="Free track"
+            title="No-cost office hours."
+            subtitle="Pick whichever format fits what you're working through right now."
+            align="center"
+          />
 
-            <motion.div
-              variants={fadeUp}
-              initial={reducedMotion ? 'visible' : 'hidden'}
-              whileInView="visible"
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-            >
-              <BorderGlow className={styles.includesCard} backgroundColor="var(--bg-primary)" borderRadius={0} glowColor="0 0 88" colors={['#ffffff', '#cccccc', '#888888']} glowIntensity={0.85}>
-                <p className={`label ${styles.includesLabel}`}>What's included</p>
-                <ul className={styles.includesList} role="list">
-                  {freeTier.includes.map((item) => (
-                    <li key={item} className={styles.includesItem}>
-                      <span className={styles.bullet} aria-hidden="true">✦</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <p className={styles.duration}>{freeTier.duration}</p>
-              </BorderGlow>
-            </motion.div>
+          <div className={styles.paidGrid}>
+            {freeTiers.map((tier, i) => (
+              <motion.div
+                key={tier.id}
+                variants={fadeUp}
+                initial={reducedMotion ? 'visible' : 'hidden'}
+                whileInView="visible"
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: i * 0.12 }}
+              >
+                <BorderGlow backgroundColor="var(--bg-primary)" borderRadius={0} glowColor="0 0 88" colors={['#ffffff', '#cccccc', '#888888']} glowIntensity={0.85}>
+                  <div className={styles.paidCard}>
+                    <div className={styles.paidCardTop}>
+                      <span className={`label ${styles.freeBadge}`}>Free</span>
+                      <h3 className={`heading-2 ${styles.paidTierName}`}><Shuffle tag="span" text={tier.name} textAlign="left" shuffleDirection="right" duration={0.4} stagger={0.022} threshold={0.1} rootMargin="0px" triggerOnce={true} triggerOnHover={true} respectReducedMotion={true} /></h3>
+                      <p className={styles.paidTierTagline}>{tier.tagline}</p>
+                      <p className={styles.paidDuration}>{tier.duration}</p>
+                    </div>
+
+                    <ul className={styles.paidIncludes} role="list">
+                      {tier.includes.map((item) => (
+                        <li key={item} className={styles.paidIncludesItem}>
+                          <span className={styles.bullet} aria-hidden="true">✦</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className={styles.forWhomBox}>
+                      <p className={`label ${styles.forWhomLabel}`}>Who it's for</p>
+                      <p className={styles.forWhomText}>{tier.forWhom}</p>
+                    </div>
+
+                    <Button as="a" href={tier.cta.href} variant="secondary" size="lg">
+                      {tier.cta.label}
+                    </Button>
+                  </div>
+                </BorderGlow>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
+      )}
 
       {/* Paid tracks */}
+      {paidTiers.length > 0 && (
       <section className={`section ${styles.paidSection}`} aria-labelledby="paid-heading">
         <div className="container">
           <SectionHeader
@@ -183,6 +192,7 @@ export default function Mentorship() {
           </div>
         </div>
       </section>
+      )}
 
       {/* FAQ */}
       <section className={`section ${styles.faq}`} aria-labelledby="faq-heading">
