@@ -1,0 +1,22 @@
+.hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.eyebrow {
+  color: var(--accent-primary);
+  margin-bottom: var(--space-4);
+}
+
+.title {
+  margin-bottom: var(--space-6);
+  line-height: var(--leading-tight);
+}
+
+.body {
+  font-size: clamp(var(--text-lg), 2vw, var(--text-xl));
+  color: var(--text-secondary);
+  max-width: 50ch;
+  margin-bottom: var(--space-8);
+}

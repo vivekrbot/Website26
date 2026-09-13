@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { SectionHeader } from '../../components/SectionHeader/SectionHeader';
 import Shuffle from '../../components/Shuffle/Shuffle';
-import BorderGlow from '../../components/BorderGlow/BorderGlow';
+import { GlowCard } from '../../components/GlowCard/GlowCard';
 import { Button } from '../../components/Button/Button';
 import { featuredProjects } from '../../data/projects';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
@@ -30,6 +30,7 @@ export function WorksSnippet() {
       <div className="container">
         <div className={styles.header}>
           <SectionHeader
+            id="works-heading"
             label="Selected Work"
             title="Projects that moved the needle."
             subtitle="A cross-section of product design, strategy, and systems work across consumer and enterprise."
@@ -49,7 +50,7 @@ export function WorksSnippet() {
         >
           {featuredProjects.map((project) => (
             <motion.li key={project.slug} variants={cardAnim}>
-              <BorderGlow backgroundColor="var(--bg-primary)" borderRadius={0} glowColor="0 0 88" colors={['#ffffff', '#cccccc', '#888888']} glowIntensity={0.85}>
+              <GlowCard>
               <Link
                 to={`/works/${project.slug}`}
                 className={styles.card}
@@ -64,8 +65,8 @@ export function WorksSnippet() {
                   <p className={styles.tagline}>{project.tagline}</p>
 
                   <ul className={styles.tags} role="list" aria-label="Technologies used">
-                    {project.tags.slice(0, 3).map((tag) => (
-                      <li key={tag} className={styles.tag}>{tag}</li>
+                    {project.tags.slice(0, 3).map((tag, i) => (
+                      <li key={`${tag}-${i}`} className={styles.tag}>{tag}</li>
                     ))}
                   </ul>
 
@@ -74,7 +75,7 @@ export function WorksSnippet() {
                   </span>
                 </div>
               </Link>
-              </BorderGlow>
+              </GlowCard>
             </motion.li>
           ))}
         </motion.ul>

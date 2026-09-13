@@ -4,20 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#040509" />
+    <!--
+      GitHub Pages can't set HTTP response headers, so this meta CSP is a
+      partial mitigation only: it restricts script/object/base sources but,
+      per spec, `frame-ancestors` is ignored when delivered via <meta> — it
+      cannot stop the page from being framed (clickjacking). That needs a
+      real HTTP header, which requires moving off GitHub Pages or fronting
+      the site with something that can inject one (e.g. Cloudflare).
+      script-src hashes below are for the two static inline scripts in this
+      file — if you edit their contents, recompute the sha256 hash or the
+      page will fail to run them.
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-xaYO0YjsDjfjkBvaNxyhd+DM9AIUhNmRqUWQEcdO9TY=' 'sha256-1JIvRDji1C9o1ooNja3rsmIUdI9M8PRxXqvABUc3O9s='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://cdn.sanity.io; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href="https://itsvivek.com/" />
-    <title>Itsvivek.Website</title>
-    <meta name="description" content="Portfolio of Vivek Ramachandran — a product designer and strategist building experiences that are clear, crafted, and consequential." />
-    <meta property="og:title" content="Vivek Ramachandran — Product Design & Strategy" />
-    <meta property="og:description" content="Portfolio of Vivek Ramachandran — product designer and strategist." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://itsvivek.com/" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Vivek Ramachandran — Product Design & Strategy" />
-    <meta name="twitter:description" content="Portfolio of Vivek Ramachandran — product designer and strategist." />
-    <!-- Preconnect for Google Fonts -->
+    <!--
+      No title/canonical/description/og:*/twitter:* tags here on purpose.
+      Every route's <Seo> component (react-helmet-async) sets all of these —
+      Helmet only ever APPENDS tags it manages, it can't remove or reconcile
+      against ones already baked into this static HTML. Duplicating them here
+      produced two conflicting <link rel="canonical"> and two of every og:*
+      meta tag on every page (worse for SEO than having none). This is a pure
+      client-side-rendered SPA with no SSR/prerendering, so a crawler that
+      doesn't execute JavaScript will see NO title/description/preview image
+      for any route — a known limitation, not an oversight. Fixing that fully
+      would mean prerendering a real index.html per route at build time.
+    -->
+    <title>Vivek Ramachandran</title>
+    <!-- Google Fonts: preconnect + stylesheet link, not @import (see global.css) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
     <!-- Anti-flicker: set theme before React loads -->
     <script>
       (function() {

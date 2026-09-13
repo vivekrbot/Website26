@@ -1,17 +1,13 @@
 import { motion } from 'framer-motion';
 import { SectionHeader } from '../../components/SectionHeader/SectionHeader';
 import Shuffle from '../../components/Shuffle/Shuffle';
-import BorderGlow from '../../components/BorderGlow/BorderGlow';
+import { GlowCard } from '../../components/GlowCard/GlowCard';
 import { Button } from '../../components/Button/Button';
 import { mentorshipTiers } from '../../data/mentorship';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
+import { fadeUp } from '../../lib/motion';
 import type { MentorshipTier } from '../../types';
 import styles from './MentorshipSnippet.module.css';
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 },
-};
 
 function TierCard({ tier, index, reducedMotion }: { tier: MentorshipTier; index: number; reducedMotion: boolean }) {
   const isFree = tier.type === 'free';
@@ -23,7 +19,7 @@ function TierCard({ tier, index, reducedMotion }: { tier: MentorshipTier; index:
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: index * 0.1 }}
     >
-      <BorderGlow backgroundColor="var(--bg-primary)" borderRadius={0} glowColor="0 0 88" colors={['#ffffff', '#cccccc', '#888888']} glowIntensity={0.85}>
+      <GlowCard>
         <div className={`${styles.card} ${isFree ? styles.free : ''}`}>
           <div className={styles.cardTop}>
             <span className={`label ${styles.trackBadge} ${isFree ? styles.freeBadge : styles.paidBadge}`}>
@@ -34,8 +30,8 @@ function TierCard({ tier, index, reducedMotion }: { tier: MentorshipTier; index:
             {!isFree && <p className={styles.duration}>{tier.duration}</p>}
           </div>
           <ul className={styles.includes} role="list">
-            {(isFree ? tier.includes : tier.includes.slice(0, 4)).map((item) => (
-              <li key={item} className={styles.includeItem}>
+            {(isFree ? tier.includes : tier.includes.slice(0, 4)).map((item, i) => (
+              <li key={`${item}-${i}`} className={styles.includeItem}>
                 <span aria-hidden="true">✦</span> {item}
               </li>
             ))}
@@ -44,7 +40,7 @@ function TierCard({ tier, index, reducedMotion }: { tier: MentorshipTier; index:
             {tier.cta.label}
           </Button>
         </div>
-      </BorderGlow>
+      </GlowCard>
     </motion.div>
   );
 }
@@ -59,9 +55,14 @@ export function MentorshipSnippet() {
       <div className="container">
         <div className={styles.header}>
           <SectionHeader
+            id="mentorship-heading"
             label="Mentorship"
             title="Let's grow together."
-            subtitle="I offer two tracks a free path for early-career designers, and paid engagements for those with specific goals and tighter timelines."
+            subtitle={
+              paidTiers.length > 0
+                ? 'Free office hours for early-career designers, and paid engagements for those with specific goals and tighter timelines.'
+                : 'Free office hours for designers who want a sounding board — no strings attached.'
+            }
           />
           <Button as="link" href="/mentorship" variant="secondary" size="md" className={styles.seeAll}>
             View mentorship →

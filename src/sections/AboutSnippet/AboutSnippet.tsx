@@ -5,12 +5,8 @@ import Shuffle from '../../components/Shuffle/Shuffle';
 import ScrollVelocity from '../../components/ScrollVelocity/ScrollVelocity';
 import { skills } from '../../data/about';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
+import { fadeUp } from '../../lib/motion';
 import styles from './AboutSnippet.module.css';
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
 
 const row1 = skills
   .filter((s) => s.category === 'craft' || s.category === 'tools')

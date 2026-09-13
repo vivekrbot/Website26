@@ -1,20 +1,18 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Helmet } from 'react-helmet-async';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { PortableText, type PortableTextComponents } from '@portabletext/react';
+import { Seo } from '../../components/Seo/Seo';
 import { Button } from '../../components/Button/Button';
 import Shuffle from '../../components/Shuffle/Shuffle';
-import BorderGlow from '../../components/BorderGlow/BorderGlow';
+import { GlowCard } from '../../components/GlowCard/GlowCard';
 import { projects } from '../../data/projects';
+import { projectBodies } from '../../data/project-bodies';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
+import { useScrollLock } from '../../hooks/useScrollLock';
+import { fadeUp } from '../../lib/motion';
 import styles from './WorkDetail.module.css';
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 },
-};
 
 export default function WorkDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -22,56 +20,100 @@ export default function WorkDetail() {
   const project = projects.find((p) => p.slug === slug);
   const [expandedImage, setExpandedImage] = useState<{ src: string; alt: string } | null>(null);
   const lightboxRef = useRef<HTMLDivElement>(null);
+  const lightboxTriggerRef = useRef<HTMLElement | null>(null);
+
+  useScrollLock(Boolean(expandedImage));
 
   useEffect(() => {
     if (!expandedImage) return;
-    lightboxRef.current?.focus();
+    const lightbox = lightboxRef.current;
+    lightbox?.focus();
+
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setExpandedImage(null);
+      if (e.key === 'Escape') {
+        setExpandedImage(null);
+        return;
+      }
+      if (e.key !== 'Tab' || !lightbox) return;
+      // Focus trap: the close button is the only focusable element today,
+      // but this stays correct if more are added later.
+      const focusable = lightbox.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
     window.addEventListener('keydown', onKeyDown);
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
     return () => {
       window.removeEventListener('keydown', onKeyDown);
-      document.body.style.overflow = previousOverflow;
+      lightboxTriggerRef.current?.focus();
+      lightboxTriggerRef.current = null;
     };
   }, [expandedImage]);
 
-  if (!project) return <Navigate to="/works" replace />;
-
-  const portableTextComponents: PortableTextComponents = {
+  // Memoized so @portabletext/react doesn't see a new `image` renderer identity
+  // on every render — an unmemoized one here remounts every body-image button
+  // whenever WorkDetail re-renders (e.g. the very re-render that opening the
+  // lightbox itself triggers), which was silently breaking focus restoration:
+  // the button captured in lightboxTriggerRef got replaced by a new DOM node
+  // before the lightbox's cleanup tried to focus it back.
+  const portableTextComponents: PortableTextComponents = useMemo(() => ({
     types: {
       image: ({ value }) => {
         const src = value?.asset?.url;
         const alt = value?.alt ?? '';
+        const width = value?.asset?.width;
+        const height = value?.asset?.height;
         if (!src) return null;
         return (
           <button
             type="button"
             className={styles.bodyImageButton}
-            onClick={() => setExpandedImage({ src, alt })}
+            onClick={(e) => { lightboxTriggerRef.current = e.currentTarget; setExpandedImage({ src, alt }); }}
             aria-label={alt ? `Expand image: ${alt}` : 'Expand image'}
           >
-            <img className={styles.bodyImage} src={src} alt={alt} loading="lazy" />
+            {/* width/height (not just CSS) let the browser reserve the right
+                aspect ratio before the image loads, instead of the layout
+                jumping once it does. */}
+            <img
+              className={styles.bodyImage}
+              src={src}
+              alt={alt}
+              width={width}
+              height={height}
+              loading="lazy"
+            />
           </button>
         );
       },
     },
-  };
+  }), [setExpandedImage]);
 
+  if (!project) return <Navigate to="/works" replace />;
+
+  const body = projectBodies[project.slug] ?? [];
   const currentIndex = projects.findIndex((p) => p.slug === slug);
-  const next = projects[(currentIndex + 1) % projects.length];
-  const prev = projects[(currentIndex - 1 + projects.length) % projects.length];
+  const hasOtherProjects = projects.length > 1;
+  const next = hasOtherProjects ? projects[(currentIndex + 1) % projects.length] : undefined;
+  const prev = hasOtherProjects ? projects[(currentIndex - 1 + projects.length) % projects.length] : undefined;
 
   return (
     <>
-      <Helmet>
-        <title>{project.title} — Vivek Ramachandran</title>
-        <meta name="description" content={project.tagline} />
-        <meta property="og:title" content={`${project.title} — Vivek Ramachandran`} />
-        <meta property="og:description" content={project.tagline} />
-      </Helmet>
+      <Seo
+        title={`${project.title} — Vivek Ramachandran`}
+        description={project.tagline}
+        path={`/works/${project.slug}`}
+        type="article"
+        image={project.coverImage || undefined}
+      />
 
       {/* Hero */}
       <section className={`section ${styles.hero}`} aria-labelledby="case-study-heading">
@@ -93,10 +135,12 @@ export default function WorkDetail() {
             <p className={styles.tagline}>{project.tagline}</p>
 
             <div className={styles.metaGrid}>
-              <div>
-                <p className={`label ${styles.metaLabel}`}>Role</p>
-                <p className={styles.metaValue}>{project.role}</p>
-              </div>
+              {project.role && (
+                <div>
+                  <p className={`label ${styles.metaLabel}`}>Role</p>
+                  <p className={styles.metaValue}>{project.role}</p>
+                </div>
+              )}
               <div>
                 <p className={`label ${styles.metaLabel}`}>Category</p>
                 <p className={styles.metaValue}>{project.category}</p>
@@ -126,7 +170,7 @@ export default function WorkDetail() {
               <button
                 type="button"
                 className={styles.coverButton}
-                onClick={() => setExpandedImage({ src: project.coverImage!, alt: `${project.title} cover image` })}
+                onClick={(e) => { lightboxTriggerRef.current = e.currentTarget; setExpandedImage({ src: project.coverImage!, alt: `${project.title} cover image` }); }}
                 aria-label={`Expand cover image for ${project.title}`}
               >
                 <img src={project.coverImage} alt="" className={styles.coverImg} />
@@ -170,13 +214,15 @@ export default function WorkDetail() {
       )}
 
       {/* Tags */}
-      <div className={`container ${styles.tagsRow}`}>
-        <ul className={styles.tags} role="list" aria-label="Project tags">
-          {project.tags.map((tag) => (
-            <li key={tag} className={styles.tag}>{tag}</li>
-          ))}
-        </ul>
-      </div>
+      {project.tags.length > 0 && (
+        <div className={`container ${styles.tagsRow}`}>
+          <ul className={styles.tags} role="list" aria-label="Project tags">
+            {project.tags.map((tag, i) => (
+              <li key={`${tag}-${i}`} className={styles.tag}>{tag}</li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {/* Short description */}
       {project.shortDescription && (
@@ -194,7 +240,7 @@ export default function WorkDetail() {
       )}
 
       {/* Full case study */}
-      {project.body?.length > 0 && (
+      {body.length > 0 && (
         <motion.section
           className={`container ${styles.bodySection}`}
           aria-label="Case study"
@@ -205,26 +251,28 @@ export default function WorkDetail() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className={styles.body}>
-            <PortableText value={project.body} components={portableTextComponents} />
+            <PortableText value={body} components={portableTextComponents} />
           </div>
         </motion.section>
       )}
 
       {/* Next/Prev navigation */}
-      <nav className={`container ${styles.projectNav}`} aria-label="Navigate between projects">
-        <BorderGlow backgroundColor="var(--bg-primary)" borderRadius={0} glowColor="0 0 88" colors={['#ffffff', '#cccccc', '#888888']} glowIntensity={0.85}>
-          <Link to={`/works/${prev.slug}`} className={styles.navCard}>
-            <span className={`label ${styles.navDir}`}>← Previous</span>
-            <span className={styles.navTitle}>{prev.title}</span>
-          </Link>
-        </BorderGlow>
-        <BorderGlow backgroundColor="var(--bg-primary)" borderRadius={0} glowColor="0 0 88" colors={['#ffffff', '#cccccc', '#888888']} glowIntensity={0.85}>
-          <Link to={`/works/${next.slug}`} className={styles.navCard}>
-            <span className={`label ${styles.navDir}`}>Next →</span>
-            <span className={styles.navTitle}>{next.title}</span>
-          </Link>
-        </BorderGlow>
-      </nav>
+      {prev && next && (
+        <nav className={`container ${styles.projectNav}`} aria-label="Navigate between projects">
+          <GlowCard>
+            <Link to={`/works/${prev.slug}`} className={styles.navCard}>
+              <span className={`label ${styles.navDir}`}>← Previous</span>
+              <span className={styles.navTitle}>{prev.title}</span>
+            </Link>
+          </GlowCard>
+          <GlowCard>
+            <Link to={`/works/${next.slug}`} className={styles.navCard}>
+              <span className={`label ${styles.navDir}`}>Next →</span>
+              <span className={styles.navTitle}>{next.title}</span>
+            </Link>
+          </GlowCard>
+        </nav>
+      )}
 
       <div className={`container ${styles.bottomPad}`} />
     </>

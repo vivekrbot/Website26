@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { Seo } from '../../components/Seo/Seo';
 import { Hero } from '../../sections/Hero/Hero';
 import { AboutSnippet } from '../../sections/AboutSnippet/AboutSnippet';
 import { WorksSnippet } from '../../sections/WorksSnippet/WorksSnippet';
@@ -8,14 +8,11 @@ import { StarShooter } from '../../components/StarShooter/StarShooter';
 export default function Home() {
   return (
     <>
-      <Helmet>
-        <title>itsvivek.Home</title>
-        <meta name="description" content="Portfolio of Vivek Ramachandran a product designer and strategist building experiences that are clear, crafted, and consequential." />
-        <meta property="og:title" content="Vivek Ramachandran Product Design & Strategy" />
-        <meta property="og:description" content="Portfolio of Vivek Ramachandran product designer and strategist." />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Helmet>
+      <Seo
+        title="Vivek Ramachandran — Product Design & Strategy"
+        description="Portfolio of Vivek Ramachandran, a product designer and strategist building experiences that are clear, crafted, and consequential."
+        path="/"
+      />
 
       <Hero />
       <AboutSnippet />

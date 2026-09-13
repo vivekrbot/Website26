@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 import { Link } from 'react-router-dom';
+import { safeHref } from '../../utils/safeHref';
 import styles from './Button.module.css';
 
 type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'outline';
@@ -57,7 +58,7 @@ export const Button = forwardRef<HTMLElement, ButtonProps>(function Button(
     return (
       <a
         ref={ref as React.Ref<HTMLAnchorElement>}
-        href={href}
+        href={safeHref(href)}
         onClick={onClick}
         className={cls}
         target="_blank"

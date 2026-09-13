@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { StarShooterButton } from './StarShooterButton';
 import { StarShooterOverlay } from './StarShooterOverlay';
+import { useScrollLock } from '../../hooks/useScrollLock';
 
 /* Duration must cover the CSS flicker animation (0.55s) in global.css. */
 const FLICKER_MS = 560;
@@ -17,11 +18,12 @@ export function StarShooter() {
   const timerRef = useRef<number | undefined>(undefined);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
+  useScrollLock(phase !== 'idle');
+
   const open = useCallback(() => {
     setPhase((current) => {
       if (current !== 'idle') return current;
       document.body.classList.add('game-flicker-out');
-      document.body.style.overflow = 'hidden';
       timerRef.current = window.setTimeout(() => {
         document.body.classList.remove('game-flicker-out');
         document.body.classList.add('game-hidden');
@@ -38,7 +40,6 @@ export function StarShooter() {
       document.body.classList.add('game-flicker-in');
       timerRef.current = window.setTimeout(() => {
         document.body.classList.remove('game-flicker-in');
-        document.body.style.overflow = '';
         setPhase('idle');
         buttonRef.current?.focus();
       }, FLICKER_MS);
@@ -50,7 +51,6 @@ export function StarShooter() {
     return () => {
       window.clearTimeout(timerRef.current);
       document.body.classList.remove('game-flicker-out', 'game-hidden', 'game-flicker-in');
-      document.body.style.overflow = '';
     };
   }, []);
 

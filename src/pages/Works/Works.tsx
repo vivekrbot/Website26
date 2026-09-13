@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import { Seo } from '../../components/Seo/Seo';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SectionHeader } from '../../components/SectionHeader/SectionHeader';
 import Shuffle from '../../components/Shuffle/Shuffle';
-import BorderGlow from '../../components/BorderGlow/BorderGlow';
+import { GlowCard } from '../../components/GlowCard/GlowCard';
 import { projects } from '../../data/projects';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import styles from './Works.module.css';
@@ -28,15 +28,18 @@ export default function Works() {
 
   return (
     <>
-      <Helmet>
-        <title>Itsvivek.Works</title>
-        <meta name="description" content="Selected product design and strategy projects by Vivek Ramachandran — design systems, mobile apps, dashboards, branding, and more." />
-        <meta property="og:title" content="Work — Vivek Ramachandran" />
-      </Helmet>
+      <Seo
+        title="Work — Vivek Ramachandran"
+        description="Selected product design and strategy projects by Vivek Ramachandran — design systems, mobile apps, dashboards, branding, and more."
+        path="/works"
+      />
 
       <section className={`section ${styles.hero}`} aria-labelledby="works-page-heading">
         <div className="container">
           <SectionHeader
+            id="works-page-heading"
+            titleTag="h1"
+            titleClass="display-2"
             label="Selected Work"
             title="Products, systems, and strategies."
             subtitle="A curated selection of design and strategy work across consumer, enterprise, and brand contexts."
@@ -78,7 +81,7 @@ export default function Works() {
                   animate="visible"
                   exit="exit"
                 >
-                  <BorderGlow backgroundColor="var(--bg-primary)" borderRadius={0} glowColor="0 0 88" colors={['#ffffff', '#cccccc', '#888888']} glowIntensity={0.85}>
+                  <GlowCard>
                   <Link
                     to={`/works/${project.slug}`}
                     className={styles.card}
@@ -94,18 +97,18 @@ export default function Works() {
                           <span className={styles.featuredBadge} aria-label="Featured project">Featured</span>
                         )}
                       </div>
-                      <h2 className={`heading-3 ${styles.title}`}><Shuffle tag="span" text={project.title} textAlign="left" shuffleDirection="right" duration={0.4} stagger={0.022} threshold={0.1} rootMargin="0px" triggerOnce={true} triggerOnHover={true} respectReducedMotion={true} /></h2>
+                      <h3 className={`heading-3 ${styles.title}`}><Shuffle tag="span" text={project.title} textAlign="left" shuffleDirection="right" duration={0.4} stagger={0.022} threshold={0.1} rootMargin="0px" triggerOnce={true} triggerOnHover={true} respectReducedMotion={true} /></h3>
                       <p className={styles.tagline}>{project.tagline}</p>
                       <p className={styles.role}>{project.role}</p>
                       <ul className={styles.tags} role="list" aria-label="Tags">
-                        {project.tags.map((tag) => (
-                          <li key={tag} className={styles.tag}>{tag}</li>
+                        {project.tags.map((tag, i) => (
+                          <li key={`${tag}-${i}`} className={styles.tag}>{tag}</li>
                         ))}
                       </ul>
                       <span className={styles.cta} aria-hidden="true">View case study →</span>
                     </div>
                   </Link>
-                  </BorderGlow>
+                  </GlowCard>
                 </motion.li>
               ))}
             </AnimatePresence>

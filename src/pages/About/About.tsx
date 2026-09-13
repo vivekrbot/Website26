@@ -1,19 +1,15 @@
-import { Helmet } from 'react-helmet-async';
+import { Seo } from '../../components/Seo/Seo';
 import { motion } from 'framer-motion';
 import { SectionHeader } from '../../components/SectionHeader/SectionHeader';
 import Shuffle from '../../components/Shuffle/Shuffle';
-import BorderGlow from '../../components/BorderGlow/BorderGlow';
+import { GlowCard } from '../../components/GlowCard/GlowCard';
 import { Button } from '../../components/Button/Button';
 import { StampSeal } from '../../components/StampSeal/StampSeal';
 import { skills, values, aboutFull, quickFacts } from '../../data/about';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
+import { fadeUp } from '../../lib/motion';
 import avatarImg from '../../img/IMG_5501.JPG';
 import styles from './About.module.css';
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 },
-};
 
 const SKILL_CATEGORIES = ['craft', 'strategy', 'tools', 'ai'] as const;
 const CATEGORY_LABELS: Record<typeof SKILL_CATEGORIES[number], string> = {
@@ -28,12 +24,11 @@ export default function About() {
 
   return (
     <>
-      <Helmet>
-        <title>Itsvivek.About</title>
-        <meta name="description" content="Learn about Vivek Ramachandran — product designer, strategist, and mentor with deep expertise in design systems, UX research, and product strategy." />
-        <meta property="og:title" content="About — Vivek Ramachandran" />
-        <meta property="og:type" content="website" />
-      </Helmet>
+      <Seo
+        title="About — Vivek Ramachandran"
+        description="Learn about Vivek Ramachandran — product designer, strategist, and mentor with deep expertise in design systems, UX research, and product strategy."
+        path="/about"
+      />
 
       {/* Hero */}
       <section className={`section ${styles.hero}`} aria-labelledby="about-page-heading">
@@ -59,7 +54,7 @@ export default function About() {
             animate="visible"
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
           >
-            <img src={avatarImg} alt="Photo of Vivek Ramachandran" className={styles.avatar} />
+            <img src={avatarImg} alt="Photo of Vivek Ramachandran" className={styles.avatar} width={1024} height={1280} />
             <StampSeal size={110} animate={false} opacity={0.6} className={styles.avatarSeal} />
           </motion.div>
         </div>
@@ -101,7 +96,7 @@ export default function About() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             >
-              <BorderGlow className={styles.facts} backgroundColor="var(--bg-primary)" borderRadius={0} glowColor="0 0 88" colors={['#ffffff', '#cccccc', '#888888']} glowIntensity={0.85}>
+              <GlowCard className={styles.facts}>
                 <dl className={styles.factList}>
                   {[
                     { dt: 'Based in',   dd: quickFacts.city },
@@ -116,7 +111,7 @@ export default function About() {
                     </div>
                   ))}
                 </dl>
-              </BorderGlow>
+              </GlowCard>
             </motion.aside>
           </div>
         </div>
@@ -125,7 +120,7 @@ export default function About() {
       {/* Skills */}
       <section className={`section ${styles.skillsSection}`} aria-labelledby="skills-heading">
         <div className="container">
-          <SectionHeader label="Skills & Expertise" title="What I bring to the table." />
+          <SectionHeader id="skills-heading" label="Skills & Expertise" title="What I bring to the table." />
           <div className={styles.skillsGrid}>
             {SKILL_CATEGORIES.map((cat, i) => (
               <motion.div
@@ -136,14 +131,14 @@ export default function About() {
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
               >
-                <BorderGlow className={styles.skillCategory} backgroundColor="var(--bg-primary)" borderRadius={0} glowColor="0 0 88" colors={['#ffffff', '#cccccc', '#888888']} glowIntensity={0.85}>
+                <GlowCard className={styles.skillCategory}>
                   <h3 className={`label ${styles.catLabel}`}>{CATEGORY_LABELS[cat]}</h3>
                   <ul className={styles.skillList} role="list">
                     {skills.filter((s) => s.category === cat).map((skill) => (
                       <li key={skill.name} className={styles.skillItem}>{skill.name}</li>
                     ))}
                   </ul>
-                </BorderGlow>
+                </GlowCard>
               </motion.div>
             ))}
           </div>
@@ -153,7 +148,7 @@ export default function About() {
       {/* Values */}
       <section className={`section ${styles.valuesSection}`} aria-labelledby="values-heading">
         <div className="container">
-          <SectionHeader label="How I work" title="Principles I design by." />
+          <SectionHeader id="values-heading" label="How I work" title="Principles I design by." />
           <div className={styles.valuesGrid}>
             {values.map((v, i) => (
               <motion.div
@@ -164,11 +159,11 @@ export default function About() {
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: i * 0.08 }}
               >
-                <BorderGlow className={styles.valueCard} backgroundColor="var(--bg-primary)" borderRadius={0} glowColor="0 0 88" colors={['#ffffff', '#cccccc', '#888888']} glowIntensity={0.85}>
+                <GlowCard className={styles.valueCard}>
                   <span className={styles.valueNumber} aria-hidden="true">0{i + 1}</span>
                   <h3 className={`heading-3 ${styles.valueTitle}`}><Shuffle tag="span" text={v.title} textAlign="left" shuffleDirection="right" duration={0.4} stagger={0.022} threshold={0.1} rootMargin="0px" triggerOnce={true} triggerOnHover={true} respectReducedMotion={true} /></h3>
                   <p className={styles.valueBody}>{v.body}</p>
-                </BorderGlow>
+                </GlowCard>
               </motion.div>
             ))}
           </div>
@@ -185,7 +180,7 @@ export default function About() {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <BorderGlow backgroundColor="var(--bg-primary)" borderRadius={0} glowColor="0 0 88" colors={['#ffffff', '#cccccc', '#888888']} glowIntensity={0.85}>
+            <GlowCard>
               <div className={styles.ctaCard}>
                 <h2 id="cta-heading" className="heading-2">
                   <Shuffle tag="span" text="Ready to work together?" textAlign="left" shuffleDirection="right" duration={0.4} stagger={0.022} threshold={0.1} rootMargin="0px" triggerOnce={true} triggerOnHover={true} respectReducedMotion={true} />
@@ -212,7 +207,7 @@ export default function About() {
                   </Button>
                 </div>
               </div>
-            </BorderGlow>
+            </GlowCard>
           </motion.div>
         </div>
       </section>

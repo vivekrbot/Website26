@@ -37,23 +37,6 @@
   flex-shrink: 0;
 }
 
-.logoMark {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-md);
-  background: transparent;
-  border: 2px solid var(--text-primary);
-  color: var(--text-primary);
-  font-family: var(--font-pixel);
-  font-size: var(--text-xs);
-  font-weight: var(--weight-normal);
-  letter-spacing: 0;
-  flex-shrink: 0;
-}
-
 .logoName {
   font-family: var(--font-pixel);
   font-size: 0.6rem;

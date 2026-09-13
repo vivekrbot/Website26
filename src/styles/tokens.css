@@ -36,7 +36,9 @@
 
   --text-primary:      var(--color-white);
   --text-secondary:    var(--color-neutral-300);
-  --text-muted:        var(--color-neutral-500);
+  /* neutral-500 is ~3.9:1 on black — fails WCAG AA (4.5:1) for normal text.
+     neutral-400 clears it (~7.5:1) while staying the most muted step that does. */
+  --text-muted:        var(--color-neutral-400);
   --text-inverse:      var(--color-black);
 
   /* No hue anywhere — accents are pure white, used via inversion/weight, not colour */

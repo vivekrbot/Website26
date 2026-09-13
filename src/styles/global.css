@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+/* Google Fonts are loaded via a <link rel="stylesheet"> in index.html, not
+   @import here — @import blocks on fetching+parsing this file first, then
+   discovers the Google Fonts request, then the actual font files: a serial
+   chain. A <link> in <head> lets the browser discover and start fetching it
+   in parallel with everything else, right alongside the preconnect hints. */
 
 @import './tokens.css';
 @import './reset.css';

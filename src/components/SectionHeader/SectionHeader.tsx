@@ -3,24 +3,28 @@ import SplitText from '../SplitText/SplitText';
 import styles from './SectionHeader.module.css';
 
 interface SectionHeaderProps {
+  id?: string;
   label?: string;
   title: string;
   subtitle?: string;
   align?: 'left' | 'center';
   titleClass?: string;
+  titleTag?: 'h1' | 'h2';
 }
 
 export function SectionHeader({
+  id,
   label,
   title,
   subtitle,
   align = 'left',
   titleClass = 'heading-2',
+  titleTag: TitleTag = 'h2',
 }: SectionHeaderProps) {
   return (
-    <header className={`${styles.header} ${styles[align]}`}>
+    <header className={`${styles.header} ${align === 'center' ? styles.center : ''}`}>
       {label && <p className={`label ${styles.label}`}>{label}</p>}
-      <h2 className={`${titleClass} ${styles.title}`}>
+      <TitleTag id={id} className={`${titleClass} ${styles.title}`}>
         <Shuffle
           tag="span"
           text={title}
@@ -34,7 +38,7 @@ export function SectionHeader({
           triggerOnHover={true}
           respectReducedMotion={true}
         />
-      </h2>
+      </TitleTag>
       {subtitle && (
         <SplitText
           tag="p"

@@ -2,7 +2,6 @@
 // Do not edit by hand — edit content in Sanity Studio and rerun `npm run dev` or `npm run build`.
 import type { Skill, Value, QuickFacts } from '../types';
 
-export const aboutIntro: string = "I'm Vivek Ramachandran, a product designer and strategist who combines craft, systems thinking, and business impact.";
 export const aboutFull: string = "I've spent the last 8+ years designing products that millions of people use every day - from zero-to-one consumer apps to enterprise platforms with global scale. I work across the full product lifecycle: from early discovery and strategy through to shipping polished, production-ready experiences.\n\nMy background: I started as a software engineer (machine learning developer) and then transitioned into product design and management, which means I think in systems, speak the language of engineers and stakeholders equally well, and obsess over the things that sit between the pixels - the logic, the constraints, and the outcomes.\n\nWhen I'm not designing, I'm mentoring the next generation of product designers, business analysts, start-up entrepreneurs, and writing articles at the intersection of strategy and business.\n\nI believe that great design is invisible when it's working and unforgettable when it's not.";
 export const skills: Skill[] = [
   {

@@ -3,7 +3,9 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ThemeToggle } from '../components/ThemeToggle/ThemeToggle';
 import { useTheme } from '../hooks/useTheme';
+import { useScrollLock } from '../hooks/useScrollLock';
 import { navItems } from '../data/navigation';
+import { safeHref } from '../utils/safeHref';
 import styles from './Nav.module.css';
 
 export function Nav() {
@@ -23,10 +25,7 @@ export function Nav() {
   useEffect(() => { setMenuOpen(false); }, [location]);
 
   // Trap scroll when menu open
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
-  }, [menuOpen]);
+  useScrollLock(menuOpen);
 
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`} role="banner">
@@ -41,7 +40,7 @@ export function Nav() {
             item.isExternal ? (
               <li key={item.label}>
                 <a
-                  href={item.href}
+                  href={safeHref(item.href)}
                   className={styles.link}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -93,7 +92,7 @@ export function Nav() {
               {navItems.map((item) =>
                 item.isExternal ? (
                   <li key={item.label}>
-                    <a href={item.href} className={styles.mobileLink} target="_blank" rel="noopener noreferrer">
+                    <a href={safeHref(item.href)} className={styles.mobileLink} target="_blank" rel="noopener noreferrer">
                       {item.label}
                     </a>
                   </li>

@@ -1,30 +1,30 @@
-import { Helmet } from 'react-helmet-async';
+import { Seo } from '../../components/Seo/Seo';
 import { motion } from 'framer-motion';
 import { SectionHeader } from '../../components/SectionHeader/SectionHeader';
 import Shuffle from '../../components/Shuffle/Shuffle';
-import BorderGlow from '../../components/BorderGlow/BorderGlow';
+import { GlowCard } from '../../components/GlowCard/GlowCard';
 import { Button } from '../../components/Button/Button';
 import { mentorshipTiers } from '../../data/mentorship';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
+import { fadeUp } from '../../lib/motion';
 import styles from './Mentorship.module.css';
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 },
-};
-
+// `paidOnly` items only make sense to ask when a paid track actually exists —
+// filtered against live tier data in the component below.
 const faqs = [
   {
     q: 'How do I know which track is right for me?',
-    a: 'If you\'re early in your career or just need a sounding board, start with the free office hours — no commitment, no agenda. If you have a specific goal (senior role, better portfolio, job switch) and want structured support over time, apply for Orbit or Deep Dive.',
+    a: 'If you\'re early in your career or just need a sounding board, start with the free track — no commitment, no agenda. If you have a specific goal and want structured, ongoing support, look at the paid options below.',
+    paidOnly: true,
   },
   {
     q: 'What timezone do you work in?',
-    a: '[YOUR TIMEZONE — placeholder]. I try to accommodate other timezones where possible — mention yours in your application.',
+    a: 'I\'m based in India (IST), but happy to work around other timezones where I can — mention yours when you reach out and we\'ll find a time that works.',
   },
   {
-    q: 'How many mentees do you take at once?',
-    a: 'I keep cohorts intentionally small — typically [X] paid mentees at a time — to ensure the quality of attention each person gets.',
+    q: 'How many mentees do you take on at once?',
+    a: 'I keep my paid cohort intentionally small so everyone gets real attention, not just a slot on a calendar.',
+    paidOnly: true,
   },
   {
     q: 'Do you work with designers outside of product design?',
@@ -32,7 +32,8 @@ const faqs = [
   },
   {
     q: 'What if I can\'t afford paid mentorship?',
-    a: 'The free office hours are genuinely free. I also occasionally offer sliding-scale spots — mention your situation in your email.',
+    a: 'The free track is genuinely free, no strings attached — start there.',
+    paidOnly: true,
   },
 ];
 
@@ -40,14 +41,24 @@ export default function Mentorship() {
   const reducedMotion = useReducedMotion();
   const freeTiers = mentorshipTiers.filter((t) => t.type === 'free');
   const paidTiers = mentorshipTiers.filter((t) => t.type === 'paid');
+  // With exactly 2 tiers this lands on index 1, same as before. With 1 tier
+  // there's nothing to compare, so nothing is featured; with 3+ it picks a
+  // middle-ish tier instead of always index 1 regardless of count.
+  const featuredPaidIndex = paidTiers.length >= 2 ? Math.ceil((paidTiers.length - 1) / 2) : -1;
+  const hasPaidTrack = paidTiers.length > 0;
+  const visibleFaqs = faqs.filter((f) => !f.paidOnly || hasPaidTrack);
 
   return (
     <>
-      <Helmet>
-        <title>Itsvivek.Mentorship</title>
-        <meta name="description" content="Mentorship for product designers — free office hours and paid 1:1 engagements with Vivek Ramachandran, product designer and strategist." />
-        <meta property="og:title" content="Mentorship — Vivek Ramachandran" />
-      </Helmet>
+      <Seo
+        title="Mentorship — Vivek Ramachandran"
+        description={
+          hasPaidTrack
+            ? 'Mentorship for product designers — free office hours and paid 1:1 engagements with Vivek Ramachandran, product designer and strategist.'
+            : 'Free mentorship office hours for product designers with Vivek Ramachandran, product designer and strategist.'
+        }
+        path="/mentorship"
+      />
 
       {/* Hero */}
       <section className={`section ${styles.hero}`} aria-labelledby="mentorship-page-heading">
@@ -65,7 +76,7 @@ export default function Mentorship() {
               <span style={{ display: 'block' }}><Shuffle tag="span" text="I had earlier." textAlign="left" shuffleDirection="right" duration={0.4} stagger={0.022} threshold={0} rootMargin="0px" triggerOnce={true} triggerOnHover={true} respectReducedMotion={true} /></span>
             </h1>
             <p className={styles.heroSub}>
-              I've been where you are. Two tracks, designed around where you are in your journey,
+              I've been where you are — mentorship built around where you are in your journey,
               no gatekeeping, no BS.
             </p>
           </motion.div>
@@ -77,6 +88,7 @@ export default function Mentorship() {
       <section className={`section ${styles.freeSection}`} aria-labelledby="free-heading">
         <div className="container">
           <SectionHeader
+            id="free-heading"
             label="Free track"
             title="No-cost office hours."
             subtitle="Pick whichever format fits what you're working through right now."
@@ -93,7 +105,7 @@ export default function Mentorship() {
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: i * 0.12 }}
               >
-                <BorderGlow backgroundColor="var(--bg-primary)" borderRadius={0} glowColor="0 0 88" colors={['#ffffff', '#cccccc', '#888888']} glowIntensity={0.85}>
+                <GlowCard>
                   <div className={styles.paidCard}>
                     <div className={styles.paidCardTop}>
                       <span className={`label ${styles.freeBadge}`}>Free</span>
@@ -103,8 +115,8 @@ export default function Mentorship() {
                     </div>
 
                     <ul className={styles.paidIncludes} role="list">
-                      {tier.includes.map((item) => (
-                        <li key={item} className={styles.paidIncludesItem}>
+                      {tier.includes.map((item, i) => (
+                        <li key={`${item}-${i}`} className={styles.paidIncludesItem}>
                           <span className={styles.bullet} aria-hidden="true">✦</span>
                           {item}
                         </li>
@@ -120,7 +132,7 @@ export default function Mentorship() {
                       {tier.cta.label}
                     </Button>
                   </div>
-                </BorderGlow>
+                </GlowCard>
               </motion.div>
             ))}
           </div>
@@ -133,9 +145,10 @@ export default function Mentorship() {
       <section className={`section ${styles.paidSection}`} aria-labelledby="paid-heading">
         <div className="container">
           <SectionHeader
+            id="paid-heading"
             label="Paid track"
             title="Structured support for specific goals."
-            subtitle="Two tiers — pick the intensity that matches your timeline and ambition."
+            subtitle="Pick the intensity that matches your timeline and ambition."
             align="center"
           />
 
@@ -149,23 +162,25 @@ export default function Mentorship() {
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: i * 0.12 }}
               >
-                <BorderGlow backgroundColor="var(--bg-primary)" borderRadius={0} glowColor="0 0 88" colors={['#ffffff', '#cccccc', '#888888']} glowIntensity={0.85}>
-                  <div className={`${styles.paidCard} ${i === 1 ? styles.featured : ''}`}>
-                    {i === 1 && (
+                <GlowCard>
+                  <div className={`${styles.paidCard} ${i === featuredPaidIndex ? styles.featured : ''}`}>
+                    {i === featuredPaidIndex && (
                       <div className={styles.popularBadge} aria-label="Most popular">Most popular</div>
                     )}
                     <div className={styles.paidCardTop}>
                       <h3 className={`heading-2 ${styles.paidTierName}`}><Shuffle tag="span" text={tier.name} textAlign="left" shuffleDirection="right" duration={0.4} stagger={0.022} threshold={0.1} rootMargin="0px" triggerOnce={true} triggerOnHover={true} respectReducedMotion={true} /></h3>
                       <p className={styles.paidTierTagline}>{tier.tagline}</p>
-                      <div className={styles.priceLine}>
-                        <span className={`heading-1 ${styles.price}`}>{tier.price}</span>
-                      </div>
+                      {tier.price && (
+                        <div className={styles.priceLine}>
+                          <span className={`heading-1 ${styles.price}`}>{tier.price}</span>
+                        </div>
+                      )}
                       <p className={styles.paidDuration}>{tier.duration}</p>
                     </div>
 
                     <ul className={styles.paidIncludes} role="list">
-                      {tier.includes.map((item) => (
-                        <li key={item} className={styles.paidIncludesItem}>
+                      {tier.includes.map((item, i) => (
+                        <li key={`${item}-${i}`} className={styles.paidIncludesItem}>
                           <span className={styles.bullet} aria-hidden="true">✦</span>
                           {item}
                         </li>
@@ -180,13 +195,13 @@ export default function Mentorship() {
                     <Button
                       as="a"
                       href={tier.cta.href}
-                      variant={i === 1 ? 'primary' : 'secondary'}
+                      variant={i === featuredPaidIndex ? 'primary' : 'secondary'}
                       size="lg"
                     >
                       {tier.cta.label}
                     </Button>
                   </div>
-                </BorderGlow>
+                </GlowCard>
               </motion.div>
             ))}
           </div>
@@ -197,9 +212,9 @@ export default function Mentorship() {
       {/* FAQ */}
       <section className={`section ${styles.faq}`} aria-labelledby="faq-heading">
         <div className="container">
-          <SectionHeader label="FAQ" title="Common questions." />
+          <SectionHeader id="faq-heading" label="FAQ" title="Common questions." />
           <dl className={styles.faqList}>
-            {faqs.map((item, i) => (
+            {visibleFaqs.map((item, i) => (
               <motion.div
                 key={i}
                 className={styles.faqItem}
@@ -227,7 +242,7 @@ export default function Mentorship() {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <BorderGlow backgroundColor="var(--bg-primary)" borderRadius={0} glowColor="0 0 88" colors={['#ffffff', '#cccccc', '#888888']} glowIntensity={0.85}>
+            <GlowCard>
               <div className={styles.ctaCard}>
                 <h2 id="mentorship-cta-heading" className="heading-2">
                   <Shuffle tag="span" text="Not sure where to start?" textAlign="left" shuffleDirection="right" duration={0.4} stagger={0.022} threshold={0.1} rootMargin="0px" triggerOnce={true} triggerOnHover={true} respectReducedMotion={true} />
@@ -240,7 +255,7 @@ export default function Mentorship() {
                   Send me a message
                 </Button>
               </div>
-            </BorderGlow>
+            </GlowCard>
           </motion.div>
         </div>
       </section>

@@ -8,6 +8,7 @@ const About       = lazy(() => import('./pages/About/About'));
 const Works       = lazy(() => import('./pages/Works/Works'));
 const WorkDetail  = lazy(() => import('./pages/WorkDetail/WorkDetail'));
 const Mentorship  = lazy(() => import('./pages/Mentorship/Mentorship'));
+const NotFound    = lazy(() => import('./pages/NotFound/NotFound'));
 
 function PageFallback() {
   return (
@@ -48,6 +49,7 @@ export const router = createBrowserRouter(
         { path: 'works',       element: withSuspense(Works) },
         { path: 'works/:slug', element: withSuspense(WorkDetail) },
         { path: 'mentorship',  element: withSuspense(Mentorship) },
+        { path: '*',           element: withSuspense(NotFound) },
       ],
     },
   ],
